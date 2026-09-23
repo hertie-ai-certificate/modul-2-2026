@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Tag 1: Der Daten-Lifecycle und: Woher kommen Daten?</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Simon Munzert" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <link rel="stylesheet" href="../simons-touch.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Tag 1: Der Daten-Lifecycle und: Woher kommen Daten?
+]
+.subtitle[
+## Session 1: Data Science - Ein Überblick
+]
+.author[
+### Simon Munzert
+]
+.institute[
+### Hertie School
+]
+
+---
+
+
+&lt;style type="text/css"&gt;
+@media print { # print out incremental slides; see https://stackoverflow.com/questions/56373198/get-xaringan-incremental-animations-to-print-to-pdf/56374619#56374619
+  .has-continuation {
+    display: block !important;
+  }
+}
+&lt;/style&gt;
+
+
+
+
+# Überblick
+
+&lt;/br&gt;&lt;/br&gt;
+
+1. [Willkommen!](#welcome)
+
+2. [Was ist Data Science?](#whatisdatascience)
+
+3. [Was kann Data Science?](#science)
+
+4. [Ziele für dieses Modul](#goals)
+
+
+---
+class: inverse, center, middle
+name: welcome
+
+# Herzlich Willkommen!
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Vorstellungsrunde
+
+
+.pull-left-vwide[
+### Über mich
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M384 48c8.8 0 16 7.2 16 16V448c0 8.8-7.2 16-16 16H96c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16H384zM96 0C60.7 0 32 28.7 32 64V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H96zM240 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128zm-32 32c-44.2 0-80 35.8-80 80c0 8.8 7.2 16 16 16H336c8.8 0 16-7.2 16-16c0-44.2-35.8-80-80-80H208zM512 80c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V80zM496 192c-8.8 0-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm16 144c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V336z"/></svg> Ich bin [Simon Munzert](https://simonmunzert.github.io/) [si’mən munsɜrt], oder Simon [saɪmən].
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"/></svg> [munzert@hertie-school.org](mailto:munzert@hertie-school.org)
+
+<svg aria-hidden="true" role="img" viewBox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9v28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5V291.9c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg> Professor für Data Science und Public Policy | Director, Data Science Lab
+]
+
+.pull-right-vsmall[
+&lt;div align="center"&gt;
+&lt;img src="../pics/simon-article-1.png" width=200&gt;
+&lt;/div&gt;
+]
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/simon-article-2.png" width=265&gt;
+&lt;img src="../pics/simon-article-3.png" width=265&gt;
+&lt;img src="../pics/simon-article-4.png" width=265&gt;
+&lt;img src="../pics/simon-article-5.png" width=265&gt;
+&lt;/div&gt;
+
+
+
+---
+# Vorstellungsrunde
+
+
+.pull-left[
+### Über Euch
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M384 48c8.8 0 16 7.2 16 16V448c0 8.8-7.2 16-16 16H96c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16H384zM96 0C60.7 0 32 28.7 32 64V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H96zM240 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128zm-32 32c-44.2 0-80 35.8-80 80c0 8.8 7.2 16 16 16H336c8.8 0 16-7.2 16-16c0-44.2-35.8-80-80-80H208zM512 80c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V80zM496 192c-8.8 0-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm16 144c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V336z"/></svg> Euer Name
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"/></svg> Eure Behörde und Rolle
+
+<svg aria-hidden="true" role="img" viewBox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9v28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5V291.9c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg> Was erhofft Ihr Euch vom Modul? Maximal 3 Wörter!
+]
+
+.pull-right[
+&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/aa-data.png" width=400&gt;
+&lt;/div&gt;
+]
+
+
+
+
+---
+# Onboarding-Befragung
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/ki-1-erfahrungen.png" width=1000&gt;
+&lt;/div&gt;
+
+---
+# Onboarding-Befragung
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/ki-2-erfahrungen.png" width=1000&gt;
+&lt;/div&gt;
+
+---
+# Onboarding-Befragung
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/ki-3-erfahrungen.png" width=1000&gt;
+&lt;/div&gt;
+
+---
+# Onboarding-Befragung
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/ki-4-erfahrungen.png" width=1000&gt;
+&lt;/div&gt;
+
+
+---
+# Workshop-Etikette
+
+.pull-left-wide[
+&lt;br&gt;
+
+- Wir haben viele Themen vor uns. Ich habe Material vorbereitet, aber entscheidend ist: **Signalisieren Sie Ihre Interessen und Bedarfe** – ich vertiefe gerne, schwenke um oder greife andere Beispiele auf, soweit möglich.  
+
+- Ich bin kein Experte für Ihre Behörde oder Ihre spezifischen Themen. **Bringen Sie Ihr Fachwissen und Ihre Erfahrung ein.** Sie bilden die Grundlage für eine fundierte, evidenzbasierte Diskussion über Data Science im öffentlichen Sektor.  
+
+- Bitte nutzen Sie die Gelegenheit, **jederzeit Fragen zu stellen**. Es gibt keine schlechten Fragen – jede trägt zur gemeinsamen Diskussion bei.  
+]
+
+.pull-right-small-center[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/stupid-questions.jpg" height=400&gt;
+&lt;/div&gt;
+]
+
+---
+class: exercise, center, middle
+
+# Diskussion
+
+.content-box-white[
+**Was möchten Sie über Daten und Data Science lernen?**
+
+**Was sind Ihre Erwartungen an dieses Modul?**
+
+**Excalidraw - **[excalidraw.com](https://excalidraw.com/)
+]
+
+
+---
+class: inverse, center, middle
+name: whatisdatascience
+
+# Was ist Data Science?
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+# Was ist Data Science?
+
+.pull-left-wide2[
+## Was ist Data Science?
+
+&gt; "Der interdisziplinäre Forschungszweig Data Science befasst sich mit dem Management und der Analyse von Daten." - [Daniel Keim, Kai-Uwe Sattler](https://www.plattform-lernende-systeme.de/files/Downloads/Publikationen/AG1_Whitepaper_Von_Daten_zu_KI.pdf)
+
+&gt; "Data Science ist ein interdisziplinäres Wissenschaftsfeld, welches wissenschaftlich fundierte Methoden, Prozesse, Algorithmen und Systeme zur Extraktion von Erkenntnissen, Mustern und Schlüssen sowohl aus strukturierten als auch unstrukturierten Daten ermöglicht." - [Wikipedia](https://de.wikipedia.org/wiki/Data_Science)
+
+&gt; "Data Science ist ein Konzept, das Statistik, Datenanalyse, Informatik und die damit verbundenen Methoden vereint, um aktuelle Phänomene anhand von Daten zu verstehen und zu analysieren." - [Chikio Hayashi](https://www.springer.com/book/9784431702085)
+
+️✎ **Zwischen Disziplinen** angesiedelt, anwendungsorientiert
+]
+
+--
+
+.pull-right-small2[
+## Eine Arbeitsdefinition
+
+&lt;div align="center"&gt;&lt;br&gt;
+&lt;img src="../pics/venn-orig-crop.png" height=350&gt;
+&lt;/div&gt;
+
+`Quelle` [Drew Conway, 2010](https://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram) (angepasst)
+]
+
+
+---
+# Was Data Science mit KI zu tun hat
+
+.pull-left[
+
+## Künstliche Intelligenz (KI)
+
+- Teilbereich von (u.a.) Data Science, der sich mit der Automatisierung von intelligentem Verhalten befasst.
+- Praktisch alle KI-Modelle sind ohne Daten nutzlos.
+- Das "I" in KI bezieht sich in der Regel darauf, dass die Modelle **lernen** können, d.h. auf variablen Input angemessen reagieren.
+
+## Data Science 
+
+- Überbegriff für Methoden und Technologien, die auch KI mit einschließen.
+- Aber auch Methoden zur Datenerhebung, -verarbeitung, -modellierung, -visualisierung, -kommunikation, -archivierung.
+- Damit bereitet Data Science die essentielle Grundlage für KI-Anwendungen.
+
+]
+
+.pull-right[
+&lt;br&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/AI-DS-ML-2.jpeg" height=275&gt;
+&lt;a href="https://www.ejable.com/tech-corner/ai-machine-learning-and-deep-learning/data-science-artificial-intelligence-and-machine-learning/"&gt;Ekta Shah, EJable&lt;/a&gt;
+&lt;/div&gt;
+]
+
+
+
+
+
+---
+# Data Science in der Forschung - mehr als KI
+
+.pull-left-small2[
+## 1. Beschreibung
+- Wie ist der Zustand der Welt?
+- Wie entwickeln sich Trends?
+- Wie gestalten sich Gruppenunterschiede?
+
+## Der Wert für die Politikgestaltung
+- Im Zentrum des **Monitorings**
+- „Wie viele Menschen konsumieren Fehlinformationen im Internet?“
+- „Wie entwickelt sich die Arbeitslosigkeit in Bezirken?“
+- „Wie viele Radunfälle gab es pro Straßenabschnitt?“
+]
+
+--
+
+.pull-left-small2[
+## 2. Erklärung
+- Welche Wirkung hat eine Maßnahme?
+- Ist sie über Gruppen heterogen?
+- Was sind Wirkungsmechanismen?
+
+## Der Wert für die Politikgestaltung
+- Im Mittelpunkt der **Evaluation**
+- „Hat die Digitalisierungsmaßnahme zu Zeitersparnis geführt?“
+- „Bei wem wirkte die Anti-Fake-News-Kampagne?“
+- „Warum hat die Intervention nicht zu den erwarteten Ergebnissen geführt?“
+]
+
+--
+
+.pull-left-small2[
+## 3. Vorhersage
+- Wie wird Person X sich verhalten?
+- (Wann) wird Ereignis X eintreten?
+- Zu welchem Typ gehört eine Beobachtung?
+
+
+## Der Wert für die Politikgestaltung
+- Steht im Mittelpunkt der **Vorhersage**, aber auch der **Zielsetzung** und **Messung**.
+- „Wird die Person rückfällig werden?“
+- „Enthält dieser Post Hate Speech?“
+- „Wie stark wird die Wasserverschmutzung an einem bestimmten Tag sein?“
+]
+
+
+
+
+
+
+---
+background-image: url("../pics/vintage-pipeline.jpeg")
+background-size: contain
+background-color: #000000
+
+# Die Data-Science-Pipeline
+
+
+---
+# Die Data-Science-Pipeline
+
+.pull-left[
+
+**Vorbereitung**
+
+- **Problemstellung** Vorhersage, Inferenz, Beschreibung
+- **Design** Konzept erstellen, Datenerfassung aufsetzen
+- **Datenerhebung** rekrutieren, sammeln, überwachen
+]
+
+---
+# Die Data-Science-Pipeline
+
+.pull-left[
+**Vorbereitung**
+
+- **Problemstellung** Vorhersage, Inferenz, Beschreibung
+- **Design** Konzept erstellen, Datenerfassung aufsetzen
+- **Datenerhebung** rekrutieren, sammeln, überwachen
+
+**Datenverarbeitung**
+]
+
+.pull-right-center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/data-science-flow.png" height=200&gt;
+&lt;/div&gt;
+
+`Quelle` [H. Wickham, M. Çetinkaya-Rundel, G. Gronemund: R for Data Science](https://r4ds.hadley.nz/)
+]
+
+---
+# Die Data-Science-Pipeline
+
+.pull-left[
+**Vorbereitung**
+
+- **Problemstellung** Vorhersage, Inferenz, Beschreibung
+- **Design** Konzept erstellen, Datenerfassung aufsetzen
+- **Datenerhebung** rekrutieren, sammeln, überwachen
+
+**Datenverarbeitung**
+
+   - **Aufbereiten**: importieren, bereinigen, anreichern
+]
+
+.pull-right-center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/data-science-wrangle.png" height=200&gt;
+&lt;/div&gt;
+
+`Quelle` [H. Wickham, M. Çetinkaya-Rundel, G. Gronemund: R for Data Science](https://r4ds.hadley.nz/)
+]
+
+
+---
+# Die Data-Science-Pipeline
+
+.pull-left[
+**Vorbereitung**
+
+- **Problemstellung** Vorhersage, Inferenz, Beschreibung
+- **Design** Konzept erstellen, Datenerfassung aufsetzen
+- **Datenerhebung** rekrutieren, sammeln, überwachen
+
+**Datenverarbeitung**
+
+   - **Aufbereiten**: importieren, bereinigen, anreichern
+   - **Explorieren**: visualisieren, beschreiben, entdecken
+]
+
+.pull-right-center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/data-science-explore.png" height=200&gt;
+&lt;/div&gt;
+
+`Quelle` [H. Wickham, M. Çetinkaya-Rundel, G. Gronemund: R for Data Science](https://r4ds.hadley.nz/)
+]
+
+
+---
+# Die Data-Science-Pipeline
+
+.pull-left[
+**Vorbereitung**
+
+- **Problemstellung** Vorhersage, Inferenz, Beschreibung
+- **Design** Konzept erstellen, Datenerfassung aufsetzen
+- **Datenerhebung** rekrutieren, sammeln, überwachen
+
+**Datenverarbeitung**
+
+   - **Aufbereiten**: importieren, bereinigen, anreichern
+   - **Explorieren**: visualisieren, beschreiben, entdecken
+   - **Modellieren**: testen, inferieren, vorhersagen
+]
+
+.pull-right-center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/data-science-model.png" height=200&gt;
+&lt;/div&gt;
+
+`Quelle` [H. Wickham, M. Çetinkaya-Rundel, G. Gronemund: R for Data Science](https://r4ds.hadley.nz/)
+]
+
+
+---
+# Die Data-Science-Pipeline
+
+.pull-left[
+**Vorbereitung**
+
+- **Problemstellung** Vorhersage, Inferenz, Beschreibung
+- **Design** Konzept erstellen, Datenerfassung aufsetzen
+- **Datenerhebung** rekrutieren, sammeln, überwachen
+
+**Datenverarbeitung**
+
+   - **Aufbereiten**: importieren, bereinigen, anreichern
+   - **Explorieren**: visualisieren, beschreiben, entdecken
+   - **Modellieren**: testen, inferieren, vorhersagen
+
+**Verbreitung**
+
+  - **Kommunikation**: Öffentlichkeit, Entscheidungsträger
+  - **Veröffentlichen**: Zeitschriften, Software, Berichte
+  - **Produktivieren**: nutzbar, robust, skalierbar machen
+]
+
+.pull-right-center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/data-science-communicate.png" height=200&gt;
+&lt;/div&gt;
+
+`Quelle` [H. Wickham, M. Çetinkaya-Rundel, G. Gronemund: R for Data Science](https://r4ds.hadley.nz/)
+]
+
+
+---
+# Die Data-Science-Pipeline
+
+.pull-left[
+**Vorbereitung**
+
+- **Problemstellung** Vorhersage, Inferenz, Beschreibung
+- **Design** Konzept erstellen, Datenerfassung aufsetzen
+- **Datenerhebung** rekrutieren, sammeln, überwachen
+
+**Datenverarbeitung**
+
+   - **Aufbereiten**: importieren, bereinigen, anreichern
+   - **Explorieren**: visualisieren, beschreiben, entdecken
+   - **Modellieren**: testen, inferieren, vorhersagen
+
+**Verbreitung**
+
+  - **Kommunikation**: Öffentlichkeit, Entscheidungsträger
+  - **Veröffentlichen**: Zeitschriften, Software, Berichte
+  - **Produktivieren**: nutzbar, robust, skalierbar machen
+
+**Meta-Fähigkeit: Programmierung**
+]
+
+.pull-right-center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/data-science-program.png" height=200&gt;
+&lt;/div&gt;
+
+`Quelle` [H. Wickham, M. Çetinkaya-Rundel, G. Gronemund: R for Data Science](https://r4ds.hadley.nz/)
+]
+
+
+---
+class: inverse, center, middle
+name: science
+
+# Was kann Data Science?
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Das Billion-Prices-Projekt (MIT)
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/billion-prices-0.png" height=500&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/billion-prices-1.png" height=500&gt;
+&lt;/div&gt;
+]
+
+&lt;br&gt;
+**Siehe auch:** [https://thebillionpricesproject.com/](https://thebillionpricesproject.com/) und [https://www.pricestats.com/](https://www.pricestats.com/)
+
+---
+# Das Billion-Prices-Projekt (MIT)
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/billion-prices-0.png" height=500&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/billion-prices-2.png" height=500&gt;
+&lt;/div&gt;
+]
+
+&lt;br&gt;
+**Siehe auch:** [https://thebillionpricesproject.com/](https://thebillionpricesproject.com/) und [https://www.pricestats.com/](https://www.pricestats.com/)
+
+
+---
+# COMPAS: Vorhersage der Rückfälligkeit von Straftätern
+
+.pull-left[
+## Hintergrund
+
+- Correctional Offender Management Profiling for Alternative Sanctions (COMPAS) ist ein von Northpointe (jetzt Equivant) entwickeltes Entscheidungshilfeinstrument, das von US-Gerichten zur **Bewertung der Rückfallwahrscheinlichkeit** eingesetzt wird.
+- Erstellt mehrere Skalen (Risiko der vorzeitigen Entlassung, allgemeine Rückfälligkeit, gewalttätige Rückfälligkeit) auf der Grundlage von Faktoren wie Alter, Vorstrafen und Drogenmissbrauch
+- Der Algorithmus ist urheberrechtlich geschützt und seine inneren Abläufe sind nicht öffentlich.
+
+&lt;br&gt;&lt;br&gt;
+
+`Quelle` [Leitfaden für Praktiker zum COMPAS Core](https://s3.documentcloud.org/documents/2840784/Practitioner-s-Guide-to-COMPAS-Core.pdf)
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/compas-scores.png" width=450&gt;
+&lt;/div&gt;
+]
+
+
+
+
+---
+# Vertrauen in Data Science
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/data-science-cool-1.png" width="500"/&gt;
+&lt;img src="../pics/data-science-cool-2.png" width="500"/&gt;
+&lt;img src="../pics/data-science-cool-5.png" width="500"/&gt;
+&lt;/div&gt;
+]
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/data-science-cool-4.png" width="450"/&gt;
+&lt;img src="../pics/data-science-cool-3.png" width="450"/&gt;
+&lt;img src="../pics/data-science-cool-6.png" width="450"/&gt;
+&lt;/div&gt;
+]
+
+---
+# Vertrauen in Data Science?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/data-science-not-cool-1.png" width="500"/&gt;
+&lt;img src="../pics/data-science-not-cool-2.png" width="500"/&gt;
+&lt;/div&gt;
+]
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/data-science-not-cool-3.png" width="500"/&gt;
+&lt;img src="../pics/data-science-not-cool-4.png" width="500"/&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+class: exercise, center, middle
+
+# Übung
+
+.content-box-white[
+**Was kann Data Science und AI tun, was nicht?**
+
+Whiteboard | AI-Anwendungen | Performanz | Schädlichkeit
+]
+
+
+---
+# Was kann Data Science und AI tun, was nicht?
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/Snakeoil-29.jpg" width="675"/&gt;
+&lt;/div&gt;
+
+`Quelle` [Narayanan/Kapoor, AI Snake Oil, S.29](https://press.princeton.edu/books/hardcover/9780691249131/ai-snake-oil)
+
+
+
+
+---
+class: inverse, center, middle
+name: goals
+
+# Ziele für dieses Modul
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Modulüberblick
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/modul-2-ueberblick.png" height=550&gt;
+&lt;/div&gt;
+
+
+
+---
+# Was wir nicht behandeln werden
+
+.pull-left-small2[
+## Programmierung
+- Kenntnisse in Python, R, SQL usw. sind für die Datenwissenschaft unerlässlich
+- Die Lernkurve ist steil und erfordert viel Übung
+- Wir werfen einen (kleinen) Blick hinter die Kulissen
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/programming-logos.jpeg" height=150&gt; 
+&lt;/div&gt;
+]
+
+.pull-left-small2[
+## Aktive Modellierung
+- Seriöse AI-Modellierung erfordert mehr theoretisches und praktisches Wissen, als wir in diesem Workshop abdecken können.
+- Die Konzentration auf die Grundsätze statistischer Argumentation sollte ausreichen, um Daten und Modelle kritisch zu beurteilen.
+&lt;br&gt;
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/modeling-picture.jpeg" height=150&gt; 
+&lt;/div&gt;
+]
+
+.pull-right-small2[
+## Fortgeschrittenes Maschinelles Lernen, NLP
+- ML, DL, NLP sind Technologien, die viele der spannendsten Anwendungen der Datenwissenschaft vorantreiben.
+- Modul 3 wird hier anschließen; wir werden uns auf die Datengrundlagen konzentrieren.
+
+&lt;br&gt;
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/ml-metrics-symbol.png" height=150&gt; 
+&lt;/div&gt;
+]
+
+
+---
+# Weiterführende Literatur
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/manski-public-policy-uncertain.jpg" height=250&gt;
+&lt;img src="../pics/bookofwhy.jpg" height=250&gt;
+&lt;img src="../pics/everybodylies.jpg" height=250&gt;
+&lt;img src="../pics/everythingisobvious.jpg" height=250&gt;
+&lt;img src="../pics/calling-bullshit.jpeg" height=250&gt;
+&lt;img src="../pics/wilkebook.jpeg" height=250&gt;&lt;br&gt;
+&lt;img src="../pics/bitbybitbook.jpg" height=250&gt;
+&lt;img src="../pics/numbersrule.jpg" height=250&gt;
+&lt;img src="../pics/numbersense.jpg" height=250&gt;
+&lt;img src="../pics/rival-hypothesis-1.png" height=250&gt;
+&lt;img src="../pics/art-of-statistics.jpg" height=250&gt;
+&lt;img src="../pics/aisnakeoil.jpg" height=250&gt;
+&lt;/div&gt;
+
+
+---
+# Weiterführende Podcasts
+
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/podcast-tech-away.png" height=150&gt;
+&lt;img src="../pics/podcast-ai-breakdown.png" height=150&gt;
+&lt;img src="../pics/podcast-beginners-guide.png" height=150&gt;
+&lt;img src="../pics/podcast-govtech360.png" height=150&gt;
+&lt;img src="../pics/podcast-hdsr.png" height=150&gt;
+&lt;img src="../pics/podcast-data-skeptic.png" height=150&gt;
+&lt;img src="../pics/podcast-more-or-less.jpeg" height=150&gt;
+&lt;br&gt;
+&lt;img src="../pics/podcast-linear-digressions.png" height=150&gt;
+&lt;img src="../pics/podcast-not-so-standard-deviations.png" height=150&gt;
+&lt;img src="../pics/podcast-digital-analytics-power-hour.jpeg" height=150&gt;
+&lt;img src="../pics/podcast-oreilly-datashow.jpeg" height=150&gt;
+&lt;img src="../pics/podcast-banana-data.jpeg" height=150&gt;
+&lt;img src="../pics/podcast-stats-stories.png" height=150&gt;
+&lt;img src="../pics/podcast-talking-machines.png" height=150&gt;
+&lt;/div&gt;
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9",
+  "hash": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+  .logo {
+    background-image: url("../hertieschool-neg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 150px;
+    height: 128px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    ':not(.inverse)' +
+	
+    // add additional classes to exclude here, e.g.
+  // ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

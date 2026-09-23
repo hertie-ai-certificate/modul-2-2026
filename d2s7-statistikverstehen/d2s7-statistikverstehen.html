@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Tag 2: Big Data, Good Data? Die kritische Nutzung von Daten</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Simon Munzert" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <link rel="stylesheet" href="../simons-touch.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Tag 2: Big Data, Good Data? Die kritische Nutzung von Daten
+]
+.subtitle[
+## Session 7: Informierter Konsum von Daten und Statistiken
+]
+.author[
+### Simon Munzert
+]
+.institute[
+### Hertie School
+]
+
+---
+
+
+&lt;style type="text/css"&gt;
+@media print { # print out incremental slides; see https://stackoverflow.com/questions/56373198/get-xaringan-incremental-animations-to-print-to-pdf/56374619#56374619
+  .has-continuation {
+    display: block !important;
+  }
+}
+&lt;/style&gt;
+
+
+
+
+# Inhaltsverzeichnis
+
+&lt;br&gt;&lt;br&gt;
+
+1. [Deskriptive Statistik verstehen](#descriptives)
+
+2. [Wahrscheinlichkeit verstehen](#probability)
+
+3. [Statistische Signifikanz verstehen](#significance)
+
+4. [Klassifikationsmetriken verstehen](#classification)
+
+
+---
+class: inverse, center, middle
+name: descriptives
+
+# Deskriptive Statistik verstehen
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Deskriptive vs. Inferenzstatistik
+
+.pull-left[
+## Deskriptive Statistik
+- Zusammenfassen und Beschreiben von Merkmalen einer Stichprobe oder Population
+- Kann numerisch und visuell kommuniziert werden
+- Unterschiedliche Skalen (Messniveaus) erfordern unterschiedliche deskriptive Statistiken
+- Eine gute Beschreibung kann schwierig sein, wenn die Datenerfassung oder Messung komplex ist.
+]
+
+.pull-right[
+## Inferenzstatistik
+- Schlussfolgerungen über eine Grundgesamtheit auf der Grundlage einer Stichprobe
+- Es können Rückschlüsse auf Mittelwerte, Proportionen, Beziehungen usw. gezogen werden
+- Kann numerisch und visuell kommuniziert werden
+- Gute Beschreibung ist die Grundlage für gute Schlussfolgerungen
+]
+
+---
+# Deskriptive vs. Inferenzstatistik
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/descriptive-inferential.jpeg" width=1000&gt;
+&lt;/div&gt;
+
+
+
+---
+# Maße für zentrale Tendenz
+
+
+.pull-left[
+## Drei populäre Maße für zentrale Tendenz
+
+- **(Arithmetischer) Mittelwert**: Der **Durchschnitt** aller Werte in einem Datensatz
+- **Median**: Der **mittlere** Wert eines Datensatzes
+- **Modus**: Der **häufigste** Wert in einem Datensatz
+
+Warum „zentrale Tendenz“? Beschreibt die Tendenz von quantitativen Daten, sich um einen zentralen Wert zu gruppieren.
+
+## Probieren Sie es aus
+
+Ermitteln Sie den Modus, den Median und den Mittelwert der folgenden Werte:
+
+8, 2, 4, 2, 18, 6, 2
+]
+
+--
+
+.pull-right[
+## Welches Maß ist zu verwenden?
+
+- **Mittelwert**: Empfindlich gegenüber Ausreißern, aber intuitiv
+- **Median**: Robust gegenüber Ausreißern, etwas weniger intuitiv
+- **Modus**: Nützlich für kategoriale Daten, kann aber bei kontinuierlichen Daten irreführend sein
+
+## Verzerrte Verteilungen
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/empirical-relation-between-mean-median-and-mode.png" width=1000&gt;
+&lt;/div&gt;
+]
+
+---
+# Maße für zentrale Tendenz: Beispiele
+
+.pull-left-center[
+&lt;div align="center"&gt;
+&lt;img src="../pics/distribution-bean-jar.png" width=400&gt;
+&lt;/div&gt;
+
+`Quelle` [David Spiegelhalter, The Art of Statistics](https://www.penguin.co.uk/books/294857/the-art-of-statistics-by-spiegelhalter-david/9780241258767)
+]
+
+.pull-right-center[
+&lt;div align="center"&gt;
+&lt;img src="../pics/average-median-income-rost.png" width=350&gt;
+&lt;/div&gt;
+
+`Quelle` [Lisa Muth, Datawrapper](https://blog.datawrapper.de/weekly-chart-income/)
+]
+
+
+
+---
+# Streuungsmaß
+
+.pull-left[
+## Warum brauchen wir Streuungsmaße?
+- Die zentrale Tendenz allein ist nicht aussagekräftig für die Verteilung
+- „Wie weit streuen unsere Daten?“
+
+## Drei gängige Streuungsmaße
+
+- **Spannweite**: Die Differenz zwischen dem höchsten und dem niedrigsten Wert in einem Datensatz
+- **Varianz**: Der Durchschnitt der quadrierten Differenzen vom Mittelwert
+- **Standardabweichung**: Die Quadratwurzel aus der Varianz
+
+Formel zur Berechnung der Varianz: `\(\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1}\)`
+
+Siehe [hier](https://seeing-theory.brown.edu/basic-probability/index.html#section3) für interaktive Intuition.
+]
+
+.pull-right[
+## Warum ist das wichtig?
+
+- Die meisten Menschen sind in der Tat nicht „durchschnittlich“. Variation kann eine Quelle für Einblicke in die zugrunde liegenden Prozesse sein
+- Schlüsselmaß für nachgelagerte Statistiken, z.B. der Standardfehler als Schätzung der Unsicherheit einer Schätzung
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/normal-variations.png" width=450&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Puzzle 1
+
+.pull-left[
+## Wie können alle der folgenden Punkte wahr sein?&lt;sup&gt;1&lt;/sup&gt;
+
+1. 80% der 100 prominentesten deutschen TikToker sind männlich.
+2. Weibliche TikToker haben im Durchschnitt 500 Follower, männliche nur 300. 
+3. Es gibt ungefähr gleich viele männliche und weibliche deutsche TikToker.
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/tiktok-germany.png" width=300&gt;
+&lt;/div&gt;
+]
+
+.footnote[&lt;sup&gt;1&lt;/sup&gt;„Wahr“ im Sinne von ‚theoretisch wahr‘. Die Zahlen sind alle erfunden.]
+
+
+---
+# Puzzle 2
+
+.pull-left-small[
+## Wie können alle der folgenden Punkte wahr sein?&lt;sup&gt;1&lt;/sup&gt;
+
+1. An einer Universität ist die Zulassungsquote in jedem der vier Fachbereiche für Frauen höher als für Männer.
+2. Über alle Fachbereiche hinweg ist die Zulassungsquote bei den Männern höher.
+]
+
+.pull-right-wide[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/simpsons-paradox-georgia-adapted.png" width=600&gt;
+&lt;/div&gt;
+]
+
+
+
+
+---
+# Simpsons Paradoxon
+
+.pull-left[
+## Paradoxon erklärt
+
+- Einige Fachbereiche (C+D) waren umkämpfter als andere, und dort bewarben sich mehr Frauen.
+- Die allgemeinen Zulassungsquoten und die Zulassungsquoten innerhalb eines Fachbereichs unterscheiden sich!
+- Wenn wir die gruppierende Variable anpassen/kontrollieren, ändert sich die Beziehung zwischen den Variablen.
+
+## Das Phänomen, verallgemeinert
+
+- Ein Trend erscheint in verschiedenen Datengruppen, verschwindet aber oder kehrt sich um, wenn diese Gruppen kombiniert werden.
+- Auch bei Korrelationen möglich (positive vs. negative Korrelation innerhalb vs. zwischen Gruppen).
+]
+
+.pull-right[
+## Relevanz im Policy-Kontext
+
+- Analyse von Mustern auf verschiedenen Ebenen (z.B. Region vs. Bund, Schulen vs. Schulbezirke)
+- Wenn gruppeninterne Muster nicht berücksichtigt werden, könnten die politischen Schlussfolgerungen irreführend sein.
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/simpsons-paradox-animation.gif" width=400&gt;
+&lt;/div&gt;
+
+`Quelle` [Wikipedia, "Simpson's paradox"](https://en.wikipedia.org/wiki/Simpson%27s_paradox)
+]
+
+
+
+
+---
+class: inverse, center, middle
+name: probability
+
+# Wahrscheinlichkeit verstehen
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Wahrscheinlichkeiten
+
+.pull-left-wide[
+## Was sind Wahrscheinlichkeiten?&lt;sup&gt;1&lt;/sup&gt;
+
+- Wahrscheinlichkeiten quantifizieren die Möglichkeit eines Ereignisses
+- Wahrscheinlichkeiten liegen zwischen 0 und 1 (oder 0 und 100%)
+- Wahrscheinlichkeiten können verbal oder numerisch kommuniziert werden
+
+## Relevanz von Wahrscheinlichkeiten für politische Entscheidungen
+
+Wahrscheinlichkeiten sind ...
+- ... das Kernstück der Risikobewertung und Entscheidungsfindung
+- ... werden zur Quantifizierung von Unsicherheit verwendet
+- ... zur Bewertung der Wirksamkeit von Maßnahmen
+- ... eine Kernmetrik für AI-basierte Entscheidungssysteme
+
+.footnote[&lt;sup&gt;1&lt;/sup&gt;[Hier](https://bookdown.org/kevin_davisross/probsim-book) eine gute Einführung in die Wahrscheinlichkeitsrechnung und Simulation.]
+]
+
+--
+
+.pull-right-small[
+&lt;div align="center"&gt;
+&lt;img src="../pics/weather-forecast-tbilisi.png" width=400&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/us-president-2024-odds.png" width=490&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/classification-dog-plant.png" width=490&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# Marginale, bedingte und gemeinsame Wahrscheinlichkeiten
+
+.pull-left[
+## Randwahrscheinlichkeit
+- Die Wahrscheinlichkeit des Eintretens eines Ereignisses: `\(p(A)\)`
+- Unbedingte Wahrscheinlichkeit ist nicht von einem anderen Ereignis abhängig
+- 🎲 Beispiel: `\(p(\text{Würfeln einer 5}) = 1/6\)`
+
+## Bedingte Wahrscheinlichkeit
+- Die Wahrscheinlichkeit, dass das Ereignis A eintritt, wenn das Ereignis B eintritt: `\(p(A|B)\)`
+- Wichtig: Die Randwahrscheinlichkeit von B spielt hier keine Rolle!
+- 🎲 Beispiel: `\(p(\text{Würfeln einer 5|Würfeln ungerader Zahl}) = 1/3\)`
+]
+
+.pull-right[
+## Gemeinsame Wahrscheinlichkeit
+- Die Wahrscheinlichkeit, dass Ereignis A und Ereignis B eintreten: `\(p(\text{A und B}) = p(A ∩ B)\)`
+- 🎲 Beispiel: `\(p(\text{Würfeln einer 5 und einer geraden Zahl}) = 0\)`
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/dice-roll-tree.png" width=490&gt;
+&lt;/div&gt;
+]
+
+
+
+
+---
+# Bedingte Wahrscheinlichkeiten
+
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/conditional-probability-simulation.png" width=1100&gt;
+&lt;/div&gt;
+
+`Quelle` [Victor Powell, setosa.io](https://setosa.io/conditional/) (Siehe zur interaktiven Simulation)
+
+
+---
+# Puzzle 3
+
+.pull-left[
+## Wie können alle der folgenden Punkte wahr sein?
+
+1. Ein Impfstoff ist hochwirksam beim Schutz gegen eine Krankheit.
+2. Die meisten Menschen, die die Krankheit bekommen, sind geimpft worden.
+]
+
+.pull-right[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/hakan-nural-unsplash.jpg" width=500&gt;
+&lt;/div&gt;
+`Quelle` [Hakan Nural, Unsplash](https://www.fiercehealthcare.com/payers/health-plans-prepare-cover-covid-19-vaccine-tests)
+]
+
+---
+# Puzzle 3
+
+.pull-left[
+## Wie können alle der folgenden Punkte wahr sein?
+
+1. Ein Impfstoff ist hochwirksam beim Schutz gegen eine Krankheit.
+2. Die meisten Menschen, die die Krankheit bekommen, sind geimpft worden.
+
+## Base Rate Fallacy ("Prävalenzfehler")
+
+- Dies ist ein klassischer Fall des „Base Rate Fallacy“ oder „Prosecutor's Fallacy“.
+- Wenn die Impfrate `\(P(geimpft)\)` in der Bevölkerung hoch ist, besteht eine möglicherweise höhere Chance, dass eine zufällig ausgewählte kranke Person (z.B. im Krankenhaus) geimpft als ungeimpft ist.
+]
+
+.pull-right[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/hakan-nural-unsplash.jpg" width=500&gt;
+&lt;/div&gt;
+`Quelle` [Hakan Nural, Unsplash](https://www.fiercehealthcare.com/payers/health-plans-prepare-cover-covid-19-vaccine-tests)
+]
+
+---
+# "Base rate fallacy", illustriert
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/base-rate-fallacy-ger.png" height=450&gt;
+&lt;/div&gt;
+`Quelle` [Marc Rumilly](https://twitter.com/MarcRummy/status/1464178903224889345) 
+
+
+---
+# Relevanz für AI-basierte Entscheidungssysteme
+
+
+.pull-left[
+## Politik für seltene Ereignisse
+
+- Diverse Politikmaßnahmen sind darauf ausgerichtet, seltene und gleichzeitig extrem kostspielige Ereignisse zu verhindern.
+- Beispiele: Terroranschläge, Krieg, Naturkatastrophen
+- Die Vorhersage solcher Ereignisse ist von Natur aus schwierig.
+- KI-gestützte Erkennungssysteme versprechen hohe Erkennungsraten. Aber selbst bei einer sehr hohen Genauigkeit kann die Anzahl der falsch-positiven Meldungen inakzeptabel hoch sein.
+
+## Leitfaden
+
+- Berücksichtigen Sie bei der Evaluation von solchen Tools immer die **Basiswahrscheinlichkeit**.
+- Wählen Sie geeignete Performanzmetriken (FPR, FNR, etc. - mehr dazu später).
+]
+
+--
+
+.pull-right[
+## Beispiel: [Terrorismuserkennung](https://en.wikipedia.org/wiki/Base_rate_fallacy)
+- In einer Stadt mit 1 Mio. Einwohnern gibt es 100 Terroristen und 999.900 Nicht-Terroristen: `\(p(\text{Terrorist}) = 0,0001\)`
+- Überwachung mit Gesichtserkennungssoftware mit zwei Fehlerquoten von 1%:
+  1. Falsch-negativ-Rate (FNR): `\(p(\text{kein Alarm}|\text{Terrorist}) = 0,01\)`
+  2. Falsch-positiv-Rate (FPR): `\(p(\text{Alarm}|\text{kein Terrorist}) = 0.01\)`
+
+**Was bedeutet das, wenn wir einen Alarm erhalten?**&lt;sup&gt;1&lt;/sup&gt;
+  `\(p(\text{Terrorist}|\text{Alarm})=\frac{p(\text{Alarm}|\text{Terrorist})p(\text{Terrorist})}{p(\text{Alarm})}\)` `\(=\frac{0.99 * 0.0001}{0.01} = 0.01\)`
+
+.footnote[&lt;div class="font50"&gt;&lt;br&gt;&lt;sup&gt;1&lt;/sup&gt;$p(\text{Alarm}) = p(\text{Alarm}|\text{Terrorist})*p(\text{Terrorist})$ `\(+ p(\text{Alarm}|\text{Nicht-Terrorist})*p(\text{Nicht-Terrorist})\)` `\(=\)`
+  `\(p(\text{Terrorist}|\text{Alarm})\)` `\(= 0.99*0.0001 + 0.01*0.9999 = 0.01\)`&lt;/div&gt;]
+]
+
+
+---
+#  Kommunikation von Wahrscheinlichkeiten mit verbalen Ausdrücken
+
+.pull-left-wide2[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/willems-abstract.png" width=650&gt;
+&lt;/div&gt;
+`Quelle` [Willems et al. 2020](https://doi.org/10.22323/2.19020203)
+]
+
+.pull-right-small2[
+&lt;div align="center"&gt;
+&lt;img src="../pics/willems-probability-phrases.png" width=370&gt;
+&lt;/div&gt;
+]
+
+---
+# Was bedeutet die Wahrscheinlichkeit für verschiedene Berufe?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/probability-orlin-1.png" width=450&gt;
+&lt;img src="../pics/probability-orlin-2.png" width=450&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/probability-orlin-3.png" width=450&gt;
+&lt;img src="../pics/probability-orlin-4.png" width=450&gt;
+&lt;/div&gt;
+]
+
+`Quelle` [Ben Orlin](https://mathwithbaddrawings.com/2015/09/23/what-does-probability-mean-in-your-profession/)
+
+
+
+---
+class: inverse, center, middle
+name: significance
+
+# Statistische Signifikanz verstehen
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+# "Statistische Signifikanz" überall
+
+.pull-left-vwide[
+&lt;div align="center"&gt;
+&lt;img src="../pics/wansink-retracted.png" width=900&gt;
+&lt;/div&gt;
+]
+
+.pull-right-vsmall[
+&lt;div align="center"&gt;
+&lt;img src="../pics/wansink-beans.jpeg" width=320&gt;
+&lt;/div&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+`Quelle` [Wansink et al.](https://pubmed.ncbi.nlm.nih.gov/22846502/), [Retraction Watch](https://retractionwatch.com/2018/09/20/beleaguered-food-marketing-researcher-brian-wansink-announces-his-retirement-from-cornell/)
+]
+
+
+---
+# "Statistische Signifikanz" überall
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/xkcd-jelly-beans-1.png" height=500&gt;
+&lt;img src="../pics/xkcd-jelly-beans-2.png" height=500&gt;
+&lt;/div&gt;
+
+
+---
+# Statistische Fehlertypen
+
+.pull-left-wide[
+## Beispiel
+
+Sie sind Rettungssanitäter und nähern sich dem Ort eines Autounfalls. Ein Opfer liegt regungslos auf der Straße und Sie müssen einschätzen, ob das Opfer tot oder lebendig ist, und das Opfer entsprechend behandeln. Ausgehend von diesen Informationen, **welcher Fehler ist schwerwiegender?**
+
+## Hypothesen
+
+- **Nullhypothese**: Das Opfer ist am Leben.
+- **Alternative Hypothese**: Das Opfer ist nicht am Leben.
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+`Quelle` [jeffalltogether, StackExchange.com](https://stats.stackexchange.com/questions/211736/type-i-error-and-type-ii-error-trade-off)
+]
+
+.pull-right-small[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/ambulance.jpg" height=400&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Statistische Fehlertypen
+
+## Hypothesen
+
+- **Nullhypothese**: Das Opfer ist am Leben.
+- **Alternative Hypothese**: Das Opfer ist nicht am Leben.
+
+--
+
+## Fehlertypen
+
+- **Typ-I-Fehler**: Sie verwerfen die Null(hypothese), obwohl sie tatsächlich wahr ist („falsch positiv“).
+- **Typ II-Fehler**: Sie verwerfen die Null nicht, obwohl sie tatsächlich falsch ist. („falsch negativ“)
+
+--
+
+## Kosten
+
+- **Typ I-Fehler**: Sie erklären das Opfer für tot, obwohl es in Wirklichkeit noch lebt. Das Opfer wird nicht zur möglicherweise lebensrettenden medizinischen Behandlung ins Krankenhaus gebracht `\(\rightarrow\)` **Extrem kostspieliger Fehler**
+- **Typ II-Fehler**: Sie erklären das Opfer für lebendig, obwohl es in Wirklichkeit tot ist. Sie schicken eine tote Person fälschlicherweise mit einem Krankenwagen ins Krankenhaus `\(\rightarrow\)` **Nicht so kostspieliger Fehler**
+
+
+---
+# Fehlertypen im Hypothesentesten
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/error-types-matrix.png" height=450&gt;
+&lt;/div&gt;
+
+
+
+---
+# Bewertung der statistischen Signifikanz
+
+.pull-left[
+## Statistische Signifikanz vs. praktische Signifikanz
+- Sie sind nicht dasselbe.
+- Bei der **statistischen Signifikanz** geht es um die Wahrscheinlichkeit der Beobachtung der Daten unter Berücksichtigung der Nullhypothese. 
+- Bei der **praktischen Signifikanz** geht es um die Bedeutung des Ergebnisses in der realen Welt.
+
+## Vom Hypothesentest zur statistischen Signifikanz
+
+**Der dreistufige Ansatz:**
+1. Formulierung von Null- und Alternativhypothesen.
+2. Berechnen Sie eine Teststatistik, zum Beispiel die Effektgröße in einer Regression geteilt durch den Standardfehler.
+3. Vergleichen Sie die Teststatistik mit einem kritischen Wert; berechnen Sie einen p-Wert.
+]
+
+--
+
+.pull-right[
+## Der p-Wert
+
+- Der p-Wert ist die Wahrscheinlichkeit, dass ein Ergebnis beobachtet wird, das mindestens so extrem ist wie das beobachtete Ergebnis, wenn die Nullhypothese wahr wäre.
+- Der p-Wert wird mit einem Schwellenwert (z.B. 0.05) verglichen, um zu entscheiden, ob die Nullhypothese verworfen werden soll.
+- Wichtig: Der p-Wert gibt nicht die Wahrscheinlichkeit an, dass die Nullhypothese wahr oder falsch ist!
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/distribution-sigmas.png" height=240&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Statistische Signifikanz im Auge behalten
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/legislator-views-table.png" width=500&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/pnas-chen-air-pollution-huai-river-5.png" width=550&gt;
+&lt;/div&gt;
+]
+
+---
+# Statistische Signifikanz im Auge behalten
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/nhb-app-effects-with-title.png" width=750&gt;
+&lt;/div&gt;
+
+
+
+---
+# Nicht von berichteter Signifikanz in die Irre führen lassen
+
+.pull-left[
+## Einige Probleme
+
+- Nur weil ein Effekt signifikant ist, heißt das nicht, dass er substanziell bedeutsam (groß) ist.
+- Es gibt einen Anreiz für Forschende (und AI-Verkäufer), statistisch signifikante Ergebnisse zu produzieren.
+- Statistische Signifikanz ist (auch) eine Funktion der Stichprobengröße. Es ist **trivial, mit großen Daten signifikante Ergebnisse zu erzielen**.
+- Leider ist es auch oft **trivial, mit kleinen Daten signifikante Ergebnisse zu erzielen**, wenn man in Bezug auf seine Hypothesen flexibel ist.
+]
+
+.pull-right[
+## Sprachakrobatik mit Signifikanz
+
+"The following list is culled from peer-reviewed journal articles in which (a) the authors set themselves the threshold of 0.05 for significance, (b) failed to achieve that threshold value for p and (c) described it in such a way as to make it seem more interesting." - [Matthew Hankins, Probable Error](https://goo.gl/iUGz7a)
+
+&gt; (barely) not statistically significant (p=0.052), ..., a certain trend toward significance (p=0.08), a clear tendency to significance (p=0.052), a clear trend (p&lt;0.09), a clear, strong trend (p=0.09), very closely brushed the limit of statistical significance (p=0.051), very narrowly missed significance (p&lt;0.06), very nearly significant (p=0.0656), weakly non-significant (p=0.07), weakly significant (p=0.11), weakly statistically significant (p=0.0557), well-nigh significant (p=0.11)
+]
+
+---
+# Fishing und  p-Hacking
+
+.pull-left-wide2[
+## Die Krankheit
+
+Die Dominanz der statistischen Signifikanz als Entscheidungskriterium bei wissenschaftlichen Veröffentlichungen macht die p-Werte zu einem wichtigen Zielkriterium bei der statistischen Analyse. Kleine p-Werte werden häufiger berichtet, als man erwarten würde!
+
+## Die Symptome
+
+- **Fishing**: Testen vieler Hypothesen bis zur Signifikanz
+- **P-Hacking**: Optimieren der Analyse (z. B. Hinzufügen/Entfernen von Kontrollen, Transformieren von Variablen, Ändern von Modellen) bis zur Signifikanz
+- **HARKing**: **H**ypothesizing **a**fter the **r**esults are **k**nown
+
+## Die Kur?
+
+Special issue in [The American Statistician, 2019](https://www.tandfonline.com/toc/utas20/73/sup1): *"Statistical Inference in the 21st Century: A World Beyond p &lt; 0.05"*
+]
+
+.pull-right-small2[
+&lt;div align="center"&gt;
+&lt;div class=font50&gt;&lt;b&gt;Figure:&lt;/b&gt; Distribution of reported p-values (within [.001–.15]).&lt;/div&gt;
+&lt;img src="../pics/p-values-pone.png" height=260&gt;&lt;br&gt;
+&lt;/div&gt;
+
+&gt; "The data set consists of over 135’000 records. The data have been harvested by means of computer-based search from (...) five Journals of Experimental Psychology in the period January 1996-March 2008." 
+
+`Source` [Krawczyk, M., 2015, PLOS ONE](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0127872)
+]
+
+
+---
+# Kontroversen um statistische Signifikanz
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/p-values-asa.png" width=550&gt;
+&lt;/div&gt;
+
+## Sechs Prinzipien
+
+&lt;div class=font80&gt;
+&lt;ol&gt;
+&lt;li&gt;p-Werte können angeben, wie unvereinbar die Daten mit einem bestimmten statistischen Modell sind.&lt;/li&gt;
+&lt;li&gt;p-Werte messen nicht die Wahrscheinlichkeit, dass die untersuchte Hypothese wahr ist, oder die Wahrscheinlichkeit, dass die Daten allein durch Zufall entstanden sind.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Wissenschaftliche Schlussfolgerungen und geschäftliche oder politische Entscheidungen sollten nicht nur darauf beruhen, ob ein p-Wert einen bestimmten Schwellenwert überschreitet.&lt;/b&gt;&lt;/li&gt;
+&lt;li&gt;Eine korrekte Schlussfolgerung erfordert eine vollständige Berichterstattung und Transparenz.&lt;/li&gt;
+&lt;li&gt;Ein p-Wert sagt nichts über die Größe eines Effekts oder die Bedeutung eines Ergebnisses aus.&lt;/li&gt;
+&lt;li&gt;Ein p-Wert an sich ist kein guter Maßstab für die Evidenz eines Modells oder einer Hypothese.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/p-values-greenland.png" width=550&gt;
+&lt;/div&gt;
+]
+
+
+
+
+---
+class: exercise, center, middle
+
+# Übung
+
+.content-box-white[
+Erlangen Sie wissenschaftlichen Ruhm durch 5 Minuten P-Hacking bei [https://projects.fivethirtyeight.com/p-hacking/](https://projects.fivethirtyeight.com/p-hacking/)! (Mehr Hintergrund [hier](https://fivethirtyeight.com/features/science-isnt-broken).)
+]
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/fivethirtyeight-hacking.png" height=350&gt;
+&lt;/div&gt;
+
+
+
+
+---
+class: inverse, center, middle
+name: classification
+
+# Klassifikationsmetriken verstehen
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Vorhersage der Rückfälligkeit von Straftätern
+
+.pull-left[
+## Hintergrund
+
+- Correctional Offender Management Profiling for Alternative Sanctions (COMPAS) ist ein von Northpointe (jetzt Equivant) entwickeltes Entscheidungshilfeinstrument, das von US-Gerichten zur **Bewertung der Rückfallwahrscheinlichkeit** eingesetzt wird.
+- Erstellt mehrere Skalen (Risiko der vorzeitigen Entlassung, allgemeine Rückfälligkeit, gewalttätige Rückfälligkeit) auf der Grundlage von Faktoren wie Alter, Vorstrafen und Drogenmissbrauch
+- Der Algorithmus ist urheberrechtlich geschützt und seine inneren Abläufe sind nicht öffentlich.
+
+&lt;br&gt;&lt;br&gt;
+
+`Quelle` [Leitfaden für Praktiker zum COMPAS Core](https://s3.documentcloud.org/documents/2840784/Practitioner-s-Guide-to-COMPAS-Core.pdf)
+]
+
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/compas-scores.png" width=450&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Vorhersage der Rückfälligkeit von Straftätern
+
+.pull-left[
+## Hintergrund
+
+- Correctional Offender Management Profiling for Alternative Sanctions (COMPAS) ist ein von Northpointe (jetzt Equivant) entwickeltes Entscheidungshilfeinstrument, das von US-Gerichten zur **Bewertung der Rückfallwahrscheinlichkeit** eingesetzt wird.
+- Erstellt mehrere Skalen (Risiko der vorzeitigen Entlassung, allgemeine Rückfälligkeit, gewalttätige Rückfälligkeit) auf der Grundlage von Faktoren wie Alter, Vorstrafen und Drogenmissbrauch
+- Der Algorithmus ist urheberrechtlich geschützt und seine inneren Abläufe sind nicht öffentlich.
+
+&lt;br&gt;&lt;br&gt;
+
+`Quelle` [Leitfaden für Praktiker zum COMPAS Core](https://s3.documentcloud.org/documents/2840784/Practitioner-s-Guide-to-COMPAS-Core.pdf)
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/compas-practitioner-1.png" width=450&gt;
+&lt;img src="../pics/compas-practitioner-2.png" width=450&gt;
+&lt;img src="../pics/compas-practitioner-3.png" width=450&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Vorhersage der Rückfälligkeit von Straftätern
+
+.pull-left[
+## Die ProPublica und andere Untersuchungen
+
+- Im Jahr 2016 veröffentlichte ProPublica eine Untersuchung, die zeigte, dass COMPAS **voreingenommen gegenüber Afroamerikanern** war
+- **Bias:** Der Algorithmus sagte bei Afroamerikanern mit höherer Wahrscheinlichkeit falsch voraus, dass Angeklagte wieder straffällig werden würden.
+- **Mangelnde Präzision:** Nur 20 % der Personen, denen Gewaltverbrechen vorhergesagt wurden, wurden tatsächlich straffällig (in einer späteren Studie wurde der Wert auf 65 % geschätzt - schlechter als eine Gruppe von Nicht-Experten)
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+`Quelle` [ProPublica 2016](https://www.propublica.org/article/how-we-analyzed-the-compas-recidivism-algorithm)
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/machine-bias-compas.png" width=430&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Vorhersage der Rückfälligkeit von Straftätern
+
+.pull-left[
+## Die ProPublica und andere Untersuchungen
+
+- Im Jahr 2016 veröffentlichte ProPublica eine Untersuchung, die zeigte, dass COMPAS **voreingenommen gegenüber Afroamerikanern** war
+- **Bias:** Der Algorithmus sagte bei Afroamerikanern mit höherer Wahrscheinlichkeit falsch voraus, dass Angeklagte wieder straffällig werden würden.
+- **Mangelnde Präzision:** Nur 20 % der Personen, denen Gewaltverbrechen vorhergesagt wurden, wurden tatsächlich straffällig (in einer späteren Studie wurde der Wert auf 65 % geschätzt - schlechter als eine Gruppe von Nicht-Experten)
+
+&lt;br&gt;&lt;br&gt;
+
+`Quelle` [Dressel and Fair, 2018, Science Advances](https://www.science.org/doi/epdf/10.1126/sciadv.aao5580)
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/dressel-compas-1.png" width=500&gt;
+&lt;img src="../pics/dressel-compas-2.png" width=385&gt;
+&lt;/div&gt;
+]
+
+
+
+
+
+---
+# AI-Performanz in Wissenstests
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/ai-performance-knowledge-tests-vs-training-computation.svg" height=550&gt;
+&lt;/div&gt;
+
+---
+# AI-Fähigkeiten vs. menschliche Performanz
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/test-scores-ai-capabilities-relative-human-performance.svg" height=550&gt;
+&lt;/div&gt;
+
+
+---
+# Klassifikationsprobleme und ML-Applikationen
+
+.pull-left-wide2[
+## Klassifizierungsprobleme in freier Wildbahn
+
+Klassifizierungsprobleme sind weit verbreitet (wahrscheinlich häufiger als Regressionsprobleme). **Beispiele:**
+
+1. Eine Frau kommt mit einer Reihe von Symptomen in die Notaufnahme. Welche Krankheit hat sie?
+2. Ein Online-Banking-Dienst muss in der Lage sein, anhand der IP-Adresse des Benutzers, seiner bisherigen Transaktionen usw. festzustellen, ob eine Transaktion betrügerisch ist oder nicht.
+3. Eine Biologin möchte anhand der DNA-Sequenzdaten einer Reihe von Patienten mit und ohne eine bestimmte Krankheit herausfinden, welche DNA-Mutationen schädlich (krankheitsverursachend) sind und welche nicht.
+4. Ein Moderator einer Social-Media-Plattform muss entscheiden, ob ein von einem Nutzer erstellter Beitrag als unangemessen gekennzeichnet werden soll oder nicht.
+]
+
+.pull-right-small2[
+## Automatisierte Entscheidungsfindung
+
+Entscheidungsfindungsprobleme sind oft Klassifizierungsprobleme!
+
+Wenn automatisierte Systeme zur Entscheidungsfindung eingesetzt werden, beruhen sie häufig auf Klassifizierungsmodellen. Ob sie als rechtmäßig angesehen werden oder nicht, hängt oft entscheidend von der Leistung dieser Modelle ab.
+]
+
+
+---
+# ML-Performanz-Benchmarking: Beispiel
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/performance-gpt.png" height=500&gt;
+&lt;/div&gt;
+
+`Quelle` Wiik, 2024, GPT-4o vs. GPT-4 vs. Gemini 1.5 — Performance Analysis (Accuracy).
+
+
+
+---
+# ML-Performanz-Benchmarking: Beispiel 2
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/performance-hate-speech.png" height=500&gt;
+&lt;/div&gt;
+
+`Quelle` Oueslati, 2024, Watching the Watchers: A Comparative Audit of Cloud‑Based Commercial Content Moderation Services.
+
+
+
+
+---
+# Bestimmung der Performanz eines binären Klassifizierers
+
+.pull-left[
+## Accuracy ("Korrektklassifizierungsrate")
+
+- Accuracy = `\(\frac{\text{Anzahl der richtigen Vorhersagen}}{\text{Gesamtzahl der Vorhersagen}} = \frac{TP + TN}{TP + TN + FP + FN}\)`
+- Falschklassifikationsrate: `\(1 - \text{Accuracy}\)`
+
+## Nützlichkeit
+- Die Accuracy ist eine einfache und intuitive Metrik.
+- Sie kann jedoch irreführend sein, insbesondere in unausgewogenen Datensätzen, in denen die Klassen nicht gleichmäßig vertreten sind.
+- Beispiel: In einem Datensatz mit 90% der Klasse A und 10% der Klasse B hat ein Modell, das alle Fälle als Klasse A vorhersagt, eine Genauigkeit von 90%, ist aber für die Vorhersage von Fälle der Klasse B nicht nützlich.
+]
+
+--
+
+.pull-right[
+## Beispiel
+
+&lt;div align="center"&gt;&lt;br&gt;
+&lt;img src="../pics/confusion-matrix-recidivism.png" width=500&gt;
+&lt;/div&gt;
+
+Wie hoch ist die **Accuracy** unseres Rückfall-Klassifizierers?
+]
+
+
+---
+# Bestimmung der Performanz eines binären Klassifizierers
+
+.pull-left[
+## Präzision
+
+- Präzision = `\(\frac{\text{Anzahl der echten positiven Vorhersagen}}{\text{Anzahl der positiven Vorhersagen}} = \frac{TP}{TP + FP}\)`
+
+## Nützlichkeit
+- Die Präzision konzentriert sich auf die Genauigkeit der positiven Vorhersagen und ist nützlich, wenn die Kosten für falsch positive Vorhersagen hoch sind.
+]
+
+--
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/precision-recall.png" width=300&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# Bestimmung der Performanz eines binären Klassifizierers
+
+.pull-left[
+## Präzision
+
+- Präzision = `\(\frac{\text{Anzahl der echten positiven Vorhersagen}}{\text{Anzahl der positiven Vorhersagen}} = \frac{TP}{TP + FP}\)`
+
+## Nützlichkeit
+- Die Präzision konzentriert sich auf die Genauigkeit der positiven Vorhersagen und ist nützlich, wenn die Kosten für falsch positive Vorhersagen hoch sind.
+]
+
+.pull-right[
+## Example
+
+&lt;div align="center"&gt;&lt;br&gt;
+&lt;img src="../pics/confusion-matrix-recidivism.png" width=500&gt;
+&lt;/div&gt;
+
+Wie hoch ist die **Präzision** unseres Rückfall-Klassifizierers?
+]
+
+
+---
+# Bestimmung der Performanz eines binären Klassifizierers
+
+.pull-left[
+## Recall (Sensitivität)
+- Recall = `\(\frac{\text{Anzahl der wahren positiven Vorhersagen}}{\text{Anzahl der wahren positiven Werte}} = \frac{TP}{TP + FN}\)`
+- „True-Positive-Rate“
+
+## Nützlichkeit
+- Der Recall konzentriert sich auf die Erfassung aller positiven Werte und ist wichtig, wenn die Kosten für Falsch-negativ-Vorhersagen hoch sind.
+- **Beispiel:** Bei einer medizinischen Diagnose ist der Recall wichtig, um sicherzustellen, dass alle Patienten mit einer Krankheit korrekt identifiziert werden.
+- Das ergänzende Maß ist die Spezifität (Rate der echten Negativbefunde; z. B. wie viele gesunde Personen als nicht erkrankt identifiziert werden).
+]
+
+--
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/precision-recall.png" width=300&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# Bestimmung der Performanz eines binären Klassifizierers
+
+.pull-left[
+## Recall (Sensitivität)
+- Recall = `\(\frac{\text{Anzahl der wahren positiven Vorhersagen}}{\text{Anzahl der wahren positiven Werte}} = \frac{TP}{TP + FN}\)`
+- „True-Positive-Rate“
+
+## Nützlichkeit
+- Der Recall konzentriert sich auf die Erfassung aller positiven Werte und ist wichtig, wenn die Kosten für Falsch-negativ-Vorhersagen hoch sind.
+- **Beispiel:** Bei einer medizinischen Diagnose ist der Recall wichtig, um sicherzustellen, dass alle Patienten mit einer Krankheit korrekt identifiziert werden.
+- Das ergänzende Maß ist die Spezifität (Rate der echten Negativbefunde; z. B. wie viele gesunde Personen als nicht erkrankt identifiziert werden).
+]
+
+.pull-right[
+## Beispiel
+
+&lt;div align="center"&gt;&lt;br&gt;
+&lt;img src="../pics/confusion-matrix-recidivism.png" width=500&gt;
+&lt;/div&gt;
+
+Wie hoch ist der **Recall** unseres Rückfall-Klassifizierers?
+]
+
+
+
+---
+# Bestimmung der Performanz eines binären Klassifizierers
+
+.pull-left[
+
+## F1-Score
+- F1 score = `\(2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} = \frac{2TP}{2TP + FP + FN}\)`
+- Der F1-Score ist das harmonische Mittel aus Präzision und Recall.
+
+
+## Nützlichkeit
+- Der F1-Score berichtet eine Balance zwischen Präzision und Recall, was insbesondere dann hilfreich ist, wenn ein Ungleichgewicht zwischen den Klassen besteht.
+- Der F1-Score reicht von 0 bis 1, wobei 1 für perfekte Präzision und Recall und 0 für eine schlechte Leistung steht.
+]
+
+.pull-right[
+## Illustration
+
+&lt;div align="center"&gt;&lt;br&gt;
+&lt;img src="../pics/Harmonic_mean_3D_plot_from_0_to_100.png" width=350&gt;
+&lt;/div&gt;
+
+Abbildung des normalisierten harmonischen Mittels, wobei x die Präzision, y den Recall und die vertikale Achse den F1-Score in %-Punkten darstellt.
+
+`Quelle` [Andong87](https://commons.wikimedia.org/w/index.php?curid=24020909) 
+]
+
+
+---
+# Bestimmung der Performanz eines binären Klassifizierers
+
+.pull-left[
+## F1-Score
+- F1 score = `\(2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} = \frac{2TP}{2TP + FP + FN}\)`
+- Der F1-Score ist das harmonische Mittel aus Präzision und Recall.
+
+
+## Nützlichkeit
+- Der F1-Score berichtet eine Balance zwischen Präzision und Recall, was insbesondere dann hilfreich ist, wenn ein Ungleichgewicht zwischen den Klassen besteht.
+- Der F1-Score reicht von 0 bis 1, wobei 1 für perfekte Präzision und Recall und 0 für eine schlechte Leistung steht.
+]
+
+.pull-right[
+## Beispiel
+
+&lt;div align="center"&gt;&lt;br&gt;
+&lt;img src="../pics/confusion-matrix-recidivism.png" width=500&gt;
+&lt;/div&gt;
+
+Wie hoch ist der **F1-Score** unseres Rückfall-Klassifizierers?
+]
+
+
+
+---
+# Weshalb die Wahl der Metrik den Unterschied machen kann
+
+## Szenario
+
+- **Outcome:** Rückfälligkeit, wenn die Person rückfällig wird (1) oder nicht (0)
+- **Falsch positiv (FP):** Das Modell sagt voraus, dass eine Person rückfällig wird, wenn sie es tatsächlich nicht wird. 
+- **Falsch Negativ (FN):** Das Modell sagt voraus, dass eine Person nicht rückfällig wird, obwohl sie es tatsächlich wird.
+
+
+## Kosten
+
+- Was sind die nachgelagerten Kosten von FP und FN?
+- FP könnte dazu führen, dass einer Person Maßnahmen auferlegt werden, die nicht notwendig wären
+- FN könnte dazu führen, dass gefährdete Personen ohne angemessene Intervention entlassen werden, was möglicherweise zu erneuten Straftaten führt.
+- Auf welcher Ebene fallen die Kosten an - individuell, gesellschaftlich, ...?
+
+
+## Ethische und wirtschaftliche Überlegungen
+
+- Wie sollten wir die Kosten von FP und FN abwägen?
+- Was sollte in unserem Modell Vorrang haben - die Verringerung von FP, FN oder ein Kompromiss zwischen beiden?
+
+
+
+
+
+---
+# Statistiken verwenden: lessons learned
+
+.pull-left[
+## Lies, damned lies and statistics
+
+- Politische Debatten drehen sich fast zwangsläufig auch um Statistiken
+- Strategischer Anreiz, Beweise zu seinen Gunsten zu beeinflussen
+- Statistische Fallstricke: Nicht alles, was logisch klingt, ist statistisch fundiert 
+- Ein grundlegendes Verständnis der grundlegenden Konzepte der Statistik ist der Schlüssel zu kritischem Konsum von Daten und Statistiken
+- Einige populäre Irrtümer und Fehler treten immer wieder auf - man kann trainieren, sie zu erkennen!
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/lies-damned-lies-statistics.jpeg" height=220&gt;
+&lt;img src="../pics/bad-science-goldacre.jpeg" height=220&gt;
+&lt;img src="../pics/everythingisobvious.jpg" height=220&gt;
+&lt;img src="../pics/art-of-statistics-spiegelhalter.jpeg" height=220&gt;
+&lt;img src="../pics/gigerenzer-risk-savvy.png" height=220&gt;
+&lt;img src="../pics/kahnemann-thinking.jpeg" height=220&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Übung: OptiClassify
+
+.pull-left-wide[
+
+## "OptiClassify: Effiziente Aktenkategorisierung – Präzision, die Sie brauchen!"
+
+Mit OptiClassify bieten wir eine KI-basierte Lösung, die **Verwaltungsakten automatisch in 5 spezifische Kategorien** einteilt. Unsere Technologie erreicht eine **statistisch signifikante Trefferquote (Accuracy) von 95%**, unterstützt durch modernste Machine-Learning-Algorithmen.
+
+Die **Falsch-Negative-Rate liegt bei 5%**, was bedeutet, dass nur wenige Dokumente in die falsche Kategorie eingeordnet werden. Dank der **hohen Signifikanz von p &lt; 0.01** können Sie sich auf die Zuverlässigkeit unserer Lösung verlassen, insbesondere bei großen Datenmengen.
+
+In **Tests mit über 100.000 realen Verwaltungsakten** haben wir bewiesen, dass OptiClassify selbst in komplexen Szenarien konsistent arbeitet und den manuell erzeugten **Kategorisierungsaufwand um 75% reduziert**.
+
+Entdecken Sie die Zukunft der Verwaltung mit OptiClassify – sparen Sie Zeit, Kosten und Ressourcen, indem Sie unsere praxiserprobte Lösung einsetzen!
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/classification-bot.jpeg" height=350&gt;
+&lt;/div&gt;
+]
+
+---
+# Übung: OptiClassify
+
+## Mögliche Fragen
+
+1. Auf Basis welcher Daten wurde das Tool trainiert?
+
+    ✎ Die Qualität und Passung der Trainingsdaten ist entscheidend für die Leistung des Tools im konkreten Kontext.
+
+2. Wie wird die Accuracy von 95% berechnet, und wie verteilt sich diese auf die einzelnen Kategorien?
+
+    ✎ Die Accuracy könnte in einigen Kategorien viel niedriger sein.
+
+3. Wie wirkt sich die False-Negative-Rate von 5% auf kritische Akten aus?
+
+    ✎ Es ist wichtig zu wissen, ob Dokumente, die zwingend in eine bestimmte Kategorie gehören, zuverlässig erkannt werden.
+
+    ✎ Bei einer großen Anzahl von Dokumenten könnten niedrige Fehlerraten zu vielen manuellen Nacharbeiten führen.
+    
+4. Wie wurde die statistische Signifikanz (p &lt; 0.01) berechnet?
+
+    ✎ Welche Hypothese liegt hier zugrunde? 
+
+
+
+
+---
+class: exercise, center, middle
+
+# Data Detective, Fall 4: AnkER-Zentren
+
+.content-box-white[
+&lt;div align="center"&gt;
+&lt;img src="../pics/Fall_3_QR.png" width=350&gt;
+&lt;/div&gt;
+]
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9",
+  "hash": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+  .logo {
+    background-image: url("../hertieschool-neg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 150px;
+    height: 128px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    ':not(.inverse)' +
+	
+    // add additional classes to exclude here, e.g.
+  // ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

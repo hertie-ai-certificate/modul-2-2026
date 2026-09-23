@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Tag 1: Der Daten-Lifecycle und: Woher kommen Daten?</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Simon Munzert" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <link rel="stylesheet" href="../simons-touch.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Tag 1: Der Daten-Lifecycle und: Woher kommen Daten?
+]
+.subtitle[
+## Session 4: Praxis-Session - Web Scraping, APIs, OCR
+]
+.author[
+### Simon Munzert
+]
+.institute[
+### Hertie School
+]
+
+---
+
+
+&lt;style type="text/css"&gt;
+@media print { # print out incremental slides; see https://stackoverflow.com/questions/56373198/get-xaringan-incremental-animations-to-print-to-pdf/56374619#56374619
+  .has-continuation {
+    display: block !important;
+  }
+}
+&lt;/style&gt;
+
+
+
+
+# Überblick
+
+&lt;br&gt;&lt;br&gt;
+
+1. [Wozu Webdaten?](#webdata)
+
+2. [Web scraping](#scrapingstatic)
+
+3. [Web APIs](#apibasics)
+
+
+
+
+
+---
+class: inverse, center, middle
+name: webdata
+
+# Wozu Webdaten?
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Was sind Webdaten?
+
+.pull-left-wide2[
+
+## Definition
+
+- Webdaten sind **Daten, die im, für oder über das Web generiert oder über Webtechnologien zur Verfügung gestellt werden**. 
+
+## Beispiele für Webdaten
+  - Online-Nachrichtenartikel
+  - Netzwerkstrukturen in sozialen Medien
+  - Crowdsourced-Datenbanken (z. B. Wikidata)
+  - Serverprotokolle (z. B. Statistiken über die Zuschauerzahlen)
+  - Online-Verhalten
+  - Jede beliebige Website
+  
+## Keine genuinen Webdaten
+  - Offline generierte Datensätze, die über das Web disseminiert werden (z.B. nicht web-basierte Umfragen; offizielle Statistiken)
+]
+
+.pull-right-small2[
+&lt;div align="center"&gt;
+&lt;img src="../pics/2023InternetMinuteSized.jpg" height=450&gt;
+&lt;/div&gt;
+
+`Quelle` [eDiscoveryToday, LTMG](https://ediscoverytoday.com/2023/04/20/2023-internet-minute-infographic-by-ediscovery-today-and-ltmg-ediscovery-trends/
+)
+]
+
+
+---
+# Die Bedeutung von Webdaten für AI-Technologien
+
+.pull-left[
+
+## Datenquelle für KI-Modelle
+
+- **Web als Datenlieferant:** Das Web ist eine riesige Quelle von Daten, die für das Training von KI-Modellen unerlässlich sind. Durch öffentlich zugängliche Webseiten, soziale Medien, Blogs, Nachrichtenportale und andere Online-Plattformen wird eine Vielzahl von Informationen erzeugt, die in Form von Text, Bildern, Videos und Audiodaten vorliegen.
+
+- **KI-Training durch das Web:** Plattformen wie Amazon Mechanical Turk nutzen das Web, um KI-Systeme mit menschlichen Beiträgen zu trainieren. Crowdsourcing ermöglicht es, menschliche Intelligenz zu nutzen, um Daten zu labeln oder komplexe Aufgaben zu lösen, die für KI-Algorithmen schwierig sind.
+]
+
+.pull-right[
+## Plattform für KI-Dienste
+
+- **Cloud-basierte KI-Services:** Viele KI-Dienste werden über das Web in der Cloud angeboten. Diese Dienste ermöglichen es Entwicklern, leistungsstarke KI-Anwendungen ohne den Bedarf an eigenen Infrastrukturen zu nutzen. Beispiele sind Amazon Web Services (AWS), Microsoft Azure oder Google Cloud, die KI-Modelle bereitstellen, die über APIs aufgerufen werden können.
+
+- **KI in Web-Anwendungen:** KI wird zunehmend in Web-Anwendungen integriert. Beispiele sind intelligente Suchmaschinen, personalisierte Inhalte in sozialen Netzwerken und Empfehlungssysteme in Online-Shops, die auf dem Web basieren.
+]
+
+
+---
+# Die Bedeutung von Webdaten für AI-Technologien (2)
+
+.pull-left-wide[
+## Kollaboration und Wissensaustausch
+
+- **Open-Source-Communities:** KI-Entwicklung profitiert von der offenen Zusammenarbeit, die das Web ermöglicht. Plattformen wie GitHub, Stack Overflow oder spezielle KI-Foren bieten Möglichkeiten für Entwickler, Code zu teilen, zu lernen und innovative KI-Projekte gemeinsam voranzutreiben.
+
+- **KI-Forschung:** Viele bahnbrechende KI-Forschungsarbeiten und Datensätze werden im Web veröffentlicht und zugänglich gemacht. Dies erleichtert die Verbreitung von Wissen und die schnelle Entwicklung neuer KI-Ansätze.
+
+- **Verfügbarkeit von KI-Tools:** Über das Web stehen KI-Entwicklungstools, Bibliotheken und Frameworks wie TensorFlow, PyTorch und OpenAI zur Verfügung, die es Entwicklern ermöglichen, eigene KI-Anwendungen zu erstellen und zu trainieren.
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;
+&lt;img src="../pics/github-copilot-logo.jpeg" width=350&gt;
+&lt;img src="../pics/stackoverflow.png" width=350&gt;
+&lt;img src="../pics/Kaggle_logo.png" width=350&gt;
+&lt;img src="../pics/huggingface.png" width=350&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# Die Bedeutung von Webdaten in der Verwaltung
+
+.pull-left-wide[
+## Verwaltung als Webdaten-Provider
+- **Open Government Data**: Bereitstellung offener Datensätze durch Regierung und Verwaltung
+- **E-Government**
+
+## Verwaltung als Webdaten-Nutzer
+- **Erhebung von Verwaltungsdaten,** z.B. Unternehmensregister, Immobilienpreise, Arbeitsmarktdaten
+- **Echtzeit-Monitoring,** z. B. Analyse von Verkehrsdaten, Wetterinformationen oder Gesundheitsdaten
+- **Bürgerbeteiligung,** z.B. Auswertungen von Foren, sozialen Medien (eher fragwürdig)
+]
+
+
+.pull-right-small[
+&lt;div align="center"&gt;
+&lt;img src="../pics/bochum-smartcity.png" width=350&gt;
+&lt;img src="../pics/berlin-open-data.png" width=350&gt;
+&lt;/div&gt;
+]
+
+
+---
+class: inverse, center, middle
+name: scrapingstatic
+
+# Web scraping
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Webtechnologien
+
+.pull-left[
+
+- Um Webdaten für Data-Science-Anwendungen verfügbar zu machen, greifen wir auf bestimmte Webtechnologien zurück.
+- Konkret sind folgende Fragen relevant:
+  - Wie unser Rechner/Browser/R mit Webservern kommuniziert (→ **HTTP/S**)
+  - Wie Webseiten aufgebaut sind (→ **HTML**, **CSS**, Grundlagen von **JavaScript**)
+  - Wie Inhalte in Webseiten effektiv gefunden werden können (→ **XPath**, **CSS-Selektoren**)
+  - Wie dynamische Webanwendungen ausgeführt und abgegriffen werden (→ **AJAX**, **Selenium**)
+  - Wie Daten von Webdiensten verteilt und verarbeitet werden (→ **APIs**, **JSON**, **XML**)
+]
+
+.pull-right-center[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/webtechnologies.png" width=500&gt;
+&lt;/div&gt;
+`Quelle` [ADCR](http://r-datacollection.com/)
+]
+
+
+---
+# Web scraping
+
+.pull-left-wide2[
+## Was ist Web Scraping?
+
+1. Auslesen von (unstrukturierten) Daten aus Websites (HTMLs)
+2. Aufbereitung der Daten, Überführung in saubere Datenstruktur (analysefähiges Format)
+
+## Skriptbasiertes Vorgehen
+
+- Kein händisches Copy-and-Paste-Verfahren
+- Skripting (Programmierung) des gesamten Prozesses
+- Automatisiert wird:
+  - Das Herunterladen von Dateien und Webseiten
+  - Das Parsing von Webinhalten
+  - Das gezielte Auslesen von Informationen
+  - Anzapfen von APIs
+  - Datenbereinigung, Textdatenverarbeitung
+- Scraping-Programme skalieren und können wiederholt große Datenmengen sammeln
+]
+
+.pull-right-small2[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/web-scraping-vs-web-crawling.png" width=600&gt;
+&lt;/div&gt;
+`Credit` [prowebscraping.com](http://prowebscraping.com/web-scraping-vs-web-crawling/)
+]
+
+
+
+---
+# Der Scraping-Workflow
+
+.pull-left[
+## Die wichtigsten Werkzeuge für das Scraping statischer Webseiten
+
+1. Untersuchen von HTML-Seiten mit den Webentwickler-Tools im Browser
+2. Parsing von HTML mit dedizierten Programmen/Computercode (z.B. Python, R)
+3. Auslesen bestimmter Information mit XPath oder CSS-Selektoren (Mini-Sprachen)
+4. Weiterverarbeitung der Daten in skriptbasierten Programmen (z.B. mit `dplyr` oder `pandas` in R/Python)
+5. Speichern der Daten in einem geeigneten Format (z.B. CSV, JSON, Datenbank)
+]
+
+.pull-right[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/scraping-workflow.png" width=550&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Mehr zu Web Scraping
+
+.pull-left-wide2[
+## Weitere Möglichkeiten
+
+Scraping ist nicht auf Inhalte von statischen Webseiten beschränkt. Die Mächtigkeit von Scraping-Tools entfaltet sich in Szenarien, in denen:
+
+- **Daten von mehreren Seiten** gesammelt werden sollen
+- Automatisiert mit Webinhalten **interagiert** werden soll (z.B. über Formulare), um konditionale Inhalte abzugreifen
+- **Authentifizierung** erforderlich ist
+- **Dynamische Inhalte** (mit JavaScript angereichert) abgegriffen werden sollen
+
+
+## Weiterführende Materialien
+
+Weitere Beispiele, Scraping-Tutorials und Lernmaterialien finden sich [hier](https://github.com/hertie-data-science-lab/ds-workshop-webscraping) und [hier](https://github.com/yusuzech/r-web-scraping-cheat-sheet).
+]
+
+
+.pull-right-small2[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/data-download-illustration.jpeg" width=350&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+class: inverse, center, middle
+name: apibasics
+
+# Web APIs: Grundlagen
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Was sind Web APIs?
+
+.pull-left[
+### Definition
+
+- Ein &lt;b&gt;A&lt;/b&gt;pplication &lt;b&gt;P&lt;/b&gt;rogramming &lt;b&gt;I&lt;/b&gt;nterface erlaubt den programmatischen Zugriff auf Daten, die auf einem Server vorgehalten werden.
+- Web-APIs als „Datensuchmaschinen“: Man stellt eine Anfrage für spezifische Daten, die API antwortet.
+- Viele beliebte Webdienste bieten APIs an (Google, Twitter, Wikipedia, ...).
+- Oft stellen APIs Daten in den Formaten JSON oder XML bereit (kann aber jedes beliebige Format sein).
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/Image_1.jpeg" height=150&gt;
+&lt;/div&gt;
+`Credit` [Brian Cooksey](https://zapier.com/learn/apis/chapter-1-introduction-to-apis/)
+]
+
+--
+
+.pull-right[
+### Konzepte
+
+- **Server:** Ein Computer, auf dem eine API läuft und mit dem gesprochen werden kann.
+- **Client:** Ein Programm, das über eine API Daten mit einem Server austauscht.
+- **Protocol:** Das Regelwerk, das der Kommunikation zwischen Computern zugrunde liegt (z. B. HTTP).
+- **Method:** Die „Verben“, die Clients verwenden, um mit einem Server zu kommunizieren (in der HTTP-Sprache: `GET`, `POST` und andere).
+- **Enpoint:** URLs, die auf eine bestimmte Weise angegeben werden können, um die API abzufragen.
+- **Request:** Die Anfrage des Clients an den Server (siehe Methoden oben).
+- **Response:** Die Antwort des Servers. Enthält *Statuscode* (z. B. „200“, „404“), *Header* (Meta-Info) und *Body* (der eigentliche Inhalt).
+]
+
+---
+# Was macht APIs attraktiv?
+
+.pull-left[
+### Wichtige Vorteile
+
+- APIs bieten unmittelbaren Zugang zu "sauberen" Daten.
+- Machen manuelle konstruierte Scraper potentielle überflüssig.
+- Sie erleichtern einem Computer die Interaktion mit Daten auf dem Server.
+- Die Verwendung von APIs setzt ein gegenseitiges Einverständnis mit der Datenerfassung voraus.
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/restaurant-order.png" height=200&gt;
+&lt;/div&gt;
+
+
+]
+
+--
+
+.pull-right[
+### Restaurant-Analogie&lt;sup&gt;1&lt;/sup&gt;&lt;br&gt;&lt;br&gt;
+
+| Restaurant | Web API |
+|---|---|
+| Sie, der Kunde | Ihr Programm/Computer |
+| Das Restaurant | API-Anbieter |
+| Der Kellner | API-Frontend | 
+| Die Speisekarte | API-Dokumentation |
+| Ihre Bestellung | API-Enpoint (Request) | 
+| Die Küche | API-Datenbank |
+| Das Essen | API-Response |
+| Die Rechnung | API-Pricing |
+
+.footnote[&lt;sup&gt;1&lt;/sup&gt; [Restaurant-Beispiel inspiriert von Jason Johl](https://blogs.mulesoft.com/learn-apis/api-led-connectivity/what-are-apis-how-do-apis-work/)]
+]
+
+
+
+---
+# Warum stellen Organisationen APIs bereit?
+
+.pull-left-vwide[
+### Skalierbarkeit und Regulierung des Zugangs
+
+- APIs erlauben einen skalierbaren Zugriff auf Daten und Dienste.
+- Mit APIs können Organisationen ihren Kunden eine geregelte und strukturierte Möglichkeit bieten, gezielt Datenmengen abzurufen ohne ihre Server zu überlasten, zum Absturz zu bringen oder ihre Nutzungsbedingungen zu verletzen.
+- APIs können auch dazu beitragen, die Sicherheit zu erhöhen, indem sie den Zugriff auf sensible Daten kontrollieren und überwachen.
+
+
+### Weitere Gründe
+
+- **Monetarisierung:** Daten können in ein verkaufbares Produkt umgewandelt werden.
+- **Innovation:** Kunden haben Zugang zu Daten und können ihre eigenen Produkte und Lösungen entwickeln.
+- **Expansion:** APIs können Unternehmen helfen, in andere Märkte vorzudringen oder Partnerschaften mit anderen Unternehmen einzugehen.
+]
+
+.pull-right-vsmall[
+&lt;div align="center"&gt;
+&lt;img src="../pics/Image_8.png" height=80&gt;&lt;br&gt;
+&lt;img src="../pics/Image_4.png" height=80&gt;&lt;br&gt;
+&lt;img src="../pics/Image_5.png" height=80&gt;&lt;br&gt;
+&lt;img src="../pics/wikimedia-foundation.png" height=80&gt;&lt;br&gt;
+&lt;img src="../pics/yt_1200.png" height=80&gt;&lt;br&gt;
+&lt;/div&gt;
+]
+
+
+
+
+---
+# Weiterführende Informationen zu Web APIs
+
+## APIs als Goldstandard der Web-Datenabfrage
+
+Das Sammeln von Daten aus dem Web unter Verwendung von APIs, die vom Dateneigentümer zur Verfügung gestellt werden, stellt den **Goldstandard der Web-Datenabfrage** dar. Sie ermöglicht eine saubere Datenerfassung, einen standardisierten Datenzugriff, eine faktische Übereinkunft zur Datenerfassung sowie die Robustheit und Skalierbarkeit der Datenerfassung.
+
+Auf der anderen Seite ist die Verbreitung von Web-APIs zulasten eines offenen Web nicht unproblematisch. Sie schafft Abhängigkeiten von API-Anbietern. APIs haben zwar das Potenzial, den Datenzugriff zu demokratisieren, können aber auch dazu beitragen, Informationen zu isolieren.
+
+Mehr Informationen finden sich in [dieser Einführung in APIs](https://zapier.com/learn/apis/chapter-1-introduction-to-apis/) oder diesem [Einführungsvideo zu APIs in R](https://www.youtube.com/watch?v=kZU240u9H3E&amp;t=2248s).
+
+## API-Ressourcen
+
+Es gibt viele Ressourcen, die einen Überblick über bestehende öffentliche APIs geben, einschließlich dieser [Liste öffentlicher APIs auf GitHub](https://github.com/public-apis/public-apis). Eine weitere nützliche Ressource ist [APIs for social scientists - a collaborative review](https://bookdown.org/paul/apis_for_social_scientists/).
+
+
+
+
+
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9",
+  "hash": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+  .logo {
+    background-image: url("../hertieschool-neg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 150px;
+    height: 128px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    ':not(.inverse)' +
+	
+    // add additional classes to exclude here, e.g.
+  // ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

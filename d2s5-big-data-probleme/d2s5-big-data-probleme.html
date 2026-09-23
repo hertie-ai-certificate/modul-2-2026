@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Tag 2: Big Data, Good Data? Die kritische Nutzung von Daten</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Simon Munzert" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <link rel="stylesheet" href="../simons-touch.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Tag 2: Big Data, Good Data? Die kritische Nutzung von Daten
+]
+.subtitle[
+## Session 5: Möglichkeiten und Probleme mit Big Data
+]
+.author[
+### Simon Munzert
+]
+.institute[
+### Hertie School
+]
+
+---
+
+
+&lt;style type="text/css"&gt;
+@media print { # print out incremental slides; see https://stackoverflow.com/questions/56373198/get-xaringan-incremental-animations-to-print-to-pdf/56374619#56374619
+  .has-continuation {
+    display: block !important;
+  }
+}
+&lt;/style&gt;
+
+
+
+
+# Inhaltsverzeichnis
+
+&lt;br&gt;&lt;br&gt;
+1. [Was ist Big Data?](#whatisbigdata)
+
+2. [Das Big-Data-Paradoxon](#bigdataparadox)
+
+3. [Garbage in, garbage out](#garbageingarbageout)
+
+4. [Übung](#exercise)
+
+
+
+
+---
+class: inverse, center, middle
+name: exercise
+
+# Übung
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Umgang mit Evidenz als Detektivarbeit
+
+.pull-left-wide[
+## Der Ansatz
+
+- Auswertung von Daten ist wie Detektivarbeit
+- Wir müssen die **Evidenz genau unter die Lupe nehmen**, um herauszufinden, ob der Verdächtige - der vermutete Zusammenhang, der deskriptive Befund - tatsächlich hält, was er verspricht
+- Dazu müssen wir versuchen **Alternativerklärungen auszuschließen**
+
+## Die Ausstattung
+
+- **Unsere Toolbox:** Kritisches Denken, Beobachtung (Datenerhebung), Wahrnehmung (Messung), externes Wissen, statistische Methoden
+- Ohne qualitative Beurteilung sind die quantitativen Werkzeuge häufig ohne Wert
+]
+
+
+.pull-right-small[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/sherlock-rathbone.jpeg" height=400&gt;
+&lt;/div&gt;
+]
+
+---
+# Ein paar einfache Fälle
+
+&lt;br&gt;
+
+.pull-left[
+## Drückende Schuhe (?)
+
+&gt; Umfrageergebnisse zeigen, dass Menschen, die mit Schuhen schlafen, viel häufiger mit Kopfschmerzen aufwachen.
+
+## Gezuckerte Getränke führen zu Fettleibigkeit (?)
+
+&gt; Personen, die regelmäßig zuckerhaltige Getränke konsumieren, haben einen 30% höheren BMI.
+
+]
+
+.pull-right[
+
+
+## Lock-downs haben COVID-19-bedingte Tode herbeigeführt (?)
+
+&gt; Europäische Länder, die strengere und längere Lock-downs hatten, hatten höhere COVID-19-Todesraten.
+
+
+## UN-Friedensmissionen schützen die Zivilbevölkerung nicht (?)
+
+&gt; UN-Friedensmissionen in Bürgerkriegsszenarien sind stark positiv mit höheren Todesraten unter Zivilisten korreliert
+
+]
+
+
+
+---
+# Daten-Tatort I: Erkennen von Straftätern durch Gesichtsdaten
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/criminal-faces-1.png" width=600&gt;
+&lt;/div&gt;
+
+
+---
+# Weitere Evidenz: Erkennen von Straftätern durch Gesichtsdaten
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/criminal-faces-2.png" width=600&gt;
+&lt;/div&gt;
+
+
+---
+# Weitere Evidenz: Erkennen von Straftätern durch Gesichtsdaten
+
+&lt;div align="center"&gt;&lt;br&gt;
+&lt;img src="../pics/criminal-faces-3.png" width=500&gt;
+&lt;img src="../pics/criminal-faces-4.png" width=500&gt;
+&lt;/div&gt;
+
+
+---
+# Lösung des Falles
+
+.pull-left-wide[
+
+|                       	| Evidenz und Schlüsse                           	|
+|-----------------------	|----------------------------------------------------	|
+| **Der Tatort**   	| Gesichter sagen Straftäter vorher                 	|
+| **Die Verdächtigen**    	| Lifestyle, Physiognomik |
+| **Die Tatwaffe** 	| Konfundierung in Datenerhebung (biased training set)                    	|
+
+&gt; "Extraordinary claims require extraordinary evidence. The authors of this paper make the extraordinary claim that facial structure reveals criminal tendencies. We have argued that, given all publicly available information, their findings can be explained by a much more reasonable hypothesis: non-criminals are more likely to be smiling in photos chosen for publicity purposes than are criminals in the ID photos (not mugshots) chosen by police departments for wanted posters and other purposes. Notice that we did all of this without digging into the details of the machine learning algorithms at all. We didn’t need to. We know that a machine learning algorithm is only as good as its training data, and we can see that the training set used here is fundamentally flawed for the purpose it is used." &lt;div align="right"&gt;Carl Bergstrom and Jevin West, &lt;a href="https://callingbullshit.org/case_studies/case_study_criminal_machine_learning.html"&gt;Calling Bullshit&lt;/a&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/div&gt;
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/physiognomics-lombroso.png" width=400&gt;
+&lt;/div&gt;
+
+`Quelle` [Bergstrom/West, Calling Bullshit](https://callingbullshit.org)
+]
+
+
+---
+class: exercise, center, middle
+
+# Data Detective, Fall 2: Predictive Policing
+
+.content-box-white[
+&lt;div align="center"&gt;
+&lt;img src="../pics/Fall_1_QR.png" width=350&gt;
+&lt;/div&gt;
+]
+
+
+---
+class: exercise, center, middle
+
+# Data Detective, Fall 3: SARS-CoV-2-Abwassermonitoring
+
+.content-box-white[
+&lt;div align="center"&gt;
+&lt;img src="../pics/Fall_5_QR.png" width=350&gt;
+&lt;/div&gt;
+]
+
+
+
+
+
+---
+class: inverse, center, middle
+name: whatisbigdata
+
+# Was ist Big Data?
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+background-image: url("../pics/big-data-5vs.png")
+background-size: contain
+background-color: #000000
+
+# Was ist Big Data?
+
+
+---
+# Das Zeitalter von Big Data - Große Trends
+
+.pull-left[
+1. Massive Erzeugung von **vom Menschen erzeugten Daten** insbesondere im digitalen Bereich
+
+2. Verwendung von **neuen Datentypen**: Text, Video, digitale Spuren
+
+3.  **Rechen- und Speicherkosten** sind drastisch gesunken
+
+4.  Mainstreaming von **maschinellem Lernen** und **KI**-Technologien
+
+5. (Begrenzte) **Demokratisierung des Zugangs** zu großen Datenbeständen
+
+6.  **Verlagerung der Forschungsavantgarde** von der akademischen Welt zur Industrie
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/ids-global-datasphere.png" height=360&gt;
+&lt;/div&gt;
+
+`Quelle` Reinsel et al., 2017, ["Data Age 2025"](https://www.seagate.com/files/www-content/our-story/trends/files/Seagate-WP-DataAge2025-March-2017.pdf)
+
+.footnote[&lt;div class="font80"&gt;&lt;sup&gt;1&lt;/sup&gt;Die Zahlen sind mit Vorsicht zu genießen. SIe sind fundamental schwer zu messen; deshalb weichen veröffentlichte Daten teilweise um ein Vielfaches voneinander ab.&lt;/div&gt;]
+]
+
+
+---
+# Big Data in der öffentlichen Gesundheit
+
+.pull-left[
+## Beispiel: COVID-19-Überwachung  
+- Nutzung von Mobilfunk-, Social-Media- und Gesundheitsdaten durch WHO, CDC, RKI  
+- Modellierung und Vorhersage von Infektionsclustern  
+- Grundlage für politische Entscheidungen (Lockdowns, Impfpriorisierung)
+
+## Auswirkungen  
+- **Schnellere Reaktionen** auf Pandemien  
+- **Evidenzbasierte Gesundheitspolitik**  
+- **Datenschutz- und Ethikdebatten** über Bewegungs- und Gesundheitsdaten
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/cwa.jpg" width=500&gt;
+&lt;img src="../pics/covid-dashboard-zeit.png" width=500&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Smart Cities und urbane Datenplattformen
+
+.pull-left[
+## Beispiel: Singapur, Barcelona, London  
+- Nutzung von Verkehrs-, Sensor- und Energiedaten  
+- Steuerung von Verkehrsflüssen, Energieverbrauch und öffentlichem Raum  
+
+## Auswirkungen  
+- **Effizientere Infrastruktur** und geringere Emissionen  
+- **Datengetriebene Stadtplanung**  
+- **Kontroversen** um Überwachung, Fairness und Dateneigentum
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/bochum-smartcity.png" height=420&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Integration von Migranten in den Arbeitsmarkt
+
+.pull-left-small3[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/science-refugee-integration.png" width=400&gt;
+&lt;/div&gt;
+
+`Quelle` [Science](https://www.science.org/doi/10.1126/science.aao4408), [apolitical.co](https://apolitical.co/solution-articles/en/switzerlands-new-algorithm-could-get-up-to-30-more-refugees-into-work)
+]
+
+.pull-right-wide2[
+&lt;div align="center"&gt;
+&lt;img src="../pics/science-refugee-integration-3.png" width=600&gt;
+&lt;img src="../pics/science-refugee-integration-2.png" width=600&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# LLMs für effizientere Verwaltung?
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/llm-public-admin-1.png" height=270&gt;
+&lt;img src="../pics/llm-public-admin-2.png" height=270&gt;
+&lt;img src="../pics/llm-public-admin-3.png" height=270&gt;
+&lt;img src="../pics/llm-public-admin-4.png" height=270&gt;
+&lt;img src="../pics/llm-public-admin-7.png" height=250&gt;
+&lt;img src="../pics/llm-public-admin-5.png" height=250&gt;
+&lt;img src="../pics/llm-public-admin-6.png" height=250&gt;
+&lt;/div&gt;
+
+
+
+
+---
+class: inverse, center, middle
+name: bigdataparadox
+
+# Das Big-Data-Paradoxon
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+
+---
+# Ein frühes Big-Data-Disaster
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/literary-digest-1.png" height=520&gt;
+&lt;/div&gt;
+
+---
+# Wahlumfrage 1936 der Zeitschrift Literary Digest 
+
+.pull-left-wide2[
+## Hintergrund
+
+- Die Wochenzeitschrift *Literary Digest* hatte die Ergebnisse aller Präsidentschaftswahlen zwischen 1920 und 1932 anhand von Umfragen korrekt vorhergesagt.
+- Die Umfrage von 1936 unter 10 Millionen Wählerinnen und Wählern ergab einen deutlichen Sieg des republikanischen Kandidaten Alfred Landon
+
+## Nachwehen
+
+- Landon verlor erdrutschartig gegen Franklin D. Roosevelt, der 46 von 48 Bundesstaaten für sich entschied und 60,8% der Wählerstimmen erhielt.
+- Das Ergebnis wurde von George Gallup mit einem Sample von 50.000 Personen richtig vorhergesagt.
+- Die Zeitschrift ging 1938 in Konkurs.
+]
+
+.pull-right-small2[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/fdr-happy.jpeg" height=400&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Wahlumfrage 1936 der Zeitschrift Literary Digest
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/literary-digest-2.png" height=520&gt;
+&lt;/div&gt;
+
+---
+# Wahlumfrage 1936 der Zeitschrift Literary Digest
+
+.pull-left[
+## Anatomie eines Debakels
+
+1. **Stichprobenrahmen**: (1) eigene Leser, (2) registrierte Autobesitzer, (3) registrierte Telefonnutzer
+2. **Datenerhebung**: Jeder bekam einen Musterstimmzettel zugeschickt und wurde gebeten, den markierten Stimmzettel zurückzugeben
+3. **Rücklaufquote**: 2,4 Mio. von 10 Mio.
+
+**Stichprobenverzerrung** als Folge von **coverage error** und **non-reponse**: Überrepräsentation von wohlhabenderen Personen mit einer Präferenz für Landon
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+`Quelle` [Peverill Squire, 1988, Public Opinion Quarterly](https://www.jstor.org/stable/2749114)
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/literary-digest-squire-1.png" width=350&gt;
+&lt;img src="../pics/literary-digest-squire-2.png" width=350&gt;
+&lt;img src="../pics/literary-digest-squire-3.png" width=350&gt;
+&lt;/div&gt;
+]
+
+---
+# Umfrage-basierte Evidenz ist mit Vorsicht zu genießen
+
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/calvin-hobbes-messing-data.png" width=800&gt;
+&lt;/div&gt;
+
+
+
+---
+# Ein modernes Big-Data-Umfrage-Desaster
+ 
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/bradley-unrepresentative-big-surveys-vaccine-1.png" height=480&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/bradley-unrepresentative-big-surveys-vaccine-2.png" height=300&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Ein modernes Big-Data-Umfrage-Desaster
+
+.pull-left-wide[
+&lt;div align="center"&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/bradley-unrepresentative-big-surveys-vaccine-3.png" width=720&gt;
+&lt;/div&gt;
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/bradley-unrepresentative-big-surveys-vaccine-4.png" width=350&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# Das Big-Data-Paradoxon
+
+.pull-left[
+&gt; „Wenn verzerrte Stichproben groß sind, sind sie doppelt irreführend: Sie erzeugen Konfidenzintervalle mit falschen Mitteln und erheblich unterschätzter Unsicherheit. Dies ist das **Big-Data-Paradoxon**: Je umfangreicher die Daten sind, desto sicherer täuschen wir uns selbst, wenn wir die Verzerrungen bei der Datenerhebung nicht berücksichtigen.“
+
+&lt;div align="right"&gt;Bradley et al. (2021), &lt;i&gt;Nature&lt;/i&gt;&lt;/div&gt;
+
+&gt; „Die 'Größe' solcher Big Data (für Rückschlüsse auf die Population) sollte an der relativen Größe f = n/N der Stichprobe zur Population gemessen werden, nicht an der absoluten Größe n der Stichprobe.
+
+&lt;div align="right"&gt;Xiao-Li Meng (2018), &lt;i&gt;The Annals of Applied Statistics&lt;/i&gt;&lt;/div&gt;
+
+]
+
+--
+
+.pull-right[
+## Besserung durch Korrektur für endliche Grundgesamtheiten?
+
+- Die Intuition sagt uns, dass die Wahrscheinlichkeit eines Fehlers geringer sein sollte, wenn der Stichprobenumfang im Verhältnis zum Umfang der Grundgesamtheit groß ist.
+- Das stimmt auch, aber der Zugewinn ist relativ langsam.
+- Der endliche Populationskorrekturfaktor für den Standardfehler einer interessierenden Größe ist zum Beispiel gegeben durch `\(\sqrt{\frac{N-n}{N-1}}\)`. 
+
+## Beispiel
+
+- Wir führen eine Umfrage bei 100k Personen in einer Bevölkerung von 3,7 Mio. durch.
+- Für `\(N=3.7m\)` und `\(n=100k\)` ist dies `\(\sqrt{0.973}\)`.
+]
+
+
+
+---
+class: inverse, center, middle
+name: garbageingarbageout
+
+# Garbage in, Garbage out
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Garbage in, Garbage out
+
+.pull-left[
+## Das GIGO Prinzip
+- Die Qualität der Informationen, die ein Modell produziert (z.B. Vorhersagen), kann nicht besser sein als die Qualität der Informationen, die in das Modell eingespeist werden.
+- Dieser Grundsatz ist wird umso relevanter in Big-Data-Kontexten, wenn Daten unzureichend validiert oder Datenqualität schlicht nicht gegeben ist.
+- Das Problem verschärft sich potentiell in ML-Anwendungen, wenn Modelle komplex und intransparent sind.
+]
+
+.pull-right[
+&lt;div align="center"&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/gigo.png" width=480&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# Google Flu Trends
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/google-flu-nature.png" width=600&gt;
+&lt;/div&gt;
+
+`Quelle` Ginsberg et al., 2009, [Nature](https://www.nature.com/articles/nature07634)
+]
+
+.pull-right[
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/google-flu-trends-screenshot-1.jpg" width=480&gt;&lt;br&gt;
+&lt;img src="../pics/google-flu-trends-screenshot-2.jpg" width=480&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Google Flu Trends
+
+
+.pull-left-wide2[
+&lt;div align="center"&gt;
+&lt;img src="../pics/google-flu-parable-1.png" width=650&gt;
+&lt;/div&gt;
+
+`Quelle` Lazer et al., 2014, [Science](https://science.sciencemag.org/content/343/6176/1203)
+
+]
+
+.pull-right-small2[
+&lt;div align="center"&gt;&lt;br&gt;
+&lt;img src="../pics/google-flu-parable-2.png" width=500&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# Vorhersage der Rückfälligkeit von Straftätern
+
+.pull-left[
+## Hintergrund
+
+- Correctional Offender Management Profiling for Alternative Sanctions (COMPAS) ist ein von Northpointe (jetzt Equivant) entwickeltes Entscheidungshilfeinstrument, das von US-Gerichten zur **Bewertung der Rückfallwahrscheinlichkeit** eingesetzt wird.
+- Erstellt mehrere Skalen (Risiko der vorzeitigen Entlassung, allgemeine Rückfälligkeit, gewalttätige Rückfälligkeit) auf der Grundlage von Faktoren wie Alter, Vorstrafen und Drogenmissbrauch
+- Der Algorithmus ist urheberrechtlich geschützt und seine inneren Abläufe sind nicht öffentlich.
+
+&lt;br&gt;&lt;br&gt;
+
+`Quelle` [Leitfaden für Praktiker zum COMPAS Core](https://s3.documentcloud.org/documents/2840784/Practitioner-s-Guide-to-COMPAS-Core.pdf)
+]
+
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/compas-scores.png" width=450&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Vorhersage der Rückfälligkeit von Straftätern
+
+.pull-left[
+## Hintergrund
+
+- Correctional Offender Management Profiling for Alternative Sanctions (COMPAS) ist ein von Northpointe (jetzt Equivant) entwickeltes Entscheidungshilfeinstrument, das von US-Gerichten zur **Bewertung der Rückfallwahrscheinlichkeit** eingesetzt wird.
+- Erstellt mehrere Skalen (Risiko der vorzeitigen Entlassung, allgemeine Rückfälligkeit, gewalttätige Rückfälligkeit) auf der Grundlage von Faktoren wie Alter, Vorstrafen und Drogenmissbrauch
+- Der Algorithmus ist urheberrechtlich geschützt und seine inneren Abläufe sind nicht öffentlich.
+
+&lt;br&gt;&lt;br&gt;
+
+`Quelle` [Leitfaden für Praktiker zum COMPAS Core](https://s3.documentcloud.org/documents/2840784/Practitioner-s-Guide-to-COMPAS-Core.pdf)
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/compas-practitioner-1.png" width=450&gt;
+&lt;img src="../pics/compas-practitioner-2.png" width=450&gt;
+&lt;img src="../pics/compas-practitioner-3.png" width=450&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Vorhersage der Rückfälligkeit von Straftätern
+
+.pull-left[
+## Die ProPublica und andere Untersuchungen
+
+- Im Jahr 2016 veröffentlichte ProPublica eine Untersuchung, die zeigte, dass COMPAS **voreingenommen gegenüber Afroamerikanern** war
+- **Bias:** Der Algorithmus sagte bei Afroamerikanern mit höherer Wahrscheinlichkeit falsch voraus, dass Angeklagte wieder straffällig werden würden.
+- **Mangelnde Präzision:** Nur 20 % der Personen, denen Gewaltverbrechen vorhergesagt wurden, wurden tatsächlich straffällig (in einer späteren Studie wurde der Wert auf 65 % geschätzt - schlechter als eine Gruppe von Nicht-Experten)
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+`Quelle` [ProPublica 2016](https://www.propublica.org/article/how-we-analyzed-the-compas-recidivism-algorithm)
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/machine-bias-compas.png" width=430&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Vorhersage der Rückfälligkeit von Straftätern
+
+.pull-left[
+## Die ProPublica und andere Untersuchungen
+
+- Im Jahr 2016 veröffentlichte ProPublica eine Untersuchung, die zeigte, dass COMPAS **voreingenommen gegenüber Afroamerikanern** war
+- **Bias:** Der Algorithmus sagte bei Afroamerikanern mit höherer Wahrscheinlichkeit falsch voraus, dass Angeklagte wieder straffällig werden würden.
+- **Mangelnde Präzision:** Nur 20 % der Personen, denen Gewaltverbrechen vorhergesagt wurden, wurden tatsächlich straffällig (in einer späteren Studie wurde der Wert auf 65 % geschätzt - schlechter als eine Gruppe von Nicht-Experten)
+
+&lt;br&gt;&lt;br&gt;
+
+`Quelle` [Dressel and Fair, 2018, Science Advances](https://www.science.org/doi/epdf/10.1126/sciadv.aao5580)
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/dressel-compas-1.png" width=500&gt;
+&lt;img src="../pics/dressel-compas-2.png" width=385&gt;
+&lt;/div&gt;
+]
+
+
+
+
+
+
+---
+# Garbage in, Garbage out: Lessons learned
+
+.pull-left[
+1. **Messung-** und **Selektions-Fragen** sind bei der Big-Data-Analyse nach wie vor entscheidend.
+
+2. Trauen Sie **Messungen** nicht, die nicht **richtig validiert** wurden.
+
+3. Achten Sie darauf, was in ein Modell einfließt (der **Input**: Fälle, Variablen/Merkmale).
+
+4. Achten Sie auf eine angemessene **Out-of-Sample-Validierung** von Modellen.
+
+5. Vorsicht bei **unkritischer Nutzung von Online-/Sozialen Medien** als Datenquelle.
+]
+
+.pull-right-center[
+&lt;div align="center"&gt;
+&lt;img src="../pics/xkcd-2295-garbage_math.png" width=300&gt;
+&lt;/div&gt;
+`Quelle` XKCD, [2295](https://xkcd.com/2295/), ([hier erklärt](https://www.explainxkcd.com/wiki/index.php/2295:_Garbage_Math))
+]
+
+
+
+
+
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9",
+  "hash": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+  .logo {
+    background-image: url("../hertieschool-neg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 150px;
+    height: 128px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    ':not(.inverse)' +
+	
+    // add additional classes to exclude here, e.g.
+  // ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
