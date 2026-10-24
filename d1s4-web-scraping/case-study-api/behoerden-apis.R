@@ -111,3 +111,4 @@ suche$result$results |>
   unnest(resources) |>
   count(format, sort = TRUE) |>
   head(8)
+
