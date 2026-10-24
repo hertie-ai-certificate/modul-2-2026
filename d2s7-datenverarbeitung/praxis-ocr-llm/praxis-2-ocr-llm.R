@@ -1,4 +1,4 @@
-# Praxis-Session II: Von Scans zu Tabellen ---------------------------------------
+# Fallstudie OCR und Sprachmodelle: Von Scans zu Tabellen ------------------------
 # OCR, Sprachmodelle für Bereinigung und Klassifikation, saubere Ablage in CSVs
 #
 # Modul 2 "Der Daten-Lifecycle", Session 7. Simon Munzert, Hertie School.
@@ -13,7 +13,7 @@
 #      sofern ihre Ergebnisse nicht schon in daten/ liegen.
 #   3. Skript ausführen. Jeder Schritt schreibt seine Ergebnisse in einen eigenen Ordner.
 #
-# Die Dokumentation mit Erläuterungen steht in praxis-2-ocr-llm.Rmd.
+# Die Fallstudie mit Erläuterungen steht in praxis-2-ocr-llm.Rmd.
 
 source("R/pipeline.R")
 

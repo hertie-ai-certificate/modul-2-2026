@@ -1,4 +1,4 @@
-# Praxis-Session II: Von Scans zu Tabellen
+# Fallstudie OCR und Sprachmodelle: Von Scans zu Tabellen
 
 OCR, Sprachmodelle für Bereinigung und Klassifikation, saubere Ablage in CSVs. Modul 2 „Der Daten-Lifecycle“, Session 7.
 
@@ -6,7 +6,7 @@ OCR, Sprachmodelle für Bereinigung und Klassifikation, saubere Ablage in CSVs. 
 
 | Datei | Zweck |
 |---|---|
-| `praxis-2-ocr-llm.Rmd` | Dokumentation mit Erläuterungen (rendert zu HTML) |
+| `praxis-2-ocr-llm.Rmd` | Fallstudie mit Erläuterungen (rendert zu HTML) |
 | `praxis-2-ocr-llm.R` | Das reine Skript: alle Schritte in einem Durchlauf |
 | `R/pipeline.R` | Die Funktionen, die Skript und Rmd gemeinsam nutzen |
 | `erzeuge_rohdaten.R` | Erzeugt die acht Beispielscans und das Manifest (muss nur einmal laufen) |

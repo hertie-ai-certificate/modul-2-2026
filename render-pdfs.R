@@ -12,7 +12,7 @@ library(chromote)
 Sys.setenv(CHROMOTE_CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
 
 decks <- c("d1s1-ueberblick", "d1s2-datenherkunft", "d1s3-datengewinnung", "d1s4-web-scraping",
-           "d2s5-big-data-probleme", "d2s6-statistikverstehen", "d2s7-datenverarbeitung",
+           "d2s5-big-data-probleme", "d2s6-statistikverstehen",
            "d2s8-kommunikation", "d3s9-rekrutierung", "d3s11-wrapup")
 args <- commandArgs(trailingOnly = TRUE)
 if (length(args)) decks <- args
