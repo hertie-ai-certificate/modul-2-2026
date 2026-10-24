@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xfd="http://xoev.de/schemata/xfall_daten/4_0_0" xmlns:xoev-lc="http://xoev.de/latinchars/1_1/datatypes" targetNamespace="http://xoev.de/schemata/xfall_daten/4_0_0" version="4.0.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:annotation>
+    <xs:documentation>Das Paket Gewerbemeldung enthält die Nachrichten zum Transport von Daten im Kontext mit Gewerbe.</xs:documentation>
+  </xs:annotation>
+  <xs:include schemaLocation="xfall_daten_baukasten.xsd" />
+  <xs:import schemaLocation="latinchars.xsd" namespace="http://xoev.de/latinchars/1_1/datatypes" />
+  <xs:element name="gewerbe.gewerbeanmeldung.05001002">
+    <xs:annotation>
+      <xs:appinfo>
+        <rechtsgrundlage>Gewerbeordnung</rechtsgrundlage>
+      </xs:appinfo>
+      <xs:documentation>Nachricht der Gewerbeanmeldung, von der Gewerbemeldung abgeleitet.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xfd:Gewerbemeldung">
+          <xs:sequence>
+            <xs:element name="angemeldet" minOccurs="0" maxOccurs="unbounded" type="xfd:Gewerbetaetigkeit">
+              <xs:annotation>
+                <xs:documentation>Angemeldete Tätigkeit</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="anmeldegrund" minOccurs="0" maxOccurs="unbounded" type="xfd:Code.GrundGewerbeanmeldung">
+              <xs:annotation>
+                <xs:documentation>Grund Neueinrichtung / Übernahme: (Codeliste)
+Neugründung, Wiedereröffnung nach Verlegung aus einem andren Meldebezirk, Gründung nach Umwandlungsgesetz ( z.B. Verschmelzung, Spaltung), Wechsel der Rechtsform, Gesellschaftereintritt, Erbfolge/ Kauf / Pacht</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="fruehererName" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Name des früheren Gewerbetreibenden oder früherer Firmenname</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="gewerbe.gewerbeummeldung.05002002">
+    <xs:annotation>
+      <xs:appinfo>
+        <rechtsgrundlage>Gewerbeordnung</rechtsgrundlage>
+      </xs:appinfo>
+      <xs:documentation>Nachricht der Gewerbeummeldung, von der Gewerbemeldung abgeleitet.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xfd:Gewerbemeldung">
+          <xs:sequence>
+            <xs:element name="neuAusgeuebt" minOccurs="0" maxOccurs="unbounded" type="xfd:Gewerbetaetigkeit">
+              <xs:annotation>
+                <xs:documentation>Tätigkeit(en), die das Gewerbe ausführt. Die Haupttätigkeit wird mit dem Boolean Schwerpunkt versehen.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="weiterhinAusgeuebt" minOccurs="0" maxOccurs="unbounded" type="xfd:Gewerbetaetigkeit">
+              <xs:annotation>
+                <xs:documentation>Tätigkeit(en), die das Gewerbe ausführt. Die Haupttätigkeit wird mit dem Boolean Schwerpunkt versehen.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="sonstiges" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Sonstiges unter Tätigkeiten. (z.B. Betriebsverlegung innerhalb der Gemeinde oder freiwillig: Aufgabe einer von mehreren Tätigkeiten, Namensänderung, Nebenerwerb)</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="gewerbe.gewerbeabmeldung.05003002">
+    <xs:annotation>
+      <xs:appinfo>
+        <rechtsgrundlage>Gewerbeordnung</rechtsgrundlage>
+      </xs:appinfo>
+      <xs:documentation>Nachricht der Gewerbeabmeldung, von der Gewerbemeldung abgeleitet.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xfd:Gewerbemeldung">
+          <xs:sequence>
+            <xs:element name="kuenftigerName" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Name des künftigen Gewerbetreibenden oder Firmenname</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="abmeldegrund" minOccurs="0" maxOccurs="unbounded" type="xfd:Code.GrundGewerbeabmeldung">
+              <xs:annotation>
+                <xs:documentation>Grund der Aufgabe / Übergabe (Codeliste)
+Neugründung, Wiedereröffnung nach Verlegung aus einem anderen Meldebezirk, Gründung nach Umwandlungsgesetz ( z.B. Verschmelzung, Spaltung), Wechsel der Rechtsform, Gesellschaftereintritt, Erbfolge/ Kauf / Pacht</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="abgemeldet" minOccurs="0" maxOccurs="unbounded" type="xfd:Gewerbetaetigkeit">
+              <xs:annotation>
+                <xs:documentation>Tätigkeit(en), die das Gewerbe ausführt. Die Haupttätigkeit wird mit dem Boolean Schwerpunkt versehen.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="aufgabegrund" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Gründe für die Betriebsaufgabe (z.B. Alter, wirtschaftliche Schwierigkeiten, Insolvenzverfahren usw.)</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+

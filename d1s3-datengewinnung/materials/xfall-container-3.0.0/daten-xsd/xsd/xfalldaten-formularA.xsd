@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xfd="http://xoev.de/schemata/xfall/3_0/daten" xmlns:xoev-dt="http://xoev.de/schemata/basisdatentypen/1_0" targetNamespace="http://xoev.de/schemata/xfall/3_0/daten" version="3.0.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:annotation>
+    <xs:documentation>Das Paket Formular A enthält die Nachrichten zum Transport von Daten im Kontext mit dem Formular A.
+
+Die Versionierung der Nachrichten erfolgt über die Nummer. Beispiel "formularA.artA.xxxyyyy"  xxx wird für die Version von xFall
+hergenommen, yyyy für die Durchnummerierung der Nachrichten. wobei die Nachrichten im Model xFallDaten bei 100 anfangen.</xs:documentation>
+  </xs:annotation>
+  <xs:include schemaLocation="xfalldaten-baukasten.xsd" />
+  <xs:import schemaLocation="xoev-basisdatentypen.xsd" namespace="http://xoev.de/schemata/basisdatentypen/1_0" />
+  <xs:element name="formularA.artA.0300100">
+    <xs:annotation>
+      <xs:appinfo>
+        <rechtsgrundlage>"Verwaltungsverfahrensgesetz"</rechtsgrundlage>
+      </xs:appinfo>
+      <xs:documentation>Nachricht zu Formular A Art A abgeleitet von Formular A</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xfd:FormularA">
+          <xs:sequence>
+            <xs:element name="genehmigung" minOccurs="0" maxOccurs="unbounded" type="xfd:Genehmigung">
+              <xs:annotation>
+                <xs:documentation>Falls der Betriebsinhaber für die angemeldete Tätigkeit eine Erlaubnis benötigt, in der Handwerksrolle einzutragen oder Ausländer ist.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="fruehererName" minOccurs="0" type="xoev-dt:String.Latin">
+              <xs:annotation>
+                <xs:documentation>früherer Name</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="bankverbindungfuerlastschrifteneinzug" minOccurs="0" type="xfd:Bankverbindung">
+              <xs:annotation>
+                <xs:documentation>Mit diesem Element können die in Deutschland üblichen Bankverbindungsdaten angegeben werden.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="formularA.artB.0300101">
+    <xs:annotation>
+      <xs:appinfo>
+        <rechtsgrundlage>"Verwaltungsverfahrensgesetz"</rechtsgrundlage>
+      </xs:appinfo>
+      <xs:documentation>Nachricht zu Formular A Art B abgeleitet von Formular A</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xfd:FormularA">
+          <xs:sequence>
+            <xs:element name="sachbearbeiter" minOccurs="0" type="xfd:Sachbearbeiter">
+              <xs:annotation>
+                <xs:documentation>Beamter, der ein bestimmtes Sachgebiet bearbeitet</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="sonstiges" minOccurs="0" type="xoev-dt:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Sonstiges</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="datumAenderung" minOccurs="0" type="xs:dateTime">
+              <xs:annotation>
+                <xs:documentation>Datum der Änderung</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="formularA.artC.0300102">
+    <xs:annotation>
+      <xs:appinfo>
+        <rechtsgrundlage>"Verwaltungsverfahrensgesetz"</rechtsgrundlage>
+      </xs:appinfo>
+      <xs:documentation>Nachricht zu Formular A Art C abgeleitet von Formular A</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xfd:FormularA">
+          <xs:sequence>
+            <xs:element name="kuenftigerName" minOccurs="0" type="xoev-dt:String.Latin">
+              <xs:annotation>
+                <xs:documentation>künfitiger Name</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="kostenfestsetzung" minOccurs="0" type="xfd:Kostenfestsetzung" />
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+

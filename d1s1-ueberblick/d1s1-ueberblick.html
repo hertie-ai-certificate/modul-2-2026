@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Tag 1: Der Daten-Lifecycle und: Woher kommen Daten?</title>
+    <title>Der Daten-Lifecycle</title>
     <meta charset="utf-8" />
     <meta name="author" content="Simon Munzert" />
     <script src="libs/header-attrs/header-attrs.js"></script>
@@ -17,7 +17,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Tag 1: Der Daten-Lifecycle und: Woher kommen Daten?
+# Der Daten-Lifecycle
 ]
 .subtitle[
 ## Session 1: Data Science - Ein Überblick
@@ -51,7 +51,7 @@ class: center, middle, inverse, title-slide
 
 2. [Was ist Data Science?](#whatisdatascience)
 
-3. [Was kann Data Science?](#science)
+3. [Was kann Data Science in der Verwaltung – und was nicht?](#science)
 
 4. [Ziele für dieses Modul](#goals)
 
@@ -118,33 +118,61 @@ name: welcome
 
 
 
-
 ---
 # Onboarding-Befragung
 
 &lt;div align="center"&gt;
-&lt;img src="../pics/ki-1-erfahrungen.png" width=1000&gt;
+&lt;img src="../pics/onboarding-2026-ki-1-techstack.png" width=1000&gt;
 &lt;/div&gt;
 
 ---
 # Onboarding-Befragung
 
 &lt;div align="center"&gt;
-&lt;img src="../pics/ki-2-erfahrungen.png" width=1000&gt;
+&lt;img src="../pics/onboarding-2026-ki-2-erfahrungen.png" height=500&gt;
 &lt;/div&gt;
 
 ---
 # Onboarding-Befragung
 
 &lt;div align="center"&gt;
-&lt;img src="../pics/ki-3-erfahrungen.png" width=1000&gt;
+&lt;img src="../pics/onboarding-2026-ki-3-usecases.png" height=480&gt;
 &lt;/div&gt;
 
 ---
 # Onboarding-Befragung
 
 &lt;div align="center"&gt;
-&lt;img src="../pics/ki-4-erfahrungen.png" width=1000&gt;
+&lt;img src="../pics/onboarding-2026-ki-4-ki-tools-privat.png" height=500&gt;
+&lt;/div&gt;
+
+---
+# Onboarding-Befragung
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/onboarding-2026-ki-5-ki-tools-beruflich.png" height=500&gt;
+&lt;/div&gt;
+
+---
+# Onboarding-Befragung
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/onboarding-2026-ki-6-ki-tools-vergleich.png" height=480&gt;
+&lt;/div&gt;
+
+---
+# Onboarding-Befragung
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/onboarding-2026-ki-8a-assoziationen-begriffe.png" height=540&gt;
+&lt;/div&gt;
+
+
+---
+# Onboarding-Befragung
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/onboarding-2026-ki-7-quiz.png" height=480&gt;
 &lt;/div&gt;
 
 
@@ -154,11 +182,11 @@ name: welcome
 .pull-left-wide[
 &lt;br&gt;
 
-- Wir haben viele Themen vor uns. Ich habe Material vorbereitet, aber entscheidend ist: **Signalisieren Sie Ihre Interessen und Bedarfe** – ich vertiefe gerne, schwenke um oder greife andere Beispiele auf, soweit möglich.  
+- Wir haben viele Themen vor uns. Ich habe Material vorbereitet, aber entscheidend ist: **Signalisiert Eure Interessen und Bedarfe** – ich vertiefe gerne, schwenke um oder greife andere Beispiele auf, soweit möglich.  
 
-- Ich bin kein Experte für Ihre Behörde oder Ihre spezifischen Themen. **Bringen Sie Ihr Fachwissen und Ihre Erfahrung ein.** Sie bilden die Grundlage für eine fundierte, evidenzbasierte Diskussion über Data Science im öffentlichen Sektor.  
+- Ich bin kein Experte für Eure Behörde oder Eure spezifischen Themen. **Bringt Euer Fachwissen und Eure Erfahrung ein.** Sie bilden die Grundlage für eine fundierte, evidenzbasierte Diskussion über Data Science im öffentlichen Sektor.  
 
-- Bitte nutzen Sie die Gelegenheit, **jederzeit Fragen zu stellen**. Es gibt keine schlechten Fragen – jede trägt zur gemeinsamen Diskussion bei.  
+- Bitte nutzt die Gelegenheit, **jederzeit Fragen zu stellen**. Es gibt keine schlechten Fragen – jede trägt zur gemeinsamen Diskussion bei.  
 ]
 
 .pull-right-small-center[
@@ -174,9 +202,9 @@ class: exercise, center, middle
 # Diskussion
 
 .content-box-white[
-**Was möchten Sie über Daten und Data Science lernen?**
+**Was möchtet Ihr über Daten und Data Science lernen?**
 
-**Was sind Ihre Erwartungen an dieses Modul?**
+**Was sind Eure Erwartungen an dieses Modul?**
 
 **Excalidraw - **[excalidraw.com](https://excalidraw.com/)
 ]
@@ -204,10 +232,9 @@ name: whatisdatascience
 ️✎ **Zwischen Disziplinen** angesiedelt, anwendungsorientiert
 ]
 
---
 
 .pull-right-small2[
-## Eine Arbeitsdefinition
+## Eine visuelle Definition
 
 &lt;div align="center"&gt;&lt;br&gt;
 &lt;img src="../pics/venn-orig-crop.png" height=350&gt;
@@ -216,97 +243,6 @@ name: whatisdatascience
 `Quelle` [Drew Conway, 2010](https://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram) (angepasst)
 ]
 
-
----
-# Was Data Science mit KI zu tun hat
-
-.pull-left[
-
-## Künstliche Intelligenz (KI)
-
-- Teilbereich von (u.a.) Data Science, der sich mit der Automatisierung von intelligentem Verhalten befasst.
-- Praktisch alle KI-Modelle sind ohne Daten nutzlos.
-- Das "I" in KI bezieht sich in der Regel darauf, dass die Modelle **lernen** können, d.h. auf variablen Input angemessen reagieren.
-
-## Data Science 
-
-- Überbegriff für Methoden und Technologien, die auch KI mit einschließen.
-- Aber auch Methoden zur Datenerhebung, -verarbeitung, -modellierung, -visualisierung, -kommunikation, -archivierung.
-- Damit bereitet Data Science die essentielle Grundlage für KI-Anwendungen.
-
-]
-
-.pull-right[
-&lt;br&gt;
-&lt;br&gt;
-&lt;div align="center"&gt;
-&lt;img src="../pics/AI-DS-ML-2.jpeg" height=275&gt;
-&lt;a href="https://www.ejable.com/tech-corner/ai-machine-learning-and-deep-learning/data-science-artificial-intelligence-and-machine-learning/"&gt;Ekta Shah, EJable&lt;/a&gt;
-&lt;/div&gt;
-]
-
-
-
-
-
----
-# Data Science in der Forschung - mehr als KI
-
-.pull-left-small2[
-## 1. Beschreibung
-- Wie ist der Zustand der Welt?
-- Wie entwickeln sich Trends?
-- Wie gestalten sich Gruppenunterschiede?
-
-## Der Wert für die Politikgestaltung
-- Im Zentrum des **Monitorings**
-- „Wie viele Menschen konsumieren Fehlinformationen im Internet?“
-- „Wie entwickelt sich die Arbeitslosigkeit in Bezirken?“
-- „Wie viele Radunfälle gab es pro Straßenabschnitt?“
-]
-
---
-
-.pull-left-small2[
-## 2. Erklärung
-- Welche Wirkung hat eine Maßnahme?
-- Ist sie über Gruppen heterogen?
-- Was sind Wirkungsmechanismen?
-
-## Der Wert für die Politikgestaltung
-- Im Mittelpunkt der **Evaluation**
-- „Hat die Digitalisierungsmaßnahme zu Zeitersparnis geführt?“
-- „Bei wem wirkte die Anti-Fake-News-Kampagne?“
-- „Warum hat die Intervention nicht zu den erwarteten Ergebnissen geführt?“
-]
-
---
-
-.pull-left-small2[
-## 3. Vorhersage
-- Wie wird Person X sich verhalten?
-- (Wann) wird Ereignis X eintreten?
-- Zu welchem Typ gehört eine Beobachtung?
-
-
-## Der Wert für die Politikgestaltung
-- Steht im Mittelpunkt der **Vorhersage**, aber auch der **Zielsetzung** und **Messung**.
-- „Wird die Person rückfällig werden?“
-- „Enthält dieser Post Hate Speech?“
-- „Wie stark wird die Wasserverschmutzung an einem bestimmten Tag sein?“
-]
-
-
-
-
-
-
----
-background-image: url("../pics/vintage-pipeline.jpeg")
-background-size: contain
-background-color: #000000
-
-# Die Data-Science-Pipeline
 
 
 ---
@@ -489,116 +425,335 @@ background-color: #000000
 ]
 
 
+
+---
+# Was Data Science mit KI zu tun hat
+
+&lt;br&gt;
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/AI-DS-ML-2.jpeg" height=450&gt;
+&lt;a href="https://www.ejable.com/tech-corner/ai-machine-learning-and-deep-learning/data-science-artificial-intelligence-and-machine-learning/"&gt;Ekta Shah, EJable&lt;/a&gt;
+&lt;/div&gt;
+
+
+---
+# Keine KI ohne Daten
+
+.pull-left-wide2[
+### 1. Der Engpass sind die Daten, nicht die Modelle
+
+- Modelle gibt es inzwischen von der Stange: Sprachmodelle, Klassifikatoren, Prognoseverfahren.
+- Was es nicht von der Stange gibt: **die Daten Eures Hauses**. Ob eine Anwendung funktioniert, entscheidet sich an Verfügbarkeit, Qualität und Rechtsgrundlage der Daten.
+- **80/20-Faustregel aus der Praxis**: Der Großteil der Arbeit in Data-Science-Projekten entfällt auf Beschaffen, Bereinigen und Strukturieren von Daten, nicht das Modellieren.
+
+### 2. Die Verwaltung sitzt auf einem Datenschatz
+
+- Register, Fachverfahren, Akten, Statistiken: Daten entstehen überall, meist als **Nebenprodukt** von Verwaltungshandeln.
+- Häufig fragmentiert, nicht maschinenlesbar, ohne Metadaten, in Silos. Die [Datenstrategie der Bundesregierung (2023)](https://www.bundesregierung.de/breg-de/themen/digitalisierung/datenstrategie-2023-2222572) nennt das als zentrale Hürde.
+]
+
+.pull-right-small2[
+### 3. Datenkompetenz ist Führungskompetenz
+
+- Ihr entscheidet über Beschaffung, Freigabe, Datenstrategie, Teamaufbau, und bewertet die Versprechen von Anbietern.
+- Der [AI Act](https://eur-lex.europa.eu/eli/reg/2024/1689/oj) verlangt für Hochrisiko-Systeme explizit Daten-Governance (Art. 10). Wer die Datenbasis nicht beurteilen kann, kann KI-Systeme nicht verantworten.
+]
+
+
+---
+# Was das für Euch bedeutet
+
+.pull-left[
+### Typische Entscheidungen, die Datenkompetenz brauchen
+
+- **Beschaffung**: Ein Anbieter verspricht 95% Genauigkeit. Mit welchen Daten wurde das gemessen – und mit welchen wird es bei uns laufen?
+- **Vorlagen und Berichte**: Ist die Statistik auf Seite 3 belastbar? Was sagt das Dashboard wirklich?
+- **Prüfung und Aufsicht**: Woran erkennt man ein problematisches Datenprodukt, bevor es Schaden anrichtet?
+- **Freigabe und Austausch**: Welche Daten dürfen und sollten wir wie öffnen, teilen, verknüpfen, speichern?
+- **Organisation**: Was braucht eine Daten-Einheit, damit sie nach dem Pilot nicht einschläft?
+]
+
+.pull-right[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/data-based-reasoning.jpeg" width=330&gt;
+&lt;/div&gt;
+]
+
+
+
+
 ---
 class: inverse, center, middle
 name: science
 
-# Was kann Data Science?
+# Was kann Data Science in der Verwaltung – und was nicht?
 
 &lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
 
 
+
 ---
-# Das Billion-Prices-Projekt (MIT)
+# Data Science in der Forschung - mehr als KI
+
+.pull-left-small2[
+## 1. Beschreibung
+- Wie ist der Zustand der Welt?
+- Wie entwickeln sich Trends?
+- Wie gestalten sich Gruppenunterschiede?
+
+## Der Wert für die Politikgestaltung
+- Im Zentrum des **Monitorings**
+- „Wie viele Menschen konsumieren Fehlinformationen im Internet?“
+- „Wie entwickelt sich die Arbeitslosigkeit in Bezirken?“
+- „Wie viele Radunfälle gab es pro Straßenabschnitt?“
+]
+
+--
+
+.pull-left-small2[
+## 2. Erklärung
+- Welche Wirkung hat eine Maßnahme?
+- Ist sie über Gruppen heterogen?
+- Was sind Wirkungsmechanismen?
+
+## Der Wert für die Politikgestaltung
+- Im Mittelpunkt der **Evaluation**
+- „Hat die Digitalisierungsmaßnahme zu Zeitersparnis geführt?“
+- „Bei wem wirkte die Anti-Fake-News-Kampagne?“
+- „Warum hat die Intervention nicht zu den erwarteten Ergebnissen geführt?“
+]
+
+--
+
+.pull-left-small2[
+## 3. Vorhersage
+- Wie wird Person X sich verhalten?
+- (Wann) wird Ereignis X eintreten?
+- Zu welchem Typ gehört eine Beobachtung?
+
+
+## Der Wert für die Politikgestaltung
+- Steht im Mittelpunkt der **Vorhersage**, aber auch der **Zielsetzung** und **Messung**.
+- „Wird die Person rückfällig werden?“
+- „Enthält dieser Post Hate Speech?“
+- „Wie stark wird die Wasserverschmutzung an einem bestimmten Tag sein?“
+]
+
+
+---
+# Fall 1: Preisstatistik per Web Scraping
 
 .pull-left[
 &lt;div align="center"&gt;
-&lt;img src="../pics/billion-prices-0.png" height=500&gt;
+&lt;img src="../pics/billion-prices-0.png" height=480&gt;
 &lt;/div&gt;
 ]
 
 .pull-right[
 &lt;div align="center"&gt;
-&lt;img src="../pics/billion-prices-1.png" height=500&gt;
+&lt;img src="../pics/billion-prices-1.png" height=480&gt;
 &lt;/div&gt;
 ]
 
 &lt;br&gt;
-**Siehe auch:** [https://thebillionpricesproject.com/](https://thebillionpricesproject.com/) und [https://www.pricestats.com/](https://www.pricestats.com/)
+**Das Billion-Prices-Projekt (MIT):** [https://thebillionpricesproject.com/](https://thebillionpricesproject.com/) 
+
 
 ---
-# Das Billion-Prices-Projekt (MIT)
+# Fall 1: Preisstatistik per Web Scraping
 
 .pull-left[
+.font90[
+## Der Fall
+
+- Den **Verbraucherpreisindex** erstellt das [Statistische Bundesamt (Destatis)](https://www.destatis.de/DE/Themen/Wirtschaft/Preise/Verbraucherpreisindex/_inhalt.html) mit den Statistischen Landesämtern: Preiserheber notieren monatlich mehrere hunderttausend Preise in Geschäften.
+- Grundlage sind [Preisstatistikgesetz](https://www.gesetze-im-internet.de/preisstatg/) und EU-HVPI-Verordnung. Destatis gehört zum Geschäftsbereich des Innenministeriums, ist fachlich aber unabhängig ([§ 1 BStatG](https://www.gesetze-im-internet.de/bstatg_1987/__1.html)).
+- Online-Anteil im Warenkorb: 5% (Basisjahr 2005), über 10% (Basisjahr 2015); seit der Basis 2020 nicht mehr separat ausgewiesen. Rund **10.000 Produkte** wurden monatlich im Internet erhoben – lange von Hand, zu einem festen Zeitpunkt.
+- Seit 2018 automatisiert Destatis das mit einem **generischen Web-Scraping-Programm**, u.a. für Mietwagen, Medikamente, Fernbus- und Bahnreisen. Stand 2026: Web Scraping ergänzt „zunehmend die manuelle Erhebung“, dazu Transaktionsdaten für Pauschalreisen und Flüge ([Qualitätsbericht VPI, April 2026](https://www.destatis.de/DE/Methoden/Qualitaet/Qualitaetsberichte/Preise/verbraucherpreis.pdf?__blob=publicationFile)).
+]
+]
+.pull-right[
 &lt;div align="center"&gt;
-&lt;img src="../pics/billion-prices-0.png" height=500&gt;
+&lt;img src="../pics/destatis-webscraping-grafik6.png" height=430&gt;
 &lt;/div&gt;
+.font90[`Quelle` [Blaudow/Seeger (2019), WISTA 4/2019, Grafik 6](https://www.destatis.de/DE/Methoden/WISTA-Wirtschaft-und-Statistik/2019/04/fortschritte-einsatz-web-scraping-042019.pdf). Blau: reguläre Erhebung (ein Preis pro Monat), rot: stündliches Web Scraping.]
+]
+
+
+---
+# Fall 1: Preisstatistik per Web Scraping
+
+.pull-left[
+.font90[
+## Vorteile
+
+- **Viel mehr Preise, viel häufiger**: statt einem Preis pro Produkt und Monat beliebig viele; Sonderangebote und Preisschwankungen werden sichtbar (siehe Grafik).
+- Günstiger und schneller als Preiserheber im Laden; Krisenmonitoring wird möglich.
+
+## Grenzen
+
+- Online-Preise sind nicht immer gezahlte Preise. **Wer kauft wann wo?** Ohne Gewichtung ist der Index verzerrt.
+- **Produktabgrenzung** bleibt Handarbeit: Ist die Hose von heute noch die von gestern?
+- Websites ändern sich. **Wartung und Validierung** sind Dauerkosten.
+
+️✎ **Wiederkehrende Fragen:** Woher kommen Daten (Sessions 2-3)? Wen repräsentieren sie (Session 5)?
+]
 ]
 
 .pull-right[
 &lt;div align="center"&gt;
-&lt;img src="../pics/billion-prices-2.png" height=500&gt;
+&lt;img src="../pics/destatis-webscraping-grafik6.png" height=430&gt;
 &lt;/div&gt;
+.font90[`Quelle` [Blaudow/Seeger (2019), WISTA 4/2019, Grafik 6](https://www.destatis.de/DE/Methoden/WISTA-Wirtschaft-und-Statistik/2019/04/fortschritte-einsatz-web-scraping-042019.pdf). Blau: reguläre Erhebung (ein Preis pro Monat), rot: stündliches Web Scraping.]
 ]
-
-&lt;br&gt;
-**Siehe auch:** [https://thebillionpricesproject.com/](https://thebillionpricesproject.com/) und [https://www.pricestats.com/](https://www.pricestats.com/)
 
 
 ---
-# COMPAS: Vorhersage der Rückfälligkeit von Straftätern
+# Fall 2: Flächenmonitoring in der EU-Agrarförderung
 
 .pull-left[
-## Hintergrund
+.font90[
+## Der Fall
 
-- Correctional Offender Management Profiling for Alternative Sanctions (COMPAS) ist ein von Northpointe (jetzt Equivant) entwickeltes Entscheidungshilfeinstrument, das von US-Gerichten zur **Bewertung der Rückfallwahrscheinlichkeit** eingesetzt wird.
-- Erstellt mehrere Skalen (Risiko der vorzeitigen Entlassung, allgemeine Rückfälligkeit, gewalttätige Rückfälligkeit) auf der Grundlage von Faktoren wie Alter, Vorstrafen und Drogenmissbrauch
-- Der Algorithmus ist urheberrechtlich geschützt und seine inneren Abläufe sind nicht öffentlich.
+- Agrarsubventionen sind an die **Nutzung von Flächen** gebunden. Jahrzehntelang wurde das per **Vor-Ort-Kontrolle** einer Stichprobe von rund 5% der Betriebe geprüft.
+- Seit 2018 erprobt die EU **„Checks by Monitoring“**: Satellitenbilder der Copernicus-Satelliten Sentinel-1 (Radar, wetterunabhängig) und Sentinel-2 (optisch) liefern für **jede Parzelle** eine Zeitreihe über die Saison.
+- Algorithmen erkennen darin **Marker** wie Mahd, Pflügen oder Bewuchs und gleichen sie mit den Angaben der Landwirte ab.
+- Mit der GAP-Reform 2023–27 ist ein solches **Flächenmonitoringsystem** für alle Mitgliedstaaten verpflichtend ([DVO (EU) 2022/1173](https://eur-lex.europa.eu/eli/reg_impl/2022/1173/oj)).
+]
 
+.font90[`Literatur` [JRC: Checks by Monitoring](https://jrc-cbm.readthedocs.io/en/latest/dias4cbm_intro.html); [EU-Kommission: IACS und GAP 2023–27](https://agriculture.ec.europa.eu/common-agricultural-policy/financing-cap/assurance-and-audit/managing-payments_en)]
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;img src="../pics/sentinel2-basf-limburgerhof.jpg" width=520&gt;
+&lt;/div&gt;
+.font90[Sentinel-2-Aufnahme des BASF-Agrarversuchsgeländes bei Limburgerhof, 22.09.2016. `Quelle` [ESA](https://www.esa.int/ESA_Multimedia/Images/2017/02/BASF_agriculture_test_site), contains modified Copernicus Sentinel data (2016), CC BY-SA 3.0 IGO]
+]
+
+
+---
+# Fall 2: Flächenmonitoring in der EU-Agrarförderung
+
+.pull-left-wide2[
+.font90[
+## Vorteile
+
+- **Vollerhebung statt Stichprobe**, kontinuierlich, ohne Betriebsbesuch.
+- **Ampel statt Sanktion**: grün bestätigt, gelb unklar, rot widersprüchlich. Landwirte können nachbessern, bevor Strafen fällig werden.
+
+## Grenzen
+
+- Wolken, kleine Parzellen, ähnliche Kulturen: Der Klassifikator **irrt systematisch** in bestimmten Lagen.
+- Ohne verlässliche **Ground Truth** (Vor-Ort-Daten zum Trainieren und Validieren) kein verlässliches Modell.
+- Akzeptanz: Bei gelb oder rot gibt es einen **Fotoauftrag**: Landwirte müssen per Geofoto-App nachweisen, was das Modell nicht erkennt. Fast jedes Bundesland hat eine eigene App, die Mitwirkung ist meist Pflicht.
+
+️✎ **Wiederkehrende Fragen:** Was ist eine Messung, und wann ist sie valide (Session 5)? Wie validiert man ein Modell (Session 7)?
+]
+.font80[`Quellen` [Merkblatt LEA-Foto-App (RLP)](https://www.dlr.rlp.de/Internet/global/themen.nsf/71d722c50f66ecc3c12581210042df58/e5498441f2addd6ac1258cff001b2c49/$FILE/Merkblatt_LEA-Foto-App_v03.pdf); Apps: [LaFIS-GEOFOTO (ST)](https://apps.apple.com/de/app/lafis-geofoto-sachsen-anhalt/id1609577830), [HeLawi (HE)](https://apps.apple.com/de/app/helawi/id6479610318), [MonaNRW](https://apps.apple.com/de/app/monanrw/id6469783699), [LEA-Foto (RLP)](https://apps.apple.com/de/app/lea-foto/id6450749607), [LaFIS-GEOFOTO (MV)](https://apps.apple.com/de/app/lafis-geofoto-m-v/id6503684258)]
+]
+]
+
+.pull-right-small2[
+&lt;div align="center"&gt;
+&lt;img src="../pics/geofoto-app-lafis-st.png" height=300&gt;
+&lt;img src="../pics/geofoto-app-helawi.jpg" height=300&gt;
 &lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/geofoto-icon-lafis-st.jpg" height=55&gt;
+&lt;img src="../pics/geofoto-icon-helawi.jpg" height=55&gt;
+&lt;img src="../pics/geofoto-icon-monanrw.jpg" height=55&gt;
+&lt;img src="../pics/geofoto-icon-lea.jpg" height=55&gt;
+&lt;img src="../pics/geofoto-icon-lafis-mv.jpg" height=55&gt;
+&lt;/div&gt;
+.font80[Fotoaufträge in LaFIS-GEOFOTO (Sachsen-Anhalt) und HeLawi (Hessen); darunter die Geofoto-Apps von ST, HE, NRW, RLP und MV. `Quelle` App Store]
+]
 
-`Quelle` [Leitfaden für Praktiker zum COMPAS Core](https://s3.documentcloud.org/documents/2840784/Practitioner-s-Guide-to-COMPAS-Core.pdf)
+
+---
+# Fall 3: Risikoscoring
+
+.pull-left-wide2[
+.font90[
+## Die Fälle
+
+**Deutschland: Steuerverwaltung**
+
+- Seit 2017 erlaubt **§ 88 Abs. 5 AO** den Finanzämtern **Risikomanagementsysteme**: Ein Algorithmus wählt aus, welche Steuererklärungen ein Mensch prüft; der Rest wird vollautomatisch veranlagt. Die Kriterien sind per Gesetz geheim.
+- Bislang **regelbasiert** (ca. 3.000–4.000 Parameter, drei Risikoklassen); NRW testet seit 2025 KI-Unterstützung.
+
+**Niederlande: Toeslagenaffaire**
+
+- Die Steuerbehörde nutzte ein Risikomodell zur **Betrugsaufdeckung beim Kinderbetreuungszuschlag**. Ein Risikoindikator: **(doppelte) Staatsangehörigkeit**.
+- 2013–2019 wurden rund **26.000 Eltern** als Betrüger eingestuft und mussten fünfstellige Beträge zurückzahlen – überwiegend zu Unrecht.
+- Folgen: Rücktritt des Kabinetts Rutte III (Januar 2021), Bußgelder der Datenschutzbehörde (2,75 und 3,7 Mio. €), Entschädigungsprogramm. Schon 2020 hatte ein Gericht das verwandte System **SyRI** gestoppt.
+]
+]
+
+.pull-right-small2[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;img src="../pics/belastingdienst-toeslagen-enveloppen.jpg" width=330&gt;
+&lt;/div&gt;
+.font90[Briefe der Abteilung „Toeslagen“ der niederländischen Steuerbehörde. `Quelle` [mystic_mabel, Flickr via Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Belastingdienst_Toeslagen_enveloppen.jpg), CC BY-SA 2.0]
+
+.font90[`Zum deutschen Fall` [§ 88 AO](https://www.gesetze-im-internet.de/ao_1977/__88.html); [Steuertipps (2025)](https://www.steuertipps.de/finanzamt-formalitaeten/risikomanagement-und-ki-die-zukunft-der-steuerverwaltung); [Bundesrechnungshof (2025)](https://bundesrechnungshof.de/berichte/einsatz-von-risikomanagementsystemen-in-der-steuerverwaltung); [Berliner Senat (2024)](https://pardok.parlament-berlin.de/starweb/adis/citat/VT/19/SchrAnfr/S19-19967.pdf)]
+]
+
+
+---
+# Fall 3: Risikoscoring
+
+.pull-left-wide2[
+.font90[
+## Vorteile
+
+- **Routine skalieren**: Millionen Fälle sortieren, Prüfkapazität auf auffällige Fälle lenken.
+- Eingebaute Kontrolle: § 88 Abs. 5 AO verlangt eine **Zufallsauswahl** von Fällen für die vollständige Prüfung – so bleibt das System überprüfbar.
+
+## Probleme
+
+- **Verzerrte Merkmale neutralisieren**: Staatsangehörigkeit als Risikofaktor macht Diskriminierung zum Systemmerkmal.
+- **Fehlerkosten abwägen**: Eine zusätzliche Prüfung kostet wenig, eine Rückforderung kann Existenzen ruinieren. 
+
+️✎ **Wiederkehrende Fragen:** Falsch positiv, falsch negativ, Basisraten (Session 6). Datenstrategie und Governance (Session 9–10).
+]
+
+.font90[`Literatur` [§ 88 AO](https://www.gesetze-im-internet.de/ao_1977/__88.html); [Autoriteit Persoonsgegevens: Bußgeld gegen Belastingdienst (2021)](https://www.taxlive.nl/nl/documenten/nieuws/2-75-miljoen-euro-boete-voor-belastingdienst-om-toeslagenaffaire/)]
+]
+
+.pull-right-small2[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;img src="../pics/belastingdienst-toeslagen-enveloppen.jpg" width=330&gt;
+&lt;/div&gt;
+.font90[Briefe der Abteilung „Toeslagen“ der niederländischen Steuerbehörde. `Quelle` [mystic_mabel, Flickr via Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Belastingdienst_Toeslagen_enveloppen.jpg), CC BY-SA 2.0]
+
+]
+
+
+---
+# Weitere nennenswerte Fälle
+
+.pull-left[
+.font90[
+- **Predictive Policing**: PRECOBS in Bayern und Baden-Württemberg sagt Einbruchsrisiken für Gebiete vorher; die [Evaluation des Max-Planck-Instituts](https://doi.org/10.1007/s41125-018-0033-0) fand allenfalls moderate Effekte. Die automatisierte Datenanalyse mit Palantir-Software in Hessen und Hamburg erklärte das [Bundesverfassungsgericht](https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/2023/02/rs20230216_1bvr154719.html) 2023 in Teilen für verfassungswidrig.
+
+- **A-Level-Noten in England (2020)**: Weil Prüfungen pandemiebedingt ausfielen, vergab ein Algorithmus Noten, auch auf Basis der historischen Ergebnisse der jeweiligen Schule. Fast 40% der Lehrerprognosen wurden herabgestuft; nach Protesten binnen Tagen zurückgenommen ([Überblick](https://en.wikipedia.org/wiki/2020_United_Kingdom_school_exam_grading_controversy), [HEPI](https://www.hepi.ac.uk/2020/08/16/a-levels-2020-a-system-without-much-appeal/)).
+
+- **Sprachbiometrie beim BAMF**: Software schätzt aus zweiminütigen Sprachproben die Herkunftsregion von Asylsuchenden, als „Indiz“, nicht als Beweis. Fehlerquote nach BAMF-Angaben 15–20%, eine unabhängige Evaluation fehlt ([BT-Drs. 20/3238](https://dserver.bundestag.de/btd/20/032/2003238.pdf), [netzpolitik.org](https://netzpolitik.org/2020/automatisiertes-misstrauen/)).
+]
 ]
 
 .pull-right[
-&lt;div align="center"&gt;
-&lt;img src="../pics/compas-scores.png" width=450&gt;
-&lt;/div&gt;
-]
+.font90[
+- **AMS-Algorithmus (Österreich)**: Ein Modell sollte Arbeitslose nach Integrationschancen in drei Gruppen einteilen; Frauen, Ältere und gesundheitlich Beeinträchtigte bekamen Abzüge, weil sie früher schlechter vermittelt wurden. Nach fünf Jahren Rechtsstreit 2025 für zulässig erklärt, wird aber nicht eingeführt ([Allhutter et al. 2020](https://doi.org/10.3389/fdata.2020.00005), [AMS-Presseaussendung 2025](https://www.ots.at/presseaussendung/OTS_20250904_OTS0060/datenschutz-und-innovation-vereinbar-gericht-gibt-ams-nach-jahrelangem-rechtsstreit-um-ams-algorithmus-recht)).
 
+- **Corona-Warn-App (2020–2023)**: Datensparsames Design, Open Source, rund 48,7 Mio. Downloads und 9 Mio. Warnungen bei 214 Mio. Euro Kosten. Beispiel dafür, dass Datenschutz und Nutzen kein Widerspruch sein müssen, aber auch dafür, wie schwer Wirkung messbar ist, wenn man kaum Daten erhebt ([BT-Drs. 20/7845](https://dserver.bundestag.de/btd/20/078/2007845.pdf), [Quellcode](https://github.com/corona-warn-app)).
 
-
-
----
-# Vertrauen in Data Science
-
-.pull-left[
-&lt;div align="center"&gt;
 &lt;br&gt;
-&lt;img src="../pics/data-science-cool-1.png" width="500"/&gt;
-&lt;img src="../pics/data-science-cool-2.png" width="500"/&gt;
-&lt;img src="../pics/data-science-cool-5.png" width="500"/&gt;
-&lt;/div&gt;
+️✎ Auffällig: Die **spektakulären Fehlschläge** betreffen häufig **Vorhersagen über einzelne Menschen**. Die sind aber notorisch schwierig ([Salganik et al. 2020](https://www.pnas.org/doi/abs/10.1073/pnas.1915006117), [Cantrell et al. 2026](https://arxiv.org/abs/2610.17115)).
 ]
-
-.pull-left[
-&lt;div align="center"&gt;
-&lt;br&gt;
-&lt;img src="../pics/data-science-cool-4.png" width="450"/&gt;
-&lt;img src="../pics/data-science-cool-3.png" width="450"/&gt;
-&lt;img src="../pics/data-science-cool-6.png" width="450"/&gt;
-&lt;/div&gt;
 ]
-
----
-# Vertrauen in Data Science?
-
-.pull-left[
-&lt;div align="center"&gt;
-&lt;br&gt;&lt;br&gt;&lt;br&gt;
-&lt;img src="../pics/data-science-not-cool-1.png" width="500"/&gt;
-&lt;img src="../pics/data-science-not-cool-2.png" width="500"/&gt;
-&lt;/div&gt;
-]
-
-.pull-left[
-&lt;div align="center"&gt;
-&lt;br&gt;&lt;br&gt;&lt;br&gt;
-&lt;img src="../pics/data-science-not-cool-3.png" width="500"/&gt;
-&lt;img src="../pics/data-science-not-cool-4.png" width="500"/&gt;
-&lt;/div&gt;
-]
-
 
 
 ---
@@ -607,14 +762,14 @@ class: exercise, center, middle
 # Übung
 
 .content-box-white[
-**Was kann Data Science und AI tun, was nicht?**
+**Was kann Data Science und KI, was nicht?**
 
 Whiteboard | AI-Anwendungen | Performanz | Schädlichkeit
 ]
 
 
 ---
-# Was kann Data Science und AI tun, was nicht?
+# Was kann Data Science und KI tun, was nicht?
 
 &lt;div align="center"&gt;
 &lt;img src="../pics/Snakeoil-29.jpg" width="675"/&gt;
@@ -634,12 +789,36 @@ name: goals
 
 
 ---
+# Lernziele
+
+.pull-left-wide[
+## Nach diesem Modul könnt Ihr ...
+
+1. **Datentypen und Datenquellen einordnen**: strukturiert und unstrukturiert, prozessproduziert und erhoben, Formate und Standards; beurteilen, was in Eurem Haus davon vorhanden ist.
+
+2. **Datenqualität beurteilen**: Repräsentativität, Messung, Verzerrung; erkennen, wann „viele Daten“ keine guten Daten sind.
+
+3. **Statistiken und Visualisierungen kritisch lesen** und selbst so kommunizieren, dass Entscheidungen darauf aufbauen können.
+
+4. **KI-Produkte anhand ihrer Datenbasis bewerten**: Welche Daten gingen hinein, wie wurde validiert, welche Fehler kostet was?
+
+5. **Grundzüge einer datenbewussten Organisation entwerfen**: Datenstrategie, Infrastruktur, Open Data, Menschen.
+]
+
+.pull-right-small[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/Modern-Data-Scientist.png" width=300&gt;
+&lt;/div&gt;
+]
+
+
+---
 # Modulüberblick
 
 &lt;div align="center"&gt;
 &lt;img src="../pics/modul-2-ueberblick.png" height=550&gt;
 &lt;/div&gt;
-
 
 
 ---

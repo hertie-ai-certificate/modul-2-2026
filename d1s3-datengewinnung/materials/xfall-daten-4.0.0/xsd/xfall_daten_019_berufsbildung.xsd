@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xfd="http://xoev.de/schemata/xfall_daten/4_0_0" xmlns:xoev-lc="http://xoev.de/latinchars/1_1/datatypes" targetNamespace="http://xoev.de/schemata/xfall_daten/4_0_0" version="4.0.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:include schemaLocation="xfall_daten_baukasten.xsd" />
+  <xs:import schemaLocation="latinchars.xsd" namespace="http://xoev.de/latinchars/1_1/datatypes" />
+  <xs:complexType name="AngewandtesRechtsgebiet">
+    <xs:annotation>
+      <xs:documentation>Klasse zur Kapselung des angewandten Rechtsgebietes.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="fachbereichOderRechtsgebiet" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Fachbereich oder Rechtsgebiet.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="angewandteRechtsgrundlagen" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Angewandte Rechtsgrundlagen</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vermittlungszeitraum" minOccurs="0" type="xfd:Zeitraum">
+        <xs:annotation>
+          <xs:documentation>Vermittlungszeitraum</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Beschaeftigung">
+    <xs:annotation>
+      <xs:documentation>Klasse zur Kapselung von Angaben zu Beschäftigungen.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="beschaeftigungszeitraum" minOccurs="0" type="xfd:Zeitraum">
+        <xs:annotation>
+          <xs:documentation>Beschäftigungszeiten (von / bis).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nameDesArbeitgebers" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Name des Arbeitgebers / Dienststelle.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="woechentlicheArbeitszeit" minOccurs="0" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>Dauer der wöchentlichen Arbeitszeit.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="verguetungsgruppe" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Vergütungsgruppe / Entgeldgruppe.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="artDerTaetigkeit" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Art der Tätigkeit.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FachlicheEignung">
+    <xs:annotation>
+      <xs:documentation>Klasse zur Kapselung der fachlichen Eignung,
+mit Auswahl zwischen einem Wert aus einer Codeliste oder einem Freitext.</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="art" type="xfd:Code.ArtFachlicheEignung">
+        <xs:annotation>
+          <xs:documentation>Art der fachlichen Eignung als Codeliste.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="andere" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Art der fachlichen Eignung, falls nicht in der Codeliste vorhanden.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="Pruefung">
+    <xs:annotation>
+      <xs:documentation>Klasse zur Kapselung von Prüfungen mit Ergebnissen.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="bezeichnung" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Bezeichnung der bereits abgeschlossenen Berufsausbildungs-, Fortbildungs- oder Laufbahnprüfung.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="pruefungsdatum" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Prüfungsdatum</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="pruefungsnote" minOccurs="0" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>Prüfungsnote</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="berufsbildung.verzeichnisderberufsausbildungsverhaeltnisse.01901001">
+    <xs:annotation>
+      <xs:appinfo>
+        <rechtsgrundlage>§ 36 des Berufsbildungsgesetzes</rechtsgrundlage>
+      </xs:appinfo>
+      <xs:documentation>Antrag auf Eintragung in das Verzeichnis der Berufsausbildungsverhältnisse.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xfd:XFallDatensatz">
+          <xs:sequence>
+            <xs:element name="auszubildender" minOccurs="0" type="xfd:NatuerlichePerson">
+              <xs:annotation>
+                <xs:documentation>Auszubildender, Angaben zur Person.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="artUndGradBehinderung" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Art und Grad der amtlich festgestellten Behinderung.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="hoechsterSchulabschluss" minOccurs="0" type="xfd:Code.Schulabschluss">
+              <xs:annotation>
+                <xs:documentation>Höchster allgemeinbildender Schulabschluss nach Codetabelle.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="berufsvorbereitendeQualifizierung" minOccurs="0" maxOccurs="unbounded" type="xfd:Code.BVQualifizierung">
+              <xs:annotation>
+                <xs:documentation>Vorausgegangene Teilnahme an berufsvorbereitender Qualifizierung nach Codetabelle.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="beruflicheVorbildung" minOccurs="0" type="xfd:Code.BeruflicheVorbildung">
+              <xs:annotation>
+                <xs:documentation>Berufliche Vorbildung nach Codetabelle.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="artDerAusbildung" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Art der Ausbildung.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="ausbildungsfoerderungDurchDritte" minOccurs="0" maxOccurs="unbounded" type="xfd:Code.Ausbildungsfoerderung">
+              <xs:annotation>
+                <xs:documentation>Ausbildungsförderung durch Dritte nach Codetabelle.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="ausbildungsberuf" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Ausbildungsberuf.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="ausbildungszeit" minOccurs="0" type="xfd:Zeitraum">
+              <xs:annotation>
+                <xs:documentation>Ausbildungszeit als Zeitraum.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="vorgesehenesRechtsgebietFuerPraktischeAbschlusspruefung" minOccurs="0" maxOccurs="unbounded" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Vorgesehene/-s Rechtsgebiet/-e für die praktische Abschlussprüfung:
+Im Ausbildungsberuf „Verwaltungsfachangestellte/-r“ ist ein Rechtsgebiet, bei den „Fachangestellten für Bürokommunikation“ sind zwei Rechtsgebiete (Fachbereiche) anzugeben.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="ausbildungsstaette" minOccurs="0" type="xfd:Organisation">
+              <xs:annotation>
+                <xs:documentation>Ausbildungsstätte (-behörde) als Organisation.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="berufsschule" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Berufsschule.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="verwaltungsseminar" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Verwaltungsseminar.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="gesetzlicherVertreter" minOccurs="0" maxOccurs="2">
+              <xs:annotation>
+                <xs:documentation>Gesetzliche Vertreter, persönliche Angaben.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="gesetzlicherVertreter" minOccurs="0" type="xfd:NatuerlichePerson">
+                    <xs:annotation>
+                      <xs:documentation>Gesetzlicher Vertreter, Angaben zur Person.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="artGesetzlicheVertreter" minOccurs="0" type="xfd:Code.GesetzlicherVertreter">
+                    <xs:annotation>
+                      <xs:documentation>Art des gesetzlichen Vertreters als Codeliste.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="aerztlicheBescheinigung" minOccurs="0" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Eine Kopie der ärztlichen Bescheinigung über die Erstuntersuchung nach
+ § 32 Abs. 1 JArbSchG ist beigefügt.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="ausbilder" minOccurs="0" type="xfd:NatuerlichePerson">
+              <xs:annotation>
+                <xs:documentation>Ausbilder/-in, Angaben zur Person.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="ausbilderIstBeamter" minOccurs="0" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Ausbilder ist Beamter, sonst Angestellter.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="fachlicheEignung" minOccurs="0" type="xfd:FachlicheEignung">
+              <xs:annotation>
+                <xs:documentation>Art der fachlichen Eignung als Codeliste.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="berufsbildung.abschlusspruefunginanerkanntenausbildungsberufennachbbig.01902001">
+    <xs:annotation>
+      <xs:appinfo>
+        <rechtsgrundlage>Berufsbildungsgesetz</rechtsgrundlage>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xfd:XFallDatensatz">
+          <xs:sequence>
+            <xs:element name="absender" minOccurs="0" type="xfd:Organisation">
+              <xs:annotation>
+                <xs:documentation>Absender als Organisation.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="abschlusspruefung" minOccurs="0" type="xfd:Code.Pruefung">
+              <xs:annotation>
+                <xs:documentation>Die Abschlußprüfung als Codeliste.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="beruf" minOccurs="0" type="xfd:Code.Beruf">
+              <xs:annotation>
+                <xs:documentation>Der Beruf als Codeliste.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="hoechsterSchulabschluss" minOccurs="0" type="xfd:Code.Schulabschluss">
+              <xs:annotation>
+                <xs:documentation>Der höchste allgemeinbildende Schulabschluß als Codeliste.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="beruflicheVorbildung" minOccurs="0" type="xfd:Code.BeruflicheVorbildung">
+              <xs:annotation>
+                <xs:documentation>Die berufliche Vorbildung als Codeliste.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="auszubildender" minOccurs="0" type="xfd:NatuerlichePerson">
+              <xs:annotation>
+                <xs:documentation>Der Auszubildende, Angaben zur Person.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="beschaeftigungsbehoerde" minOccurs="0" type="xfd:Organisation">
+              <xs:annotation>
+                <xs:documentation>Die Ausbildungsbehörde als Organisation.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="angewandtesRechtsgebiet" minOccurs="0" maxOccurs="2" type="xfd:AngewandtesRechtsgebiet">
+              <xs:annotation>
+                <xs:documentation>Fertigkeiten und Kenntnisse des Verwaltungsverfahrens und der Rechtsanwendung wurden in folgenden/m Fachbereich/Rechtsgebieten vermittelt.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="abgelegteZwischenpruefung" minOccurs="0" type="xs:date">
+              <xs:annotation>
+                <xs:documentation>Datum der abgelegten Zwischenprüfung.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="berufsausbildungsvertragVerzeichnisNr" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Die Verzeichnisnummer des Berufsausbildungsvertrages.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="berufsschule" minOccurs="0" type="xfd:Organisation">
+              <xs:annotation>
+                <xs:documentation>Die Berufsschule als Organisation.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="ausbilder" minOccurs="0" type="xfd:NatuerlichePerson">
+              <xs:annotation>
+                <xs:documentation>Der Ausbilder, Angaben zur Person.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="verwaltungsseminar" minOccurs="0" type="xfd:Organisation">
+              <xs:annotation>
+                <xs:documentation>Das Verwaltungsseminar als Organisation.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="ausbildungsZeitraum" minOccurs="0" type="xfd:Zeitraum">
+              <xs:annotation>
+                <xs:documentation>Ausbildungszeitraum.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="zeitraumFuerFallbezogeneRechtsanwendung" minOccurs="0" type="xfd:Zeitraum">
+              <xs:annotation>
+                <xs:documentation>Der Zeitraum, in dem die Fallbezogene Rechtsanwendung vermittelt wurde.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="zusaetzlicheVermerke" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:appinfo>
+                  <title>Datentyp für lateinische Zeichen in Unicode</title>
+                </xs:appinfo>
+                <xs:documentation>Einschränkung auf lateinischen Zeichen.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="fachrichtung" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Fachrichtung für den Beruf "Fachangestellte(r) für Medien- und Informationsdienste"</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="taetigkeitsschwerpunkt" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Tätigkeitsschwerpunkt der Ausbildungsstätte</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="gewuenschterPruefungszeitraum" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Gewünschter Prüfungszeitraum (die Termine für die schriftlichen Aufsichtsarbeiten werden im Staatsanzeiger veröffentlicht etc.)</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="abgeschlossenePruefung" minOccurs="0" maxOccurs="unbounded" type="xfd:Pruefung">
+              <xs:annotation>
+                <xs:documentation>Bereits abgeschlossene Berufsausbildungs-, Fortbildungs- oder Laufbahnprüfung</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="beschaeftigung" minOccurs="0" maxOccurs="unbounded" type="xfd:Beschaeftigung">
+              <xs:annotation>
+                <xs:documentation>Beschäftigung im öffentlichen Dienst als Angestellte(r).</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="themenvorschlag" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Themenvorschlag mit stichwortartigen Erläuterungen für die praxisbezogene Projektarbeit gemäß § 23 der Prüfungsordnung.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="adaLehrgang" minOccurs="0" type="xfd:Zeitraum">
+              <xs:annotation>
+                <xs:documentation>Zeitraum für die Teilnahme am AdA-Lehrgang</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="fruehereAdaPruefung" minOccurs="0" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Frühere Teilnahme an einer Ada-Prüfung.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="teilnahmeBasislehrgang" minOccurs="0" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Teilnahme am Basislehrgang Verwaltung mit bestandener Prüfung.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="angewandteBetriebssysteme" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Während der Ausbildung in der Datenverarbeitung wurde folgende Software angewandt (nur im Ausbildungsberuf FBK), Betriebssystem.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="angewandteSoftware" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Während der Ausbildung in der Datenverarbeitung wurde folgende Software angewandt (nur im Ausbildungsberuf FBK), Anwendungssoftware.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="vorbereitungsLehrgang" minOccurs="0" type="xfd:Zeitraum">
+              <xs:annotation>
+                <xs:documentation>Beginn und Ende des Vorbereitungslahrganges.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="bezeichnungDerAbgeschlossenenBerufsausbildung" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Bezeichnung der abgeschlossenen Berufsausbildung oder Laufbahnprüfung</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="datumDerAbgeschlossenenBerufsausbildung" minOccurs="0" type="xs:date">
+              <xs:annotation>
+                <xs:documentation>Datum der abgeschlossenen Berufsausbildung oder Laufbahnprüfung</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="bildungstraeger" minOccurs="0" type="xfd:Organisation">
+              <xs:annotation>
+                <xs:documentation>Bildungsträger.
+Nur im Formular:
+Anmeldung zur Prüfung zur "Geprüften Fachkraft zur Arbeits- und Berufsförderung in Werkstätten für behinderte Menschen".</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+

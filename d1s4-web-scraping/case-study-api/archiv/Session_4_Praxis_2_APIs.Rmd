@@ -1,0 +1,386 @@
+---
+title: "Praxis-Session I: Web-APIs"
+subtitle: "Daten über Behörden-Schnittstellen beziehen: Pegelonline, XRepository (XÖV) und GovData"
+author: "Simon Munzert, Hertie School"
+date: "Modul 2, Session 4"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 2
+    number_sections: true
+    code_download: true
+    theme: flatly
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, cache = FALSE)
+```
+
+# Worum es geht
+
+Im ersten Skript haben wir Daten aus Webseiten **herausgekratzt**, die für Menschen gemacht sind. Jetzt nehmen wir den Weg, den die Anbieter für Programme vorgesehen haben: die **API** (Application Programming Interface, Programmierschnittstelle).
+
+Die Idee ist einfach. Ihr schickt eine Anfrage an eine Adresse, und zurück kommt keine Webseite, sondern **nur Daten**, fast immer als JSON, manchmal als XML. Keine Navigation, keine Werbung, keine Layoutänderungen, die Euren Scraper brechen.
+
+Drei Behörden-APIs, drei Lerneffekte:
+
+1. **Pegelonline** (Wasserstraßen- und Schifffahrtsverwaltung des Bundes): JSON lesen, filtern, kartieren. Die klassische Daten-API.
+2. **XRepository** (Koordinierungsstelle für IT-Standards): Codelisten der XÖV-Standards, wahlweise als JSON oder als XÖV-konformes XML. Hier nehmen wir ein echtes XÖV-Artefakt auseinander.
+3. **GovData** (Datenportal für Deutschland): die Metadaten-API, mit der man herausfindet, welche Daten es überhaupt gibt.
+
+```{r packages}
+library(httr2)      # Anfragen stellen
+library(jsonlite)   # JSON lesen
+library(xml2)       # XML lesen
+library(tidyverse)  # Daten verarbeiten
+library(leaflet)    # Karten
+library(DT)         # interaktive Tabellen
+```
+
+```{r user-agent}
+mein_ua <- "Hertie-School-Datenkurs (munzert@hertie-school.org)"
+```
+
+
+# Wie eine API funktioniert
+
+Eine API-Anfrage ist eine **URL**, die Ihr auch im Browser öffnen könnt. Probiert es: <https://www.pegelonline.wsv.de/webservices/rest-api/v2/waters.json>
+
+Was zurückkommt, ist JSON: eine Liste von Gewässern, jedes mit Kurz- und Langname. Dieselbe Anfrage in R:
+
+```{r first-request}
+antwort <- request("https://www.pegelonline.wsv.de/webservices/rest-api/v2/waters.json") |>
+  req_user_agent(mein_ua) |>
+  req_perform()
+
+antwort
+```
+
+Die Antwort hat einen **Statuscode** (200 heißt „alles gut“, 404 „nicht gefunden“, 401 „nicht berechtigt“) und einen **Inhalt**. Den Inhalt holen wir als JSON heraus. `jsonlite` macht aus der Liste von Objekten direkt eine Tabelle:
+
+```{r first-body}
+gewaesser <- antwort |> resp_body_string() |> fromJSON()
+head(gewaesser)
+nrow(gewaesser)
+```
+
+Das ist das Grundmuster für fast alles, was folgt:
+
+1. `request(url)`: Adresse bauen, ggf. mit Parametern.
+2. `req_perform()`: abschicken.
+3. `resp_body_string() |> fromJSON()`: Antwort in eine Tabelle verwandeln.
+
+Weil wir das oft brauchen, eine Hilfsfunktion:
+
+```{r helper}
+hole_json <- function(url, ...) {
+  request(url) |>
+    req_url_query(...) |>
+    req_user_agent(mein_ua) |>
+    req_perform() |>
+    resp_body_string() |>
+    fromJSON(flatten = TRUE)
+}
+```
+
+`req_url_query(...)` hängt Parameter an die URL an, das `?name=wert&...`, das Ihr aus Browser-Adressen kennt.
+
+
+# Pegelonline: Wasserstände in Echtzeit
+
+Die WSV betreibt rund 800 Pegel an Bundeswasserstraßen und veröffentlicht die Messwerte über eine [dokumentierte REST-API](https://www.pegelonline.wsv.de/webservice/dokuRestapi), ohne Anmeldung und ohne Schlüssel.
+
+## Alle Stationen
+
+```{r stations}
+basis <- "https://www.pegelonline.wsv.de/webservices/rest-api/v2/"
+stationen <- hole_json(paste0(basis, "stations.json"))
+nrow(stationen)
+names(stationen)
+```
+
+Durch `flatten = TRUE` ist das verschachtelte Feld `water` zu zwei Spalten `water.shortname` und `water.longname` geworden. So sieht die Tabelle aus:
+
+```{r stations-table}
+stationen |>
+  select(longname, water.longname, agency, km, latitude, longitude) |>
+  head(10)
+```
+
+## Mit Parametern: aktuelle Messwerte dazu
+
+Die API kann mehr liefern, wenn man sie darum bittet. Der Parameter `includeCurrentMeasurement=true` hängt an jede Station den letzten Messwert an:
+
+```{r stations-current}
+stationen_aktuell <- hole_json(
+  paste0(basis, "stations.json"),
+  includeTimeseries = "true",
+  includeCurrentMeasurement = "true"
+)
+```
+
+Jetzt wird es etwas unübersichtlich: `timeseries` ist eine Liste von Tabellen, eine pro Station, weil ein Pegel mehrere Messgrößen haben kann (Wasserstand, Abfluss, Temperatur). Wir ziehen den Wasserstand (`W`) heraus. Vorher benennen wir `longname` um, weil die Messreihen ebenfalls ein Feld dieses Namens haben:
+
+```{r unnest}
+pegel <- stationen_aktuell |>
+  select(uuid, pegel = longname, water = water.longname, agency, latitude, longitude, timeseries) |>
+  unnest(timeseries) |>
+  filter(shortname == "W") |>
+  select(uuid, pegel, water, agency, latitude, longitude,
+         wasserstand_cm = currentMeasurement.value,
+         zeitpunkt = currentMeasurement.timestamp,
+         status = currentMeasurement.stateMnwMhw)
+
+pegel |> count(status, sort = TRUE)
+```
+
+Der Status vergleicht den aktuellen Wert mit den langjährigen Mittelwerten: `normal`, `low`, `high`, oder `unknown`, wenn die Station keine Vergleichswerte hat. Seltene Sonderfälle (`commented`, `out-dated`) lassen wir auf der Karte weg.
+
+## Filtern und kartieren
+
+Welche Pegel betreut der WSV-Standort Berlin?
+
+```{r berlin}
+berlin <- pegel |> filter(agency == "STANDORT BERLIN")
+berlin |> select(pegel, water, wasserstand_cm, status, zeitpunkt)
+```
+
+Mit Koordinaten lässt sich das direkt auf eine Karte legen:
+
+```{r map}
+farbe <- colorFactor(c("steelblue", "firebrick", "grey60", "darkorange"),
+                     levels = c("normal", "high", "unknown", "low"))
+leaflet(pegel |> filter(!is.na(wasserstand_cm), status %in% c("normal", "high", "low", "unknown"))) |>
+  addProviderTiles(providers$CartoDB.Positron) |>
+  addCircleMarkers(
+    lng = ~longitude, lat = ~latitude, radius = 4, stroke = FALSE, fillOpacity = 0.8,
+    color = ~farbe(status),
+    popup = ~paste0("<b>", pegel, "</b><br>", water, "<br>", wasserstand_cm, " cm (", status, ")")
+  ) |>
+  addLegend("bottomright", pal = farbe, values = ~status, title = "Wasserstand")
+```
+
+## Eine Zeitreihe abrufen
+
+Für einen einzelnen Pegel liefert die API die Messwerte der letzten Tage. Die Station wird über ihre `uuid` angesprochen, der Zeitraum über `start=P7D` (die letzten 7 Tage, ISO-8601-Schreibweise):
+
+```{r timeseries}
+muehlendamm <- berlin |> filter(str_detect(pegel, "MÜHLENDAMM OP")) |> pull(uuid)
+
+messwerte <- hole_json(paste0(basis, "stations/", muehlendamm, "/W/measurements.json"), start = "P7D") |>
+  mutate(timestamp = as_datetime(timestamp))
+
+nrow(messwerte)
+
+ggplot(messwerte, aes(timestamp, value)) +
+  geom_line(color = "steelblue") +
+  labs(title = "Pegel Berlin-Mühlendamm (Oberpegel), letzte 7 Tage",
+       x = NULL, y = "Wasserstand (cm)", caption = "Quelle: Pegelonline, WSV") +
+  theme_minimal()
+```
+
+Alle 15 Minuten ein Wert, direkt aus dem Messnetz des Bundes. Das ist der Unterschied zum Scraping: Diese Daten sind **zum Abrufen gemacht**.
+
+## Aufgabe 1
+
+Sucht die Pegel in Eurem Bundesland oder an Eurem Fluss (`filter(str_detect(water, "RHEIN"))` oder `filter(agency == ...)`). Wie viele melden gerade `high` oder `low`? Holt für einen davon die Zeitreihe der letzten 30 Tage (`start = "P30D"`).
+
+
+# XRepository: XÖV-Codelisten als JSON und XML
+
+In Session 3 habt Ihr die XÖV-Standards kennengelernt. Ihre Bausteine sind unter anderem **Codelisten**: verbindliche Schlüsselverzeichnisse für Bundesländer, Staaten, Rechtsformen und vieles mehr. Wer eine XFall-Nachricht, eine XMeld-Mitteilung oder eine XRechnung baut, verwendet genau diese Codes.
+
+Die Koordinierungsstelle für IT-Standards (KoSIT) veröffentlicht sie im [XRepository](https://www.xrepository.de/), und das hat eine API. Jede Codeliste hat eine eindeutige Kennung (URN), zum Beispiel `urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bundesland`.
+
+## Als JSON
+
+```{r xrep-json}
+xrep <- "https://www.xrepository.de/api/codeliste/"
+urn_bundesland <- "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bundesland"
+
+bundesland <- hole_json(paste0(xrep, urn_bundesland, "/gueltigeVersion/json"))
+names(bundesland)
+bundesland$metadaten$nameLang
+bundesland$metadaten$version
+```
+
+Die eigentlichen Daten stehen in `daten`, die Spaltennamen in `spalten`:
+
+```{r xrep-json-table}
+spalten <- bundesland$spalten$spaltennameTechnisch
+bundesland_tbl <- bundesland$daten |> as_tibble(.name_repair = ~spalten)
+bundesland_tbl
+```
+
+Das Gleiche für die Staatenliste, die Grundlage jeder Staatsangehörigkeitsangabe in Verwaltungsverfahren:
+
+```{r xrep-staat}
+urn_staat <- "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staat"
+staat <- hole_json(paste0(xrep, urn_staat, "/gueltigeVersion/json"))
+staat_tbl <- staat$daten |> as_tibble(.name_repair = ~staat$spalten$spaltennameTechnisch)
+nrow(staat_tbl)
+staat$metadaten$version
+staat_tbl |> select(1:4) |> datatable(options = list(pageLength = 8))
+```
+
+## Als XML: ein XÖV-Artefakt auseinandernehmen
+
+Dieselbe Codeliste gibt es im Originalformat: **Genericode**, ein OASIS-Standard, den XÖV für alle Codelisten vorschreibt. Das ist XML, wie es zwischen Fachverfahren tatsächlich fließt.
+
+```{r xrep-xml}
+bundesland_xml <- request(paste0(xrep, urn_bundesland, "/gueltigeVersion/genericode")) |>
+  req_user_agent(mein_ua) |>
+  req_perform() |>
+  resp_body_xml()
+
+bundesland_xml
+```
+
+Zuerst die Struktur. `xml_structure()` zeigt den Baum, hier nur die obersten Ebenen:
+
+```{r xml-structure}
+bundesland_xml |> xml_children() |> xml_name()
+```
+
+Vier Teile, wie in jeder Genericode-Codeliste:
+
+- `Annotation`: Beschreibung und Gültigkeit,
+- `Identification`: Name, Version, URN, herausgebende Stelle,
+- `ColumnSet`: welche Spalten es gibt und welche der Schlüssel ist,
+- `SimpleCodeList`: die eigentlichen Zeilen.
+
+Das Problem beim Zugriff: Das Dokument nutzt **Namensräume** (`gc:`, `xoev-cl:`). Für den Anfang schalten wir sie aus, dann lassen sich Elemente direkt per Pfad ansprechen (XPath, das Gegenstück zu den CSS-Selektoren aus dem Scraping):
+
+```{r xml-identification}
+doc <- bundesland_xml |> xml_ns_strip()
+
+tibble(
+  feld = c("ShortName", "LongName", "Version", "CanonicalUri", "Agency/LongName"),
+  wert = map_chr(feld, \(f) doc |> xml_find_first(paste0("//Identification/", f)) |> xml_text())
+)
+```
+
+Die Spaltendefinition:
+
+```{r xml-columns}
+doc |> xml_find_all("//ColumnSet/Column") |>
+  map(\(col) tibble(id = xml_attr(col, "Id"), use = xml_attr(col, "Use"),
+                    typ = col |> xml_find_first("Data") |> xml_attr("Type"))) |>
+  list_rbind()
+```
+
+Und die Zeilen: Jede `Row` enthält `Value`-Elemente, die über `ColumnRef` sagen, zu welcher Spalte sie gehören. Daraus eine Tabelle zu machen, ist die typische XML-Arbeit:
+
+```{r xml-rows}
+zeilen <- doc |> xml_find_all("//SimpleCodeList/Row")
+
+bundesland_aus_xml <- zeilen |>
+  map(\(row) {
+    werte <- row |> xml_find_all("Value")
+    tibble(spalte = xml_attr(werte, "ColumnRef"),
+           wert   = werte |> xml_find_first("SimpleValue") |> xml_text())
+  }) |>
+  list_rbind(names_to = "zeile") |>
+  pivot_wider(names_from = spalte, values_from = wert) |>
+  select(-zeile)
+
+bundesland_aus_xml
+identical(bundesland_aus_xml$SCHLUESSEL, bundesland_tbl$SCHLUESSEL)
+```
+
+Dasselbe Ergebnis wie aus dem JSON, nur mit mehr Arbeit. Das ist der Normalfall: **JSON ist bequemer, XML ist das, was die Standards verlangen.** Wer beides lesen kann, versteht, was in den Schnittstellen seines Hauses passiert.
+
+## Der Bezug zu XFall
+
+Eine XFall-Nachricht (Session 3) enthält in ihren Bausteinen Felder wie `Staatsangehoerigkeit` oder `Bundesland`. Dort steht nicht „Niedersachsen“, sondern der Code `03` mit Verweis auf genau diese Codeliste und ihre Version. Das Fachverfahren auf der Empfängerseite schlägt den Code nach. So wird aus Freitext eine **eindeutige, validierbare** Angabe, und so hängen Datenstandards, Codelisten und Schnittstellen zusammen.
+
+## Aufgabe 2
+
+Im XRepository gibt es viele weitere Codelisten, die URNs findet Ihr auf [xrepository.de](https://www.xrepository.de/). Holt eine, die zu Eurem Haus passt (Suchbegriffe: Rechtsform, Familienstand, Dokumentart, Staatsangehörigkeit). Wie viele Einträge hat sie, wann wurde sie zuletzt aktualisiert?
+
+
+# GovData: Welche Daten gibt es überhaupt?
+
+Die dritte API liefert keine Daten, sondern **Daten über Daten**. [GovData](https://www.govdata.de/) ist das Metadatenportal der deutschen Verwaltung und läuft auf der Open-Source-Software CKAN, deren [API](https://docs.ckan.org/en/latest/api/) alle Datenportale der Welt teilen (auch daten.berlin.de, open.nrw, data.europa.eu).
+
+```{r govdata}
+ckan <- "https://ckan.govdata.de/api/3/action/package_search"
+suche <- hole_json(ckan, q = "Gewerbeanmeldung", rows = 20)
+suche$result$count
+```
+
+So viele Datensätze gibt es zu diesem Suchbegriff. Die ersten 20 im Detail:
+
+```{r govdata-table}
+treffer <- suche$result$results |>
+  as_tibble() |>
+  transmute(
+    titel        = title,
+    anbieter     = organization.title,
+    lizenz       = license_id,
+    ressourcen   = num_resources,
+    aktualisiert = as_date(metadata_modified)
+  )
+treffer |> datatable(options = list(pageLength = 8))
+```
+
+Welche Formate werden angeboten? Jeder Datensatz hat `resources`, wieder eine verschachtelte Tabelle:
+
+```{r govdata-formats}
+suche$result$results |>
+  as_tibble() |>
+  select(title, resources) |>
+  unnest(resources) |>
+  mutate(format = basename(format)) |>
+  count(format, sort = TRUE)
+```
+
+Und wer die meisten Datensätze zu einem Thema bereitstellt:
+
+```{r govdata-orgs}
+suche_gross <- hole_json(ckan, q = "Verkehr", rows = 200)
+suche_gross$result$results |>
+  as_tibble() |>
+  count(organization.title, sort = TRUE) |>
+  head(10)
+```
+
+Von hier ist es ein Schritt zu den Daten selbst: Die `url` jeder Ressource zeigt auf eine CSV-, JSON- oder XML-Datei, die Ihr mit `read_csv()` oder `hole_json()` direkt laden könnt.
+
+## Aufgabe 3
+
+Sucht nach Datensätzen Eurer Behörde oder Eures Themenfelds. Gibt es sie? In welchem Format? Unter welcher Lizenz? Wann zuletzt aktualisiert? Das ist die Perspektive, die in Session 10 (Open Data Governance) wieder aufgegriffen wird.
+
+
+# Was man noch wissen sollte
+
+## Schlüssel, Grenzen, Regeln
+
+- **API-Keys**: Viele APIs verlangen einen Schlüssel, den man sich registriert (Beispiel: die [DIP-API des Bundestags](https://dip.bundestag.de/über-dip/hilfe/api)). Der Schlüssel wird als Parameter oder im Header mitgeschickt und identifiziert Euch. Schlüssel gehören nie in geteilten Code.
+- **Rate Limits**: APIs begrenzen die Anfragen pro Minute. Antwortcode 429 heißt „zu schnell“. Pausen einbauen, Ergebnisse zwischenspeichern.
+- **Versionierung**: APIs ändern sich (`/v2/` in der Pegelonline-Adresse). Gute Anbieter kündigen das an, schlechte nicht.
+- **Nutzungsbedingungen und Lizenz**: Auch offene Daten haben eine Lizenz, meist [Datenlizenz Deutschland](https://www.govdata.de/dl-de/by-2-0) oder CC BY. Quellenangabe ist Pflicht.
+- **Dokumentation**: Die API-Beschreibung ist das Wichtigste. Ohne sie ratet Ihr. Ein guter Startpunkt für Behörden-APIs in Deutschland ist [bund.dev](https://bund.dev/), ein gemeinschaftlich gepflegtes Verzeichnis.
+
+## Die Behörde als API-Anbieterin
+
+Bis hierher wart Ihr Bezieher. Die Gegenrichtung ist für Eure Häuser mindestens so wichtig:
+
+- **Open-Data-Portale** liefern über CKAN automatisch eine API mit, ohne Zusatzaufwand.
+- **FIT-Connect**, die Übermittlungsinfrastruktur des IT-Planungsrats, ist nichts anderes als eine API, über die Online-Anträge (als XFall- oder XDatenfelder-Nachrichten) sicher bei der zuständigen Stelle ankommen. Wer einen Antragsdienst anbindet, baut einen API-Client.
+- **Registermodernisierung**: Der Datenaustausch zwischen Registern wird über standardisierte Schnittstellen laufen. Die Fähigkeit, eine API-Dokumentation zu lesen, wird zur Verwaltungskompetenz.
+
+
+# Zusammenfassung
+
+- Eine API-Anfrage ist eine URL; die Antwort sind reine Daten, meist JSON, in der Verwaltung oft XML.
+- Grundmuster in R: `request()`, Parameter mit `req_url_query()`, `req_perform()`, `resp_body_string() |> fromJSON()` oder `resp_body_xml()`.
+- Verschachtelte Antworten werden mit `unnest()` zu flachen Tabellen.
+- XML braucht mehr Arbeit (Namensräume, XPath), ist aber das Format der XÖV-Standards. Codelisten aus dem XRepository sind der direkte Draht zu XFall, XMeld und Co.
+- Metadaten-APIs wie GovData beantworten die Frage, die vor jeder Analyse steht: Welche Daten gibt es, und darf ich sie nutzen?
+
+```{r session-info, echo=FALSE}
+cat("Erstellt am", format(Sys.time(), "%d.%m.%Y %H:%M"), "mit R", getRversion() |> as.character(), "und httr2", packageVersion("httr2") |> as.character())
+```

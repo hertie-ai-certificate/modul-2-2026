@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xfd="http://xoev.de/schemata/xfall_daten/4_0_0" targetNamespace="http://xoev.de/schemata/xfall_daten/4_0_0" version="4.0.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:annotation>
+    <xs:documentation>Sammlung von technischen Datentypen, z.B.  Einschränkungen von W3C-Datentypen.</xs:documentation>
+  </xs:annotation>
+  <xs:complexType name="Identifikator">
+    <xs:annotation>
+      <xs:documentation>Typ zur Abbildung von Identifikatoren. Zeichenkette zur eindeutigen Unterscheidung einer Instanz eines Objekts innerhalb eines Identifikationsschemas von allen anderen Objekten im selben Schema mit Zusatzinformationen.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:token">
+        <xs:attribute name="schemeAgencyID" type="xs:token" use="optional">
+          <xs:annotation>
+            <xs:documentation>ID der Stelle, welche das Identifikationsschema verwaltet.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="schemeAgencyName" type="xs:string" use="optional">
+          <xs:annotation>
+            <xs:documentation>Bezeichnung der Stelle, welche das Identifikationsschema verwaltet.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="schemeDataURI" type="xs:anyURI" use="optional">
+          <xs:annotation>
+            <xs:documentation>URI, welche definiert, wo sich die Daten des Identifikationsschemas befinden.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="schemeID" type="xs:token" use="optional">
+          <xs:annotation>
+            <xs:documentation>ID des Identifikationsschemas.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="schemeName" type="xs:string" use="optional">
+          <xs:annotation>
+            <xs:documentation>Bezeichnung des Identifikationsschemas.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="schemeURI" type="xs:anyURI" use="optional">
+          <xs:annotation>
+            <xs:documentation>URI, welche definiert, wo sich das Identifikationsschema befindet.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="schemeVersionID" type="xs:token" use="optional">
+          <xs:annotation>
+            <xs:documentation>Version des Identifikationsschemas.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="PartiellesDatum">
+    <xs:annotation>
+      <xs:appinfo>
+        <title>partielles Datum, genau 8 Zeichen, erlaubt sind 0-9 und das Leerzeichen</title>
+      </xs:appinfo>
+      <xs:documentation>Partielles Datum, genau 8 Zeichen, erlaubt sind Ziffern und Leerzeichen. Dieses Datum ist im elektronischen Personalausweis gespeichert. Nicht bei allen Ausweisinhabern ist das Geburtsdatum vollständig bekannt. In der Datengrupppe DG8 wird das 
+Geburtsdatum im Format JJJJMMTT gespeichert, soweit es bekannt ist, unbekannte Teile werden durch Leerzeichen aufgefüllt.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9 ]{8}" />
+      <xs:whiteSpace value="preserve" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

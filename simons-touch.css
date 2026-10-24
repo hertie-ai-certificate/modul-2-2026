@@ -320,8 +320,27 @@ hr, .title-slide h2::after, .mline h1::after {
   font-size: 50%;
 }
 
+.font70 {
+  font-size: 70%;
+}
+
+/* Codeblöcke erben die Verkleinerung nicht (remark setzt .remark-code absolut), daher explizit */
+.font70 .remark-code {
+  font-size: 12px;
+  line-height: 1.2;
+}
+
 .font80 {
   font-size: 80%;
+}
+
+.font90 {
+  font-size: 90%;
+}
+
+/* Markdown-Tabellen: gleicher Abstand zur Überschrift wie Listen (h2 hat margin-bottom -10px) */
+.remark-slide-content table {
+  margin-top: 20px;
 }
 
 .font200 {

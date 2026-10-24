@@ -1,0 +1,141 @@
+id,datei,text_bereinigt,ocr_qualitaet,unsichere_stellen,absender,absender_adresse,datum_iso,betroffener_ort,zusammenfassung,gewuenschte_massnahme,telefon
+A01,A01_anliegen.png,"Renate Vogel - Lindenstraße 14, 31234 Musterstadt
+Stadt Musterstadt
+Bürgerservice / Mängelmelder
+Rathausplatz 1
+31234 Musterstadt
+Musterstadt, 03.09.2026
+Sehr geehrte Damen und Herren,
+seit etwa drei Wochen befindet sich vor unserem Haus in der
+Lindenstraße 14 ein tiefes Schlagloch, das inzwischen rund 40 cm breit
+ist. Gestern ist ein Radfahrer gestürzt und musste vom Rettungsdienst
+versorgt werden. Ich bitte dringend um Ausbesserung, bevor weitere
+Unfälle passieren.
+Mit freundlichen Grüßen
+Renate Vogel
+Eingang: 18.09.2026 Az. BS-2026-4704",gut,keine,Renate Vogel,NA,2026-09-03,"Lindenstraße 14, Musterstadt","Schlagloch verursacht Unfall, dringende Ausbesserung erforderlich",Ausbesserung des Schlaglochs,unbekannt (nicht genannt im Text)
+A02,A02_anliegen.jpg,"Fam. Yılmaz, Am Stadtpark 3, Musterstadt
+Stadt Musterstadt
+Bürgerservice / Mängelmelder
+Rathausplatz 1
+31234 Musterstadt
+Musterstadt, 7.9.2026
+Hallo liebes Grünflächenamt,
+am Spielplatz im Stadtpark (beim Teich) ist die Kette der groben
+Schaukel gerissen und hängt nur noch an einer Seite. Die Schaukel
+ist mit Flatterband abgesperrt, aber die Kinder nutzen sie trotzdem.
+Könnten Sie das bitte reparieren? Der Sandkasten müsste auch mal
+wieder gereinigt werden, da liegen Glasscherben.
+viele Grüße
+Familie Yilmaz
+Eingang: 18.09.2026 Az. BS-2026-3341",mittel,"- ""groben"" könnte auch ""großen"" sein (Kontextabhängig).
+- ""viele grübe"" ist vermutlich ein OCR-Fehler und wurde als ""viele Grüße"" korrigiert.  Dies ist die wahrscheinlichste Korrektur, aber nicht sicher.","Fam. Yılmaz, Am Stadtpark 3, Musterstadt",NA,2026-09-07,Spielplatz im Stadtpark (beim Teich),Gerissene Kette an Schaukel und Glasscherben im Sandkasten,Reparatur der Schaukel und Reinigung des Sandkastens,unbekannt
+A03,A03_anliegen.pdf,"Dr. Hartmut Krüger
+Bereweg 22
+31234 Musterstadt
+
+Stadt Musterstadt
+Bürgerservice / Mängelmelder
+Rathausplatz |
+31234 Musterstadt
+
+Musterstadt, 2026-09-09
+
+Betreff: Nicht abgeholte Papiertonnen
+Sehr geehrte Damen und Herren,
+am Dienstag, dem 8. September, wurden im Bergweg (Hausnummern 20
+bis 26) die blauen Papiertonnen nicht geleert, obwohl sie laut
+Abfuhrkalender dran gewesen wären. Die Tonnen stehen seitdem am
+Straßenrand. Bitte holen Sie die Abfuhr nach oder teilen Sie mir einen
+Termin mit.
+
+Hochachtungsvoll
+Dr. Hartmut Krüger
+
+Eingang: 18.09.2026 Az. BS-2026-4628",gut,,"Dr. Hartmut Krüger, Bereweg 22, 31234 Musterstadt",NA,2026-09-09,Musterstadt,Beschwerde über nicht abgeholte Papiertonnen im Bergweg 20-26,Nachholen der Abfuhr oder Mitteilung eines neuen Termins,"nicht vorhanden, **unsicher**"
+A04,A04_anliegen.png,"SS. Oswald, Mühlenweg 7
+Stadt Musterstadt
+Bürgerservice / Mängelmelder
+Rathausplatz 1
+31234 Musterstadt
+Musterstadt, 11.09.2026
+Guten Tag,
+die Straßenlaterne vor dem Haus Mühlenweg 7 ist seit mindestens zwei
+ Wochen dunkel, die Laterne gegenüber flackert. Der Gehweg ist abends
+ stockfinster, und viele ältere Leute wohnen hier. Bitte um Reparatur.
+ Danke und Gruß
+ Sabine Oswald
+Tel. 0171 2345678
+Eingang: 18.09.2026 Az. BS-2026-2646",gut,Keine erkennbaren unsicheren Stellen. Der Text ist gut lesbar.,Sabine Oswald,NA,2026-09-11,"Mühlenweg 7, Musterstadt",Mängelmelder bezüglich einer defekten Straßenlaterne (dunkel) und einer flackernden Straßenlaterne. Dunkle Gehwegbeleuchtung wird als gefährlich für ältere Menschen beschrieben.,Reparatur der Straßenlaternen,"0171 2345678 (von der Absenderin angegeben),  (unsicher: könnte auch eine Kontaktnummer für Rückfragen sein)"
+A05,A05_anliegen.jpg,"Jonas Petersen - Hafenstraße 41 : 31234 Musterstadt
+
+Stadt Musterstadt
+Bürgerservice / Mängelmelder
+Rathausplatz 1
+31234 Musterstadt
+
+Musterstadt, 12. September 2026
+
+Sehr geehrtes Ordnungsamt,
+ich wohne über der Gaststätte Zum Anker in der Hafenstraße 41. Seit
+der neue Pächter da ist, läuft an Freitagen und Samstagen bis nach
+2 Uhr nachts laute Musik auf der Terrasse. Mehrfache Bitten an den
+Betreiber haben nichts gebracht. Ich habe kleine Kinder und bitte Sie,
+einzuschreiten. Am letzten Samstag habe ich um 1:40 Uhr die Polizei
+gerufen.
+
+Mit freundlichen Grüßen
+Jonas Petersen
+
+Eingang: 18.09.2026 Az. BS-2026-8275 ",gut,,Jonas Petersen,NA,12.09.2026,"Hafenstraße 41, 31234 Musterstadt",Lärmbelästigung durch Gaststätte 'Zum Anker',Eingreifen des Ordnungsamtes,"Unbekannt/nicht angegeben, "
+A06,A06_anliegen.png,"G.u. W. Brandt -
+Feldstraße 2a |
+31234 Musterstadt
+
+Stadt Musterstadt
+Bürgerservice / Mängelmelder
+Rathausplatz 1
+31234 Musterstadt
+
+Musterstadt, 14.09.2026
+Sehr geehrte Damen und Herren.
+
+An der Kreuzung Feldstraße/Bahnhofstraße fehlt seit dem Sturm vom 10. September das Stoppschild. Es liegt umgeknickt im Gebüsch. Autofahrer fahren jetzt einfach durch. Außerdem wäre dort ein Zebrastreifen für die Schulkinder sinnvoll, das haben wir schon 2024 angeregt.
+
+Freundliche Grüße
+Gisela und Werner Brandt
+
+Eingang: 18.09.2026 Az. B5-2026-1163",mittel,"- Das Datum '14.09.26' wurde zu '14.09.2026' korrigiert. Es ist *unsicher*, ob 2026 gemeint war oder ein anderes Jahr. Die Verwendung von '26' kann je nach Kontext auch für 1926 stehen.
+- Das Datum 'I0. September' wurde zu '10. September' korrigiert. Das 'I' wurde als '1' interpretiert.
+- 'G.u.' wurde beibehalten, da die Bedeutung ohne Kontext nicht klar ist. Es könnte eine Abkürzung sein (z.B. ","G.u. W. Brandt, Feldstraße 2a, 31234 Musterstadt",NA,2026-09-14,"Kreuzung Feldstraße/Bahnhofstraße, Musterstadt",Mangelnde Stoppschild nach Sturm und Anregung für Zebrastreifen,"Erneuerung Stoppschild, Anlegen Zebrastreifen",Nicht angegeben (unsicher: evtl. über Rückverfolgung der Adresse ermittelbar?) - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* 
+A07,A07_anliegen.jpg,"Mai Nguyen, Rosenallee 12
+Stadt Musterstadt
+Bürgerservice / Mängelmelder
+Rathausplatz 1
+31234 Musterstadt
+Musterstadt, 15.09.2026
+Hallo,
+an der Ecke Rosenallee/Parkweg hat jemand nachts einen ganzen Anhänger
+voll Bauschutt, alte Farbeimer und Pamwolle abgeladen. Es stinkt nach
+Chemie, und Kinder laufen dort zur Schule. Bitte schnell abholen. Ich
+habe Fotos gemacht und kann sie schicken.
+Mai Nguyen
+Eingang: 18.09.2026 Az. BS-2026-6295
+",gut,Keine,"Mai Nguyen, Rosenallee 12, 31234 Musterstadt",NA,2026-09-15,"Ecke Rosenallee/Parkweg, Musterstadt","Meldung von illegal entsorgtem Bauschutt, Farbeimern und Pamwolle mit unangenehmem chemischen Geruch in der Nähe einer Schule. Antrag auf schnelle Abholung.",Abholung des Bauschutts,"unbekannt, keine Angabe im Text vorhanden"
+A08,A08_anliegen.pdf,"Peter Lindgvist - Kirchplatz 1 - 31234 Musterstadt
+Stadt Musterstadt
+Bürgerservice / Mängelmelder
+Rathausplatz 1
+31234 Musterstadt
+Musterstadt, 16.09.2026
+Sehr geehrte Frau Bürgermeisterin,
+ich möchte mich ausdrücklich bei den Mitarbeiterinnen des Bürgerbüros
+bedanken. Bei der Ummeldung meines Wohnsitzes am 15. September wurde
+mir sehr freundlich und schnell geholfen, obwohl ich meine Unterlagen
+ nicht vollständig hatte. Eine Anregung hätte ich dennoch: Die
+Offnungszeiten am Donnerstagabend sollten besser auf der Webseite zu
+finden sein.
+Mit besten Grüßen
+Peter Lindgvist
+Eingang: 18.09.2026 Az. BS-2026-1388
+",gut,Keine,Peter Lindgvist,NA,2026-09-16,Musterstadt,Dank und Anregung bezüglich der Webseite (Offnungszeiten Donnerstagabend).,Verbesserung der Darstellung der Öffnungszeiten auf der Webseite,unbekannt

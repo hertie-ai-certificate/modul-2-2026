@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xfd="http://xoev.de/schemata/xfall_daten/4_0_0" xmlns:xoev-lc="http://xoev.de/latinchars/1_1/datatypes" targetNamespace="http://xoev.de/schemata/xfall_daten/4_0_0" version="4.0.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:include schemaLocation="xfall_daten_baukasten.xsd" />
+  <xs:import schemaLocation="latinchars.xsd" namespace="http://xoev.de/latinchars/1_1/datatypes" />
+  <xs:element name="strassenverkehr.anwohnerparkausweis.10801001">
+    <xs:annotation>
+      <xs:appinfo>
+        <rechtsgrundlage>Straßenverkehrsgesetz</rechtsgrundlage>
+      </xs:appinfo>
+      <xs:documentation>Nachricht zur Anforderung eines Anwohnerparkausweises.
+Dieser kann für ein eigenes oder fremdes, aber dauerhaft genutztes, Fahrzeug gestellt werden.
+Es kann auch eine dritte Person damit beauftragt werden.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xfd:XFallDatensatz">
+          <xs:sequence>
+            <xs:element name="artDesAntrags" minOccurs="0" type="xfd:Code.ArtAnwohnerParkausweis">
+              <xs:annotation>
+                <xs:documentation>Die Art des Antrags als Codeliste.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="kfzKennzeichen" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Das amtliche Kennzeichen.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="selbstHalter" minOccurs="0" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Ich bin Halter (-in) des oben genannten Kraftfahrzeuges.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="parkzone" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Die Parkzone.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="gueltigBis" minOccurs="0" type="xs:date">
+              <xs:annotation>
+                <xs:documentation>Die Dauer der Gültigkeit.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="vollmacht" minOccurs="0" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Ich habe nicht die Möglichkeit persönlich zu erscheinen und bevollmächtige daher.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="einverstaendnisMelderegister" minOccurs="0" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Mit der Anschriftenüberprüfung im Melderegister bin ich einverstanden.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="halter" minOccurs="0" type="xfd:Person">
+              <xs:annotation>
+                <xs:documentation>Angaben zum Fahrzeughalter.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="bevollmaechtigter" minOccurs="0" type="xfd:NatuerlichePerson">
+              <xs:annotation>
+                <xs:documentation>Bevollmächtiger, der den Bewohnerparkausweis beantragen und entgegennehmen darf.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+

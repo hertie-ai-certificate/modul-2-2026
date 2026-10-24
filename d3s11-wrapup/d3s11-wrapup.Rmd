@@ -1,5 +1,5 @@
 ---
-title: "Tag 3: Auf dem Weg zur datenbewussten Organisation"
+title: "Der Daten-Lifecycle"
 subtitle: "Session 11: Wrap-up und Ausblick"
 author: "Simon Munzert"
 institute: "Hertie School"
@@ -149,17 +149,43 @@ name: aufgabe
 
 
 ---
-# Abschlussaufgabe
+# Abschlussaufgabe: zwei Optionen
+
+.pull-left[
+## Option 1: Der Daten-Podcast
+
+- Eine Podcast-Aufnahme **zu zweit oder zu dritt**, schwerpunktmäßig zu **zwei Themen, die Kern des Kurses waren**.
+- Länge: maximal **20 Minuten** (2 Personen) bzw. **30 Minuten** (3 Personen).
+- Einzureichen: **Audiodatei, Transkript und Shownotes**.
+- Inhaltliche Bausteine und technische Hinweise auf den nächsten Folien.
+]
+
+.pull-right[
+## Option 2: Daten-Literacy-Training
+
+- Ein Trainingskonzept **für die eigene Behörde**, ebenfalls zu zweit oder zu dritt.
+- Thema aus dem Kurs, das in Eurem Haus einen Unterschied machen würde.
+- Einzureichen: **One-Pager** (Konzept) und **Foliendeck** (8 bis 12 Folien).
+- Weitere Hinweise auf den nächsten Folien.
+]
+
+<br>
+
+️✎ **Für beide Optionen gilt:** 50% der Modulnote. Abgabe bis **23. November 2026** über Moodle, ein Upload pro Team. Details im Syllabus.
+
+
+---
+# Option 1: Der Daten-Podcast
 
 .pull-left-vwide[
 
-Erstellen Sie gemeinsam mit einem/einer Kursteilnehmer/in eine Podcast-Aufnahme, die mindestens 2 der 3 folgenden Elemente beinhaltet. 
+Erstellt gemeinsam mit einer oder zwei weiteren Kursteilnehmenden eine Podcast-Aufnahme, die mindestens 2 der 3 folgenden Elemente beinhaltet.
 
-1. **Einblick in einen Daten-Use-Case aus Ihrer Behörde**: Stellen Sie einen interessanten Fall aus Ihrer Arbeit vor, bei dem Daten eine zentrale Rolle spielen – z.B. ein innovatives Projekt, ein internes Verfahren, etc. Das kann ein Best- oder Worst-Practice-Beispiel sein (oder etwas dazwischen). Gehen Sie dabei auch auf Konzepte aus dem Kurs ein, z.B. Datenqualität, Schnittstellen, Weiternutzung, etc.
+1. **Einblick in einen Daten-Use-Case aus Eurer Behörde**: Stellt einen interessanten Fall aus Eurer Arbeit vor, bei dem Daten eine zentrale Rolle spielen – z.B. ein innovatives Projekt, ein internes Verfahren, etc. Das kann ein Best- oder Worst-Practice-Beispiel sein (oder etwas dazwischen). Geht dabei auch auf Konzepte aus dem Kurs ein, z.B. Datenqualität, Schnittstellen, Weiternutzung, etc.
 
-2. **Daten-Fail der Woche**: Bringen Sie einen aktuellen Nachrichtenartikel, Blogbeitrag oder Social-Media-Post mit, in dem eine problematische oder missverständliche Datennutzung beschrieben wird (kann, muss aber nicht KI-bezogen sein). Diskutieren Sie gemeinsam, was schiefgelaufen ist und was man daraus für den Umgang mit Daten lernen kann. Als Inspiration kann der Podcast *More or Less: Behind the Stats* dienen.
+2. **Daten-Fail der Woche**: Bringt einen aktuellen Nachrichtenartikel, Blogbeitrag oder Social-Media-Post mit, in dem eine problematische oder missverständliche Datennutzung beschrieben wird (kann, muss aber nicht KI-bezogen sein). Diskutiert gemeinsam, was schiefgelaufen ist und was man daraus für den Umgang mit Daten lernen kann. Als Inspiration kann der Podcast *More or Less: Behind the Stats* dienen.
 
-3.  **Blick in die Zukunft**: Diskutieren Sie Ihre Vision für den zukünftigen Umgang mit Daten in Ihrer Behörde oder Einheit.
+3.  **Blick in die Zukunft**: Diskutiert Eure Vision für den zukünftigen Umgang mit Daten in Eurer Behörde oder Einheit.
 ]
 
 .pull-right-vsmall[
@@ -175,7 +201,7 @@ Erstellen Sie gemeinsam mit einem/einer Kursteilnehmer/in eine Podcast-Aufnahme,
 
 
 ---
-# Technische Hinweise
+# Option 1: Technische Hinweise
 
 .pull-left-vwide[
 ## Tonaufnahme
@@ -184,6 +210,11 @@ Erstellen Sie gemeinsam mit einem/einer Kursteilnehmer/in eine Podcast-Aufnahme,
 - Nutzt eine App wie [Voice Memos](https://apps.apple.com/us/app/voice-memos/id1069512134) (iOS), [Voice Recorder](https://play.google.com/store/apps/details?id=com.media.bestrecorder.audiorecorder) (Android) oder [Audacity](https://www.audacity.de/) (Windows, Mac, Linux). Nehmt am besten redundant auf, also mit zwei Geräten.
 - Nutzt die Aufnahmefunktion von [Zoom](https://www.heise.de/tipps-tricks/Zoom-Meeting-aufzeichnen-so-geht-s-4690035.html), [Teams](https://support.microsoft.com/de-de/office/aufzeichnen-einer-besprechung-in-microsoft-teams-34dfbe7f-b07d-4a27-b4c6-de62f1348c24), etc.
 - Nutzt Kopfhörer, um Rückkopplungen zu vermeiden.
+
+## KI-Einsatz
+
+- **Selbst einsprechen ist Pflicht.** KI-generierte Audio-Podcasts (NotebookLM, ElevenLabs o.Ä.) sind nicht erlaubt.
+- KI-Unterstützung bei der Skript- oder Fragenentwicklung ist in Ordnung. Prüft die Inhalte aber genau: Ihr steht mit Eurer Stimme dafür.
 ]
 
 .pull-right-vsmall[
@@ -194,20 +225,20 @@ Erstellen Sie gemeinsam mit einem/einer Kursteilnehmer/in eine Podcast-Aufnahme,
 ]
 
 ---
-# Technische Hinweise
+# Option 1: Technische Hinweise
 
 .pull-left-vwide[
 ## Länge und Gruppen
 
 **Länge der Aufnahme: Maximal 20 Minuten.** Es sind auch Aufnahmen einer dreiköpfigen Gruppe möglich (dann Länge max. 30 Minuten).
 
-**Team-Bildung:** Wenn Ihr Euch schon als Team zusammengefunden habt, teilt mir das bitte bis nächsten Montag, 13. Oktober, 18 Uhr mit. Alle anderen Teams stelle ich zusammen.
+**Team-Bildung (für beide Optionen):** Wenn Ihr Euch schon als Team zusammengefunden habt, teilt mir das bitte bis **Montag, 2. November, 18 Uhr** mit, zusammen mit Eurer gewählten Option. Alle anderen Teams stelle ich zusammen.
 
 
 ## Schnitt/Zusammenführung/Format
 
 - Ich erwarte keine aufwändige Postproduktion. Es reicht, wenn Ihr die Aufnahme am Anfang und am Ende kürzt und die beiden Teile zusammenfügt (wenn nicht sowieso durch Aufnahme mit einem Gerät erledigt).
-- Als Format der Aufnahme wählt bitte `mp3` oder `m4a`. Reicht die Datei bis **12. November** über Moodle ein. Ein Upload pro Team reicht.
+- Als Format der Aufnahme wählt bitte `mp3` oder `m4a`. Dazu ein **Transkript** (automatisch erzeugt reicht, z.B. mit Word, Teams oder Whisper) und **Shownotes** mit den besprochenen Quellen.
 ]
 
 .pull-right-vsmall[
@@ -216,6 +247,65 @@ Erstellen Sie gemeinsam mit einem/einer Kursteilnehmer/in eine Podcast-Aufnahme,
 <img src="../pics/my-first-sony.png" height="220"/>
 </div>
 ]
+
+
+
+---
+# Option 2: Daten-Literacy-Training für die eigene Behörde
+
+.pull-left[
+.font90[
+## Die Aufgabe
+
+- Wählt **ein Thema aus dem Kurs**, das in Eurem Haus einen Unterschied machen würde: Datenqualität, Schnittstellen, Statistiken richtig lesen, Visualisierung, KI-Werkzeuge im Arbeitsalltag.
+- Konzipiert dazu ein **kurzes Training für eine konkrete Zielgruppe** in Eurer Behörde.
+- Bearbeitung wie beim Podcast **zu zweit oder zu dritt**.
+
+## Worauf ich achte
+
+- Der Einstieg macht klar, **warum das Thema für die Zielgruppe relevant** ist, am besten an einem Beispiel aus Eurem Haus.
+- Mindestens **ein aktivierendes Element**: Übung, Diskussionsfrage, Beispieldatensatz oder Quiz.
+- Konzepte aus dem Kurs sind **in die Sprache der Zielgruppe übersetzt**.
+]
+]
+
+.pull-right[
+.font90[
+## Abzugeben sind zwei Dinge
+
+**1. Ein One-Pager**, der das Training auf einer Seite beschreibt:
+
+- **Was** Ihr anbietet: Thema, Lernziele, Format und Dauer
+- **Für wen** es gedacht ist: Zielgruppe und deren Vorwissen
+- **Von wem** es durchgeführt wird, samt dem, was es an Vorbereitung, Technik und Daten braucht
+
+**2. Ein Foliendeck** für eine kurze Session mit **etwa acht bis zwölf Folien**.
+]
+]
+
+
+---
+# Option 2: Hinweise zur Umsetzung
+
+.pull-left[
+## KI-Einsatz
+
+- **Erlaubt**, für Konzept, Text und Folien.
+- Das Ergebnis muss aber **aus einem Guss** sein: eine Sprache, eine Logik, ein Format, nicht fünf zusammengeklebte Antworten.
+- Und es sollte **auf Eure Zielgruppe passen**.
+
+
+## Eigene Beispiele
+
+- Bitte **keine Beispiele unverändert aus dem Kurs übernehmen**.
+- Nutzt am besten **eigene Beispiele aus Eurem Haus**: ein Datensatz, eine Statistik, ein Dashboard, ein Formular, das Eure Zielgruppe kennt. Inspiriert vom Kurs darf es natürlich sein.
+]
+
+.pull-right[
+
+️✎ Bewertet wird nicht die Folienästhetik, sondern ob das Training bei Eurer Zielgruppe ankommen würde.
+]
+
 
 
 

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xfd="http://xoev.de/schemata/xfall/3_0/daten" xmlns:xoev-dt="http://xoev.de/schemata/basisdatentypen/1_0" targetNamespace="http://xoev.de/schemata/xfall/3_0/daten" version="3.0.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:annotation>
+    <xs:documentation>Das Paket Formular A enthält die Nachrichten zum Transport von Daten im Kontext mit dem Formular A.</xs:documentation>
+  </xs:annotation>
+  <xs:include schemaLocation="xfalldaten-baukasten.xsd" />
+  <xs:import schemaLocation="xoev-basisdatentypen.xsd" namespace="http://xoev.de/schemata/basisdatentypen/1_0" />
+  <xs:element name="formularB.art.0300110">
+    <xs:annotation>
+      <xs:appinfo>
+        <rechtsgrundlage>Verwaltungsverfahrensgesetz</rechtsgrundlage>
+      </xs:appinfo>
+      <xs:documentation>FormularB</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xfd:XFallDatensatz">
+          <xs:sequence>
+            <xs:element name="sachbearbeiter" minOccurs="0" type="xfd:Sachbearbeiter">
+              <xs:annotation>
+                <xs:documentation>Beamter, der ein bestimmtes Sachgebiet bearbeitet</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="auflagen" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Auflagen</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="beschreibungDerAuflagen" type="xoev-dt:String.Latin">
+                    <xs:annotation>
+                      <xs:appinfo>
+                        <title>Datentyp für lateinische Zeichen in Unicode</title>
+                      </xs:appinfo>
+                      <xs:documentation>Einschränkung auf alle lateinischen Zeichen innerhalb Unicode (vgl. XÖV-Handbuch).</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+

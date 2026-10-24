@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xfc="http://xoev.de/schemata/xfall/3_0/container" targetNamespace="http://xoev.de/schemata/xfall/3_0/container" version="3.0.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:annotation>
+    <xs:documentation>Einzige Hauptgruppe im Standard xFall, die die universell gültigen Elemente des Containers zur Abwicklung eines vollständigen Antragsverfahren beschreibt.
+Die Versionierung der Nachrichten erfolgt über die Nummer. Beispiel "application.transport.xxxyyyy" xxx wird für die Version von xFall hergenommen, yyyy für die Durchnummerierung der Nachrichten.</xs:documentation>
+  </xs:annotation>
+  <xs:include schemaLocation="xfallcontainer-baukasten.xsd" />
+  <xs:element name="application.transport.0300001">
+    <xs:annotation>
+      <xs:appinfo>
+        <rechtsgrundlage>Verwaltungsverfahrensgesetz</rechtsgrundlage>
+      </xs:appinfo>
+      <xs:documentation>Transport eines Gesamtantrags zwischen den Partnern. Der Gesamtantrag besteht aus mehreren Teilobjekten (u.a. Partner, Hauptantrag, Teilantrag). Dies ist die immer erste Nachricht für die Abwicklung eines kompletten, fallbezogenen Antragsverfahren. Diese Nachricht wird auch als Antwort auf eine Nachricht "application.transportRequest" verwendet werden.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="header" type="xfc:Header">
+          <xs:annotation>
+            <xs:documentation>Der Nachrichtenkopf (Header) enthält eindeutige Information zur übertragenden Nachricht.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="implementation" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Offene Klasse zur Umsetzung (Implementation) von zusätzlichen, nicht in xFall definierten Informationen in die vorhandene Struktur. Damit ist es Dritten möglich, eigene Inhalte innerhalb eines Vorhabens zu übertragen.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="partner" minOccurs="0" maxOccurs="unbounded" type="xfc:Partner">
+          <xs:annotation>
+            <xs:documentation>Partner sind die beteiligten Akteure beim Anwendungsfall „Antrag transportieren“. Dies ist die Vorhabenverwaltung des Antragstellers,  über das der Antragsteller seine Anträge verwaltet. Eventuell der einheitliche Ansprechpartner (EA), der die Anträge weiterleitet und die zuständige Stelle (ZS), welche die Anträge bearbeitet.
+Der Partner  enthält die Adress- und Kommunikationsdaten, der an dem Antrag beteiligten Partner.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="mainApplication" minOccurs="0" type="xfc:MainApplication">
+          <xs:annotation>
+            <xs:documentation>Der Hauptantrag (MainApplication) identifiziert und beschreibt das Gesamtvorhaben zu dem die nachfolgenden Teilanträge gehören.
+
+Beispiel:
+Bäckerei (Vorhaben)
+- Gewerbeanmeldung (Teilantrag)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="partialApplication" maxOccurs="unbounded" type="xfc:PartialApplication">
+          <xs:annotation>
+            <xs:documentation>Der Teilantrag (PartialApplication) enthält alle Informationen zur Beantragung einer Verwaltungsleistung. Dies beinhaltet die  verschiedenen Anträgen und Formalitäten zur Aufnahme und Ausübung einer Dienstleistungstätigkeit, wie z.B. Erklärungen, Anmeldungen, Beantragung von Genehmigungen bei den zuständigen Behörden, Beantragung von Einträgen in Register, in Berufsrollen, in Datenbanken und Registrierung bei Berufsverbänden oder Berufsorganisationen.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="application.update.0300002">
+    <xs:annotation>
+      <xs:appinfo>
+        <rechtsgrundlage>Verwaltungsverfahrensgesetz</rechtsgrundlage>
+      </xs:appinfo>
+      <xs:documentation>Transport einer Änderung des Antrags zwischen den Partnern. Die Änderung besteht aus mehreren Teilobjekten (u.a. Partner, Status, Fristen, Dokumenten). Es müssen immer alle Partner eines Typs mitgeschickt werden.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="header" type="xfc:Header">
+          <xs:annotation>
+            <xs:documentation>Der Nachrichtenkopf (Header) enthält eindeutige Information zur übertragenden Nachricht.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="partner" minOccurs="0" maxOccurs="unbounded" type="xfc:Partner">
+          <xs:annotation>
+            <xs:documentation>Partner sind die beteiligten Akteure beim Anwendungsfall „Antrag transportieren“. Dies ist die Vorhabenverwaltung des Antragstellers,  über das der Antragsteller seine Anträge verwaltet. Eventuell der einheitliche Ansprechpartner (EA), der die Anträge weiterleitet und die zuständige Stelle (ZS), welche die Anträge bearbeitet.
+Der Partner  enthält die Adress- und Kommunikationsdaten, der an dem Antrag beteiligten Partner.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="document" minOccurs="0" type="xfc:Document">
+          <xs:annotation>
+            <xs:documentation>Eine zum Teilantrag gehörige Unterlage in verschiedenen Dokumenten-Repräsentationen, z.B. PDF oder eine Datendarstellung. Es muss immer das komplette Dokument mit allen Repräsentationen übertragen werden.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="status" minOccurs="0" type="xfc:Status">
+          <xs:annotation>
+            <xs:documentation>Ein Status-Objekt enthält Informationen zum Prozessstatus. Damit werden z.B. die Statusänderungen, der Zustand der Bearbeitungsprozesse übermittelt, sowie in technischer wie in fachlicher Hinsicht. Auch die Antragsrücknahme soll mit einem Statusupdate transportiert werden.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="deadline" minOccurs="0" type="xfc:Deadline">
+          <xs:annotation>
+            <xs:documentation>Informationen zu laufenden Fristen eines Teilantrags. Diese Fristen beziehen sich nur auf die Genehmigungsfiktion.Voraussetzung für den Eintritt der Fiktion ist das Fehlen einer Entscheidung innerhalb der dafür festgelegten Frist. Die Genehmigungsfiktion tritt dann mit Fristablauf ein. Der Fristablauf ersetzt auch die wirksame Bekanntgabe des fingierten Verwaltungsaktes. Im Übrigen entfaltet die Genehmigungsfiktion die gleiche Wirkung wie ein entsprechender ordnungsgemäß zustande gekommener und bekannt gegebener Verwaltungsakt.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="application.message.0300003">
+    <xs:annotation>
+      <xs:appinfo>
+        <rechtsgrundlage>Verwaltungsverfahrensgesetz</rechtsgrundlage>
+      </xs:appinfo>
+      <xs:documentation>Transport von Information in Freitext,. z.B. anstatt einer E-Mail oder eines Telefonanrufes.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="header" type="xfc:Header">
+          <xs:annotation>
+            <xs:documentation>Der Nachrichtenkopf (Header) enthält eindeutige Information zur übertragenden Nachricht.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="message" type="xfc:Message">
+          <xs:annotation>
+            <xs:documentation>Diese Klasse enthält alle Informationen für den Transport einer freien Nachrichten.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="application.response.0300004">
+    <xs:annotation>
+      <xs:appinfo>
+        <rechtsgrundlage>Verwaltungsverfahrensgesetz</rechtsgrundlage>
+      </xs:appinfo>
+      <xs:documentation>Transport einer Antwort, diese wird durch jede Nachricht ausgelöst. Auf diese Nachricht darf nicht mit einer weiteren Nachricht "Antwort" geantwortet werden. Die MessageID der Antwort wird im Feld header/messageID und die MessageID der Nachricht, auf die geantwortet wird, im Feld response/refMessageID abgelegt.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="header" type="xfc:Header">
+          <xs:annotation>
+            <xs:documentation>Der Nachrichtenkopf (Header) enthält eindeutige Information zur übertragenden Nachricht.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="response" type="xfc:Response">
+          <xs:annotation>
+            <xs:documentation>Die Response ist eine Antwort auf eine beliebige xFall Nachricht und dient rein technischen Zwecken.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="status" type="xfc:Status">
+          <xs:annotation>
+            <xs:documentation>Ein Status-Objekt enthält Informationen zum Prozessstatus. Damit werden z.B. die Statusänderungen, der Zustand der Bearbeitungsprozesse übermittelt, sowie in technischer wie in fachlicher Hinsicht. Auch die Antragsrücknahme soll mit einem Statusupdate transportiert werden.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="application.indexRequest.0300005">
+    <xs:annotation>
+      <xs:appinfo>
+        <rechtsgrundlage>Verwaltungsverfahrensgesetz</rechtsgrundlage>
+      </xs:appinfo>
+      <xs:documentation>Transport der Suchkriterien, zur Abfrage auf vorhandene Antragsverfahren, die von einem Verwaltungs-Client angefordert (heruntergeladen) werden können.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="header" type="xfc:Header">
+          <xs:annotation>
+            <xs:documentation>Der Nachrichtenkopf (Header) enthält eindeutige Information zur übertragenden Nachricht.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="indexRequest" minOccurs="0" maxOccurs="unbounded" type="xfc:IndexRequest">
+          <xs:annotation>
+            <xs:documentation>Diese Klasse enthält die Suchkriterien, zur Abfrage auf vorhandene Antragsverfahren, die von einem Client angefordert werden können.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="application.indexResponse.0300006">
+    <xs:annotation>
+      <xs:appinfo>
+        <rechtsgrundlage>Verwaltungsverfahrensgesetz</rechtsgrundlage>
+      </xs:appinfo>
+      <xs:documentation>Transport eines Indexes der abholbaren Teilanträge. Liste von Schlüsseln, nach denen man gezielt Teilanträge abfragen kann, um entsprechende Informationen abzurufen. Mit Hilfe eines Index kann man sehr schnell und direkt auf bestimmte Informationen innerhalb einer großen Datenmenge zugreifen.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="header" type="xfc:Header">
+          <xs:annotation>
+            <xs:documentation>Der Nachrichtenkopf (Header) enthält eindeutige Information zur übertragenden Nachricht.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="index" minOccurs="0" maxOccurs="unbounded" type="xfc:Index">
+          <xs:annotation>
+            <xs:documentation>Diese Klasse dient zur Übertragung eines Kurzsteckbriefs für Teilanträge. Der Steckbrief enthält eine knappe, listenartige Darstellung der wichtigsten Daten zu einem Teilantrag, um diesen zu identifizieren.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="application.transportRequest.0300007">
+    <xs:annotation>
+      <xs:appinfo>
+        <rechtsgrundlage>Verwaltungsverfahrensgesetz</rechtsgrundlage>
+      </xs:appinfo>
+      <xs:documentation>Diese Nachricht dient als Anfrage zur Abholung eines eindeutig identifizierten Teilantrags.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="header" type="xfc:Header">
+          <xs:annotation>
+            <xs:documentation>Der Nachrichtenkopf (Header) enthält eindeutige Information zur übertragenden Nachricht.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="transportRequest" type="xfc:TransportRequest">
+          <xs:annotation>
+            <xs:documentation>Die Transport-Anfrage (TranportRequest) überträgt die Teilantragsnummer als Schlüssel. Diese dient zur Abholung eines bestimmten Teilantrags. Ein Schlüssel ist eine Zeichenfolge oder die Kombination aus mehreren Zeichenfolgen, um damit jede Formation aus Daten, die gesammelt und verarbeitet werden, eindeutig und unverwechselbar zu identifizieren.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+

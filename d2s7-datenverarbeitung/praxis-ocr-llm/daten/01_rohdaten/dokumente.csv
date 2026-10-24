@@ -1,0 +1,9 @@
+id,datei,absender,absender_adresse,datum,betroffener_ort,kategorie,dringlichkeit
+A01,A01_anliegen.png,Renate Vogel,"Lindenstraße 14, 31234 Musterstadt",03.09.2026,"Lindenstraße, Höhe Hausnummer 14",Straßen und Verkehr,hoch
+A02,A02_anliegen.jpg,Familie Yilmaz,"Am Stadtpark 3, 31234 Musterstadt",7.9.2026,"Stadtpark, Spielplatz am Teich",Grünflächen und Spielplätze,mittel
+A03,A03_anliegen.pdf,Dr. Hartmut Krüger,"Bergweg 22, 31234 Musterstadt",2026-09-09,Bergweg 20 bis 26,Abfall und Sauberkeit,niedrig
+A04,A04_anliegen.png,Sabine Oswald,"Mühlenweg 7, 31234 Musterstadt",11.09.2026,Mühlenweg 5 bis 9,Beleuchtung,mittel
+A05,A05_anliegen.jpg,Jonas Petersen,"Hafenstraße 41, 31234 Musterstadt",12. September 2026,"Hafenstraße 41, Gaststätte Zum Anker",Lärm,hoch
+A06,A06_anliegen.png,Gisela und Werner Brandt,"Feldstraße 2a, 31234 Musterstadt",14.09.26,Kreuzung Feldstraße / Bahnhofstraße,Straßen und Verkehr,mittel
+A07,A07_anliegen.jpg,Nguyen Thi Mai,"Rosenallee 18, 31234 Musterstadt",15.09.2026,"Rosenallee, Ecke Parkweg",Abfall und Sauberkeit,hoch
+A08,A08_anliegen.pdf,Peter Lindqvist,"Kirchplatz 1, 31234 Musterstadt",16.09.2026,"Rathaus, Bürgerbüro",Sonstiges,niedrig

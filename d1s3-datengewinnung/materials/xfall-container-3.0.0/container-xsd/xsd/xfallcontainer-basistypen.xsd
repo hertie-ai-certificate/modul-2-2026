@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xfc="http://xoev.de/schemata/xfall/3_0/container" targetNamespace="http://xoev.de/schemata/xfall/3_0/container" version="3.0.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:annotation>
+    <xs:documentation>Sammlung von technischen Datentypen, z.B.  Einschränkungen von W3C-Datentypen.</xs:documentation>
+  </xs:annotation>
+</xs:schema>
+

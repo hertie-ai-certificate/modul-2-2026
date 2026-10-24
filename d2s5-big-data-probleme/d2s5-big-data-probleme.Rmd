@@ -1,5 +1,5 @@
 ---
-title: "Tag 2: Big Data, Good Data? Die kritische Nutzung von Daten"
+title: "Der Daten-Lifecycle"
 subtitle: "Session 5: Möglichkeiten und Probleme mit Big Data"
 author: "Simon Munzert"
 institute: "Hertie School"
@@ -61,20 +61,731 @@ library(fontawesome)
 
 2. [Das Big-Data-Paradoxon](#bigdataparadox)
 
-3. [Garbage in, garbage out](#garbageingarbageout)
+3. [Datenfails I: Selektion und mangelnde Repräsentativität](#selection)
 
-4. [Übung](#exercise)
+4. [Datenfails II: Schlechte Messung](#measurement)
+
+5. [Datenqualität sichern](#validation)
+
+6. [Übung: Data Detective](#exercise)
+
+---
+class: inverse, center, middle
+name: whatisbigdata
+
+# Was ist Big Data?
+<html><div style='float:left'></div><hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/></html>
+
+---
+background-image: url("../pics/big-data-5vs.png")
+background-size: contain
+background-color: #000000
+
+# Was ist Big Data?
+
+---
+# Das Zeitalter von Big Data - Große Trends
+
+.pull-left[
+1. Massive Erzeugung von **vom Menschen erzeugten Daten** insbesondere im digitalen Bereich
+
+2. Verwendung von **neuen Datentypen**: Text, Video, digitale Spuren
+
+3.  **Rechen- und Speicherkosten** sind drastisch gesunken
+
+4.  Mainstreaming von **maschinellem Lernen** und **KI**-Technologien
+
+5. (Begrenzte) **Demokratisierung des Zugangs** zu großen Datenbeständen
+
+6.  **Verlagerung der Forschungsavantgarde** von der akademischen Welt zur Industrie
+]
+
+.pull-right[
+<div align="center">
+<img src="../pics/ids-global-datasphere.png" height=360>
+</div>
+
+`Quelle` Reinsel et al., 2017, ["Data Age 2025"](https://www.seagate.com/files/www-content/our-story/trends/files/Seagate-WP-DataAge2025-March-2017.pdf)
+
+.footnote[<div class="font80"><sup>1</sup>Die Zahlen sind mit Vorsicht zu genießen. SIe sind fundamental schwer zu messen; deshalb weichen veröffentlichte Daten teilweise um ein Vielfaches voneinander ab.</div>]
+]
+
+---
+exclude: true
+
+# Big Data in der öffentlichen Gesundheit
+
+.pull-left[
+## Beispiel: COVID-19-Überwachung  
+- Nutzung von Mobilfunk-, Social-Media- und Gesundheitsdaten durch WHO, CDC, RKI  
+- Modellierung und Vorhersage von Infektionsclustern  
+- Grundlage für politische Entscheidungen (Lockdowns, Impfpriorisierung)
+
+## Auswirkungen  
+- **Schnellere Reaktionen** auf Pandemien  
+- **Evidenzbasierte Gesundheitspolitik**  
+- **Datenschutz- und Ethikdebatten** über Bewegungs- und Gesundheitsdaten
+]
+
+.pull-right[
+<div align="center">
+<img src="../pics/cwa.jpg" width=500>
+<img src="../pics/covid-dashboard-zeit.png" width=500>
+</div>
+]
+
+---
+exclude: true
+
+# Smart Cities und urbane Datenplattformen
+
+.pull-left[
+## Beispiel: Singapur, Barcelona, London  
+- Nutzung von Verkehrs-, Sensor- und Energiedaten  
+- Steuerung von Verkehrsflüssen, Energieverbrauch und öffentlichem Raum  
+
+## Auswirkungen  
+- **Effizientere Infrastruktur** und geringere Emissionen  
+- **Datengetriebene Stadtplanung**  
+- **Kontroversen** um Überwachung, Fairness und Dateneigentum
+]
+
+.pull-right[
+<div align="center">
+<img src="../pics/bochum-smartcity.png" height=420>
+</div>
+]
+
+---
+exclude: true
+
+# Integration von Migranten in den Arbeitsmarkt
+
+.pull-left-small3[
+<br>
+<div align="center">
+<img src="../pics/science-refugee-integration.png" width=400>
+</div>
+
+`Quelle` [Science](https://www.science.org/doi/10.1126/science.aao4408), [apolitical.co](https://apolitical.co/solution-articles/en/switzerlands-new-algorithm-could-get-up-to-30-more-refugees-into-work)
+]
+
+.pull-right-wide2[
+<div align="center">
+<img src="../pics/science-refugee-integration-3.png" width=600>
+<img src="../pics/science-refugee-integration-2.png" width=600>
+</div>
+]
+
+---
+class: inverse, center, middle
+name: bigdataparadox
+
+# Das Big-Data-Paradoxon
+<html><div style='float:left'></div><hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/></html>
+
+---
+# Wahlumfrage 1936 der Zeitschrift Literary Digest
+
+.pull-left[
+## Hintergrund
+
+- Die Wochenzeitschrift *Literary Digest* hatte die Präsidentschaftswahlen 1920 bis 1932 anhand ihrer Umfragen korrekt vorhergesagt.
+- 1936 verschickte sie **10 Millionen Musterstimmzettel**, 2,4 Millionen kamen zurück. Ergebnis: deutlicher Sieg des Republikaners Alf Landon.
+
+## Nachwehen
+
+- Landon verlor erdrutschartig gegen Franklin D. Roosevelt, der 46 von 48 Bundesstaaten und 60,8% der Stimmen gewann.
+- George Gallup sagte das Ergebnis mit einer Stichprobe von **50.000** Personen richtig voraus.
+- Die Zeitschrift ging 1938 in Konkurs.
+]
+
+.pull-right[
+<div align="center">
+<img src="../pics/literary-digest-1.png" height=460>
+</div>
+]
+
+---
+# Wahlumfrage 1936 der Zeitschrift Literary Digest
+
+.pull-left[
+## Anatomie eines Debakels
+
+1. **Stichprobenrahmen**: (1) eigene Leser, (2) registrierte Autobesitzer, (3) registrierte Telefonnutzer
+2. **Datenerhebung**: Jeder bekam einen Musterstimmzettel zugeschickt und wurde gebeten, den markierten Stimmzettel zurückzugeben
+3. **Rücklaufquote**: 2,4 Mio. von 10 Mio.
+
+**Stichprobenverzerrung** als Folge von **coverage error** und **non-reponse**: Überrepräsentation von wohlhabenderen Personen mit einer Präferenz für Landon
+
+<br><br><br>
+`Quelle` [Peverill Squire, 1988, Public Opinion Quarterly](https://www.jstor.org/stable/2749114)
+]
+
+.pull-right[
+<div align="center">
+<img src="../pics/literary-digest-squire-1.png" width=350>
+<img src="../pics/literary-digest-squire-2.png" width=350>
+<img src="../pics/literary-digest-squire-3.png" width=350>
+</div>
+]
+
+---
+# Ein modernes Big-Data-Umfrage-Desaster
+ 
+.pull-left[
+<div align="center">
+<img src="../pics/bradley-unrepresentative-big-surveys-vaccine-1.png" height=480>
+</div>
+]
+
+.pull-right[
+<div align="center"><br><br>
+<img src="../pics/bradley-unrepresentative-big-surveys-vaccine-2.png" height=300>
+</div>
+]
+
+---
+
+# Ein modernes Big-Data-Umfrage-Desaster
+
+.pull-left[
+<div align="center"><br><br>
+<img src="../pics/bradley-unrepresentative-big-surveys-vaccine-4.png" width=500>
+</div>
+]
+
+.pull-right[
+## Das Big-Data-Paradoxon
+
+> „Wenn verzerrte Stichproben groß sind, sind sie doppelt irreführend: Sie erzeugen Konfidenzintervalle mit falschen Mitteln und erheblich unterschätzter Unsicherheit. Dies ist das **Big-Data-Paradoxon**: Je umfangreicher die Daten sind, desto sicherer täuschen wir uns selbst, wenn wir die Verzerrungen bei der Datenerhebung nicht berücksichtigen.“
+
+<div align="right">Bradley et al. (2021), <i>Nature</i></div>
+
+> „Die 'Größe' solcher Big Data (für Rückschlüsse auf die Population) sollte an der relativen Größe f = n/N der Stichprobe zur Population gemessen werden, nicht an der absoluten Größe n der Stichprobe.
+
+<div align="right">Xiao-Li Meng (2018), <i>The Annals of Applied Statistics</i></div>
+]
+
+---
+# Zensus 2022: Wer sind wir und wenn ja, wie viele?
+
+.pull-left[
+## Drei Zahlen, drei Verfahren
+
+.font90[
+Wo leben wie viele Menschen in Deutschland? An der Zahl hängen Länderfinanzausgleich, Wahlkreise, Schlüsselzuweisungen, Stimmen im Bundesrat.
+
+- **Melderegister**: Jede Kommune führt ihr eigenes. Alle Register zusammen enthalten mehr Personen, als im Land leben: Wer ins Ausland zieht, meldet sich selten ab („Karteileichen“); wer zuzieht, nicht immer sofort („Fehlbestände“).
+- **Fortschreibung**: Zensus 2011 plus Geburten, Sterbefälle, Zu- und Wegzüge aus den Meldungen. Zum Stichtag 2022: rund **84,1 Mio.**
+- **Zensus 2022**: Registerabzug plus **Haushaltsstichprobe** (etwa jede zehnte Anschrift wird befragt). Aus der Stichprobe wird geschätzt, wie viele Registereinträge nicht stimmen, und das Register wird hochgerechnet korrigiert. Ergebnis: **82,7 Mio.**
+]
+]
+
+.pull-right[
+```{r zensus-chart, echo=FALSE, fig.width=6, fig.height=4.6, out.width="100%", message=FALSE, warning=FALSE}
+library(ggplot2)
+d <- data.frame(
+  stufe = factor(c("Melderegister\n(bereinigt)", "Karteileichen\n(geschätzt)", "Fehlbestände\n(geschätzt)", "Zensus 2022"),
+                 levels = c("Melderegister\n(bereinigt)", "Karteileichen\n(geschätzt)", "Fehlbestände\n(geschätzt)", "Zensus 2022")),
+  start = c(0, 85.0, 81.4, 0), end = c(85.0, 81.4, 82.7, 82.7),
+  typ = c("Bestand", "minus", "plus", "Bestand"))
+ggplot(d) +
+  geom_rect(aes(xmin = as.numeric(stufe) - 0.4, xmax = as.numeric(stufe) + 0.4, ymin = start, ymax = end, fill = typ)) +
+  geom_hline(yintercept = 84.1, linetype = "dashed", colour = "grey40") +
+  annotate("text", x = 4.45, y = 84.35, label = "Fortschreibung 84,1", hjust = 1, size = 4, colour = "grey30") +
+  geom_text(aes(x = as.numeric(stufe), y = pmax(start, end) + 0.25,
+                label = c("85,0", "−3,6", "+1,3", "82,7")), size = 4.5) +
+  scale_x_continuous(breaks = 1:4, labels = levels(d$stufe)) +
+  scale_fill_manual(values = c(Bestand = "#1D375B", minus = "#EB811B", plus = "#6a9f58"), guide = "none") +
+  coord_cartesian(ylim = c(78, 86.5)) +
+  labs(x = NULL, y = "Mio. Personen", title = "Vom Register zur Zensuszahl, Stichtag 15.05.2022") +
+  theme_minimal(base_size = 15) + theme(panel.grid.minor = element_blank(), plot.title.position = "plot")
+```
+.font80[`Quellen` [Zensus 2022](https://www.zensus2022.de/); [Schnell, Lenz & Schmidt (2026), Gutachten für 287 Gemeinden](https://duepublico2.uni-due.de/receive/duepublico_mods_00086443), Kap. 6 und 9.]
+]
+
+---
+# Zensus 2022: Wer hat sich geirrt?
+
+.pull-left[
+## Die Vollerhebung
+
+- Das Register ist groß, aber **systematisch** verzerrt: Abmeldungen fehlen vor allem bei Wegzügen ins Ausland, also bei Ausländern und in Großstädten. Köln: 7% unter dem eigenen Register.
+- Der Fehler mittelt sich bei 85 Millionen Einträgen nicht weg. Das ist das Big-Data-Paradoxon: Größe täuscht Genauigkeit vor.
+
+## Die Stichprobe
+
+- Die Zensus-Schätzung korrigiert das Register, hat aber **eigene** Fehler: Hochrechnung in kleinen Gemeinden, Record Linkage bei der Dublettenprüfung, Interviewer-Effekte, Ausfälle. Ihre Fehlermargen hat Destatis nach Ansicht der Gutachter unterschätzt.
+]
+
+.pull-right[
+## Fazit
+
+- **Man weiß es nicht genau.** Es gibt keinen dritten, unabhängigen Maßstab. Deshalb haben 287 Gemeinden ein Gutachten beauftragt, und mehrere Hundert Widerspruch eingelegt.
+- Sicher ist nur: Die Vollerhebung allein irrt systematisch, die Stichprobe allein kann nicht alles sehen.
+- Für jede Analyse mit Registerdaten stellt sich die Frage: **Wer ist drin, wer ist noch drin, wer war nie drin?**
+
+.font80[`Quelle` [Schnell, Lenz & Schmidt (2026): Eine methodische Kritik des Zensus 2022](https://duepublico2.uni-due.de/receive/duepublico_mods_00086443), Kap. 3.1, 8, 9.5, 10]
+]
+
+---
+class: inverse, center, middle
+name: selection
+
+# Datenfails I: Selektion und mangelnde Repräsentativität
+<html><div style='float:left'></div><hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/></html>
+
+---
+# Zweifelhafte „Repräsentativität“
+
+.pull-left[
+<div align="center">
+<img src="../pics/trump-social-media-poll.png" width=500>
+</div>
+
+`Quelle` [citechdaily.com](https://scitechdaily.com/are-social-media-polls-lying-to-you-about-elections/)
+]
+
+.pull-right[
+<div align="center">
+<img src="../pics/infratest-poll-2.png" width=500>
+</div>
+
+`Quelle` [tagesschau.de/infratest dimap](https://www.tagesschau.de/inland/gesellschaft/medien-glaubwuerdigkeit-100.html)
+]
+
+---
+# Eine Heuristik für alle Datenfehler: Total Survey Error
+
+.pull-left[
+## Zwei grundsätzliche Fehlerquellen bei jeder Datensammlung
+
+- **Messfehler**: was man misst, ist nicht das, was man messen will
+- Fehler der **Repräsentation**: Die Gruppe, die Ihr beobachtet, ist nicht verallgemeinerbar auf die interessierende Population
+
+## Nicht nur für Umfragen
+
+- Entwickelt für Befragungen, aber die Logik gilt für **jede** Datenquelle: Register, Fachverfahren, Sensoren, Logdaten, Trainingsdaten.
+- Linke Seite: **Messung** (Konzept, Erfassung, Verarbeitung). Rechte Seite: **Repräsentation** (Zielgruppe, Datenrahmen, Ausfälle).
+]
+
+.pull-right[
+## Total survey error framework
+
+<div align="center">
+<br>
+<img src="../pics/total-survey-error.png" height=400>
+</div>
+
+`Quelle` [Groves et al. 2009, Survey Methodology](https://books.google.de/books?hl=de&lr=&id=HXoSpXvo3s4C)
+]
+
+---
+# Stichproben und Repräsentativität
+
+.pull-left[
+## Eine substantielle Definition von Repräsentativität
+
+Eine Stichprobe (oder Daten im Allgemeinen) ist „repräsentativ“, wenn **die aus der Stichprobe gezogenen Schlüsse verallgemeinert werden können** auf die Grundgesamtheit von Interesse.
+]
+
+.pull-right[
+## Eine formalere Definition
+
+Eine Stichprobe ist repräsentativ, wenn sie so gezogen wird, dass sie **statistisch nicht von der interessierenden Grundgesamtheit** unterscheidbar ist.
+]
+
+<div align="center">
+<img src="../pics/samples.png" height=300>
+</div>
+
+---
+# Das Problem mit der „Repräsentativität“
+
+## Warum „Repräsentativität“ ein problematischer Begriff ist
+
+1. Ob eine Stichprobe repräsentativ ist, hängt von Eurem Interesse ab.
+2. Man kann eine Stichprobe nicht a priori als „repräsentativ“ bezeichnen. 
+3. Die Beurteilung der Repräsentativität einer Stichprobe erfordert starke Annahmen über Euer Wissen über die Grundgesamtheit und Eure Messungen der Merkmale, die „repräsentativ“ sein sollten.
+
+--
+
+.pull-left[
+
+<br>
+## Ein Beispiel
+
+- Ihr führt eine Umfrage zur Wahlabsicht durch.
+- Wen möchtet Ihr repräsentieren? Die Wahlbevölkerung oder die Gesamtbevölkerung?
+- Wie erreicht Ihr eine repräsentative Stichprobe? Zufallsauswahl? Gewichtung?
+
+]
+
+.pull-right[
+<div align="center">
+<br>
+<img src="../pics/interview.jpg" height=250>
+</div>
+]
 
 
+---
+exclude: true
 
+# Mess- und Stichprobenfehler in freier Wildbahn
+
+.pull-left[
+## Überrepräsentation und falsche Angaben in Wahlumfragen
+
+- Umfragestatistiken überschätzen die Wahlbeteiligung oft erheblich. 
+- Zwei unterschiedliche Phänomene sind für diese Diskrepanz verantwortlich:
+    1. Überrepräsentation der tatsächlichen Wähler
+    2. Falsche Angaben zur Wahlbeteiligung durch Nichtwähler unter den Umfrageteilnehmern. 
+- Studien zur Validierung der Wahlbeteiligung helfen, das Problem auf individueller Ebene zu identifizieren.
+- Eine Verzerrung der Wahlbeteiligung kann sich auch auf Analysen nachgelagerter Variablen (z.B. Wahlverhalten) auswirken.
+]
+
+.pull-right[
+<div align="center">
+<br>
+<img src="../pics/selb-munzert-overreporting.png" height=450>
+</div>
+
+`Quelle` [Selb and Munzert 2013, Electoral Studies](https://kops.uni-konstanz.de/server/api/core/bitstreams/e755783d-acee-4592-a666-1562fc912906/content)
+]
+
+---
+# Selektion in Verwaltungsdaten I: Wer stellt keinen Antrag?
+
+.pull-left[
+<div align="center">
+<img src="../pics/diw-grundsicherung.png" width=450>
+</div>
+
+## Der Fall
+
+- **Grundsicherung im Alter** steht allen zu, deren Rente unter dem Existenzminimum liegt.
+- Die Statistik kennt nur, wer sie **beantragt** hat.
+- Das DIW schätzt mit dem SOEP: rund **60% der Berechtigten** stellen keinen Antrag.
+- Gründe: Unkenntnis, Aufwand, Scham. Alles hängt mit Alter, Bildung und Gesundheit zusammen, die Lücke ist also **nicht zufällig**.
+]
+
+.pull-right[
+## Folgen
+
+- Die ausgewiesene Quote liegt bei 2,8%; bei voller Inanspruchnahme wären es **7,4%**.
+- Bedarfsplanung und Armutsberichte auf Basis der Leistungsdaten **unterschätzen** das Problem.
+- Ein KI-System, trainiert auf Antragsdaten, lernt die Antragsteller kennen, nicht die Berechtigten.
+
+## Ähnliche Muster
+
+- Wohngeld, Kinderzuschlag, Bildungs- und Teilhabepaket, Beratungsangebote: **Nichtinanspruchnahme ist unsichtbar**, solange man nur die eigenen Daten anschaut.
+
+.font80[`Quelle` [Buslei et al. (2019), DIW Wochenbericht 49](https://www.diw.de/de/diw_01.c.699957.de/publikationen/wochenberichte/2019_49_1/starke_nichtinanspruchnahme_von_grundsicherung_deutet_auf_hohe_verdeckte_altersarmut.html), Daten 2010 bis 2015]
+
+]
+
+
+---
+# Selektion in Verwaltungsdaten II: Hellfeld und Dunkelfeld
+
+.pull-left[
+## Der Fall
+
+- Die **Polizeiliche Kriminalstatistik (PKS)** zählt, was angezeigt oder von der Polizei festgestellt wurde: das **Hellfeld**.
+- Die Dunkelfeldstudie **SKiD** des BKA (46.000 Befragte, 2020) zeigt, wie selektiv das ist und wie das Anzeigeverhalten von Delikt zu Delikt variiert.
+
+## Das Selektionsproblem
+
+- Ein Anstieg in der PKS kann bedeuten: mehr Kriminalität, mehr Anzeigen, mehr Kontrollen oder eine neue Erfassungsregel.
+- **Predictive Policing** wird auf dem Hellfeld trainiert: Wo bisher viel kontrolliert und angezeigt wurde, sagt das Modell mehr voraus, dorthin geht mehr Polizei, dort wird mehr festgestellt. Die Selektion **verstärkt sich selbst**.
+]
+
+.pull-right[
+```{r hellfeld-chart, echo=FALSE, fig.width=6, fig.height=2.8, out.width="100%", message=FALSE, warning=FALSE}
+library(ggplot2)
+d <- data.frame(delikt = c("Wohnungseinbruch\n(vollendet)", "Körperverletzung", "Cybercrime", "Gewinnspielbetrug\n(NRW)"),
+                quote = c(67, 35, 18, 5))
+d$delikt <- factor(d$delikt, levels = rev(d$delikt))
+ggplot(d, aes(x = delikt, y = quote)) +
+  geom_col(fill = "#1D375B", width = 0.65) +
+  geom_col(aes(y = 100), fill = NA, colour = "grey60", width = 0.65, linetype = "dotted") +
+  geom_text(aes(label = paste0("ca. ", quote, "%")), hjust = -0.1, size = 5) +
+  coord_flip() +
+  scale_y_continuous(limits = c(0, 112), breaks = c(0, 50, 100)) +
+  labs(x = NULL, y = "Anteil angezeigter Opfererlebnisse (%)", title = "Anzeigequoten nach Delikt (SKiD 2020)") +
+  theme_minimal(base_size = 15) + theme(panel.grid.minor = element_blank(), plot.title.position = "plot")
+```
+.font80[`Quellen` [BKA, Pressemitteilung zu SKiD 2020](https://www.bka.de/DE/Presse/Listenseite_Pressemitteilungen/2022/Presse2022/221108_PM_SKiD.html); [SKiD-Dashboard](https://skid.bka.de/Wichtige_Ergebnisse.html); [SKiD NRW](https://polizei.nrw/sites/default/files/2022-11/SKiD%202020%20-%20Erste%20Ergebnisse%20f%C3%BCr%20Nordrhein-Westfalen.pdf). Werte gerundet.]
+
+## Ähnliche Muster
+
+- Beschwerdestatistiken, Meldungen an Ordnungsämter, Verkehrsunfälle (nur polizeilich erfasste).
+- Dunkelfeldstudien können helfen.
+]
+
+
+---
+# Schlechte Stichproben: lessons learned
+
+
+.pull-left[
+## Was bedeutet das für Euch?
+
+- Nehmt die angegebene „Repräsentativität“ nicht für bare Münze.
+- Der Stichprobenumfang allein garantiert keine Repräsentativität (siehe Big Data!). Lasst Euch also nicht von „großen Datenmengen“ täuschen (nicht per se repräsentativ).
+- Schlechte Stichproben sind nicht auf Erhebungen beschränkt: Melderegister (wer sich nicht abmeldet), Leistungsdaten (wer nicht beantragt), Kriminalstatistik (wer nicht anzeigt), Social-Media-Daten (wer dort schreibt), Sensoren (wo sie stehen).
+]
+
+.pull-right[
+## Achtet stattdessen auf: 
+
+1. **Transparenz** über das Auswahlverfahren.
+2. **Validierung** der Stichprobe anhand externer Benchmarks.
+4. **Euren gesunden Menschenverstand**: Ist die Datengrundlage systematisch verzerrt, d.h. auf relevanten Kriterien unterschiedlich von der Grundgesamtheit?
+]
+
+---
+class: exercise, center, middle
+
+# Übung: Repräsentatitivität
+
+.content-box-white[
+**Diskussion in 2er-Gruppen, jeweils 2-3 Minuten**
+
+Findet Euch als Paar zusammen und erklärt in 1-2 Minuten jeweils eine der Fragen.
+
+Partner 1: Was bedeutet "repräsentative Daten" oder "repräsentative Stichprobe"?
+
+Partner 2: Warum ist "repräsentative Stichprobe" meistens Quatsch?
+]
+
+---
+class: inverse, center, middle
+name: measurement
+
+# Datenfails II: Schlechte Messung
+<html><div style='float:left'></div><hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/></html>
+
+---
+# Messung und AI-Anwendungen
+
+.pull-left[
+## Messung ist ein zentraler Bestandteil von AI-Anwendungen
+
+- AI-Modelle lernen von Daten, die gemessen werden.
+- Gleichzeitig können AI-Modelle auch messen (z. B. Gesichtserkennung, Spracherkennung).
+
+✎ Messung ist gleichzeitig Grundlage (Input) für als auch Output von AI-Anwendungen.
+
+## Messfehler in AI-Anwendungen
+
+- Messfehler können systematisch sein (z. B. durch soziale Erwünschtheit).
+- Messfehler können zufällig sein (z. B. durch technische Probleme).
+- Messfehler können auch durch die AI-Anwendung selbst entstehen (z. B. durch schlechte Datenqualität).
+]
+
+.pull-right[
+<div align="center">
+<br>
+<img src="../pics/brown-dogs.png" width=450>
+<br>
+<img src="../pics/white-dogs.png" width=450>
+</div>
+]
+
+---
+# Messung in Verwaltungsdaten: Sprachbiometrie beim BAMF
+
+.pull-left[
+## Der Fall
+
+- Seit 2017 setzt das Bundesamt für Migration und Flüchtlinge eine Software ein, die aus einer **zweiminütigen Sprachprobe** die wahrscheinliche Herkunftsregion von Asylsuchenden ohne Papiere schätzt.
+- Gemessen werden **Aussprache und Dialektmerkmale**; ausgegeben werden Wahrscheinlichkeiten für Dialekte. Das BAMF nennt das ein „Indiz“, keinen Beweis.
+- Fehlerquote nach BAMF-Angaben **15 bis 20%**; eine unabhängige Evaluation, 2018 angekündigt, liegt bis heute nicht vor.
+]
+
+.pull-right[
+```{r bamf-chart, echo=FALSE, fig.width=6, fig.height=4.4, out.width="100%", message=FALSE, warning=FALSE}
+library(ggplot2)
+set.seed(3)
+d <- expand.grid(x = 1:10, y = 1:10)
+d$status <- "Einschätzung plausibel"
+d$status[sample(1:100, 18)] <- "Einschätzung falsch"
+ggplot(d, aes(x, y, fill = status)) +
+  geom_tile(colour = "white", linewidth = 1.2) +
+  scale_fill_manual(values = c("Einschätzung plausibel" = "#1D375B", "Einschätzung falsch" = "#EB811B"), name = NULL) +
+  coord_equal() +
+  labs(title = "100 Sprachproben, 15 bis 20 falsch", subtitle = "nach BAMF-Angaben; hier 18 zufällig verteilt") +
+  theme_void(base_size = 15) +
+  theme(legend.position = "bottom", legend.text = element_text(size = 13), plot.title = element_text(face = "bold", size = 15, hjust = 0.5), plot.subtitle = element_text(hjust = 0.5), plot.title.position = "panel")
+```
+.font80[`Quellen` [BT-Drs. 20/3238](https://dserver.bundestag.de/btd/20/032/2003238.pdf); [netzpolitik.org (2020)](https://netzpolitik.org/2020/automatisiertes-misstrauen/)]
+]
+
+
+---
+# Gut funktionierende Messung: Gesichtserkennung
+
+.pull-left[
+## Messung von Gesichtsmerkmalen
+
+- Gesichtsmerkmale sind oft gut messbar.
+- Gesichtsmerkmale sind oft stabil über die Zeit.
+- Massive Trainingsdaten für Gesichtserkennung verfügbar (Social Media, Fotoportale, etc.)
+
+## Beispiel: Paravision AI
+
+> "In this Visa / Border test, Paravision ranks #1 globally for accuracy with an error rate that is 18% lower than the second-ranked vendor, delivering a False Negative Identification Rate of 0.22% at a False Positive Identification Rate of 0.3% across a dataset of 1,600,000 images." [Paravision AI](https://www.paravision.ai/news/paravisions-face-recognition-ranks-as-the-most-accurate-in-the-world/)
+]
+
+.pull-right[
+<div align="center">
+<br><br>
+<img src="../pics/paravision-ai.jpeg" width=500>
+</div>
+]
+
+---
+# Clearview AI
+
+.pull-left-wide2[
+## Worum geht es?
+
+- Tool für Gesichtserkennung beliebiger Personen anhand von Trainingsdaten aus Social Media, Zeitungen, Online-Plattformen, PayPal Transaktionen, etc.
+- **Behauptung:** 99,85% Accuracy bei Stichprobe von 12 Millionen Fahndungsfotos [(s. Homepage)](https://www.clearview.ai/clearview-2-0)
+- **Belege:** Gutes Testergebnis beim US Nationalen Institut für Standards und Technologie
+- **Anfechtbarkeit:** Tool ist weder offen zugänglich, noch können Nutzer/innen ihre Fotos entfernen.
+- **Training der Modelle:** Web Scraping von Online-Plattformen, Webseiten und Medien ohne Einverständnis der Nutzer/innen
+- **Hintergrund:** NYT-Recherche: Staatliche Behörden benutzen Clearview.ai auch während Gerichtsverfahren weiter [(Hill, 2020)](https://www.nytimes.com/2020/01/18/technology/clearview-privacy-facial-recognition.html)
+
+`Quelle` [Kashmir Hill, 2024](https://www.penguinrandomhouse.com/books/691288/your-face-belongs-to-us-by-kashmir-hill/)
+]
+
+.pull-right-small2[
+<div align="center">
+<img src="../pics/s-extra_B_Clearview.ai.jpeg" width=200>
+<br>
+<video width="300" controls autoplay>
+  <source src="../pics/clearview.mp4" type="video/mp4">
+</video>
+</div>
+
+`Quelle` [New York Times](https://www.nytimes.com/2020/01/18/technology/clearview-privacy-facial-recognition.html)
+]
+
+---
+# Nicht so gut funktionierende Messung: Hate Speech
+
+.pull-left-vsmall[
+## Das Problem
+
+- **Hate Speech** kann sich in verschiedenen Formen äußern.
+- **Hate Speech** ist schwer zu messen, weil es oft subtil und kontextabhhängig ist.
+- Es herrscht fundamentale Uneinigkeit darüber, was genau **Hate Speech** ist und wie es gemessen werden sollte.
+]
+
+.pull-right-vwide[
+## Beispiel: Facebook
+
+<div align="center">
+<br>
+<img src="../pics/fb-content-moderation-report-2.png" height=270>
+<img src="../pics/fb-content-moderation-report-1.png" height=270>
+</div>
+
+`Quelle` [Facebook](https://transparency.meta.com/reports/community-standards-enforcement/hate-speech/facebook/)
+]
+
+---
+# Automatisiertes Recruitment
+
+## HireVue Personalgewinnung
+.pull-left[
+- Tool für die Personalgewinnung: Video-Persönlichkeitstests zur Vorhersage beruflichen Erfolgs (und "präventivem Einsatz" im Recruitment)
+
+## Hintergrund 
+
+- Audit 2020 ohne veröffentlichte Ergebnisse
+- Training der Modelle auf Basis von Bewertungen bereits eingestellter Mitarbeiter/innen, potenzielle Reproduktion bestehender Biases
+- BR Recherche: Bücherregale, seltene Vokabeln, und das Tragen einer Brille führen zu besseren Scores [(Harlan/Schnuck, BR, 2021)](https://interaktiv.br.de/ki-bewerbung/en/)
+
+`Source` [Harwell, 2019; ](https://www.washingtonpost.com/technology/2019/10/22/ai-hiring-face-scanning-algorithm-increasingly- decides- whether- you- deserve- job/) [Wang et al., 2023: S. 28](https://predictive-optimization.cs.princeton.edu/)
+]
+
+.pull-right[
+<div align="center">
+<img src="../pics/s-extra_A_HireVue.png" width=250>
+</div>
+
+<div align="center">
+<video width="230" controls autoplay>
+  <source src="../pics/279fe99896a2b0f526b3747339782a5d~1ki0iglay-q3.mp4" type="video/mp4">
+</video>
+<video width="230" controls autoplay>
+  <source src="../pics/af2546eda5c7c242e40b9477f48b2134~1ki0izhyq-q3.mp4" type="video/mp4">
+</video>
+</div>
+
+<div align="center">
+<img src="../pics/ocean-results.png" width=450>
+</div>
+
+`Quelle` [(Harlan/Schnuck, BR, 2021)](https://interaktiv.br.de/ki-bewerbung/en/)
+]
+
+---
+class: inverse, center, middle
+name: validation
+
+# Datenqualität sichern
+<html><div style='float:left'></div><hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/></html>
+
+---
+# Garbage in, Garbage out
+
+.pull-left[
+## Das GIGO Prinzip
+- Die Qualität der Informationen, die ein Modell produziert (z.B. Vorhersagen), kann nicht besser sein als die Qualität der Informationen, die in das Modell eingespeist werden.
+- Dieser Grundsatz ist wird umso relevanter in Big-Data-Kontexten, wenn Daten unzureichend validiert oder Datenqualität schlicht nicht gegeben ist.
+- Das Problem verschärft sich potentiell in ML-Anwendungen, wenn Modelle komplex und intransparent sind.
+]
+
+.pull-right[
+<div align="center"><br><br>
+<img src="../pics/gigo.png" width=480>
+</div>
+]
+
+---
+# Garbage in, Garbage out: Lessons learned
+
+.pull-left[
+1. **Messung-** und **Selektions-Fragen** sind bei der Big-Data-Analyse nach wie vor entscheidend.
+
+2. Traut **Messungen** nicht, die nicht **richtig validiert** wurden.
+
+3. Achtet darauf, was in ein Modell einfließt (der **Input**: Fälle, Variablen/Merkmale).
+
+4. Achtet auf eine angemessene **Out-of-Sample-Validierung** von Modellen.
+
+5. Vorsicht bei **unkritischer Nutzung von Online-/Sozialen Medien** und von **Verfahrensdaten** als Datenquelle: Beide beschreiben, wer sich gemeldet hat, nicht die Welt.
+]
+
+.pull-right-center[
+<div align="center">
+<img src="../pics/xkcd-2295-garbage_math.png" width=300>
+</div>
+`Quelle` XKCD, [2295](https://xkcd.com/2295/), ([hier erklärt](https://www.explainxkcd.com/wiki/index.php/2295:_Garbage_Math))
+]
 
 ---
 class: inverse, center, middle
 name: exercise
 
-# Übung
+# Übung: Data Detective
 <html><div style='float:left'></div><hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/></html>
-
 
 ---
 # Umgang mit Evidenz als Detektivarbeit
@@ -130,15 +841,12 @@ name: exercise
 
 ]
 
-
-
 ---
 # Daten-Tatort I: Erkennen von Straftätern durch Gesichtsdaten
 
 <div align="center">
 <img src="../pics/criminal-faces-1.png" width=600>
 </div>
-
 
 ---
 # Weitere Evidenz: Erkennen von Straftätern durch Gesichtsdaten
@@ -147,7 +855,6 @@ name: exercise
 <img src="../pics/criminal-faces-2.png" width=600>
 </div>
 
-
 ---
 # Weitere Evidenz: Erkennen von Straftätern durch Gesichtsdaten
 
@@ -155,7 +862,6 @@ name: exercise
 <img src="../pics/criminal-faces-3.png" width=500>
 <img src="../pics/criminal-faces-4.png" width=500>
 </div>
-
 
 ---
 # Lösung des Falles
@@ -180,7 +886,6 @@ name: exercise
 `Quelle` [Bergstrom/West, Calling Bullshit](https://callingbullshit.org)
 ]
 
-
 ---
 class: exercise, center, middle
 
@@ -192,7 +897,6 @@ class: exercise, center, middle
 </div>
 ]
 
-
 ---
 class: exercise, center, middle
 
@@ -203,378 +907,3 @@ class: exercise, center, middle
 <img src="../pics/Fall_5_QR.png" width=350>
 </div>
 ]
-
-
-
-
-
----
-class: inverse, center, middle
-name: whatisbigdata
-
-# Was ist Big Data?
-<html><div style='float:left'></div><hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/></html>
-
-
----
-background-image: url("../pics/big-data-5vs.png")
-background-size: contain
-background-color: #000000
-
-# Was ist Big Data?
-
-
----
-# Das Zeitalter von Big Data - Große Trends
-
-.pull-left[
-1. Massive Erzeugung von **vom Menschen erzeugten Daten** insbesondere im digitalen Bereich
-
-2. Verwendung von **neuen Datentypen**: Text, Video, digitale Spuren
-
-3.  **Rechen- und Speicherkosten** sind drastisch gesunken
-
-4.  Mainstreaming von **maschinellem Lernen** und **KI**-Technologien
-
-5. (Begrenzte) **Demokratisierung des Zugangs** zu großen Datenbeständen
-
-6.  **Verlagerung der Forschungsavantgarde** von der akademischen Welt zur Industrie
-]
-
-.pull-right[
-<div align="center">
-<img src="../pics/ids-global-datasphere.png" height=360>
-</div>
-
-`Quelle` Reinsel et al., 2017, ["Data Age 2025"](https://www.seagate.com/files/www-content/our-story/trends/files/Seagate-WP-DataAge2025-March-2017.pdf)
-
-.footnote[<div class="font80"><sup>1</sup>Die Zahlen sind mit Vorsicht zu genießen. SIe sind fundamental schwer zu messen; deshalb weichen veröffentlichte Daten teilweise um ein Vielfaches voneinander ab.</div>]
-]
-
-
----
-# Big Data in der öffentlichen Gesundheit
-
-.pull-left[
-## Beispiel: COVID-19-Überwachung  
-- Nutzung von Mobilfunk-, Social-Media- und Gesundheitsdaten durch WHO, CDC, RKI  
-- Modellierung und Vorhersage von Infektionsclustern  
-- Grundlage für politische Entscheidungen (Lockdowns, Impfpriorisierung)
-
-## Auswirkungen  
-- **Schnellere Reaktionen** auf Pandemien  
-- **Evidenzbasierte Gesundheitspolitik**  
-- **Datenschutz- und Ethikdebatten** über Bewegungs- und Gesundheitsdaten
-]
-
-.pull-right[
-<div align="center">
-<img src="../pics/cwa.jpg" width=500>
-<img src="../pics/covid-dashboard-zeit.png" width=500>
-</div>
-]
-
-
----
-# Smart Cities und urbane Datenplattformen
-
-.pull-left[
-## Beispiel: Singapur, Barcelona, London  
-- Nutzung von Verkehrs-, Sensor- und Energiedaten  
-- Steuerung von Verkehrsflüssen, Energieverbrauch und öffentlichem Raum  
-
-## Auswirkungen  
-- **Effizientere Infrastruktur** und geringere Emissionen  
-- **Datengetriebene Stadtplanung**  
-- **Kontroversen** um Überwachung, Fairness und Dateneigentum
-]
-
-.pull-right[
-<div align="center">
-<img src="../pics/bochum-smartcity.png" height=420>
-</div>
-]
-
-
----
-# Integration von Migranten in den Arbeitsmarkt
-
-.pull-left-small3[
-<br>
-<div align="center">
-<img src="../pics/science-refugee-integration.png" width=400>
-</div>
-
-`Quelle` [Science](https://www.science.org/doi/10.1126/science.aao4408), [apolitical.co](https://apolitical.co/solution-articles/en/switzerlands-new-algorithm-could-get-up-to-30-more-refugees-into-work)
-]
-
-.pull-right-wide2[
-<div align="center">
-<img src="../pics/science-refugee-integration-3.png" width=600>
-<img src="../pics/science-refugee-integration-2.png" width=600>
-</div>
-]
-
-
-
----
-# LLMs für effizientere Verwaltung?
-
-<div align="center">
-<img src="../pics/llm-public-admin-1.png" height=270>
-<img src="../pics/llm-public-admin-2.png" height=270>
-<img src="../pics/llm-public-admin-3.png" height=270>
-<img src="../pics/llm-public-admin-4.png" height=270>
-<img src="../pics/llm-public-admin-7.png" height=250>
-<img src="../pics/llm-public-admin-5.png" height=250>
-<img src="../pics/llm-public-admin-6.png" height=250>
-</div>
-
-
-
-
----
-class: inverse, center, middle
-name: bigdataparadox
-
-# Das Big-Data-Paradoxon
-<html><div style='float:left'></div><hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/></html>
-
-
-
----
-# Ein frühes Big-Data-Disaster
-
-<div align="center">
-<img src="../pics/literary-digest-1.png" height=520>
-</div>
-
----
-# Wahlumfrage 1936 der Zeitschrift Literary Digest 
-
-.pull-left-wide2[
-## Hintergrund
-
-- Die Wochenzeitschrift *Literary Digest* hatte die Ergebnisse aller Präsidentschaftswahlen zwischen 1920 und 1932 anhand von Umfragen korrekt vorhergesagt.
-- Die Umfrage von 1936 unter 10 Millionen Wählerinnen und Wählern ergab einen deutlichen Sieg des republikanischen Kandidaten Alfred Landon
-
-## Nachwehen
-
-- Landon verlor erdrutschartig gegen Franklin D. Roosevelt, der 46 von 48 Bundesstaaten für sich entschied und 60,8% der Wählerstimmen erhielt.
-- Das Ergebnis wurde von George Gallup mit einem Sample von 50.000 Personen richtig vorhergesagt.
-- Die Zeitschrift ging 1938 in Konkurs.
-]
-
-.pull-right-small2[
-<br>
-<div align="center">
-<img src="../pics/fdr-happy.jpeg" height=400>
-</div>
-]
-
-
----
-# Wahlumfrage 1936 der Zeitschrift Literary Digest
-
-<div align="center">
-<img src="../pics/literary-digest-2.png" height=520>
-</div>
-
----
-# Wahlumfrage 1936 der Zeitschrift Literary Digest
-
-.pull-left[
-## Anatomie eines Debakels
-
-1. **Stichprobenrahmen**: (1) eigene Leser, (2) registrierte Autobesitzer, (3) registrierte Telefonnutzer
-2. **Datenerhebung**: Jeder bekam einen Musterstimmzettel zugeschickt und wurde gebeten, den markierten Stimmzettel zurückzugeben
-3. **Rücklaufquote**: 2,4 Mio. von 10 Mio.
-
-**Stichprobenverzerrung** als Folge von **coverage error** und **non-reponse**: Überrepräsentation von wohlhabenderen Personen mit einer Präferenz für Landon
-
-<br><br><br>
-`Quelle` [Peverill Squire, 1988, Public Opinion Quarterly](https://www.jstor.org/stable/2749114)
-]
-
-.pull-right[
-<div align="center">
-<img src="../pics/literary-digest-squire-1.png" width=350>
-<img src="../pics/literary-digest-squire-2.png" width=350>
-<img src="../pics/literary-digest-squire-3.png" width=350>
-</div>
-]
-
----
-# Umfrage-basierte Evidenz ist mit Vorsicht zu genießen
-
-<div align="center">
-<br><br><br><br>
-<img src="../pics/calvin-hobbes-messing-data.png" width=800>
-</div>
-
-
-
----
-# Ein modernes Big-Data-Umfrage-Desaster
- 
-.pull-left[
-<div align="center">
-<img src="../pics/bradley-unrepresentative-big-surveys-vaccine-1.png" height=480>
-</div>
-]
-
-.pull-right[
-<div align="center"><br><br>
-<img src="../pics/bradley-unrepresentative-big-surveys-vaccine-2.png" height=300>
-</div>
-]
-
-
----
-# Ein modernes Big-Data-Umfrage-Desaster
-
-.pull-left-wide[
-<div align="center"><br><br><br>
-<img src="../pics/bradley-unrepresentative-big-surveys-vaccine-3.png" width=720>
-</div>
-]
-
-.pull-right-small[
-<div align="center"><br><br>
-<img src="../pics/bradley-unrepresentative-big-surveys-vaccine-4.png" width=350>
-</div>
-]
-
-
-
----
-# Das Big-Data-Paradoxon
-
-.pull-left[
-> „Wenn verzerrte Stichproben groß sind, sind sie doppelt irreführend: Sie erzeugen Konfidenzintervalle mit falschen Mitteln und erheblich unterschätzter Unsicherheit. Dies ist das **Big-Data-Paradoxon**: Je umfangreicher die Daten sind, desto sicherer täuschen wir uns selbst, wenn wir die Verzerrungen bei der Datenerhebung nicht berücksichtigen.“
-
-<div align="right">Bradley et al. (2021), <i>Nature</i></div>
-
-> „Die 'Größe' solcher Big Data (für Rückschlüsse auf die Population) sollte an der relativen Größe f = n/N der Stichprobe zur Population gemessen werden, nicht an der absoluten Größe n der Stichprobe.
-
-<div align="right">Xiao-Li Meng (2018), <i>The Annals of Applied Statistics</i></div>
-
-]
-
---
-
-.pull-right[
-## Besserung durch Korrektur für endliche Grundgesamtheiten?
-
-- Die Intuition sagt uns, dass die Wahrscheinlichkeit eines Fehlers geringer sein sollte, wenn der Stichprobenumfang im Verhältnis zum Umfang der Grundgesamtheit groß ist.
-- Das stimmt auch, aber der Zugewinn ist relativ langsam.
-- Der endliche Populationskorrekturfaktor für den Standardfehler einer interessierenden Größe ist zum Beispiel gegeben durch $\sqrt{\frac{N-n}{N-1}}$. 
-
-## Beispiel
-
-- Wir führen eine Umfrage bei 100k Personen in einer Bevölkerung von 3,7 Mio. durch.
-- Für $N=3.7m$ und $n=100k$ ist dies $\sqrt{0.973}$.
-]
-
-
-
----
-class: inverse, center, middle
-name: garbageingarbageout
-
-# Garbage in, Garbage out
-<html><div style='float:left'></div><hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/></html>
-
-
----
-# Garbage in, Garbage out
-
-.pull-left[
-## Das GIGO Prinzip
-- Die Qualität der Informationen, die ein Modell produziert (z.B. Vorhersagen), kann nicht besser sein als die Qualität der Informationen, die in das Modell eingespeist werden.
-- Dieser Grundsatz ist wird umso relevanter in Big-Data-Kontexten, wenn Daten unzureichend validiert oder Datenqualität schlicht nicht gegeben ist.
-- Das Problem verschärft sich potentiell in ML-Anwendungen, wenn Modelle komplex und intransparent sind.
-]
-
-.pull-right[
-<div align="center"><br><br>
-<img src="../pics/gigo.png" width=480>
-</div>
-]
-
-
-
----
-# Google Flu Trends
-
-.pull-left[
-<div align="center">
-<img src="../pics/google-flu-nature.png" width=600>
-</div>
-
-`Quelle` Ginsberg et al., 2009, [Nature](https://www.nature.com/articles/nature07634)
-]
-
-.pull-right[
-
-<div align="center">
-<img src="../pics/google-flu-trends-screenshot-1.jpg" width=480><br>
-<img src="../pics/google-flu-trends-screenshot-2.jpg" width=480>
-</div>
-]
-
-
----
-# Google Flu Trends
-
-
-.pull-left-wide2[
-<div align="center">
-<img src="../pics/google-flu-parable-1.png" width=650>
-</div>
-
-`Quelle` Lazer et al., 2014, [Science](https://science.sciencemag.org/content/343/6176/1203)
-
-]
-
-.pull-right-small2[
-<div align="center"><br>
-<img src="../pics/google-flu-parable-2.png" width=500>
-</div>
-]
-
-
-
-
-
----
-# Garbage in, Garbage out: Lessons learned
-
-.pull-left[
-1. **Messung-** und **Selektions-Fragen** sind bei der Big-Data-Analyse nach wie vor entscheidend.
-
-2. Trauen Sie **Messungen** nicht, die nicht **richtig validiert** wurden.
-
-3. Achten Sie darauf, was in ein Modell einfließt (der **Input**: Fälle, Variablen/Merkmale).
-
-4. Achten Sie auf eine angemessene **Out-of-Sample-Validierung** von Modellen.
-
-5. Vorsicht bei **unkritischer Nutzung von Online-/Sozialen Medien** als Datenquelle.
-]
-
-.pull-right-center[
-<div align="center">
-<img src="../pics/xkcd-2295-garbage_math.png" width=300>
-</div>
-`Quelle` XKCD, [2295](https://xkcd.com/2295/), ([hier erklärt](https://www.explainxkcd.com/wiki/index.php/2295:_Garbage_Math))
-]
-
-
-
-
-
-
-
-
-
-

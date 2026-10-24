@@ -1,0 +1,113 @@
+kuerzel,name,typ,sitz,aufsicht,lon,lat,dienst
+BPrA,Bundespräsidialamt,Oberste Bundesbehörde,Berlin,NA,13.3951309,52.5173885,Nominatim
+BT,Verwaltung des Deutschen Bundestages,Oberste Bundesbehörde,Berlin,NA,13.3951309,52.5173885,Nominatim
+BR,Sekretariat des Bundesrates,Oberste Bundesbehörde,Berlin,NA,13.3951309,52.5173885,Nominatim
+BVerfG,Bundesverfassungsgericht (soweit als Behörde tätig),Oberste Bundesbehörde,Karlsruhe,NA,8.4034195,49.0068705,Nominatim
+BRH,Bundesrechnungshof,Oberste Bundesbehörde,Bonn,NA,7.1024635,50.7352621,Nominatim
+BKAmt,Bundeskanzleramt,Oberste Bundesbehörde,Berlin,NA,13.3951309,52.5173885,Nominatim
+BKM,Beauftragter der Bundesregierung für Kultur und Medien,Oberste Bundesbehörde,Bonn,NA,7.1024635,50.7352621,Nominatim
+BPA,Presse- und Informationsamt der Bundesregierung,Oberste Bundesbehörde,Berlin,NA,13.3951309,52.5173885,Nominatim
+BMF,Bundesministerium der Finanzen,Oberste Bundesbehörde,Berlin,NA,13.3951309,52.5173885,Nominatim
+BMI,Bundesministerium des Innern,Oberste Bundesbehörde,Berlin,NA,13.3951309,52.5173885,Nominatim
+AA,Auswärtiges Amt,Oberste Bundesbehörde,Berlin,NA,13.3951309,52.5173885,Nominatim
+BMVg,Bundesministerium der Verteidigung,Oberste Bundesbehörde,Bonn,NA,7.1024635,50.7352621,Nominatim
+BMWE,Bundesministerium für Wirtschaft und Energie,Oberste Bundesbehörde,Berlin,NA,13.3951309,52.5173885,Nominatim
+BMFTR,"Bundesministerium für Forschung, Technologie und Raumfahrt",Oberste Bundesbehörde,Bonn,NA,7.1024635,50.7352621,Nominatim
+BMJV,Bundesministerium der Justiz und für Verbraucherschutz,Oberste Bundesbehörde,Berlin,NA,13.3951309,52.5173885,Nominatim
+BMBFSFJ,"Bundesministerium für Bildung, Familie, Senioren, Frauen und Jugend",Oberste Bundesbehörde,Berlin,NA,13.3951309,52.5173885,Nominatim
+BMAS,Bundesministerium für Arbeit und Soziales,Oberste Bundesbehörde,Berlin,NA,13.3951309,52.5173885,Nominatim
+BMDS,Bundesministerium für Digitales und Staatsmodernisierung,Oberste Bundesbehörde,Berlin,NA,13.3951309,52.5173885,Nominatim
+BMV,Bundesministerium für Verkehr,Oberste Bundesbehörde,Berlin,NA,13.3951309,52.5173885,Nominatim
+BMUKN,"Bundesministerium für Umwelt, Klimaschutz, Naturschutz und nukleare Sicherheit",Oberste Bundesbehörde,Bonn,NA,7.1024635,50.7352621,Nominatim
+BMG,Bundesministerium für Gesundheit,Oberste Bundesbehörde,Bonn,NA,7.1024635,50.7352621,Nominatim
+BMLEH,"Bundesministerium für Landwirtschaft, Ernährung und Heimat",Oberste Bundesbehörde,Bonn,NA,7.1024635,50.7352621,Nominatim
+BMZ,Bundesministerium für wirtschaftliche Zusammenarbeit und Entwicklung,Oberste Bundesbehörde,Bonn,NA,7.1024635,50.7352621,Nominatim
+BMWSB,"Bundesministerium für Wohnen, Stadtentwicklung und Bauwesen",Oberste Bundesbehörde,Berlin,NA,13.3951309,52.5173885,Nominatim
+BBk,Zentrale der Deutschen Bundesbank (einer obersten Bundesbehörde gleichgestellt),Oberste Bundesbehörde,Frankfurt am Main,NA,8.6820917,50.1106444,Nominatim
+BfDI,Bundesbeauftragter für den Datenschutz und die Informationsfreiheit,Oberste Bundesbehörde,Bonn,NA,7.1024635,50.7352621,Nominatim
+BGH,Bundesgerichtshof (soweit als Behörde tätig),Oberste Bundesbehörde,Karlsruhe,NA,8.4034195,49.0068705,Nominatim
+BAG,Bundesarbeitsgericht (soweit als Behörde tätig),Oberste Bundesbehörde,Erfurt,NA,11.0287364,50.9777974,Nominatim
+BFH,Bundesfinanzhof (soweit als Behörde tätig),Oberste Bundesbehörde,München,NA,11.5753822,48.1371079,Nominatim
+BSG,Bundessozialgericht (soweit als Behörde tätig),Oberste Bundesbehörde,Kassel,NA,9.4978479,51.3157833,Nominatim
+BVerwG,Bundesverwaltungsgericht (soweit als Behörde tätig),Oberste Bundesbehörde,Leipzig,NA,12.3747329,51.3406321,Nominatim
+UKRat,Unabhängiger Kontrollrat,Oberste Bundesbehörde,Berlin,NA,13.3951309,52.5173885,Nominatim
+BiZBw,Bildungszentrum der Bundeswehr,Bundesoberbehörde,Mannheim,Bundesministerium der Verteidigung,8.4673098,49.4892913,Nominatim
+BAA,Bundesausgleichsamt,Bundesoberbehörde,Bad Homburg vor der Höhe,Bundesministerium des Innern,8.6130128,50.2283803,Nominatim
+BAAINBw,"Bundesamt für Ausrüstung, Informationstechnik und Nutzung der Bundeswehr",Bundesoberbehörde,Koblenz,Bundesministerium der Verteidigung,7.5943951,50.3533278,Nominatim
+BfAA,Bundesamt für Auswärtige Angelegenheiten,Bundesoberbehörde,Brandenburg an der Havel,Auswärtiges Amt,12.5497933,52.4108261,Nominatim
+BAFA,Bundesamt für Wirtschaft und Ausfuhrkontrolle,Bundesoberbehörde,Eschborn,Bundesministerium für Wirtschaft und Energie,8.5607767,50.1504737,Nominatim
+BAFzA,Bundesamt für Familie und zivilgesellschaftliche Aufgaben,Bundesoberbehörde,Köln,"Bundesministerium für Bildung, Familie, Senioren, Frauen und Jugend",6.959974,50.938361,Nominatim
+BALM,Bundesamt für Logistik und Mobilität,Bundesoberbehörde,Köln,Bundesministerium für Verkehr,6.959974,50.938361,Nominatim
+BAIUDBw,"Bundesamt für Infrastruktur, Umweltschutz und Dienstleistungen der Bundeswehr",Bundesoberbehörde,Bonn,Bundesministerium der Verteidigung,7.1024635,50.7352621,Nominatim
+BAMF,Bundesamt für Migration und Flüchtlinge,Bundesoberbehörde,Nürnberg,Bundesministerium des Innern,11.077298,49.453872,Nominatim
+BAR,Bundesamt für äußere Restitutionen,Bundesoberbehörde,Koblenz,Beauftragter der Bundesregierung für Kultur und Medien,7.5943951,50.3533278,Nominatim
+BArch,Bundesarchiv,Bundesoberbehörde,Koblenz,Beauftragter der Bundesregierung für Kultur und Medien,7.5943951,50.3533278,Nominatim
+BADV,Bundesamt für zentrale Dienste und offene Vermögensfragen,Bundesoberbehörde,Berlin,Bundesministerium des Innern,13.3951309,52.5173885,Nominatim
+BAPersBw,Bundesamt für das Personalmanagement der Bundeswehr,Bundesoberbehörde,Köln,Bundesministerium der Verteidigung,6.959974,50.938361,Nominatim
+BAV,Bundesanstalt für Verwaltungsdienstleistungen,Bundesoberbehörde,Aurich,Bundesministerium für Verkehr,7.3583406,53.5094623,Nominatim
+BBK,Bundesamt für Bevölkerungsschutz und Katastrophenhilfe,Bundesoberbehörde,Bonn,Bundesministerium des Innern,7.1024635,50.7352621,Nominatim
+BBR,Bundesamt für Bauwesen und Raumordnung,Bundesoberbehörde,Bonn,"Bundesministerium für Wohnen, Stadtentwicklung und Bauwesen",7.1024635,50.7352621,Nominatim
+BeschA,Beschaffungsamt des Bundesministeriums des Innern,Bundesoberbehörde,Bonn,Bundesministerium des Innern,7.1024635,50.7352621,Nominatim
+BfArM,Bundesinstitut für Arzneimittel und Medizinprodukte,Bundesoberbehörde,Bonn,Bundesministerium für Gesundheit,7.1024635,50.7352621,Nominatim
+BEU,Bundesstelle für Eisenbahnunfalluntersuchung,Bundesoberbehörde,Bonn,Bundesministerium für Verkehr,7.1024635,50.7352621,Nominatim
+BASE,Bundesamt für die Sicherheit der nuklearen Entsorgung,Bundesoberbehörde,Berlin,"Bundesministerium für Umwelt, Klimaschutz, Naturschutz und nukleare Sicherheit",13.3951309,52.5173885,Nominatim
+BfN,Bundesamt für Naturschutz,Bundesoberbehörde,Bonn,"Bundesministerium für Umwelt, Klimaschutz, Naturschutz und nukleare Sicherheit",7.1024635,50.7352621,Nominatim
+BfS,Bundesamt für Strahlenschutz,Bundesoberbehörde,Salzgitter,"Bundesministerium für Umwelt, Naturschutz, nukleare Sicherheit und Verbraucherschutz",10.3593147,52.1503721,Nominatim
+BFU,Bundesstelle für Flugunfalluntersuchung,Bundesoberbehörde,Braunschweig,Bundesministerium für Verkehr,10.5236066,52.2646577,Nominatim
+BAF,Bundesaufsichtsamt für Flugsicherung,Bundesoberbehörde,Langen,Bundesministerium für Verkehr,8.6667015,49.9915138,Nominatim
+BfV,Bundesamt für Verfassungsschutz,Bundesoberbehörde,Köln,Bundesministerium des Innern,6.959974,50.938361,Nominatim
+BfJ,Bundesamt für Justiz,Bundesoberbehörde,Bonn,Bundesministerium der Justiz,7.1024635,50.7352621,Nominatim
+BIÖG,Bundesinstitut für Öffentliche Gesundheit,Bundesoberbehörde,Köln,Bundesministerium für Gesundheit,6.959974,50.938361,Nominatim
+BKA,Bundeskriminalamt,Bundesoberbehörde,Wiesbaden,Bundesministerium des Innern,8.2416556,50.0820384,Nominatim
+BKG,Bundesamt für Kartographie und Geodäsie,Bundesoberbehörde,Frankfurt am Main,Bundesministerium des Innern,8.6820917,50.1106444,Nominatim
+BKGE,Bundesinstitut für Kultur und Geschichte der Deutschen im östlichen Europa,Bundesoberbehörde,Oldenburg,Bundesministerium des Innern,8.2146017,53.1389753,Nominatim
+BND,Bundesnachrichtendienst,Bundesoberbehörde,Berlin,Bundeskanzleramt,13.3951309,52.5173885,Nominatim
+BPOLP,Bundespolizeipräsidium,Bundesoberbehörde,Potsdam,Bundesministerium des Innern,13.0591397,52.4009309,Nominatim
+BSI,Bundesamt für Sicherheit in der Informationstechnik,Bundesoberbehörde,Bonn,Bundesministerium des Innern,7.1024635,50.7352621,Nominatim
+BSH,Bundesamt für Seeschifffahrt und Hydrographie,Bundesoberbehörde,Hamburg,Bundesministerium für Verkehr,10.0013165,53.5501721,Nominatim
+BSU,Bundesstelle für Seeunfalluntersuchung,Bundesoberbehörde,Hamburg,Bundesministerium für Verkehr,10.0013165,53.5501721,Nominatim
+BKartA,Bundeskartellamt,Bundesoberbehörde,Bonn,Bundesministerium für Wirtschaft und Energie,7.1024635,50.7352621,Nominatim
+BzKJ,Bundeszentrale für Kinder- und Jugendmedienschutz,Bundesoberbehörde,Bonn,"Bundesministerium für Bildung, Familie, Senioren, Frauen und Jugend",7.1024635,50.7352621,Nominatim
+BSA,Bundessortenamt,Bundesoberbehörde,Hannover,"Bundesministerium für Landwirtschaft, Ernährung und Heimat",9.7385532,52.3744779,Nominatim
+BSprA,Bundessprachenamt,Bundesoberbehörde,Hürth,Bundesministerium der Verteidigung,6.876568,50.8807379,Nominatim
+BAS,Bundesamt für Soziale Sicherung,Bundesoberbehörde,Bonn,"Bundesministerium für Arbeit und Soziales, Bundesministerium für Gesundheit",7.1024635,50.7352621,Nominatim
+BVA,Bundesverwaltungsamt,Bundesoberbehörde,Köln,Bundesministerium des Innern,6.959974,50.938361,Nominatim
+BVL,Bundesamt für Verbraucherschutz und Lebensmittelsicherheit,Bundesoberbehörde,Braunschweig,"Bundesministerium für Landwirtschaft, Ernährung und Heimat",10.5236066,52.2646577,Nominatim
+BZSt,Bundeszentralamt für Steuern,Bundesoberbehörde,Bonn,Bundesministerium der Finanzen,7.1024635,50.7352621,Nominatim
+DPMA,Deutsches Patent- und Markenamt,Bundesoberbehörde,München,Bundesministerium der Justiz,11.5753822,48.1371079,Nominatim
+EBA,Eisenbahn-Bundesamt,Bundesoberbehörde,Bonn,Bundesministerium für Verkehr,7.1024635,50.7352621,Nominatim
+EKA,Evangelisches Kirchenamt für die Bundeswehr,Bundesoberbehörde,Berlin,Bundesministerium der Verteidigung,13.3951309,52.5173885,Nominatim
+FBA,Fernstraßen-Bundesamt,Bundesoberbehörde,Leipzig,Bundesministerium für Verkehr,12.3747329,51.3406321,Nominatim
+MRB,Militärrabbinat,Bundesoberbehörde,Berlin,Bundesministerium der Verteidigung,13.3951309,52.5173885,Nominatim
+GZD,Generalzolldirektion,Bundesoberbehörde,Bonn,Bundesministerium der Finanzen,7.1024635,50.7352621,Nominatim
+HSU/UniBw H,Helmut-Schmidt-Universität/Universität der Bundeswehr Hamburg,Bundesoberbehörde,Hamburg,Bundesministerium der Verteidigung,10.0013165,53.5501721,Nominatim
+ITZBund,Informationstechnikzentrum Bund,Bundesoberbehörde,Bonn,Bundesministerium der Finanzen,7.1024635,50.7352621,Nominatim
+KMBA,Katholisches Militärbischofsamt,Bundesoberbehörde,Berlin,Bundesministerium der Verteidigung,13.3951309,52.5173885,Nominatim
+KBA,Kraftfahrt-Bundesamt,Bundesoberbehörde,Flensburg,Bundesministerium für Verkehr,9.4333264,54.7833021,Nominatim
+KVdB,Kunstverwaltung des Bundes,Bundesoberbehörde,Berlin,Beauftragter der Bundesregierung für Kultur und Medien,13.3951309,52.5173885,Nominatim
+LBA,Luftfahrt-Bundesamt,Bundesoberbehörde,Braunschweig,Bundesministerium für Verkehr,10.5236066,52.2646577,Nominatim
+LufABw,Luftfahrtamt der Bundeswehr,Bundesoberbehörde,Köln,Bundesministerium der Verteidigung,6.959974,50.938361,Nominatim
+BAMAD,Bundesamt für den Militärischen Abschirmdienst,Bundesoberbehörde,Köln,Bundesministerium der Verteidigung,6.959974,50.938361,Nominatim
+PlgABw,Planungsamt der Bundeswehr,Bundesoberbehörde,Berlin,Bundesministerium der Verteidigung,13.3951309,52.5173885,Nominatim
+BNetzA,"Bundesnetzagentur für Elektrizität, Gas, Telekommunikation, Post und Eisenbahnen",Bundesoberbehörde,Bonn,Bundesministerium für Wirtschaft und Energie,7.1024635,50.7352621,Nominatim
+StBA/Destatis,Statistisches Bundesamt,Bundesoberbehörde,Wiesbaden,Bundesministerium des Innern,8.2416556,50.0820384,Nominatim
+UBA,Umweltbundesamt,Bundesoberbehörde,Dessau-Roßlau,"Bundesministerium für Umwelt, Klimaschutz, Naturschutz und nukleare Sicherheit",12.2405447,51.8620868,Nominatim
+UniBw M,Universität der Bundeswehr München,Bundesoberbehörde,München,Bundesministerium der Verteidigung,11.5753822,48.1371079,Nominatim
+BAM,Bundesanstalt für Materialforschung und -prüfung,Bundesoberbehörde,Berlin,Bundesministerium für Wirtschaft und Energie,13.3951309,52.5173885,Nominatim
+BASt,Bundesanstalt für Straßen- und Verkehrswesen,Bundesoberbehörde,Bergisch Gladbach,Bundesministerium für Verkehr,7.1277379,50.9929303,Nominatim
+BAuA,Bundesanstalt für Arbeitsschutz und Arbeitsmedizin,Bundesoberbehörde,Dortmund,Bundesministerium für Arbeit und Soziales,7.4652789,51.5142273,Nominatim
+BAW,Bundesanstalt für Wasserbau,Bundesoberbehörde,Karlsruhe,Bundesministerium für Verkehr,8.4034195,49.0068705,Nominatim
+BfG,Bundesanstalt für Gewässerkunde,Bundesoberbehörde,Koblenz,Bundesministerium für Verkehr,7.5943951,50.3533278,Nominatim
+BGR,Bundesanstalt für Geowissenschaften und Rohstoffe,Bundesoberbehörde,Hannover,Bundesministerium für Wirtschaft und Energie,9.7385532,52.3744779,Nominatim
+BiB,Bundesinstitut für Bevölkerungsforschung,Bundesoberbehörde,Wiesbaden,Bundesministerium des Innern,8.2416556,50.0820384,Nominatim
+BISp,Bundesinstitut für Sportwissenschaft,Bundesoberbehörde,Bonn,Bundesministerium des Innern,7.1024635,50.7352621,Nominatim
+bpb,Bundeszentrale für politische Bildung,Bundesoberbehörde,Bonn,Bundesministerium des Innern,7.1024635,50.7352621,Nominatim
+PTB,Physikalisch-Technische Bundesanstalt,Bundesoberbehörde,Braunschweig,Bundesministerium für Wirtschaft und Energie,10.5236066,52.2646577,Nominatim
+FLI,Friedrich-Loeffler-Institut – Bundesforschungsinstitut für Tiergesundheit,Bundesoberbehörde,Greifswald,"Bundesministerium für Landwirtschaft, Ernährung und Heimat",13.3815238,54.095791,Nominatim
+JKI,Julius Kühn-Institut – Bundesforschungsinstitut für Kulturpflanzen,Bundesoberbehörde,Quedlinburg,"Bundesministerium für Landwirtschaft, Ernährung und Heimat",11.151993300000001,51.7855428,Nominatim
+MRI,Max Rubner-Institut – Bundesforschungsinstitut für Ernährung und Lebensmittel,Bundesoberbehörde,Karlsruhe,"Bundesministerium für Landwirtschaft, Ernährung und Heimat",8.4034195,49.0068705,Nominatim
+PEI,Paul-Ehrlich-Institut – Bundesinstitut für Impfstoffe und biomedizinische Arzneimittel,Bundesoberbehörde,Langen,Bundesministerium für Gesundheit,8.6667015,49.9915138,Nominatim
+RKI,Robert Koch-Institut – Bundesinstitut für Infektionskrankheiten und nicht übertragbare Krankheiten,Bundesoberbehörde,Berlin,Bundesministerium für Gesundheit,13.3951309,52.5173885,Nominatim
+TI,"Johann Heinrich von Thünen-Institut – Bundesforschungsinstitut für Ländliche Räume, Wald und Fischerei",Bundesoberbehörde,Braunschweig,"Bundesministerium für Landwirtschaft, Ernährung und Heimat",10.5236066,52.2646577,Nominatim
+THW,Bundesanstalt Technisches Hilfswerk,Bundesoberbehörde,Bonn,Bundesministerium des Innern,7.1024635,50.7352621,Nominatim
+ZITiS,Zentrale Stelle für Informationstechnik im Sicherheitsbereich,Bundesoberbehörde,München,Bundesministerium des Innern,11.5753822,48.1371079,Nominatim

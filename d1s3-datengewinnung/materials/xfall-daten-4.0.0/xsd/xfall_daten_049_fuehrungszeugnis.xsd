@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xfd="http://xoev.de/schemata/xfall_daten/4_0_0" xmlns:xoev-lc="http://xoev.de/latinchars/1_1/datatypes" targetNamespace="http://xoev.de/schemata/xfall_daten/4_0_0" version="4.0.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:include schemaLocation="xfall_daten_baukasten.xsd" />
+  <xs:import schemaLocation="latinchars.xsd" namespace="http://xoev.de/latinchars/1_1/datatypes" />
+  <xs:element name="fuehrungszeugnis.fuehrungszeugnis.04901001">
+    <xs:annotation>
+      <xs:appinfo>
+        <rechtsgrundlage>Bundeszentralregistergesetz
+- BZRG</rechtsgrundlage>
+      </xs:appinfo>
+      <xs:documentation>Nachricht zur Anforderung eines Führungszeugnisses, einer Auskunft über Eintragungen im Zentralregister.
+Der Antragsteller kann eine Privatperson oder eine Behörde sein.
+Im Falle einer Behörde sind die Attribute "nichtsachgemäß" und "erfolglosgeblieben" wirksam.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xfd:XFallDatensatz">
+          <xs:sequence>
+            <xs:element name="belegart" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Belegart, bestimmt den Zweck des Antrags
+(z.B. für eigene Zwecke, zur Vorlage bei einer Behörde, etc.).</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="europaeischesFuehrungszeugnis" minOccurs="0" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Es wird ein europäisches Führungszeugnis beantragt.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="geburtsnameDerMutter" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Geburtsname der Mutter</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="gesetzlicherVertreter" minOccurs="0" type="xfd:NatuerlichePerson">
+              <xs:annotation>
+                <xs:documentation>Bei Antragstellung durch einen gesetzlichen Vertreter:
+Anschrift des gesetzlichen Vertreters.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="amtsgericht" minOccurs="0" type="xfd:Behoerde">
+              <xs:annotation>
+                <xs:documentation>Hier nur bei Beleg-Art P die Anschrift des Amtsgerichts eintragen!</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="geschaeftsnrOderVerwendungszweck" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Geschäftsnummer oder Verwendungszweck der Empfänger-Behörde angeben.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="geprueft" minOccurs="0" type="xfd:Behoerde">
+              <xs:annotation>
+                <xs:documentation>Die Angaben des Antragstellers zur Person sind von dieser Behörde geprüft worden.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="benachrichtigtAm" minOccurs="0" type="xs:date">
+              <xs:annotation>
+                <xs:documentation>Der Antragsteller wurde an diesem Datum benachrichtigt.
+Eingesehen und der Weiterleitung nicht widersprochen.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="rueckantwortAnschrift" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Hier Anschrift für Rückantwort eintragen!
+Anschrift des Antragstellers oder Anschrift der Behörde.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="fuehrungszeugnis" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Eintragungen im Zentralregister.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="nichtsachgemaess" minOccurs="0" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Das Führungszeugnis wird zur Erfüllung hoheitlicher Aufgaben benötigt. Eine Aufforderung an den Betroffenen, ein
+Führungszeugnis vorzulegen, ist nicht sachgemäß.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="erfolglosgeblieben" minOccurs="0" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Das Führungszeugnis wird zur Erfüllung hoheitlicher Aufgaben benötigt. Eine Aufforderung an den Betroffenen, ein
+Führungszeugnis vorzulegen, ist erfolglos geblieben.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="verwendungszweck" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Das Führungszeugnis wird zur Erfüllung hoheitlicher Aufgaben benötigt.
+Der Verwendungszweck für das Führungszeugnis, bzw. die Auskunft.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="abweichendepersonendaten" minOccurs="0" type="xfd:NatuerlichePerson">
+              <xs:annotation>
+                <xs:documentation>Abweichende Personendaten.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="behoerdenkennzeichen" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Behördenkennzeichen.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="geschaeftsnr" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Bei Beleg-Art O oder P Geschäftsnummer oder Verwendungszweck der Empfänger-Behörde angeben.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+

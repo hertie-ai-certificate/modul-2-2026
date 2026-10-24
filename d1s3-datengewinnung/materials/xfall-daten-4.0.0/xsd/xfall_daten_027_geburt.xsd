@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xfd="http://xoev.de/schemata/xfall_daten/4_0_0" xmlns:xoev-lc="http://xoev.de/latinchars/1_1/datatypes" targetNamespace="http://xoev.de/schemata/xfall_daten/4_0_0" version="4.0.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:annotation>
+    <xs:documentation>Das Paket Personenstand enthält die Nachrichten zum Transport von Daten im Kontext mit der Anforderung von Urkunden über den Personenstand beim Standesamt.</xs:documentation>
+  </xs:annotation>
+  <xs:include schemaLocation="xfall_daten_baukasten.xsd" />
+  <xs:import schemaLocation="latinchars.xsd" namespace="http://xoev.de/latinchars/1_1/datatypes" />
+  <xs:element name="geburt.geburtsurkunde.02701001">
+    <xs:annotation>
+      <xs:appinfo>
+        <rechtsgrundlage>Personenstandsgesetz</rechtsgrundlage>
+      </xs:appinfo>
+      <xs:documentation>Nachricht zur Anforderung einer Urkunde aus dem Geburtsregister beim Standesamt. 
+Der Absender (natürliche Person) ist der Antragsteller und somit unter Beteiligter abgebildet, mit der Rolle Antragsteller.
+Das Standesamt ist die Zuständige Stelle und somit unter Beteiligter abgebildet, mit der Rolle ZS.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xfd:XFallDatensatz">
+          <xs:sequence>
+            <xs:element name="artGeburtsurkunde" type="xfd:Code.ArtGeburtsurkunde">
+              <xs:annotation>
+                <xs:documentation>Der Typ der Geburtsurkunde nach Codetabelle. Urkunde über jmds. Geburt mit Angaben der Namen der Eltern, des Geburtstages und -ortes.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="anzExemplare" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>Menge der Exemplare derselben Urkunde.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="verwendungszweck" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Bestimmt wofür eine Urkunde angefordert wird, zur Klärung der Berechtigung zur Anforderung und Klärung der eventuellen Gebührenfreiheit.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="urkundeFuer" type="xfd:NatuerlichePerson">
+              <xs:annotation>
+                <xs:documentation>Kind. Angaben zur Person, der die Urkunde benötigt.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="standesamt" minOccurs="0" type="xfd:Behoerde">
+              <xs:annotation>
+                <xs:documentation>Standesamt, Behörde zur Beurkundung von Geburten, Eheschließungen und Todesfällen durch Eintragung in die Personenstandsbücher (Personenstand) durch den Standesbeamten.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="registernummer" minOccurs="0" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Eintragungsnummer der Beurkundung beim Standesamt.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="wegAushaendigung" minOccurs="0" type="xfd:Code.ArtAushaendigungDokument">
+              <xs:annotation>
+                <xs:documentation>Hier wird mittels Codetabelle angegeben auf welchem Weg die Urkunde ausgehändigt werden soll.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="empfaenger" minOccurs="0" type="xfd:NatuerlichePerson">
+              <xs:annotation>
+                <xs:documentation>Kernkomponente
+
+Mensch als Einzelwesen,der um seines Menschseins willen von der Rechtsordnung ohne weitere Voraussetzung als Subjekt von Rechten und Pflichten anerkannt wird.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="artBezahlung" minOccurs="0" type="xfd:Code.ArtBezahlung">
+              <xs:annotation>
+                <xs:documentation>Bestimmt mittels Codetabelle auf welche Art und Weise die Gebühr entrichtet wird.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="bankverbindung" minOccurs="0" type="xfd:Bankverbindung">
+              <xs:annotation>
+                <xs:documentation>Bankverbindung</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+

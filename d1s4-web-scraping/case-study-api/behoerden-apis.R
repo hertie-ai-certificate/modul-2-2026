@@ -1,0 +1,113 @@
+### -----------------------------------------------------------------
+### Fallstudie Web-APIs: Pegelonline, XRepository, GovData
+### Modul 2 "Der Daten-Lifecycle", Session 4. Simon Munzert, Hertie School
+### -----------------------------------------------------------------
+# Erläuterungen: fallstudie-api.Rmd im selben Ordner.
+
+library(tidyverse)
+library(httr2)      # Anfragen stellen
+library(jsonlite)   # JSON lesen
+library(xml2)       # XML lesen
+library(leaflet)    # Karten
+
+user_agent <- "Hertie-School-Datenkurs (munzert@hertie-school.org)"
+
+## Schritt 1: Dokumentation und eine erste Adresse im Browser ---------------
+browseURL("https://www.pegelonline.wsv.de/webservice/dokuRestapi")
+browseURL("https://www.pegelonline.wsv.de/webservices/rest-api/v2/waters.json")
+
+## Das Grundmuster als Funktion ----------------------------------------------
+hole_json <- function(url, ...) {
+  request(url) |>
+    req_url_query(...) |>
+    req_user_agent(user_agent) |>
+    req_perform() |>
+    resp_body_string() |>
+    fromJSON(flatten = TRUE)
+}
+
+## Schritt 2: Pegelonline ---------------------------------------------------
+basis <- "https://www.pegelonline.wsv.de/webservices/rest-api/v2/"
+gewaesser <- hole_json(paste0(basis, "waters.json"))
+head(gewaesser)
+
+stationen <- hole_json(paste0(basis, "stations.json"),
+                       includeTimeseries = "true", includeCurrentMeasurement = "true")
+nrow(stationen)
+
+pegel <- stationen |>
+  select(uuid, pegel = longname, water = water.longname, agency, latitude, longitude, timeseries) |>
+  unnest(timeseries) |>
+  filter(shortname == "W") |>
+  select(uuid, pegel, water, agency, latitude, longitude,
+         wasserstand_cm = currentMeasurement.value,
+         zeitpunkt = currentMeasurement.timestamp,
+         status = currentMeasurement.stateMnwMhw)
+count(pegel, status, sort = TRUE)
+
+farbe <- colorFactor(c("#1D375B", "#C2001A", "grey60", "#EB811B"),
+                     levels = c("normal", "high", "unknown", "low"))
+leaflet(pegel |> filter(!is.na(wasserstand_cm), status %in% c("normal", "high", "low", "unknown"))) |>
+  addTiles() |>
+  addCircleMarkers(lng = ~longitude, lat = ~latitude, radius = 4, stroke = FALSE, fillOpacity = 0.8,
+                   color = ~farbe(status),
+                   popup = ~paste0("<b>", pegel, "</b><br>", water, "<br>", wasserstand_cm, " cm (", status, ")")) |>
+  addLegend("bottomright", pal = farbe, values = ~status, title = "Wasserstand")
+
+# Zeitreihe eines Pegels: start = "P7D" heißt "die letzten 7 Tage"
+muehlendamm <- pegel |> filter(str_detect(pegel, "MÜHLENDAMM OP")) |> pull(uuid)
+messwerte <- hole_json(paste0(basis, "stations/", muehlendamm, "/W/measurements.json"), start = "P7D") |>
+  mutate(timestamp = as_datetime(timestamp))
+ggplot(messwerte, aes(timestamp, value)) +
+  geom_line(colour = "#1D375B") +
+  labs(title = "Pegel Berlin-Mühlendamm (Oberpegel), letzte 7 Tage", x = NULL, y = "Wasserstand (cm)",
+       caption = "Quelle: Pegelonline, WSV") +
+  theme_minimal(base_family = "Fira Sans")
+
+## Schritt 3: XRepository, Codelisten als JSON und XML ---------------------
+xrep <- "https://www.xrepository.de/api/codeliste/"
+urn_bundesland <- "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bundesland"
+browseURL(paste0("https://www.xrepository.de/details/", urn_bundesland))
+
+bundesland <- hole_json(paste0(xrep, urn_bundesland, "/gueltigeVersion/json"))
+bundesland$metadaten$nameLang
+bundesland_tbl <- bundesland$daten |> as_tibble(.name_repair = ~bundesland$spalten$spaltennameTechnisch)
+bundesland_tbl
+
+# dieselbe Liste als Genericode-XML (das Format der XÖV-Standards)
+doc <- request(paste0(xrep, urn_bundesland, "/gueltigeVersion/genericode")) |>
+  req_user_agent(user_agent) |>
+  req_perform() |>
+  resp_body_xml() |>
+  xml_ns_strip()
+doc |> xml_children() |> xml_name()
+doc |> xml_find_first("//Identification/Version") |> xml_text()
+
+bundesland_aus_xml <- doc |> xml_find_all("//SimpleCodeList/Row") |>
+  map(\(row) {
+    werte <- xml_find_all(row, "Value")
+    tibble(spalte = xml_attr(werte, "ColumnRef"),
+           wert   = werte |> xml_find_first("SimpleValue") |> xml_text())
+  }) |>
+  list_rbind(names_to = "zeile") |>
+  pivot_wider(names_from = spalte, values_from = wert) |>
+  select(-zeile)
+identical(bundesland_aus_xml$SCHLUESSEL, bundesland_tbl$SCHLUESSEL)
+
+## Schritt 4: GovData, Metadaten-API (CKAN) ---------------------------------
+ckan <- "https://ckan.govdata.de/api/3/action/package_search"
+suche <- hole_json(ckan, q = "Gewerbeanmeldung", rows = 50)
+suche$result$count
+
+suche$result$results |>
+  as_tibble() |>
+  transmute(titel = title, anbieter = organization.title, lizenz = license_id,
+            aktualisiert = as_date(metadata_modified)) |>
+  head(10)
+
+suche$result$results |>
+  as_tibble() |>
+  select(title, resources) |>
+  unnest(resources) |>
+  count(format, sort = TRUE) |>
+  head(8)

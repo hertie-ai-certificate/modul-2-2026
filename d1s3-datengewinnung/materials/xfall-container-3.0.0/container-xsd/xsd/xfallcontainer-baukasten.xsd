@@ -1,0 +1,1451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xfc="http://xoev.de/schemata/xfall/3_0/container" xmlns:xoev-dt="http://xoev.de/schemata/basisdatentypen/1_0" targetNamespace="http://xoev.de/schemata/xfall/3_0/container" version="3.0.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:annotation>
+    <xs:documentation>Sammlung aller fachlichen Typen z.B. zur Wiederverwendung in den Nachrichten der unterschiedlichen Hauptgruppen.</xs:documentation>
+  </xs:annotation>
+  <xs:include schemaLocation="xfallcontainer-basistypen.xsd" />
+  <xs:import schemaLocation="xoev-basisdatentypen.xsd" namespace="http://xoev.de/schemata/basisdatentypen/1_0" />
+  <xs:complexType name="Code.AuthentNiveau">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>xFall-Koordination</listAgencyName>
+        <listName>xFall-Codeliste AuthentNiveau</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.AuthentNiveau umfasst beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.AuthentNiveau.
+Hier wird aufgeführt in welcher Nachweisstufe ein Partner tatsächlich die Person ist, für welche er sich ausgibt. Stufe, bei der man die Identität einer Person und deren Berechtigung zur Durchführung einer Transaktion feststellen kann.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:annotation>
+              <xs:documentation>Der Schlüssel aus der Codeliste.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="1">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>UNVERIFIED</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>Unverifiziert, die Identität ist nicht  festgestellt worden.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="2">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>EMAIL</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>Identität ist durch eine E-Mail bestätigt worden.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="3">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>WELLKNOWN</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>Verifiziert über dritte vertrauenswürdige Partei oder persönlich vorgesprochen und ausgewiesen oder persönlich bekannt.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="4">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>EID</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>Verifiziert über den elektronischen Personalausweis.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="5">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>QUALIFIEDSIGNATURE</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>Verifiziert über die qualifizierte Signaturkarte.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfall:authentNiveau">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.Country">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>Destatis</listAgencyName>
+        <listName>Code Destatis.Staat</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.Country  umfasst beschreibende Daten zur Übermittlung eines Codes aus einer Codeliste im Themenbereich Staat. Dieser Code wird für die Felder "nationality" und "country" verwendet werden.
+
+Code (eigenständige Staaten) aus der Staats- und Gebietssystematik des Statistischen Bundesamtes. Enthalten sind alle Staaten im vollen politischen Sinne.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" type="xs:token" form="unqualified">
+            <xs:annotation>
+              <xs:documentation>Der Schlüssel aus der Codeliste.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staat">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="required">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.CountryState">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>xFall-Koordination</listAgencyName>
+        <listName>xFall-Codeliste Land-Staat</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.CountryState umfasst beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.CountryState.
+Es kann die in xRepository vorhandene Codeliste der Bundesländer nicht verwendet werden, weil für xFall die nummerische Abspeicherung unzureichend ist. Auch sollen in dieser Codeliste in Zukunft EU-Staaten mit ihrer Unterteilung abgebildet werden können. Für den Anfang ist nur Deutschland enthalten, aber die Codeliste kann jederzeit EU-tauglich erweitert werden.
+
+Der Code setzt sich wie folgt zusammen:
+DE 	für das Land (State) z.B. Deutschland
+-	Bindestrich
+NI	für das Bundesland (Country) z.B. Niedersachsen</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:annotation>
+              <xs:documentation>Der Schlüssel aus der Codeliste.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="DE-BB">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Brandenburg</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="DE-BE">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Berlin</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="DE-BW">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Baden-Württemberg</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="DE-BY">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Bayern</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="DE-HB">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Bremen</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="DE-HE">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Hessen</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="DE-HH">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Hamburg</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="DE-MV">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Mecklenburg-Vorpommern</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="DE-NI">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Niedersachsen</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="DE-NW">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Nordrhein-Westfalen</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="DE-RP">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Rheinland-Pfalz</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="DE-SH">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Schleswig-Holstein</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="DE-SL">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Saarland</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="DE-SN">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Sachsen</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="DE-ST">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Sachsen-Anhalt</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="DE-TH">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Thüringen</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfall:countryState">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.Location">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>xFall-Koordination</listAgencyName>
+        <listName>xFall-Codeliste Location</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.Location umfasst beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.Location.
+Diese Codeliste beschreibt die Attribute, in welchen im Zielsystem gesucht werden soll, um die gewünschten Teilanträge auffinden zu können.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:annotation>
+              <xs:documentation>Der Schlüssel aus der Codeliste.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="1">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>MainApplicationID</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>ID des Hauptantrags</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="2">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>MainApplicationTitle</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>Titel des Hauptantrags</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="3">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>PartialApplicationID</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>ID des Teilantrags</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="4">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>PartialApplicationTitle</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>Titel des Teilantrags</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="5">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>ApplicantDescript</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>Kurzbezeichnung des Antragstellers</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="6">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>SpcDescript</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>Kurzbezeichnung des einheitlichen Ansprechpartners</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="7">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>AuthDescript</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>Kurzbezeichnung der zentralen Stelle</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfall:location">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.PartnerRole">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>xFall-Koordination</listAgencyName>
+        <listName>xFall-Codeliste Partner-Rolle</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.PartnerRole umfasst beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.PartnerRole. Hier werden die beteiligten Akteure aufgelistet.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="AP">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Antragsteller (applicant)</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="OT">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Andere (other)</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="RA">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Zuständige Stelle (responsibel authority)</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="SP">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Einheitlicher Ansprechpartner (Single Point of Contact)</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfall:partnerRole">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.PartnerType">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>xFall-Koordination</listAgencyName>
+        <listName>xFall-Codeliste PartnerType</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.PartnerType umfasst beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.PartnerType.
+Hier wird aufgeführt in welcher Art von Rechtsobjekt der Antragsteller gegenüber der Behörde auftritt.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:annotation>
+              <xs:documentation>Der Schlüssel aus der Codeliste.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="0">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>unbekannt (undefined)</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="1">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>natürliche Person (natural person)</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="2">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>juristische Person (legal person)</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfall:partnerType">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.ProcessStatus">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>xFall-Koordination</listAgencyName>
+        <listName>xFall-Codeliste ProcessStatus</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.ProcessStatus umfasst beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.ProcessStatus.
+Hier wird aufgeführt in welchem Status das Antragsverfahren sich zur Zeit befindet. Siehe dazu auch das Diagramm im "Anhang A"</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:annotation>
+              <xs:documentation>Der Schlüssel aus der Codeliste.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="1">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>NEW</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>neu</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="10">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>RECEIVED_BY_SPC_DS</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>dem EA zugestellt von der ZS (received by Single Point of Contact downstream)</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="11">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>SENT_TO_APPLICANT</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>abgesendet an den AS</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="12">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>RECEIVED_BY_APPLICANT</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>dem AS zugestellt</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="13">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>FINISHED</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>fertig</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="14">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>DEL_GRACE</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>2 Wochen Löschfrist</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="2">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>EDITED</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>bearbeitet</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="3">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>SENT_TO_SPC_US</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>abgesendet an den EA von AS (sent to single Point of Contact upstream)</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="4">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>RECEIVED_BY_SPC_US</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>dem EA zugestellt von AS (received by Single Point of Contact upstream)</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="5">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>SENT_TO_AUTH</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>abgesendet an die ZS (sent to resonsibel authority)</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="6">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>RECEIVED_BY_AUTH</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>der ZS zugestellt (received by responsibel authority)</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="7">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>SUFFICIENT</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>vollständig</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="8">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>AUTH_FINISHED</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>fertig, Start der Genehmigungsfiktion (responisbel Authority finished)</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="9">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>SENT_TO_SPC_DS</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>abgesendet an den EA von der ZS (sent to single Point of Contact downstream)</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfall:processStatus">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.Statuscode">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>xFall-Koordination</listAgencyName>
+        <listName>xFall-Codeliste Statuscode</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.Statuscode umfasst beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.Statuscode. Hier werden die Stati der Fehler, die im Zielsystem bei Empfang einer Nachricht auftreten können, aufgeführt.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:annotation>
+              <xs:documentation>Der Schlüssel aus der Codeliste.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="1">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>OK</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>Nachricht erfolgreich empfangen und gewünschte Funktion/Methode erfolgreich ausgeführt.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="2">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>BUSY</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>Nachricht kann derzeit nicht verarbeitet werden. 
+Der Inhalt der auslösenden Nachricht wurde verworfen. Die Nachricht kann zu einem späteren Zeitpunkt nochmals gesendet werden.
+Im Zielsystem wurde keine Änderung vorgenommen.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="3">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>PAPREFERROR</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>(Partial APplication REFerence ERROR) Die referenzierte Teilantragsnummer  ist nicht bekannt.
+Der Inhalt der auslösenden Nachricht wurde verworfen.
+Im Zielsystem wurde keine Änderung vorgenommen.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="4">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>DOCREFERROR</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>(DOCument REFerence ERROR) Das referenzierte Dokument ist nicht bekannt.
+Der Inhalt der auslösenden Nachricht wurde verworfen.
+Im Zielsystem wurde keine Änderung vorgenommen.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="5">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>PARREFERROR</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>(PARtner REFerence ERROR) Der referenzierte Partner ist nicht bekannt.
+Der Inhalt der auslösenden Nachricht wurde verworfen.
+Im Zielsystem wurde keine Änderung vorgenommen.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="6">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>ERROR</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>Nachricht konnte nicht korrekt verarbeitet werden.
+Abarbeitungsstatus ist unbekannt.
+Die Nachricht sollte nicht nochmals gesendet werden.
+Der Fehler muss manuell geklärt werden, da ggf. Daten teilweise verarbeitet wurden.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="7">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>FORMATERROR</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>Die XML Nachricht ist semantisch oder strukturell nicht korrekt.
+Mögliche Ursachen:
+•	Die Schemaprüfung ist fehlgeschlagen oder konnte wegen struktureller Mängel nicht durchgeführt werden.
+•	Die Nachricht wurde nicht vollständig übertragen.
+•	Die Entschlüsselung ist fehlgeschlagen.
+Der Inhalt der auslösenden Nachricht wurde verworfen.
+Im Zielsystem wurde keine Änderung vorgenommen.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="8">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>NOACCESS</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>Fehlende Rechte zur Durchführung dieser Methode.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="9">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>NOTIMP</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>Nicht implementiert.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfall:statuscode">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.SubStatus">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>xFall-Koordination</listAgencyName>
+        <listName>xFall-Codeliste Substatus</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.SubStatus ist eine generische Codeliste. Die Identität, wie auch die Version der Codeliste, werden bei Bedarf zur Laufzeit angegeben. Der Substatus ist vom selbst Integrator zu definieren und ist zur Verfeinerung des Status zu benutzen.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" type="xs:token" form="unqualified">
+            <xs:annotation>
+              <xs:documentation>Der Schlüssel aus der Codeliste.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="required">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="required">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.Transport">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>xFall-Koordination</listAgencyName>
+        <listName>xFall-CodelisteTransport</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.Transport umfasst beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.Transport.
+Hier werden die Transportverfahren (Zugang), über das der Partner elektronisch erreicht werden kann, aufgelistet. Definiert den Typ des Transportmediums.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:annotation>
+              <xs:documentation>Der Schlüssel aus der Codeliste.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="1">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>EGVP</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>Elektronischen Gerichts- und Verwaltungspostfach für eine sichere Kommunikation mit Gerichten und Behörden.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="2">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>EMAIL</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>Abkürzung für 'Electronic Mail' - englisch für elektronische Post</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="3">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>OSCI</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>Online Services Computer Interface (OSCI) ist der Name eines Protokollstandards für die deutsche öffentliche Verwaltung. Er steht für mehrere Protokolle, deren gemeinsames Merkmal die besondere Eignung für das E-Government ist. Der Code OSCI steht in dieser Spezifikation für die Verwendung von OSCI ohne das darauf aufsetzende EGVP.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="4">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>DEMAIL</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>DE-Mail ist ein Kommunikationsmittel, das den verbindlichen und vertraulichen Austausch elektronischer Dokumente per Online-Brief über das Internet ermöglichen soll. DE-Mail ist ein Projekt der deutschen Bundesregierung in Zusammenarbeit mit mehreren Dienstanbietern.Es zielt auf die Verringerung der Austauschkosten für Verwaltungen und Unternehmen.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="5">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>WEBSERVICE</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>Ein `Webservice` oder `Webdienst` ist eine Software-Anwendung, die mit einem Uniform Resource Identifier (URI) eindeutig identifizierbar ist und deren Schnittstellen als XML-Artefakte definiert, beschrieben und gefunden werden können.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="6">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>HTTP</codeName>
+                    </xs:appinfo>
+                    <xs:documentation>Das Hypertext Transfer Protokoll dient im WWW dazu, auf Dokumente und andere MIME-Daten an Zielorten irgendwo im Netz zuzugreifen. Der Code HTTP steht in dieser Spezifikation für die Verwendung von HTTP ohne einen darauf aufsetzenden Webservice.</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfall:transport">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.TransportChoice">
+    <xs:choice>
+      <xs:element name="code" type="xfc:Code.Transport">
+        <xs:annotation>
+          <xs:appinfo>
+            <listAgencyName>xFall-Koordination</listAgencyName>
+            <listName>xFall-CodelisteTransport</listName>
+          </xs:appinfo>
+          <xs:documentation>Code.Transport umfasst beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.Transport.
+Hier werden die Transportverfahren (Zugang), über das der Partner elektronisch erreicht werden kann, aufgelistet. Definiert den Typ des Transportmediums.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="other" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:appinfo>
+            <title>Datentyp für lateinische Zeichen in Unicode</title>
+          </xs:appinfo>
+          <xs:documentation>Einschränkung auf alle lateinischen Zeichen innerhalb Unicode (vgl. XÖV-Handbuch).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="Deadline">
+    <xs:annotation>
+      <xs:documentation>Informationen zu laufenden Fristen eines Teilantrags. Diese Fristen beziehen sich nur auf die Genehmigungsfiktion.Voraussetzung für den Eintritt der Fiktion ist das Fehlen einer Entscheidung innerhalb der dafür festgelegten Frist. Die Genehmigungsfiktion tritt dann mit Fristablauf ein. Der Fristablauf ersetzt auch die wirksame Bekanntgabe des fingierten Verwaltungsaktes. Im Übrigen entfaltet die Genehmigungsfiktion die gleiche Wirkung wie ein entsprechender ordnungsgemäß zustande gekommener und bekannt gegebener Verwaltungsakt.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="partialApplicationID" minOccurs="0" type="xs:token">
+        <xs:annotation>
+          <xs:documentation>Die Teilantrags-Nummer (partialApplicationID) ist das Element für die technische Identnummer des Teilantrag aus dem Quellsystem. Enthält die Teilantragsnummer, für welche die Frist gesetzt / geändert wird.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="beginDate" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Anfangsdatum der Frist, Starttermin</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="endDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Enddatum der Frist (Fristablauf)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Document">
+    <xs:annotation>
+      <xs:documentation>Eine zum Teilantrag gehörige Unterlage in verschiedenen Dokumenten-Repräsentationen, z.B. PDF oder eine Datendarstellung. Es muss immer das komplette Dokument mit allen Repräsentationen übertragen werden.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="documentID" type="xs:token">
+        <xs:annotation>
+          <xs:documentation>Dokumentennummer (documentID) die das Dokument eindeutig innerhalb des Vorhabens identifiziert.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="name" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Bennenung (name) des Dokumentes in kurzer, prägnanter Form.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="currentVersion" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Versionsinformation (Freitext). Um die einzelnen Versionen eines Dokuments unterscheiden zu können, besitzen sie sogenannte Versionsnummern.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="lastVersion" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Versionsinformation eines vorlaufenden Zustandes eines Dokuments (Freitext)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="documentRepresentation" minOccurs="0" maxOccurs="unbounded" type="xfc:DocumentRepresentation">
+        <xs:annotation>
+          <xs:documentation>Dokument-Repräsentation, eine Darstellungsform des Dokumentes. Es muss das Element content oder die Elemente externalReferenceIndex und externalReferenceType oder alle 3 vorhanden sein.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DocumentRepresentation">
+    <xs:annotation>
+      <xs:documentation>Dokument-Repräsentation, eine Darstellungsform des Dokumentes. Es muss das Element content oder die Elemente externalReferenceIndex und externalReferenceType oder alle 3 vorhanden sein.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="documentRepresentationID" type="xs:token">
+        <xs:annotation>
+          <xs:documentation>Dokumenten-Repräsentations-Nummer (documentRepresentationID) anhand dieser werden die verschiedenen Darstellungsformen eines Dokumentes referenziert.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="reference" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Referenzbezeichnung (reference) des Dokumentes aus dem Quellsystem. Diese ist im Normalfall eine Identnummer oder ein Dateiname mit oder ohne Pfadangabe, unter dem das Dokument auf dem Quellsystem abgelegt oder von diesem hochgeladen wurde. Das Element hat informativen Charakter, um z.B. bei Rückfragen einen gemeinsamen Bezeichner zu haben, unter dem das Dokument von dem Versender in seiner Umgebung identifiziert werden kann. Entsprechend gibt es keine Formatvorgaben.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="mimeType" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Internetstandard um Dateitypen (mimeType) anzugeben. Mime-Typen werden bei der Kommunikation zwischen www-Server und www-Browser eingesetzt. Beispiele: text/xml, application/pdf ....</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="content" minOccurs="0" type="xs:base64Binary">
+        <xs:annotation>
+          <xs:documentation>Dokumentinhalt in base64Binary-Form, wenn sich das Dokument innerhalb der xFall Struktur befindet.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="externalReferenceType" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Hinweis zur Art (externalReferenceType),  wie das Dokument extern definiert ist, zur Zeit nur EGVP-Attatchment möglich.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="externalReferenceIndex" minOccurs="0" type="xs:token">
+        <xs:annotation>
+          <xs:documentation>Eindeutiger Identnummer oder eindeutiger Dateiname mit welchem das Dokument extern zu finden ist.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="filename" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Ursprünglicher Dateiname (filename) unter dem das Dokument auf dem Quellsystem abgelegt war. Dieses Element ist bevorzugt zu verwenden, wenn das Dokument exportiert wird. Der Dateiname ist nicht eindeutig und kann ggf. mehrfach in diesem Datensatz auf für andere Dokumente verwendet worden sein.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="contentType" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Untereinheit, falls aus dem Mimetype keine eindeutige Dokumenttypisierung möglich ist, ansonsten leer. Mögliche Inhalte sind z.B.
+PKCS7SIGNATURE, CIRALI, etc</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="signatures" minOccurs="0" type="xfc:Signatures">
+        <xs:annotation>
+          <xs:documentation>Sofern das Dokument signiert wurde findet sich hier eine Referenzliste auf die Signaturen. Diese sind ihrerseits wieder Dokumente die auch als Dokumentelemente im Teilantrag zu finden sind.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Header">
+    <xs:annotation>
+      <xs:documentation>Der Nachrichtenkopf (Header) enthält eindeutige Information zur übertragenden Nachricht.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="messageID" type="xs:token">
+        <xs:annotation>
+          <xs:documentation>Eindeutige Nachrichten-Nummer (messageID), mit der auf diese Nachricht Bezug genommen werden kann. Dieses Feld dient auch zur Nachvollziehbarkeit in Protokollsystemen oder zur Fehlersuche. Weiterhin auch zur Vermeidung von Doppeleinreichungen, die durch mögliches Fehlverhalten der Transportsysteme entstehen.
+Quellsysteme müssen sicherstellen, dass jede messageID nur einmal verwendet wird.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Index">
+    <xs:annotation>
+      <xs:documentation>Diese Klasse dient zur Übertragung eines Kurzsteckbriefs für Teilanträge. Der Steckbrief enthält eine knappe, listenartige Darstellung der wichtigsten Daten zu einem Teilantrag, um diesen zu identifizieren.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mainApplicationID" minOccurs="0" type="xs:token">
+        <xs:annotation>
+          <xs:documentation>Technische Identifikation des Hauptantrags (mainApplicationID) aus dem Quellsystem.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="mainApplicationTitle" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Bezeichnung (title), die den  Inhalt des Vorhabens (Hauptantrag) kurz und prägnant  benennt.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="partialApplicationID" type="xs:token">
+        <xs:annotation>
+          <xs:documentation>Die Teilantrags-Identifikation (partialApplicationID) ist das Element für die technische Identnummer des Teilantrag aus dem Quellsystem.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="partialApplicationTitle" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Bezeichnung (title), die den  Inhalt des Teilantrags kurz und prägnant benennt. Zum Beispiel: Antrag auf Eintragung in die Handwerksrolle.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="applicantDescript" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Aussagekräftige Kurzbezeichnung für den Antragsteller. Im Normalfall Nachname, Vorname oder Organisationsbezeichnung.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="spcDescript" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Aussagekräftige Kurzbezeichnung für den EA (Single Point of Contact). Im Normalfall eine Organisationsbezeichnung.
+Wenn kein EA vorhanden oder nicht im Workflow vorgesehen ist, dann soll dieses Element leer sein.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="authDescript" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Aussagekräftige Kurzbezeichnung für die ZS (Responsibel Authority). Im Normalfall eine Organisationsbezeichnung.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="IndexRequest">
+    <xs:annotation>
+      <xs:documentation>Diese Klasse enthält die Suchkriterien, zur Abfrage auf vorhandene Antragsverfahren, die von einem Client angefordert werden können.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="criterion" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Suchkriterium oder Suchwortfragment für die Suche mittels des LIKE-Operator von SQL.
+Folgende Platzhalter (wildcards), der einzelne Zeichen oder ganze Zeichenfolgen ersetzt, sind erlaubt:
+Der Unterstrich _ ersetzt einzelne Bu__staben und Zahl_n. 
+Das Prozentzeichen % ersetzt bis zum Wortende alle restlichen Buchst% und Zahl%. 
+Der Empfänger ist verantwortlich für die technische Aufbereitung und Absicherung (z.B. gegen SQL-Injection) des Suchstrings für die Datenbank.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="location" maxOccurs="unbounded" type="xfc:Code.Location">
+        <xs:annotation>
+          <xs:documentation>Suchbereich, in welchen Attributen im Zielsystem gesucht werden soll, um die gewünschten Teilanträge auffinden zu können. Dies ist in der Codeliste Code.Location hinterlegt.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="fromDate" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Eingrenzung der Suche über ein Ab-Datum (fromDate) möglich. Das fromDate bezieht sich auf das Datum der letzten Änderung des Datensatzes. Hat das angefragte System kein Änderungsdatum gespeichert, so antwortet es mit dem Fehler "NOTIMP".</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MainApplication">
+    <xs:annotation>
+      <xs:documentation>Der Hauptantrag (MainApplication) identifiziert und beschreibt das Gesamtvorhaben zu dem die nachfolgenden Teilanträge gehören.
+
+Beispiel:
+Bäckerei (Vorhaben)
+- Gewerbeanmeldung (Teilantrag)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="applicationNamespace" type="xfc:Code.CountryState">
+        <xs:annotation>
+          <xs:documentation>Namensraum (applicationNamespace), der die Staat-Land Kombination enthält, in welchem die nachfolgenden Identnummern Gültigkeit haben. 
+
+Die Abkürzungen der Bundesländer folgen den auf EU-Ebene vereinbarten Abkürzungen der Regionen.
+
+z.B. DE-NI   Deutschland-Niedersachsen</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="mainApplicationID" type="xs:token">
+        <xs:annotation>
+          <xs:documentation>Technische Identifikation des Hauptantrags (mainApplicationID) aus dem Quellsystem.
+
+Strukturbeispiel:
+Errichtung einer Bäckerei in Hannover (Hauptantrag / Vorhaben)
+- Gewerbeanmeldung (Teilantrag)
+- Eintrag in die Handwerksrolle (Teilantrag)
+
+Die Einrichtung der Bäckerei ist das eigentliche Vorhaben und bekommt eine mainApplicationID und eine caseID.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="caseID" type="xs:token">
+        <xs:annotation>
+          <xs:documentation>Aktenzeichen (caseID) oder fachliche Identnummer des Antrags. Im Gegensatz zur mainApplicationID eine Referenznummer, die sich auf der Verwaltungsstruktur ergibt und ggf. nicht zur technischen Adressierung des Antrags eignet.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="title" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Bezeichnung (title), die den  Inhalt des Vorhabens kurz und prägnant  benennt.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="description" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Ausführliche Beschreibung (description) der Dienstleistung, die der Dienstleister anbieten möchte.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Message">
+    <xs:annotation>
+      <xs:documentation>Diese Klasse enthält alle Informationen für den Transport einer freien Nachrichten.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="partialApplicationID" type="xs:token">
+        <xs:annotation>
+          <xs:documentation>Die Teilantrags-Nummer (partialApplicationID) ist das Element für die technische Identnummer des Teilantrag aus dem Quellsystem.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="rcvrPartnerID" type="xs:token">
+        <xs:annotation>
+          <xs:documentation>Die Partner-Nummer (rcvrPartnerID) enthält die Benutzer-Identifikation des Empfängers, anhand der die betroffene Person oder Organisation innerhalb des Identitätsraumes eindeutig identifiziert werden kann.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="sendPartnerID" minOccurs="0" type="xs:token">
+        <xs:annotation>
+          <xs:documentation>Die Partner-Nummer (sendPartnerID) enthält die Benutzer-Identifikation des Senders, anhand der die betroffene Person oder Organisation innerhalb des Identitätsraumes eindeutig identifiziert werden kann.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="description" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Inhalt der Nachricht. Freitext ohne Längenbegrenzung. Als Formatierungsmerkmale sind ausschließlich Zeilenumbrüche erlaubt.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="document" minOccurs="0" type="xfc:Document">
+        <xs:annotation>
+          <xs:documentation>Eine zum Teilantrag gehörige Unterlage in verschiedenen Dokumenten-Repräsentationen, z.B. PDF oder eine Datendarstellung. Es muss immer das komplette Dokument mit allen Repräsentationen übertragen werden.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PartialApplication">
+    <xs:annotation>
+      <xs:documentation>Der Teilantrag (PartialApplication) enthält alle Informationen zur Beantragung einer Verwaltungsleistung. Dies beinhaltet die  verschiedenen Anträgen und Formalitäten zur Aufnahme und Ausübung einer Dienstleistungstätigkeit, wie z.B. Erklärungen, Anmeldungen, Beantragung von Genehmigungen bei den zuständigen Behörden, Beantragung von Einträgen in Register, in Berufsrollen, in Datenbanken und Registrierung bei Berufsverbänden oder Berufsorganisationen.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="partialApplicationID" type="xs:token">
+        <xs:annotation>
+          <xs:documentation>Die Teilantrags-Identifikation (partialApplicationID) ist das Element für die technische Identnummer des Teilantrag aus dem Quellsystem.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="title" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Bezeichnung (title), die den  Inhalt des Teilantrags kurz und prägnant benennt. Zum Beispiel: Antrag auf Eintragung in die Handwerksrolle.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="partnerFunction" minOccurs="2" maxOccurs="unbounded" type="xfc:PartnerFunction">
+        <xs:annotation>
+          <xs:documentation>Hier wird die Funktion der einzelnen Partner, die an dem Teilantrag beteiligt sind abgelegt, damit diese in ihrer Rolle eindeutig identifiziert werden können.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="document" minOccurs="0" maxOccurs="unbounded" type="xfc:Document">
+        <xs:annotation>
+          <xs:documentation>Eine zum Teilantrag gehörige Unterlage in verschiedenen Dokumenten-Repräsentationen, z.B. PDF oder eine Datendarstellung. Es muss immer das komplette Dokument mit allen Repräsentationen übertragen werden.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="deadline" minOccurs="0" type="xfc:Deadline">
+        <xs:annotation>
+          <xs:documentation>Informationen zu laufenden Fristen eines Teilantrags. Diese Fristen beziehen sich nur auf die Genehmigungsfiktion.Voraussetzung für den Eintritt der Fiktion ist das Fehlen einer Entscheidung innerhalb der dafür festgelegten Frist. Die Genehmigungsfiktion tritt dann mit Fristablauf ein. Der Fristablauf ersetzt auch die wirksame Bekanntgabe des fingierten Verwaltungsaktes. Im Übrigen entfaltet die Genehmigungsfiktion die gleiche Wirkung wie ein entsprechender ordnungsgemäß zustande gekommener und bekannt gegebener Verwaltungsakt.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="status" type="xfc:Status">
+        <xs:annotation>
+          <xs:documentation>Ein Status-Objekt enthält Informationen zum Prozessstatus. Damit werden z.B. die Statusänderungen, der Zustand der Bearbeitungsprozesse übermittelt, sowie in technischer wie in fachlicher Hinsicht. Auch die Antragsrücknahme soll mit einem Statusupdate transportiert werden.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Partner">
+    <xs:annotation>
+      <xs:documentation>Partner sind die beteiligten Akteure beim Anwendungsfall „Antrag transportieren“. Dies ist die Vorhabenverwaltung des Antragstellers,  über das der Antragsteller seine Anträge verwaltet. Eventuell der einheitliche Ansprechpartner (EA), der die Anträge weiterleitet und die zuständige Stelle (ZS), welche die Anträge bearbeitet.
+Der Partner  enthält die Adress- und Kommunikationsdaten, der an dem Antrag beteiligten Partner.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="identityNamespace" type="xfc:Code.CountryState">
+        <xs:annotation>
+          <xs:documentation>Namensraum (identityNamespace), der die Staat-Land Kombination enthält in dem die nachfolgende PartnerID gültig ist.
+
+Die Abkürzungen der Bundesländer folgen den auf EU-Ebene vereinbarten Abkürzungen der Regionen.
+
+z.B. DE-NI   Deutschland-Niedersachsen</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="partnerID" type="xs:token">
+        <xs:annotation>
+          <xs:documentation>Benutzeridentifikation (partnerID) aus einem Identitätsmanagement, anhand der die betroffene Person oder Organisation innerhalb des Identitätsraumes eindeutig identifiziert werden kann.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="partnerType" type="xfc:Code.PartnerType">
+        <xs:annotation>
+          <xs:documentation>Personentyp (partnerType) beschreibt die Art der Person, ob es sich um eine natürliche oder juristische Person oder um unbekannt handelt. Dies ist in der Codeliste Code.PartnerType hinterlegt.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nationality" type="xfc:Code.Country">
+        <xs:annotation>
+          <xs:documentation>Staatsangehörigkeit des Partners,  abgebildet in der Codeliste Code.Country.
+
+Die aktuelle Schlüsseltabelle ist unter der URL http://www.destatis.de/download/klassif/staats_schluessel.pdf beim Statistischen Bundesamt erhältlich. Darüber hinaus wird diese Information vom Auswärtigen Amt unter http://www.auswaertiges-amt.de/diplo/de/Infoservice/Terminologie/Staatennamen.pdf zur Verfügung gestellt.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="formOfAddress" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Anrede (Freitext), sprachliche Form, in der man sich an andere Personen wendet. Die Anrede ist der Namenszusatz (auch eine Anrede ohne Namen nur mit Titel ist eine Anrede!) bei der Anrede (mündlich oder schriftlich) oder bei einem Anruf (fernmündlich) an eine Person oder Personengruppe, z.B. Herr, Frau.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="academicTitle" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Akademischer Grad, ein durch mehrere Prüfungen an einer Hochschule erworbene Titel als Freitext. Ein Titel ist nicht orginärer Bestandteil des Namens. Der Titel wird häufig im Zusammenhang mit Namen verwendet, z.B. "Dr.".</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="firstName" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Vorname des Partners (Person), dies ist der Teil des Namens einer Person, der nicht die Zugehörigkeit zu einer Familie ausdrückt, sondern das Individuum innerhalb der Familie bezeichnet.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="lastName" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Nachname, Familenname  des Partners (Person)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="orgName1" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Erster Teil der Benennung einer Organisation</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="orgName2" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Zweiter Teil oder präzisere  Benennung einer Organisation</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="street" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Das Element Strasse (street) enthält den Namen/die Bezeichnung einer Strasse. Eine Strasse ist eine planmäßig angelegter, i. allg. befestigter Verkehrsweg innerhalb eines Ortes.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="houseNo" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Eine Hausnummer dient der genauen Lokalisierung eines Grundstücks, Gebäudes oder Gebäudeteils (Eingang) in einer Strasse.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="postalCode" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Eine Postleitzahl ist ein Code, der zur effizienten Postverteilung dient.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="city" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Das Element Ort (city) enthält den Namen eines Ortes (Gemeinde, Ortschaft oder Stadt)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="postOfficeBox" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Ein Postfach (postOfficeBox) ist eine Einrichtung der meisten Postunternehmen, bei denen der Kunde seine Post in einem abschließbaren Fach in einer Postfiliale abholen kann.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="postOfficeBoxPostalCode" minOccurs="0" type="xs:token">
+        <xs:annotation>
+          <xs:documentation>Eine Postleitzahl ist eine Angabe zu dem postalische Zustellgebiet, in dem sich das Postfach befindet.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="country" type="xfc:Code.Country">
+        <xs:annotation>
+          <xs:documentation>Staaten, abgebildet in der Codeliste Code.Country
+
+Die aktuelle Schlüsseltabelle ist unter der URL http://www.destatis.de/download/klassif/staats_schluessel.pdf beim Statistischen Bundesamt erhältlich. Darüber hinaus wird diese Information vom Auswärtigen Amt unter http://www.auswaertiges-amt.de/diplo/de/Infoservice/Terminologie/Staatennamen.pdf zur Verfügung gestellt.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="telNo" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Vollständige Telefonnummer: Vorwahl+Anschluss+Durchwahl und alle ähnlichen Festlegungen nach DIN 5008</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="mobileNo" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Vollständige Mobilnummer. Vorwahl+Anschluss+Durchwahl</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="faxNo" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Vollständige Faxnummer: Vorwahl+Anschluss+Durchwahl</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="eMail" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>E-Mail-Adresse</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="authentNiveau" type="xfc:Code.AuthentNiveau">
+        <xs:annotation>
+          <xs:documentation>Authentisierungsniveau des Partners. Einstufung einer Person, womit festgelegt wird, ob ein Partner tatsächlich die Person ist, für welche sie sich ausgibt.
+Dies ist in der Codeliste Code.AuthentNiveau hinterlegt.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="transport" minOccurs="0" maxOccurs="unbounded" type="xfc:Transport">
+        <xs:annotation>
+          <xs:documentation>Diese Klasse enthält alle Information, wie der am Vorhaben beteiligte Partner elektronische erreicht werden kann. Für die beteiligten Partner wird angenommen, dass sie ggf. eine elektronische Zugang eröffnet haben, über den sie erreichbar sind. Hier werden die Daten zusammengefasst, die für die Nutzung dieses Transportkanals nötig sind. Da nicht alle in naher Zukunft bereitstehende Kommunikationskanäle ausspezifiziert sind, handelt es sich um ein allgemeines Objekt, mit dem alle derzeit geforderten Verbindungen hinreichend spezifiziert werden können.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PartnerFunction">
+    <xs:annotation>
+      <xs:documentation>Hier wird die Funktion der einzelnen Partner, die an dem Teilantrag beteiligt sind abgelegt, damit diese in ihrer Rolle eindeutig identifiziert werden können.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="partnerRole" type="xfc:Code.PartnerRole">
+        <xs:annotation>
+          <xs:documentation>Partnerrollen bestimmen die Funktion, die ein Rolleninhaber innerhalb des Vorhabens hat.
+siehe Code CodeList.PartnerRole</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="partnerID" type="xs:token">
+        <xs:annotation>
+          <xs:documentation>Benutzeridentifikation (partnerID) aus einem Identitätsmanagement, anhand der die betroffene Person oder Organisation innerhalb des Identitätsraumes eindeutig identifiziert werden kann.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Response">
+    <xs:annotation>
+      <xs:documentation>Die Response ist eine Antwort auf eine beliebige xFall Nachricht und dient rein technischen Zwecken.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="refMessageID" type="xs:token">
+        <xs:annotation>
+          <xs:documentation>Eindeutige Identifikation-Nummer der Nachricht auf die geantwortet wird.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="statuscode" type="xfc:Code.Statuscode">
+        <xs:annotation>
+          <xs:documentation>Dieser Code beschreibt den Zustand des Zielsystems, der beim Empfang der Nachricht eintritt. Die Codes sind in der Codeliste Code.Statuscode hinterlegt.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="refID" minOccurs="0" maxOccurs="unbounded" type="xs:token">
+        <xs:annotation>
+          <xs:documentation>Bei Fehlermeldungen, die auf Objekte mit einer ID referenzieren muss, kann diese hier angegeben werden.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="description" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Beschreibung oder zusätzliche Textinformation. Wird nicht maschinell ausgewertet. Frei beschreibbar.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Signatures">
+    <xs:annotation>
+      <xs:documentation>Sofern das Dokument signiert wurde findet sich hier eine Referenzliste auf die Signaturen. Diese sind ihrerseits wieder Dokumente die auch als Dokumentelemente im Teilantrag zu finden sind.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="signatureDocumentID" maxOccurs="unbounded" type="xs:token">
+        <xs:annotation>
+          <xs:documentation>DocumentID des Signatur-Dokuments.
+
+Alle hier referenzierten Dokumente müssen Bestandteil der umgebenen Nachricht sein.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Status">
+    <xs:annotation>
+      <xs:documentation>Ein Status-Objekt enthält Informationen zum Prozessstatus. Damit werden z.B. die Statusänderungen, der Zustand der Bearbeitungsprozesse übermittelt, sowie in technischer wie in fachlicher Hinsicht. Auch die Antragsrücknahme soll mit einem Statusupdate transportiert werden.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="partialApplicationID" minOccurs="0" type="xs:token">
+        <xs:annotation>
+          <xs:documentation>Die Teilantrags-Nummer (partialApplicationID) ist das Element für die technische Identnummer des Teilantrag aus dem Quellsystem.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="lastStatus" minOccurs="0" type="xfc:Code.ProcessStatus">
+        <xs:annotation>
+          <xs:documentation>Alter (vorhergehender) technischer Prozess-Status, nur informativ. Dieser ist in der Codeliste Code.ProcessStatus hinterlegt.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="currentStatus" type="xfc:Code.ProcessStatus">
+        <xs:annotation>
+          <xs:documentation>Aktueller technischer Prozess-Status. Dieser ist in der Codeliste Code.ProcessStatus hinterlegt.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="reason" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Grund des Status. Freie Textbeschreibung. Wird nicht maschinell ausgewertet.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="lastSubStatus" minOccurs="0" type="xfc:Code.SubStatus">
+        <xs:annotation>
+          <xs:documentation>Alter (vorhergehender) fachlicher Prozess-Status. Bei dem Substatus handelt es sich um sehr implemetierungsspezifizierte Werte, deren Verallgemeinerung kaum möglich und somit die Definition den lokalen Integratoren überlassen  ist und hier als Freitext definiert ist.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="currentSubStatus" minOccurs="0" type="xfc:Code.SubStatus">
+        <xs:annotation>
+          <xs:documentation>Aktueller fachlicher Prozess-Status. Bei dem Substatus handelt es sich um sehr implemetierungsspezifizierte Werte, deren Verallgemeinerung kaum möglich und somit die Definition den lokalen Integratoren überlassen  ist.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Transport">
+    <xs:annotation>
+      <xs:documentation>Diese Klasse enthält alle Information, wie der am Vorhaben beteiligte Partner elektronische erreicht werden kann. Für die beteiligten Partner wird angenommen, dass sie ggf. eine elektronische Zugang eröffnet haben, über den sie erreichbar sind. Hier werden die Daten zusammengefasst, die für die Nutzung dieses Transportkanals nötig sind. Da nicht alle in naher Zukunft bereitstehende Kommunikationskanäle ausspezifiziert sind, handelt es sich um ein allgemeines Objekt, mit dem alle derzeit geforderten Verbindungen hinreichend spezifiziert werden können.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="type" type="xfc:Code.Transport">
+        <xs:annotation>
+          <xs:documentation>Transportverfahren (Zugang) über das der Partner elektronisch erreicht werden kann. Definiert den Typ des Transportmediums. Abgebildet in der Codeliste Code.Transport.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="registry" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Sofern zur Auflösung oder Validierung der Transport-Adresse ein Registrar notwendig ist, kann dieser hier spezifiziert werden. Dies kann z.B. ein LDAP Server oder ein beliebiger anderer Verzeichnisdienst sein. Normalerweise ist dieses Element aber leer, da sich z.B. bei einer Mailadresse die Nutzung des Transportmediums direkt daraus erschließen lässt.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="target" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Zieladresse. In diesem Element wird eine eindeutige Adresse oder ID hinterlegt, mit der der Empfänger über das gewählte Medium erreichbar ist. Dies kann z.B. eine E-Mail-Adresse (für E-Mail) oder eine Govello-ID (für EGVP) sein.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="credential" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Zugriffsschlüssel für die Nutzung des Zielsystems. Sofern für die Nutzung eine Legitimation wie z.B. ein Passwort oder ein Temporärschlüssel nötig ist, kann dies hier hinterlegt werden.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TransportRequest">
+    <xs:annotation>
+      <xs:documentation>Die Transport-Anfrage (TranportRequest) überträgt die Teilantragsnummer als Schlüssel. Diese dient zur Abholung eines bestimmten Teilantrags. Ein Schlüssel ist eine Zeichenfolge oder die Kombination aus mehreren Zeichenfolgen, um damit jede Formation aus Daten, die gesammelt und verarbeitet werden, eindeutig und unverwechselbar zu identifizieren.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="partialApplicationID" type="xs:token">
+        <xs:annotation>
+          <xs:documentation>Die Teilantrags-Nummer (partialApplicationID) ist das Element für die technische Identnummer des Teilantrag aus dem Quellsystem.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

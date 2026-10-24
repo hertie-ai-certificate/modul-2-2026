@@ -1,6 +1,6 @@
 ---
-title: "Tag 1: Der Daten-Lifecycle und: Woher kommen Daten?"
-subtitle: "Session 4: Praxis-Session - Web Scraping, APIs, OCR"
+title: "Der Daten-Lifecycle"
+subtitle: "Session 4: Praxis-Session - Web Scraping und APIs"
 author: "Simon Munzert"
 institute: "Hertie School"
 output:
@@ -358,11 +358,11 @@ name: apibasics
 
 | Restaurant | Web API |
 |---|---|
-| Sie, der Kunde | Ihr Programm/Computer |
+| Ihr als Kunde | Euer Programm/Computer |
 | Das Restaurant | API-Anbieter |
 | Der Kellner | API-Frontend | 
 | Die Speisekarte | API-Dokumentation |
-| Ihre Bestellung | API-Enpoint (Request) | 
+| Eure Bestellung | API-Enpoint (Request) | 
 | Die Küche | API-Datenbank |
 | Das Essen | API-Response |
 | Die Rechnung | API-Pricing |
@@ -419,11 +419,43 @@ Mehr Informationen finden sich in [dieser Einführung in APIs](https://zapier.co
 Es gibt viele Ressourcen, die einen Überblick über bestehende öffentliche APIs geben, einschließlich dieser [Liste öffentlicher APIs auf GitHub](https://github.com/public-apis/public-apis). Eine weitere nützliche Ressource ist [APIs for social scientists - a collaborative review](https://bookdown.org/paul/apis_for_social_scientists/).
 
 
+---
+# APIs in der deutschen Verwaltung: Daten nach außen
+
+.font90[
+### Offene Daten per API: inzwischen Pflicht, nicht Kür
+
+- Die EU-[Durchführungsverordnung zu hochwertigen Datensätzen](https://www.govdata.de/informationen/hochwertige-datensaetze) (2023/138, anwendbar seit Juni 2024) verlangt für sechs Kategorien (Georaum, Umwelt, Meteorologie, Statistik, Unternehmen, Mobilität): **maschinenlesbar, kostenfrei, offene Lizenz, über eine API** mit Dokumentation und Kontaktstelle. In Deutschland umgesetzt über § 9 Datennutzungsgesetz. Neue Erhebungspflichten entstehen nicht: Es geht um Daten, die schon da sind.
+- [GovData](https://www.govdata.de/) als Metadatenkatalog: rund 170.000 Datensätze, davon rund 19.000 als hochwertig gekennzeichnet. Die Verteilung ist schief: einzelne Länder liefern Tausende, andere fast nichts.
+
+### Beispiele, die Ihr mglw. schon kennt oder wir diskutieren werden
+
+- **Pegelonline** (Wasserstraßen- und Schifffahrtsverwaltung), **GENESIS** (Destatis), **DWD Open Data**, **XRepository** (KoSIT), **Mobilithek** (BMV), **Ladesäulenregister** (Bundesnetzagentur), **DIP** (Bundestag).
+
+### Das Symptom: bund.dev
+
+- Das „[Entwicklungsportal des Bundes](https://bund.dev/)“ dokumentiert rund 50 Schnittstellen von Bundesbehörden im OpenAPI-Format, von der Autobahn-API bis zur Zoll-API. Es wird aber **nicht vom Bund betrieben**, sondern ehrenamtlich von der Gruppe [bundesAPI](https://github.com/bundesAPI) um Lilith Wittmann ([heise 2021](https://www.heise.de/news/Nachhilfe-fuer-den-Bund-Freiwillige-dokumentieren-Programmierschnittstellen-6158153.html)). Der IT-Planungsrat stellte 2025 fest: Außer dem FITKO-Entwicklungsportal gibt es kein zentrales Verzeichnis der Verwaltungs-APIs.
+]
 
 
 
+---
+# Take-aways für Euch als Nutzer und Anbieter von APIs
 
+.font90[
+### Als Nutzer fremder APIs
 
+1. **Verlässlichkeit**: Wer betreibt die API, gibt es Nutzungsbedingungen, Versionierung und eine Ankündigungsfrist für Änderungen?  
+2. **Rechte**: Lizenz der Daten (Datenlizenz Deutschland, CC BY), Zweckbindung bei personenbezogenen Daten, Protokollierung der Abrufe.
+3. **Betrieb**: Wer im Haus pflegt den Abruf, wenn die Person wechselt, die das Skript geschrieben hat?
 
+### Als Anbieter eigener APIs
 
+<ol start="4">
+<li><b>Pflichten kennen</b>: Welche unserer Daten fallen unter die HVD-Verordnung oder das Datennutzungsgesetz? Welche Anträge müssen wir per FIT-Connect oder NOOTS annehmen können?</li>
+<li><b>Schnittstellen einkaufen</b>: Beim Kauf oder der Ausschreibung eines Fachverfahrens dokumentierte, offene APIs (OpenAPI, XÖV, FIT-Connect, Deutschland-Stack) verlangen. Nachträglich kann das teuer werden.</li>
+<li><b>Scraping als Warnsignal</b>: Wenn Unternehmen oder andere Behörden Eure Website scrapen, fehlt eine API. Das kostet beide Seiten und bricht bei jedem Relaunch.</li>
+</ol>
 
+️✎ Eine API ist ein **Versprechen**: Dieser Datenzugang bleibt stabil, dokumentiert und zuständig. Das ist eine Organisationsentscheidung, für die Ihr einstehen könnt.
+]

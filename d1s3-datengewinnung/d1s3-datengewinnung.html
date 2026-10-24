@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Der Daten-Lifecycle</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Simon Munzert" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <link rel="stylesheet" href="../simons-touch.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Der Daten-Lifecycle
+]
+.subtitle[
+## Session 3: Mit Daten umgehen und zur Verfügung stellen
+]
+.author[
+### Simon Munzert
+]
+.institute[
+### Hertie School
+]
+
+---
+
+
+&lt;style type="text/css"&gt;
+@media print { # print out incremental slides; see https://stackoverflow.com/questions/56373198/get-xaringan-incremental-animations-to-print-to-pdf/56374619#56374619
+  .has-continuation {
+    display: block !important;
+  }
+}
+&lt;/style&gt;
+
+
+
+
+# Überblick
+
+&lt;br&gt;&lt;br&gt;
+
+1. [Daten-Organisation in Spreadsheets](#spreadsheets)
+
+2. [Relationale Datenstrukturen](#relationaldata)
+
+3. [Austauschformate: XML, JSON und die XÖV-Standards](#formats)
+
+4. [Daten zur Verfügung stellen](#sharing)
+
+
+
+---
+# Daten vs. Datenformate
+
+
+.pull-left-vwide[
+## Datenformate
+
+- [Datenformate](https://de.wikipedia.org/wiki/Datenformat) sind die **Art und Weise, wie Daten gespeichert und übertragen werden**.
+- Sie sind **nicht** dasselbe wie Datentypen.
+- Datenformate legen fest, wie Daten strukturiert und abgelegt werden, und wie sie bei ihrer Verarbeitung zu interpretieren sind.
+- Es gibt eine nahezu unerschöpfliche Masse an Datenformaten, die sich zum Beispiel in der Vielfalt von [Dateinamenserweiterungen](https://de.wikipedia.org/wiki/Liste_von_Dateinamenserweiterungen) widerspiegelt.
+
+## Wahl von Datenformaten
+
+- Datenwissenschaftler haben oft mehr oder weniger ausgeprägte Präferenzen für bestimmte Datenformate und -strukturen.
+- **Beispiel 1** (für einfach strukturierte Daten): Excel Binary File Format (.XLS) &lt; Office Open XML (.XLSX) &lt; [CSV](https://de.wikipedia.org/wiki/CSV_(Dateiformat)) 
+- **Beispiel 2** (für semistrukturierte Daten): 
+[JSON](https://de.wikipedia.org/wiki/JavaScript_Object_Notation) vs. [XML](https://de.wikipedia.org/wiki/Extensible_Markup_Language) 
+- **Beispiel 3** (für vektorielle Geodaten):  [Shapefile](https://de.wikipedia.org/wiki/Shapefile) vs. [GeoJSON](https://de.wikipedia.org/wiki/GeoJSON) 
+]
+
+.pull-right-vsmall[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/file-formats.jpg" width=300&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+class: inverse, center, middle
+name: spreadsheets
+
+# Daten-Organisation in Spreadsheets
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Die Verwaltung läuft auf Excel
+
+.pull-left-wide2[
+## Das verbreitetste Datenwerkzeug der Welt
+
+- Excel ist in praktisch jeder Behörde installiert, jeder kann es öffnen und bedienen (..?). Deshalb ist das Spreadsheet die **Standardform der Datenhaltung** jenseits der Fachverfahren: Listen, Kennzahlen, Zuwendungen. 
+- Typischer Lebenszyklus einer Verwaltungstabelle: Export aus dem Fachverfahren, Bearbeitung in Excel, **Versand per E-Mail**, Rückmeldung in einer bearbeiteten Kopie, Zusammenführung von Hand, Weiterleitung nach oben.
+
+## Das Hin-und-her-Schubsen
+
+- `Kennzahlen_2026_final.xlsx`, `Kennzahlen_2026_final_v2.xlsx`, `Kennzahlen_2026_final_v2_NEU_Korrektur_MS.xlsx`
+- Welche Version stimmt? Wer hat was geändert? Wo ist das Original? Spalten werden umbenannt, Zeilen eingefügt, Formeln überschrieben, Formate „verschönert“. Jede Weitergabe ist ein **Medienbruch im Kleinen**.
+]
+
+.pull-right-small2[
+&lt;div align="center"&gt;
+&lt;img src="../pics/excel-logo.png" width=80&gt;
+&lt;br&gt;
+&lt;img src="../pics/btw25_rws_bw2.png" width=500&gt;
+&lt;/div&gt;
+
+.font80[`Quelle` [Bundeswahlleiterin](https://bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse/repraesentative-wahlstatistik.html)
+]
+]
+
+
+---
+# Wenn das Spreadsheet die Datenbank ist
+
+.pull-left[
+## England, Oktober 2020
+
+- Public Health England sammelte die Ergebnisse der Corona-Testlabore als CSV und überführte sie per Skript in **Excel-Vorlagen im alten XLS-Format**.
+- XLS kann maximal **65.536 Zeilen**. Was darüber hinausging, wurde **stillschweigend abgeschnitten**.
+- Zwischen dem 25. September und dem 2. Oktober 2020 fehlten so **15.841 positive Fälle** in der Meldung, rund 15 bis 20% aller Fälle. Ihre Kontakte wurden nicht nachverfolgt.
+
+## Die Folgen
+
+- [Fetzer und Graeber (2021)](https://doi.org/10.1073/pnas.2100814118) nutzen den Zufall des Fehlers als natürliches Experiment: In stärker betroffenen Regionen folgten mehr als **125.000 zusätzliche Infektionen** und über **1.500 zusätzliche Todesfälle**.
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/excel-error-paper-2.jpeg" width=480&gt;
+&lt;/div&gt;
+
+.font80[`Quellen` [BBC (2020)](https://www.bbc.com/news/technology-54423988); [The Conversation (2020)](https://theconversation.com/why-you-should-never-use-excel-to-count-coronavirus-cases-147681)]
+]
+
+
+---
+# Excel verändert Daten, ohne zu fragen
+
+.pull-left[
+## Automatische „Korrekturen“
+
+- **Gen-Namen werden zu Datumsangaben**: `SEPT2` wird zu `2-Sep`, `MARCH1` zu `1-Mar`. [Ziemann et al. (2016)](https://doi.org/10.1186/s13059-016-1044-7) fanden solche Fehler in rund **20% aller Genetik-Publikationen** mit Excel-Anhängen. 2020 wurden die Gene umbenannt, weil Excel nicht zu ändern war.
+- **Führende Nullen verschwinden**: Die Postleitzahl `01067` (Dresden) wird zur Zahl `1067`. Das Gleiche passiert mit Aktenzeichen, Kontonummern, Gemeindeschlüsseln.
+- **Lange Zahlen werden gerundet**: Ab 16 Stellen schneidet Excel ab; `1,23457E+15` statt der Kennnummer.
+- **Trennzeichen**: Deutsche Excel-Versionen lesen CSV mit Komma als eine einzige Spalte, weil das Komma hier Dezimaltrenner ist.
+]
+
+.pull-right[
+## Was daraus folgt
+
+- Excel **interpretiert** Daten beim Öffnen. Was Ihr seht, ist nicht unbedingt, was gespeichert ist.
+- Jede Übergabe einer Tabelle zwischen Rechnern, Sprachversionen und Programmen ist eine **potenzielle Fehlerquelle**.
+- Wer Daten **weitergibt**, sollte sie in einem Format weitergeben, das nicht interpretiert wird (Text, siehe gleich), und dokumentieren, was die Spalten bedeuten.
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/excel-logo-no.png" width=140&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Gute Tabellen: zwölf Regeln (1/2)
+
+.pull-left-wide[
+.font90[
+1. **Seid konsistent.** Gleiche Schreibweise für gleiche Dinge: nicht `m`, `männlich`, `M`, `Mann` in einer Spalte. Gleiche Kennung für fehlende Werte (leer oder `NA`), gleiche Dateinamen-Logik, gleiche Spaltennamen in allen Tabellen.
+
+2. **Schreibt Datumsangaben als `JJJJ-MM-TT`.** `2026-10-27` ist eindeutig, sortierbar und international (ISO 8601). Alles andere wird früher oder später falsch gelesen.
+
+3. **Lasst keine Zellen leer.** Leer heißt: unbekannt, nicht zutreffend, vergessen oder „siehe oben“? Schreibt es hin.
+
+4. **Eine Information pro Zelle.** Nicht `Berlin, 10117` in einer Zelle, sondern zwei Spalten. Keine Einheiten in der Zahl (`12 km`), sondern eine Spalte `distanz_km`.
+
+5. **Macht ein Rechteck daraus.** Eine Kopfzeile, darunter eine Zeile pro Beobachtung, eine Spalte pro Merkmal. Keine verbundenen Zellen, keine Zwischenüberschriften, keine Summenzeilen im Datenbereich, keine zwei Tabellen auf einem Blatt.
+
+6. **Erstellt ein Datenwörterbuch.** Eine zweite Tabelle: Spaltenname, Bedeutung, Einheit, erlaubte Werte, Quelle.
+]
+]
+
+.pull-right-small[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/tidydata-1.png" width=480&gt;
+&lt;/div&gt;
+
+.font80[`Quelle` [Broman und Woo (2018), Data organization in spreadsheets, The American Statistician](https://doi.org/10.1080/00031305.2017.1375989), frei lesbar unter [kbroman.org/dataorg](https://kbroman.org/dataorg/).]
+]
+
+
+---
+# Gute Tabellen: zwölf Regeln (2/2)
+
+.pull-left-wide[
+.font90[
+&lt;ol start="7"&gt;
+&lt;li&gt;&lt;p&gt;&lt;b&gt;Keine Berechnungen in den Rohdaten.&lt;/b&gt; Rohdaten sind unantastbar. Summen, Prozente, Diagramme kommen in eine separate Datei oder ein separates Blatt.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;b&gt;Keine Farben und Formatierungen als Information.&lt;/b&gt; „Rot markiert heißt geprüft“ ist für Menschen lesbar, für Maschinen unsichtbar und beim nächsten Export weg. Macht eine Spalte &lt;code&gt;geprueft&lt;/code&gt; mit &lt;code&gt;ja&lt;/code&gt;/&lt;code&gt;nein&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;b&gt;Wählt gute Namen.&lt;/b&gt; Spaltennamen ohne Leerzeichen, Umlaute und Sonderzeichen: &lt;code&gt;antrag_datum&lt;/code&gt; statt &lt;code&gt;Datum des Antrags (neu)&lt;/code&gt;. Kurz, aber sprechend.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;b&gt;Macht Sicherungskopien.&lt;/b&gt; Und schützt die Rohdaten vor Überschreiben (schreibgeschützt ablegen).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;b&gt;Nutzt Datenvalidierung bei der Eingabe.&lt;/b&gt; Excel kann Dropdown-Listen und Wertebereiche erzwingen. Das verhindert &lt;code&gt;Bayenr&lt;/code&gt; und &lt;code&gt;31.02.2026&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;b&gt;Speichert Daten als Text.&lt;/b&gt; CSV (oder TSV) ist das einzige Format, das in 20 Jahren noch jedes Programm liest. Excel-Dateien sind Arbeitsdateien, keine Archivdateien.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+]
+]
+
+.pull-right-small[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/tidydata-2.png" width=480&gt;
+&lt;/div&gt;
+
+&lt;br&gt;
+️✎ Die meisten dieser Regeln laufen auf eines hinaus: **Trennt die Daten von ihrer Darstellung.**
+]
+
+
+---
+# Vom Hin-und-her-Schubsen zum geteilten Datenbestand
+
+.pull-left-wide[
+## Woran man erkennt, dass eine Tabelle zur Datenbank geworden ist
+
+- Mehrere Personen bearbeiten sie, und es gibt Konflikte.
+- Sie wird regelmäßig aktualisiert und an andere verschickt.
+- Andere Tabellen oder Berichte hängen davon ab.
+- Es gibt mehr als eine Version, und niemand weiß, welche gilt.
+- Sie hat mehr als ein paar tausend Zeilen.
+
+## Stufen der Besserung
+
+1. **Eine Quelle der Wahrheit**: Eine Datei an einem Ort, nicht per Mail; Änderungen nur dort.
+2. **Trennung von Erfassung und Auswertung**: Rohdaten-Tabelle plus separate Auswertungsdateien.
+3. **Geteilte Tabelle mit Rechten** (SharePoint, Nextcloud, Google Sheets): gleichzeitiges Arbeiten, Änderungshistorie.
+4. **Datenbank mit Eingabemaske**: Wenn Regeln, Mehrbenutzerzugriff und Verknüpfungen nötig sind. Mehr dazu in Session 9.
+]
+
+.pull-right-small[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/excel97-chart.png" width=250&gt;
+&lt;/div&gt;
+
+&lt;br&gt;
+️✎ Die Frage ist nicht „Excel oder nicht Excel“, sondern: **Wer ist für diese Daten verantwortlich, und wo ist das Original?**
+]
+
+
+
+---
+class: inverse, center, middle
+name: relationaldata
+
+# Relationale Datenstrukturen
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Die Allgegenwärtigkeit von relationalen Datenstrukturen
+
+.pull-left-wide[
+### Von Tabellen...
+
+- Wenn Ihr an Daten auf Eurem Laptop denkt, habt Ihr möglicherweise ein [Spreadsheet](https://de.wikipedia.org/wiki/Tabellenkalkulation) im Kopf.
+- In der Tat arbeitet ein Großteil der klassischen "statistischen" Software (SPSS, Stata, MS Excel) standardmäßig mit Spreadsheets als Dateninput.
+- Gleichzeitig ist einer Eurer ersten Gedanken möglicherweise auch [dateibasiert](https://en.wikipedia.org/wiki/List_of_file_formats). Die Daten werden in Dateien gespeichert, und diese Dateien werden von unserer Datenverwaltungssoftware gelesen (und erstellt).
+- In vielen Fällen ist eine **zweidimensionale Datenstruktur** sinnvoll. Wir nutzen zum Beispiel
+  - Befragte x Einstellungen
+  - Bezirke x Merkmale
+  - Beiträge in sozialen Medien x Textmerkmale
+]
+
+.pull-right-small[
+&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/clippy-message.jpeg" height=200&gt; 
+&lt;/div&gt;
+]
+
+
+---
+# Die Allgegenwärtigkeit von mehrdimensionalen Datenstrukturen
+
+.pull-left-small2[
+&lt;div align="center"&gt;
+&lt;img src="../pics/legislator-structure.png" height=520&gt;
+&lt;/div&gt;
+`Credit` [saschagobel/legislatoR](https://github.com/saschagobel/legislatoR)
+]
+
+.pull-right-wide2[
+### ... zu komplexen Datenstrukturen
+
+- Je länger man jedoch darüber nachdenkt, desto problematischer wird es, Daten systematisch in zweidimensionalen Strukturen abzulegen.
+- **Beispiele**:
+  - Befragte x Einstellungen x Länder x Zeit
+  - Bezirke x Unterbezirke Merkmale x Zeit
+  - Beiträge in sozialen Medien x Retweets x Benutzer x Benutzereigenschaften x Netzwerkmerkmale x Metadaten
+- Die Abbildung von dreidimensionalen auf zweidimensionale Strukturen ist technisch einfach machbar.
+- Bei **vielfachen heterogenen Datenquellen** wird es unübersichtlich.
+- Die Verwaltung komplexer Datenstrukturen ist nur ein Vorteil der Verwendung von **Datenbanken**.
+]
+
+
+---
+# Datenbanken
+
+### Was sind Datenbanken?
+
+- Datenbanken sind eine organisierte Sammlung von Daten.
+- Sie sind so organisiert, dass sie ein effizientes Abrufen von Daten(-selektionen) ermöglichen.
+- Sie enthalten Daten + Metadaten über Struktur und Organisation.
+- Der Zugriff auf sie erfolgt im Allgemeinen über ein Datenbankmanagementsystem.
+
+### Wo sind Datenbanken?
+
+- Datenbanken können lokal oder dezentral, im Arbeitsspeicher oder auf der Festplatte existieren.
+- Wenn sie lokal gespeichert sind, werden sie als Binärdatei (nicht als Textdatei) gespeichert.
+- Im Allgemeinen denken wir an ein **Client-Server-Modell**:
+  - Datenbanken befinden sich auf einem **Server**, der sie verwaltet.
+  - Die Benutzer interagieren mit dem Server über ein **Client**-Programm.
+  - Mehrere Benutzer können auf dieselbe Datenbank **gleichzeitig zugreifen**.
+
+
+---
+# Wann Datenbanken nützlich werden
+
+.pull-left[
+### Größe und Struktur
+- Ihr habt **Datenmengen, die den Arbeitsspeicher** auf Eurem Computer übersteigen. Datenbanken sind nur durch die verfügbare Festplattengröße begrenzt (oder können auf mehrere Festplatten/Rechner verteilt werden) und lassen sich schnell und häufig abfragen.
+- Eure **Datenstruktur ist komplex**. Datenbanken erlauben es, Daten mit komplexen Datenstrukturen zu speichern, abzurufen und zu untergliedern.
+- Ihr legt Wert auf **Datenqualität** und habt klare Vorstellungen, wie Daten aussehen sollen. Mit Hilfe von Datenbanken könnt Ihr spezifische Regeln für die Erweiterung und Aktualisierung Eurer Datenbank definieren.
+]
+
+--
+
+.pull-right[
+### Zugänglichkeit und Gleichzeitigkeit
+- Ihr **arbeitet gemeinsam mit anderen** an einem Datenprojekt. Mit einer Datenbank habt Ihr eine gemeinsame, zuverlässige Infrastruktur zur Verfügung, auf die mehrere Benutzer gleichzeitig zugreifen können.
+- Wenn mehrere Parteien beteiligt sind, können Nutzerprivilegien wichtig sein (z. B. nur Lesezugriff, Zugriff auf Teile der Daten, eingeschränkte Verwaltungsrechte usw.). Die meisten Datenbanken erlauben die **Definition unterschiedlicher Nutzungsrechte für verschiedene Benutzer**.
+]
+
+
+---
+# Codds relationales Modell für Datenbanken
+
+.pull-left[
+- Das Konzept relationaler Datenbanken baut auf dem [relational model (RM)](https://en.wikipedia.org/wiki/Relational_model) auf, das 1969/1970 von [Edgar F. "Ted" Codd](https://en.wikipedia.org/wiki/Edgar_F._Codd) vorgeschlagen wurde.
+- Codd beschrieb das RM formal, führte es aber auch mit Konzepten ein, die auch heute noch verwendet werden (Normalisierung, Schlüssel, Joins, usw.).
+- Die Grundannahme des relationalen Modells ist, dass alle Daten als Relationen (Tabellen) dargestellt werden können.
+- Informationen werden dann durch in Beziehung stehende Datenwerte dargestellt.
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/edgar-codd.jpeg" height=150&gt;
+&lt;/div&gt;
+]
+
+
+.pull-right-center[
+&lt;div align="center"&gt;
+&lt;img src="../pics/codd-relational-model.png" height=500&gt;
+&lt;/div&gt;
+`Credit` [Communications of the ACM 13(6), 1970](https://dl.acm.org/doi/10.1145/362384.362685)
+]
+
+
+---
+# Tabellarische Daten: Beispiel
+
+.pull-left[
+### Speicherung von Daten in Tabellen
+
+- Eine einzige Tabelle stellt bereits Beziehungen her: Alle Daten in einer Zeile gehören zu demselben Datensatz.
+- Wenn wir komplexere Beziehungen darstellen wollen (z. B. das Gewicht einer Person zweimal messen oder das Gewicht ihrer Kinder ebenfalls messen), können wir Daten von einer Tabelle zur anderen in Beziehung setzen.
+
+### Beispiel
+
+- Wir haben Daten über Peter, Paul und Mary gesammelt.
+- Wir haben Informationen über Geburtstage, Telefonnummern und Lieblingsspeisen.
+- Wie können wir diese Informationen in Tabellen darstellen?
+]
+
+--
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/adcr-relational-data-1.png" width=600&gt;
+&lt;/div&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/adcr-relational-data-2.png" width=300&gt;
+&lt;/div&gt;
+
+- Wir beginnen mit der Darstellung der Daten in zwei Tabellen.
+- Sie sind über den Schlüssel `nameid` verknüpft, so dass wir die vollständigen Namen nicht in die Tabelle der Telefonnummern aufnehmen müssen.
+- Beachtet, dass wir hier eine 1:m (one-to-many) Beziehung haben, da Peter zwei Telefonnummern hat.
+]
+
+---
+# Tabellarische Daten: Beispiel
+
+.pull-left[
+### Speicherung von Daten in Tabellen
+
+- Eine einzige Tabelle stellt bereits Beziehungen her: Alle Daten in einer Zeile gehören zu demselben Datensatz.
+- Wenn wir komplexere Beziehungen darstellen wollen (z. B. das Gewicht einer Person zweimal messen oder das Gewicht ihrer Kinder ebenfalls messen), können wir Daten von einer Tabelle zur anderen in Beziehung setzen.
+
+### Beispiel
+
+- Wir haben Daten über Peter, Paul und Mary gesammelt.
+- Wir haben Informationen über Geburtstage, Telefonnummern und Lieblingsspeisen.
+- Wie können wir diese Informationen in Tabellen darstellen?
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/adcr-relational-data-1.png" width=600&gt;
+&lt;/div&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/adcr-relational-data-2.png" width=300&gt;
+&lt;/div&gt;
+
+- Die Art und Weise, wie wir die Daten speichern, ist jedoch nicht ideal. In der ersten Tabelle haben wir drei Spalten, die praktisch das Gleiche messen. Und was, wenn es noch mehr Lieblingsessen gibt? Das Hinzufügen von Informationen auf diese Weise führt zu einer Menge redundanter Informationen.
+- Wir können die Daten normalisieren, um Redundanzen zu vermeiden.
+]
+
+
+---
+# Tabellarische Daten: Beispiel
+
+.pull-left[
+### Speicherung von Daten in Tabellen
+
+- Eine einzige Tabelle stellt bereits Beziehungen her: Alle Daten in einer Zeile gehören zu demselben Datensatz.
+- Wenn wir komplexere Beziehungen darstellen wollen (z. B. das Gewicht einer Person zweimal messen oder das Gewicht ihrer Kinder ebenfalls messen), können wir Daten von einer Tabelle zur anderen in Beziehung setzen.
+
+### Beispiel
+
+- Wir haben Daten über Peter, Paul und Mary gesammelt.
+- Wir haben Informationen über Geburtstage, Telefonnummern und Lieblingsspeisen.
+- Wie können wir diese Informationen in Tabellen darstellen?
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/adcr-relational-data-3.png" width=300&gt;
+&lt;/div&gt;
+
+- Besser ist es, die Informationen aufzuteilen und eine weitere Tabelle für die Essenspräferenzen zu erstellen.
+- Es bleibt immer noch etwas Redundanz übrig. Ist es wirklich notwendig, "Hamburger" zweimal in der Tabelle zu haben?
+]
+
+
+---
+# Tabellarische Daten: Beispiel
+
+.pull-left[
+### Speicherung von Daten in Tabellen
+
+- Eine einzige Tabelle stellt bereits Beziehungen her: Alle Daten in einer Zeile gehören zu demselben Datensatz.
+- Wenn wir komplexere Beziehungen darstellen wollen (z. B. das Gewicht einer Person zweimal messen oder das Gewicht ihrer Kinder ebenfalls messen), können wir Daten von einer Tabelle zur anderen in Beziehung setzen.
+
+### Beispiel
+
+- Wir haben Daten über Peter, Paul und Mary gesammelt.
+- Wir haben Informationen über Geburtstage, Telefonnummern und Lieblingsspeisen.
+- Wie können wir diese Informationen in Tabellen darstellen?
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/adcr-relational-data-4.png" width=300&gt;
+&lt;/div&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/adcr-relational-data-5.png" width=300&gt;
+&lt;/div&gt;
+
+- Jetzt ist es besser.
+- Bei der Umstrukturierung der Informationen in unserer Datenbank haben wir **Redundanz (Duplikation)** vermieden.
+- Dies ist der Prozess der **Datenbanknormalisierung**.
+]
+
+
+---
+exclude: true
+
+# Was ist SQL?
+
+### Hintergrund und Geschichte
+
+- SQL (ausgesprochen [ɛsˌkjuːˈɛl] wie in S-Q-L, oder [siːkwəl] wie in sequel) steht für **Structured Query Language**. Ursprünglich hieß sie SEQUEL (Structured English Query Language), wurde aber aufgrund von Markenrechtsproblemen fallen gelassen.
+- Es handelt sich um eine domänenspezifische Sprache, die für die Abfrage von Daten in relationalen Datenbanken entwickelt wurde.
+- Ursprünglich wurde sie 1974 bei IBM von [Donald D. Chamberlin](https://en.wikipedia.org/wiki/Donald_D._Chamberlin) und [Raymond F. Boyce](https://en.wikipedia.org/wiki/Raymond_F._Boyce) entwickelt.
+
+--
+
+### Warum SQL?
+
+- Es gibt zwar unterschiedliche Datenbanktypen, aber die meisten relationalen Datenbanken, denen Ihr begegnen werdet, sprechen SQL.
+- Die wichtigste Fähigkeit für die Arbeit mit Datenbanken ist das Erlernen von SQL. 
+- SQL wird in vielen (den meisten?) Stellenausschreibungen für Datenwissenschaftler als erforderliche Fähigkeit aufgeführt.
+
+
+---
+# Datenbankmanagementsysteme
+
+.pull-left-wide[
+### Was sind DBMS?
+
+- Datenbankmanagementsysteme (DBMS) bieten **effiziente**, **zuverlässige**, **bequeme**, **sichere** Speicherung von und Zugriff auf **massive** Daten.
+    - **Effizient**: Einfach schnell.
+    - **Zuverlässig**: Hohe Betriebszeit.
+    - **Komfortabel**: Hochwertige Abfragesprachen.
+    - **Sicher**: Robust gegenüber Stromausfällen, Knotenausfällen, usw.
+    - **Mehrbenutzer**: Gleichzeitigkeitskontrolle. Nicht nur ein Benutzer, sondern mehrere.
+    - **Massiv**: Denkt an Terabytes, nicht an Gigabytes. Verarbeitung von Daten, die sich außerhalb des Speichers befinden.
+- Es gibt [etliche DBMS](https://en.wikipedia.org/wiki/List_of_relational_database_management_systems) allein für relationale Datenbankstrukturen.
+- RDBMS unterscheiden sich in Bezug auf Fähigkeiten, implementierte Funktionen, Betriebssystemunterstützung und vieles mehr. Siehe [The Database Database](https://technically.dev/database-database) für einen Überblick.
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/mysql-logo.png" height=120&gt;
+&lt;img src="../pics/postgresql-logo.png" height=150&gt;
+&lt;img src="../pics/sqlite-logo.png" height=110&gt;
+&lt;img src="../pics/duckdb-logo.png" height=50&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# Datenbanken in der Verwaltung: Wo liegen die Daten?
+
+.font90[
+### Fachverfahren statt Datenbank
+
+- Behördendaten stecken fast immer in **Fachverfahren**: Software für einen Aufgabenbereich (Meldewesen, Kfz-Zulassung, Sozialleistungen, Bauanträge). Darunter läuft ein DBMS, das der Fachbereich nie sieht: Er bedient Masken, nicht Tabellen.
+- Betrieb meist beim **IT-Dienstleister** (Dataport, AKDB, regio iT, ekom21 …) oder beim Hersteller. Wer die Daten auswerten will, braucht also einen Zugang, der im Vertrag steht, nicht nur eine Exportfunktion.
+
+### Register: viele, dezentral, nicht vernetzt
+
+- Deutschland hat **über 375 Registertypen**, historisch gewachsen und föderal verteilt: das Melderegister bei jeder Gemeinde, das Handelsregister bei den Amtsgerichten, das Fahrzeugregister beim KBA ([ÖFIT 2025](https://www.oeffentliche-it.de/blog/die-registermodernisierung-register-vernetzen-verwaltung-digitalisieren/), [IT-Planungsrat 2021](https://www.IT-Planungsrat.de/fileadmin/beschluesse/2021/Beschluss2021-05_Registermodernisierung.pdf)).
+- Die Trennung ist **gewollt**: Das [Volkszählungsurteil (1983)](https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/1983/12/rs19831215_1bvr020983.html) verbietet ein einheitliches Personenkennzeichen und verlangt Zweckbindung. Jede Verknüpfung über Register hinweg braucht eine Rechtsgrundlage.
+
+### Herstellerabhängigkeit
+
+- Der Bund hat 2023 einen **Rahmenvertrag über 4,6 Mrd. €** mit Oracle geschlossen (Laufzeit bis 2030); laut einer Deloitte-Analyse für das BMI laufen rund 75% der Daten der Bundesverwaltung über Oracle-Produkte ([Computerwoche 2023](https://www.computerwoche.de/a/bundesregierung-zahlt-milliarden-an-oracle-und-microsoft,3698126), [Tagesspiegel Background 2024](https://background.tagesspiegel.de/digitalisierung-und-ki/briefing/umstrittener-vier-milliarden-deal-mit-oracle)). Open-Source-DBMS wie PostgreSQL gelten als Weg zu mehr digitaler Souveränität.
+]
+
+
+---
+# Registermodernisierung: vernetzen statt zusammenlegen
+
+.pull-left[
+.font90[
+### Ziel: Once-Only
+
+- Bürger und Unternehmen sollen Nachweise **nur einmal** vorlegen; die Verwaltung holt sie sich bei der zuständigen Stelle. Grundlage: EU-[Single-Digital-Gateway-Verordnung](https://eur-lex.europa.eu/eli/reg/2018/1724/oj?locale=de) (2018) und [Registermodernisierungsgesetz](https://www.gesetze-im-internet.de/idnrg/) (2021).
+- Die **Steuer-ID wird Identifikationsnummer** für 51 priorisierte Register (Melde-, Personenstands-, Fahrzeugregister …), Frist Ende 2028.
+
+### Architektur: NOOTS
+
+- Keine zentrale Datenbank, sondern ein **Vermittlungssystem** (Nationales Once-Only-Technical-System): Register bleiben, wo sie sind; Nachweise werden einzeln, mit Einwilligung und protokolliert abgerufen.
+- Das **Datenschutzcockpit** zeigt Bürgern, welche Behörde wann welche Daten abgerufen hat.
+]
+]
+
+.pull-right[
+.font90[
+### Stand
+
+- **14.01.2026**: erster Nachweisabruf über das NOOTS (Fahrzeugregister des KBA für einen Bewohnerparkausweis in Baden-Württemberg); Gewerbeanmeldung mit Handelsregister-Abruf in NRW folgt ([BVA](https://www.bva.bund.de/SharedDocs/Pressemitteilungen/DE/2026/20260114_livegang_noots.html)).
+- Flächen-Rollout ab **November 2026**; Betrieb beim Bundesverwaltungsamt.
+
+### Kritik
+
+- Die Steuer-ID als **Quasi-Personenkennzeichen** widerspreche dem Volkszählungsurteil; die Humanistische Union klagt ([HU](https://www.humanistische-union.de/thema/humanistische-union-laesst-steuer-id-gerichtlich-ueberpruefen/)). Österreich nutzt bereichsspezifische Kennungen.
+]
+]
+
+
+---
+# Was Führungskräfte über ihre Datenbanken wissen sollten
+
+.font90[
+## Vier Fragen, die Ihr Eurer IT oder Eurem Dienstleister auch ohne technisches Detailwissen stellen könnt
+
+1. **Wo liegen unsere Daten?** &lt;br&gt; Welche Fachverfahren nutzen wir, welche Daten stecken darin, und wer betreibt sie: unser eigenes Rechenzentrum, ein kommunaler IT-Dienstleister, der Hersteller oder ein Cloud-Anbieter?
+2. **Kommen wir an unsere Daten heran?** &lt;br&gt; Können wir sie vollständig und in einem offenen Format (z. B. CSV, XML) herausholen, auch ohne den Hersteller zu fragen? Gibt es eine dokumentierte Schnittstelle? Und steht das so im Vertrag? Wer das erst beim Anbieterwechsel klärt, zahlt doppelt.
+3. **Können wir die Daten auswerten, ohne den laufenden Betrieb zu stören?** &lt;br&gt; Das System, in dem die Sachbearbeitung täglich arbeitet, ist nicht zum Auswerten da. Gibt es eine Kopie der Daten für Analysen und Berichte, und wer darf darauf zugreifen?
+4. **Was passt die Datenbank selbst auf?** &lt;br&gt; Welche Fehler verhindert sie automatisch (Pflichtfelder, feste Auswahllisten, keine doppelten Einträge), und welche werden nur in Schulungen angesprochen? Wer darf was sehen und ändern, und wird das protokolliert?
+
+️✎ Datenbank-Kompetenz auf Leitungsebene heißt nicht, SQL-Abfragen zu schreiben, sondern zu wissen, **wo die Daten liegen, wem sie gehören und wer sie herausbekommt**. Alles andere lässt sich beauftragen.
+]
+
+
+---
+class: inverse, center, middle
+name: formats
+
+# Austauschformate: XML, JSON und die XÖV-Standards
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+
+---
+# Warum Austauschformate?
+
+.pull-left[
+## Excel ist kein Austauschformat
+
+- Eine Excel-Datei transportiert **Darstellung** (Formate, Farben, Spaltenbreiten, Formeln).
+- Für den Austausch zwischen **Programmen** braucht man Formate, die eindeutig Daten und deren Struktur transportieren.
+
+## Was ein gutes Austauschformat kann
+
+- **Maschinenlesbar** ohne Rätselraten: Struktur ist explizit.
+- **Validierbar**: Man kann prüfen, ob eine Datei den Regeln entspricht (Schema).
+- **Offen dokumentiert**: Keine Abhängigkeit von einem Hersteller.
+- **Textbasiert**: In jedem Editor lesbar, versionierbar, langlebig.
+]
+
+.pull-right[
+
+## Drei Familien
+
+- **Tabellen als Text**: CSV, TSV. Eine Zeile pro Datensatz, Trennzeichen zwischen Feldern. Einfach, universell, aber nur für flache Tabellen.
+- **Hierarchische Formate**: XML, JSON. Können verschachtelte Strukturen abbilden (z.B. ein Antrag mit mehreren Anlagen). Das Format der Web-APIs und der Verwaltungsschnittstellen.
+- **Binäre Formate**: Parquet, Datenbankdateien. Effizient für große Datenmengen, aber nur mit Spezialsoftware lesbar.
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/xmljson.png" width=150&gt;
+&lt;/div&gt;
+]
+
+
+---
+# XML: Extensible Markup Language
+
+.pull-left[
+## Grundidee
+
+- Daten werden in **Elemente** eingeschlossen, die mit Tags markiert sind: `&lt;Name&gt;Mustermann&lt;/Name&gt;`.
+- Elemente können **verschachtelt** werden und **Attribute** tragen.
+- Ein **Schema** (XSD) legt fest, welche Elemente erlaubt sind, in welcher Reihenfolge, mit welchen Datentypen. Das lässt automatische **Validierung** zu.
+- **Namensräume** (`xmlns`) verhindern, dass `&lt;Name&gt;` in zwei Standards etwas Verschiedenes bedeutet.
+
+## Wo XML lebt
+
+- Fast alle **XÖV-Standards** der deutschen Verwaltung, die elektronische Rechnung (XRechnung), Office-Dokumente (DOCX ist gezipptes XML), RSS-Feeds, viele ältere Web-Schnittstellen (SOAP).
+]
+
+.pull-right[
+## Beispiel
+
+```{}
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;Personen&gt;
+  &lt;Person id="1"&gt;
+    &lt;Name&gt;van Pelt, Lucy&lt;/Name&gt;
+    &lt;Geschlecht&gt;weiblich&lt;/Geschlecht&gt;
+    &lt;Alter&gt;32&lt;/Alter&gt;
+  &lt;/Person&gt;
+  &lt;Person id="2"&gt;
+    &lt;Name&gt;Peppermint, Patty&lt;/Name&gt;
+    &lt;Geschlecht&gt;weiblich&lt;/Geschlecht&gt;
+    &lt;Alter/&gt;
+  &lt;/Person&gt;
+  &lt;Person id="3"&gt;
+    &lt;Name&gt;Brown, Charlie&lt;/Name&gt;
+    &lt;Geschlecht&gt;männlich&lt;/Geschlecht&gt;
+    &lt;Alter&gt;27&lt;/Alter&gt;
+  &lt;/Person&gt;
+&lt;/Personen&gt;
+```
+]
+
+
+---
+# JSON: JavaScript Object Notation
+
+.pull-left-wide[
+## Grundidee
+
+- Daten stehen in **Schlüssel-Wert-Paaren**: `"name": "Brown, Charlie"`. Schlüssel immer in Anführungszeichen, Werte nur, wenn sie Text sind.
+- Geschweifte Klammern `{ }` fassen ein **Objekt** zusammen (ein Datensatz), eckige Klammern `[ ]` eine **Liste** (mehrere Datensätze). Beides lässt sich beliebig **verschachteln**.
+- Kein Schema vorgeschrieben, aber möglich (JSON Schema). Kompakter als XML, für Menschen gut lesbar.
+
+## Wo JSON lebt
+
+- Praktisch jede **Web-API** und jedes **Open-Data-Portal** antwortet in JSON (Session 4). Konfigurationsdateien, moderne Schnittstellen zwischen Programmen, die Metadaten bei [FIT-Connect](https://www.fitko.de/produktmanagement/fit-connect).
+- Einlesen ist in jeder Sprache ein Einzeiler, in R etwa mit `jsonlite::fromJSON()`: Aus der Liste rechts wird direkt eine Tabelle mit drei Zeilen.
+]
+
+.pull-right-small[
+## Beispiel
+
+```{}
+[
+  {
+    "id": 1,
+    "name": "van Pelt, Lucy",
+    "geschlecht": "weiblich",
+    "alter": 32
+  },
+  {
+    "id": 2,
+    "name": "Peppermint, Patty",
+    "geschlecht": "weiblich",
+    "alter": null
+  },
+  {
+    "id": 3,
+    "name": "Brown, Charlie",
+    "geschlecht": "männlich",
+    "alter": 27
+  }
+]
+```
+
+️✎ Dieselben drei Datensätze wie im XML-Beispiel, mit etwa der Hälfte der Zeichen.
+]
+
+
+---
+# XML oder JSON?
+
+.font90[
+| | **XML** | **JSON** |
+|---|---|---|
+| **Entstanden** | 1998, aus der Dokumentenwelt (SGML) | 2001, aus der Webprogrammierung (JavaScript) |
+| **Umfang** | Manchmal unnötig ausführlich, viel Markup | Kompakt |
+| **Schema und Validierung** | Ausgereift (XSD), verpflichtend in der Verwaltung | Vorhanden (JSON Schema), weniger verbreitet |
+| **Typische Nutzung** | Verwaltungsstandards (XÖV), E-Rechnung, Dokumentformate, ältere Schnittstellen | Web-APIs, Open-Data-Portale, Konfigurationsdateien, moderne Schnittstellen |
+| **Werkzeuge** | Jede Programmiersprache; spezialisierte Validatoren | Jede Programmiersprache; direkt im Browser lesbar |
+| **Für Euch relevant** | Was zwischen Fachverfahren und Portalen fließt | Was Ihr von Open-Data-Portalen und Web-APIs bekommt |
+]
+
+️✎ **Kein Entweder-oder**: Dieselben Daten lassen sich verlustfrei in beide Richtungen übersetzen. [FIT-Connect](https://docs.fitko.de/fit-connect/docs/getting-started/submission/data), die Übermittlungsinfrastruktur des IT-Planungsrats, beschreibt jede Einreichung mit Metadaten nach JSON Schema und transportiert die Fachdaten wahlweise als JSON oder XML, je nachdem, was das Fachschema (FIM oder XÖV) vorgibt.
+
+
+---
+# XÖV: die Datenstandards der deutschen Verwaltung
+
+.pull-left-wide2[
+## Das Problem
+
+- Bund, 16 Länder, rund 11.000 Kommunen, hunderte Fachverfahren von dutzenden Herstellern. Wenn jede Stelle mit jeder eine eigene Schnittstelle baut, entsteht **„Schnittstellen-Spaghetti“** mit unbezahlbaren Wartungskosten.
+
+## Die Antwort
+
+- **XÖV** (XML in der öffentlichen Verwaltung) ist ein **Standardisierungsrahmen**: gemeinsame Methoden, Bausteine und Entwurfsregeln, nach denen Fachstandards gebaut werden. 
+- Koordiniert von der [KoSIT](https://www.xoev.de/) (Koordinierungsstelle für IT-Standards, Bremen) im Auftrag des IT-Planungsrats.
+- Standards werden **XÖV-zertifiziert** und im [XRepository](https://www.xrepository.de/) veröffentlicht, samt Schemata und Codelisten.
+- Gemeinsame Bausteine (Name, Anschrift, Datum, Behördenkennung) werden **wiederverwendet**.
+]
+
+.pull-right-small2[
+## Beispiele
+
+.font80[
+| Standard | Wofür |
+|---|---|
+| **XMeld** | Meldewesen: Datenaustausch zwischen Meldebehörden |
+| **XPersonenstand** | Geburten, Eheschließungen, Sterbefälle |
+| **XBau** | Bauanträge und Baugenehmigungen |
+| **XRechnung** | Elektronische Rechnung an öffentliche Auftraggeber |
+| **xdomea** | Austausch von Akten und Vorgängen (E-Akte) |
+| **XFall** | Antragsdaten von Portalen in Fachverfahren |
+]
+]
+
+
+
+---
+# Beispiel XFall: ein Antrag auf dem Weg ins Fachverfahren
+
+.pull-left[
+## Worum es geht
+
+- Das Land betreibt **ein Antragsportal** für alle Kommunen. Die Kommunen bearbeiten die Anträge in **hunderten verschiedenen Fachverfahren**.
+- XFall legt fest, wie die Antragsdaten vom Portal ins Fachverfahren kommen: **ein Format, egal welcher Hersteller**.
+- Entwickelt von fünf Ländern und der Stadt Münster, u.a. für Gewerbeanmeldung, Kfz-Ummeldung, Elterngeld, Führungszeugnis.
+
+️✎ Rechts: eine Gewerbeanmeldung, auf das Wesentliche gekürzt. Drei Blöcke, die in jedem XFall-Antrag vorkommen.
+]
+
+.pull-right[
+## Die Fachnachricht (XFall-Daten 4.0.0)
+
+.font70[
+```xml
+&lt;xfd:gewerbe.gewerbeanmeldung.05001002 xFallDatenVersion="4.0.0"&gt;
+
+  &lt;!-- 1. Wer schickt das, wann? --&gt;
+  &lt;xfd:transport&gt;
+    &lt;xfd:erstelltUm&gt;2026-10-27T09:14:00&lt;/xfd:erstelltUm&gt;
+    &lt;xfd:erstelltVon&gt;Serviceportal Niedersachsen&lt;/xfd:erstelltVon&gt;
+  &lt;/xfd:transport&gt;
+
+  &lt;!-- 2. Wer stellt den Antrag? (AS = Antragstellerin) --&gt;
+  &lt;xfd:beteiligter&gt;
+    &lt;xfd:rolle&gt;&lt;code&gt;AS&lt;/code&gt;&lt;/xfd:rolle&gt;
+    &lt;xfd:vorname&gt;Erika&lt;/xfd:vorname&gt;
+    &lt;xfd:familienname&gt;Mustermann&lt;/xfd:familienname&gt;
+    &lt;xfd:anschrift&gt; ... &lt;/xfd:anschrift&gt;
+  &lt;/xfd:beteiligter&gt;
+
+  &lt;!-- 3. Was wird beantragt? --&gt;
+  &lt;xfd:ags&gt;&lt;code&gt;03159016&lt;/code&gt;&lt;/xfd:ags&gt;            &lt;!-- Göttingen --&gt;
+  &lt;xfd:taetigkeit&gt;Einzelhandel mit Fahrrädern&lt;/xfd:taetigkeit&gt;
+  &lt;xfd:wzschluessel&gt;47.64.1&lt;/xfd:wzschluessel&gt;
+  &lt;xfd:datum&gt;2026-11-01&lt;/xfd:datum&gt;
+  &lt;xfd:anmeldegrund&gt;&lt;code&gt;NG&lt;/code&gt;&lt;/xfd:anmeldegrund&gt; &lt;!-- Neugründung --&gt;
+
+&lt;/xfd:gewerbe.gewerbeanmeldung.05001002&gt;
+```
+]
+]
+
+
+---
+# Beispiel XFall: ein Antrag auf dem Weg ins Fachverfahren
+
+.pull-left[
+## Drei Dinge zum Mitnehmen
+
+1. **Umschlag und Inhalt sind getrennt.** Der Container (links die Fachnachricht, rechts der Umschlag) trägt Absender, Empfänger, Anlagen und Frist. Er ist für alle Verfahren gleich; nur der Inhalt wechselt.
+2. **Bausteine werden wiederverwendet.** Person, Anschrift, Kommunikation sind einmal definiert und tauchen in jedem Antragstyp gleich auf.
+3. **Codes statt Freitext.** `AS`, `NG`, `03159016`: Jeder Code verweist auf eine Codeliste mit Version. Das Fachverfahren muss nichts interpretieren.
+
+️✎ Das Fachverfahren prüft die Nachricht gegen das Schema. Fehlt ein Pflichtfeld oder stimmt ein Code nicht, wird der Antrag gar nicht erst angenommen.
+
+.font80[`Quellen` [XFall-Daten 4.0.0](https://www.xrepository.de/details/urn:xoev-de:it-plr:standard:xfall-daten), [XFall-Container 3.0.0](https://www.xrepository.de/details/urn:xoev-de:it-plr:standard:xfall-container); Beispieldateien in `materials/`.]
+]
+
+.pull-right[
+## Der Umschlag (XFall-Container 3.0.0)
+
+.font70[
+```xml
+&lt;xfc:application.transport.0300001&gt;
+  &lt;xfc:header&gt;
+    &lt;xfc:messageID&gt;urn:uuid:3f6c2a1e-...&lt;/xfc:messageID&gt;
+  &lt;/xfc:header&gt;
+
+  &lt;!-- Absenderin: das Bürgerkonto --&gt;
+  &lt;xfc:partner&gt;
+    &lt;xfc:partnerID&gt;buergerkonto-ni-00012345&lt;/xfc:partnerID&gt;
+    &lt;xfc:authentNiveau&gt;&lt;code&gt;4&lt;/code&gt;&lt;/xfc:authentNiveau&gt;
+  &lt;/xfc:partner&gt;
+
+  &lt;!-- Empfänger: das Gewerbeamt --&gt;
+  &lt;xfc:partner&gt;
+    &lt;xfc:partnerID&gt;03159016-gewerbeamt&lt;/xfc:partnerID&gt;
+    &lt;xfc:orgName1&gt;Stadt Göttingen&lt;/xfc:orgName1&gt;
+  &lt;/xfc:partner&gt;
+
+  &lt;!-- Anlagen und Frist --&gt;
+  &lt;xfc:document&gt;&lt;xfc:name&gt;Ausweiskopie&lt;/xfc:name&gt;&lt;/xfc:document&gt;
+  &lt;xfc:deadline&gt;&lt;xfc:endDate&gt;2026-11-27&lt;/xfc:endDate&gt;&lt;/xfc:deadline&gt;
+
+  &lt;!-- Der Inhalt: die Fachnachricht von eben --&gt;
+  &lt;xfc:implementation&gt;
+    &lt;xfd:gewerbe.gewerbeanmeldung.05001002&gt; ... &lt;/xfd:...&gt;
+  &lt;/xfc:implementation&gt;
+&lt;/xfc:application.transport.0300001&gt;
+```
+]
+]
+
+---
+class: exercise, center, middle
+
+# Übung: Eine XFall-Nachricht auseinandernehmen
+
+.content-box-white[
+**Öffnet diese Datei im Browser** (eine echte, schema-valide Gewerbeanmeldung):
+
+[raw.githack.com/hertie-ai-certificate/modul-2-2026/main/d1s3-datengewinnung/materials/beispiel-gewerbeanmeldung_xfall-daten-4.0.0.xml](https://raw.githack.com/hertie-ai-certificate/modul-2-2026/main/d1s3-datengewinnung/materials/beispiel-gewerbeanmeldung_xfall-daten-4.0.0.xml)
+
+&lt;div align="left"&gt;
+&lt;ol&gt;
+  &lt;li&gt; &lt;b&gt;Wer&lt;/b&gt; meldet &lt;b&gt;was&lt;/b&gt; an, und ab &lt;b&gt;wann&lt;/b&gt;?&lt;/li&gt;
+  &lt;li&gt; Findet drei Stellen mit &lt;code&gt;&amp;lt;code&amp;gt;…&amp;lt;/code&amp;gt;&lt;/code&gt;. Was bedeuten die Codes, und woher kommt die Liste?&lt;/li&gt;
+  &lt;li&gt; Welcher Block wäre bei einer &lt;b&gt;Kfz-Ummeldung&lt;/b&gt; genau gleich?&lt;/li&gt;
+  &lt;li&gt; Was steht &lt;b&gt;nicht&lt;/b&gt; drin, was ein Sachbearbeiter zum Bescheid noch bräuchte?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+
+**Jeder für sich, 5 Minuten.** Die Kommentare in der Datei helfen.
+]
+
+---
+# Checkliste: Daten bereitstellen
+
+.pull-left[
+## Bevor Ihr einen Datensatz weitergebt
+
+1. **Rechteck**: Eine Tabelle, eine Kopfzeile, keine Formatierung als Information.
+2. **Format**: CSV (UTF-8, Trennzeichen angeben) für Tabellen; JSON oder XML für verschachtelte Daten. Excel höchstens zusätzlich.
+3. **Datenwörterbuch**: Jede Spalte erklärt, Einheiten, Codes, fehlende Werte.
+4. **Steckbrief**: Zweck, Erhebung, Zeitraum, Stand, bekannte Lücken, Ansprechperson.
+5. **Kennungen**: Amtliche Schlüssel statt Namen, wo es sie gibt.
+6. **Lizenz**: Explizit nennen, auch intern.
+7. **Ort**: Eine stabile Adresse, keine E-Mail-Anlage.
+8. **Datenschutz**: Personenbezug geprüft, ggf. aggregiert oder anonymisiert, Freigabe dokumentiert.
+]
+
+.pull-right[
+## Und die Gegenprobe
+
+- Könnte eine Kollegin aus einem anderen Haus den Datensatz **ohne Rückfrage** nutzen?
+- Könnte ein Programm ihn **ohne menschliches Zutun** einlesen?
+- Wüsste jemand in fünf Jahren noch, **was die Zahlen bedeuten**?
+
+️✎ Mehr zum Umgang mit Open Data, Veröffentlichung und Nutzung an Tag 3!
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/data-download-illustration.jpeg" width=180&gt;
+&lt;/div&gt;
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9",
+  "hash": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+  .logo {
+    background-image: url("../hertieschool-neg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 150px;
+    height: 128px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    ':not(.inverse)' +
+	
+    // add additional classes to exclude here, e.g.
+  // ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

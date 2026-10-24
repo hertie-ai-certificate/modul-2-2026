@@ -1,0 +1,3018 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xfd="http://xoev.de/schemata/xfall_daten/4_0_0" xmlns:xoev-dt="http://xoev.de/schemata/basisdatentypen/1_1" xmlns:xoev-lc="http://xoev.de/latinchars/1_1/datatypes" targetNamespace="http://xoev.de/schemata/xfall_daten/4_0_0" version="4.0.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:annotation>
+    <xs:documentation>Sammlung aller fachlichen Typen z.B. zur Wiederverwendung in den Nachrichten der unterschiedlichen Hauptgruppen.</xs:documentation>
+  </xs:annotation>
+  <xs:include schemaLocation="xfall_daten_basistypen.xsd" />
+  <xs:import schemaLocation="latinchars.xsd" namespace="http://xoev.de/latinchars/1_1/datatypes" />
+  <xs:import schemaLocation="xoev-basisdatentypen.xsd" namespace="http://xoev.de/schemata/basisdatentypen/1_1" />
+  <xs:complexType name="AllgemeinerName">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nichtVorhanden" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="namensart" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="alternativeRepraesentation" minOccurs="0" maxOccurs="unbounded" type="xfd:AlternativeRepraesentation">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AlternativeRepraesentation">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="repraesentation" type="xs:base64Binary">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="algorithmus" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="hinweis" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Anschrift">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" minOccurs="0" type="xfd:Identifikator">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="strassenschluessel" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="strasse" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="hausnummer" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="postfach" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="postleitzahl" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ort" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ortsteil" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="zusatz" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="wohnungsgeber" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="staat" minOccurs="0" type="xfd:Staat">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Ausweisdokument">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ausweisart" minOccurs="0" type="xfd:Code.ArtAusweis">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ausstellenderStaat" minOccurs="0" type="xfd:Staat">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ausweisID" minOccurs="0" type="xfd:Identifikation">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ausstellendeBehoerde" minOccurs="0" type="xfd:Behoerde">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="gueltigkeit" minOccurs="0" type="xfd:Zeitraum">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Bankverbindung">
+    <xs:annotation>
+      <xs:documentation>Eine Bankverbindung umfasst alle notwendigen Informationen, um eine Überweisung auf ein Bankkonto vorzunehmen. Dieser Typ ist abstrakt. Es sollen die abgeleiteten Typen für nationale und internationale Bankverbindungen verwendet werden.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="kontoinhaber" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Der Empfänger / Kontoinhaber auf dem Überweisungsträger.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="bankinstitut" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Name des Geldinstituts</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="beschreibung" minOccurs="0" maxOccurs="unbounded" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Beschreibung/Erläuterung zur Verwendung dieser Bankverbindung.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="iban" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Der IBAN wurde zur Verbesserung der Abwicklung internationaler Finanztransaktionen entwickelt. Internationale Bank Account Number ist die ausgeschriebene Version von IBAN. Jedes Konto in der EU wird durch den IBAN eindeutig bezeichnet.
+
+Die IBAN (Kontonummer) setzt sich folgendermaßen zusammen:
+2-stelliger Ländercode (bestehend aus Buchstaben)
+2-stellige Prüfziffer (bestehend aus Ziffern)
+max. 30-stellige Kontoidentifikation (bestehend aus Buchstaben und/oder Ziffern)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="bic" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Der SWIFT-BIC (BIC ist die Abkürzung für Bank Identifier Code) wird umgangssprachlich auch BIC-Code oder SWIFT-Code genannt. Es handelt sich um einen international standardisierten Bankcode.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kontonummer" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>(Nationale) Kontonummer. Nummer eines Bankkontos.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="bankleitzahl" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>(Nationale) Bankleitzahl. In Deutschland 8-stellig.Die Bankleitzahl ist für den Giroverkehr eingeführt worden, um eine Bankstelle eindeutig identifizieren zu können.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Behoerde">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" minOccurs="0" type="xfd:Identifikator">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="typ" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="zusatz" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="behoerdenname" minOccurs="0" type="xfd:NameOrganisation">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kommunikation" minOccurs="0" maxOccurs="unbounded" type="xfd:Kommunikation">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="anschrift" minOccurs="0" maxOccurs="unbounded" type="xfd:Anschrift">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="behoerdenidentifikation" minOccurs="0" type="xfd:Identifikation">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BeteiligteNatPerson">
+    <xs:complexContent>
+      <xs:extension base="xfd:Beteiligter">
+        <xs:sequence>
+          <xs:element name="natuerlichePerson" minOccurs="0" type="xfd:NatuerlichePerson">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente
+
+Mensch als Einzelwesen,der um seines Menschseins willen von der Rechtsordnung ohne weitere Voraussetzung als Subjekt von Rechten und Pflichten anerkannt wird.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BeteiligteOrganisation">
+    <xs:annotation>
+      <xs:documentation>Es wurde bewusst vermieden von einer juristischen Person zu sprechen da eine Organisation generischer ist und alle Formen von Personengruppen, die durch eine natürliche Person vertreten werden, abdeckt. Eine Organisation kann eine juristische Person, eine Behörde oder eine beliebige andere Form (Verein etc.) sein.
+Die Natürliche Person und die Organisation stützen sich auf die entsprechenden Klassen aus den Kernkomponenten.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="xfd:Beteiligter">
+        <xs:sequence>
+          <xs:element name="organisation" minOccurs="0" type="xfd:Organisation">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente
+
+Es wurde bewusst vermieden von einer juristischen Person zu sprechen da eine Organisation generischer ist und alle Formen von Personengruppen, die durch eine natürliche Person vertreten werden, abdeckt. Eine Organisation kann eine juristische Person, eine Behörde oder eine beliebige andere Form (Verein etc.) sein.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Beteiligter" abstract="true">
+    <xs:annotation>
+      <xs:documentation>Das Element "Beteiligter" benennt eine am Verfahren beteiligte Partei. Dies kann derzeit eine natürliche Person oder eine Organisation sein.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="rolle" type="xfd:Code.Rolle">
+        <xs:annotation>
+          <xs:documentation>Rolle beschreibt die Funktion die der Beteiligen im Vorgang einnimmt. Dies ist in der Codeliste Code.Rolle hinterlegt.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="verifikation" minOccurs="0" maxOccurs="unbounded" type="xfd:Verifikation">
+        <xs:annotation>
+          <xs:documentation>Bestätigung der Echtheit der Daten durch Bereitstellung eines Nachweises z.B. NPA = neuer Personalausweis</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Betrieb">
+    <xs:annotation>
+      <xs:documentation>Klasse für Angaben zum Betrieb. Wirtschaftliche Einheit, in der sich die technischen, organisatorischen und personellen Voraussetzungen zur Herstellung von Produkten und der Bereitstellung von Dienstleistungen befinden.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="anschrift" minOccurs="0" type="xfd:Anschrift">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kommunikation" minOccurs="0" maxOccurs="unbounded" type="xfd:Kommunikation">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Code.AGS">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>Statistisches Bundesamt, Wiesbaden (Destatis)</listAgencyName>
+        <listName>Amtlicher Gemeindeschlüssel (AGS)</listName>
+      </xs:appinfo>
+      <xs:documentation>Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Gemeindeschlüssel (AGS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" type="xs:token" form="unqualified" />
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="required">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.AnhaengerZuschlag">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>XFall-Daten-Koordination</listAgencyName>
+        <listName>XFall-Daten-Codeliste AnhaengerZuschlag</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.AnhaengerZuschlag umfasst beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.AnhaengerZuschlag. Hier
+wird die Höhe des Gewichts des Anhängers angegeben, damit der Zuschlag zur Kfz-Steuer ermittelt werden kann.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="1">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>- 10 000 kg</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="2">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>- 12 000 kg</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="3">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>- 14 000 kg</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="4">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>- 16 000 kg</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="5">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>- 18 000 kg</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="6">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>über 18 000 kg</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:anhaengerzuschlag">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.Antragstellung">
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="Kein">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Kein Antrag; weitere Angaben entfallen</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="Sofort">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Sofort</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="Spaeter">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Später; Anspruch wird vorerst nur angemeldet</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:antragstellung">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.ArtAnwohnerParkausweis">
+    <xs:simpleContent>
+      <xs:extension base="xs:ENTITY">
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:anwohnerParkausweis" />
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Code.ArtAushaendigungDokument">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>XFall-Daten-Koordination</listAgencyName>
+        <listName>XFall-Daten-Codeliste WegAushaendigung</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.WegAushändigung beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.WegAushändigung. Hier werden die verschiedenen Möglichkeiten zur Aushändigung einer Urkunde aufgelistet.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="1">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Persönliche Abholung</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="2">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Zusendung per Post</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:artaushaendigungdokument">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.ArtAusweis">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>XFall-Daten-Koordination</listAgencyName>
+        <listName>XFall-Daten-Codeliste Art Ausweis</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.ArtAusweis umfasst beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.ArtAusweis. Beschreibt die Art eines Ausweisdokumentes.  Aus dem XÖV-Standard XMeld.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="01">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Deutscher Reisepass</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="02">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>- Schlüssel nicht belegt -</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="03">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Deutscher Kinderreisepass</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="04">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Deutscher amtlicher Pass (Dienstpass, Diplomatenpass, vorläufiger Dienstpass, vorläufiger Diplomatenpass)</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="05">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Reiseausweis für Ausländer und Reiseausweis für Flüchtlinge, ausgestellt von deutschen
+Behörden</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="06">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Sonstige von deutschen Behörden ausgestellte Pass-, Passersatzpapiere oder Ausweis-, Ausweisersatzpapiere (ohne Grenzgängerkarte, Passierschein, Landgangausweis)</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="07">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Pass oder Passersatz, der nicht von deutschen Behörden ausgestellt worden ist (Schlüssel umfasst auch alle Ausweisarten und amtl. Personalausweise)</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="08">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Reiseausweis für Staatenlose, ausgestellt von deutschen Behörden</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="09">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Personalausweis</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="10">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>vorläufiger Personalausweis</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="11">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Deutscher vorläufiger Reisepass</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="12">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Identitätsausweise und amtlicher Personalausweis, ausgestellt von einem anderen EUStaat auf einen EU-Bürger</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="13">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Standardreisedokumente für die Rückführung, ausgestellt von deutschen Behörden oder von Behörden anderer EU-Staaten</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:artausweis">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.ArtBetrieb">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>XFall-Daten-Koordination</listAgencyName>
+        <listName>XFall-Daten-Codeliste ArtBetrieb</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.ArtBetrieb umfasst beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.ArtBetrieb. Hier werden die Arten des angemeldeten Betriebs in einer Gewerbemeldung  aufgelistet.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="HAN">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Handel</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="HDW">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Handwerk</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="IND">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Industrie</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="SON">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Sonstiges</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:artbetrieb">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.ArtBezahlung">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>XFall-Daten-Koordination</listAgencyName>
+        <listName>XFall-Daten-Codeliste ArtBezahlung</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.ArtBezahlung umfasst beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.ArtBezahlung. Hier wird der Weg, wie die Gebühr entrichtet wird hinterlegt.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="1">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Gebührenrechnung</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="2">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Abbuchung / Einzugsermächtigung</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="3">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>bar</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="4">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Nachnahme</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="5">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Überweisung</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="6">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Kreditkarte (Visa oderMaster)</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:artbezahlung">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.ArtFachlicheEignung">
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="AEP">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Ausbildereignungsprüfung</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="DVW">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Diplom-Verwaltungsfachwirt</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="VFW">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Verwaltungsfachwirt</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="required" fixed="urn:de:xfalldaten:artfachlicheeignung" />
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.ArtGeburtsurkunde">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>XFall-Daten-Koordination</listAgencyName>
+        <listName>XFall-Daten-Codeliste ArtGeburtsurkunde</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.ArtGeburtsurkunde umfasst beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.ArtGeburtsurkunde. Hier werden die Arten der Urkunden aus dem Geburtsregister aufgelistet.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="1">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Geburtsurkunde</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="2">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Internationale Geburtsurkunde</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="3">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>beglaubigte Abschrift aus dem Geburtsregister</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:artgeburtsurkunde">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.ArtNiederlassung">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>XFall-Daten-Koordination</listAgencyName>
+        <listName>XFall-Daten-Codeliste Art Niederlassung</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.ArtNiederlassung umfasst beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.ArtNiederlassung. Hier wird die Art der Niederlassung in einer Gewerbemeldung aufgelistet.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="AAG">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Automatenaufstellungsgewerbe</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="HNL">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Hauptniederlassung</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="REG">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Reisegewerbe</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="UZS">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>unselbstständige Zweigstelle</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="ZNL">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Zweigniederlassung</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:artniederlassung">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.Ausbildungsfoerderung">
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="FP100">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Förderung nach §100 Nr. 5 SGB III</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="FP241">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Förderung nach §241 Abs. 2 SGB III</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="KF">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Keine Förderung</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="SBL">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Sonderprogramm des Bundes/Landes</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:beruflichevorbildung" />
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.BVQualifizierung">
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="BGJ">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Schulisches Berufsgrundbildungsjahr</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="BOB">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Berufsfachschule ohne vq.Berufsabschluss</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="BQM">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Betriebliche Qualifizierungsmaßnahme</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="BVJ">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Schulisches Berufsvorbereitungsjahr</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="BVM">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Berufsvorbereitungsmaßnahme</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:bvqualifizierung" />
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.Beruf">
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="FAB">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Fachkraft zur Arbeits- und Berufsfoerderung</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="FFB">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Fachangestellte/-r fuer Buerokommunikation</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="FMI">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Fachangestelle/-r fuer Medien- und Informationsdienste</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="NBA">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Nachweis berufs- und arbeitspaedagogischer Kenntnisse</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="VFA">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Verwaltungsfachangestellte/-r</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="VFW">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Verwaltungsfachwirt/-in</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:beruf" />
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.BeruflicheVorbildung">
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="BEB">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Berufsbildung mit Ausbildungsvertrag, erfolgreich beendet</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="BNB">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Berufsbildung mit Ausbildungsvertrag, nicht erfolgreich beendet</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="SEB">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>rein schulisch, erfolgreich beendet</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:beruflichevorbildung" />
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.ElterngeldEinkommensgrenze">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>XFall-Daten-Koordination</listAgencyName>
+        <listName>XFall-Daten-Codeliste ElterngeldEinkommensgrenze</listName>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="MUE">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Moeglicherweise ueberschritten</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="SNU">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Sicher nicht ueberschritten</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="SUE">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Sicher ueberschritten</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="VNU">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Voraussichtlich nicht ueberschritten</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:elterngeldeinkommensgrenze" />
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.Familienstand">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>XFall-Daten-Koordination</listAgencyName>
+        <listName>XFall-Daten-Codeliste Familienstand</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.Familienstand umfasst beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.Familienstand. Beschreibt den personenstandsrechtlichen Familienstand einer Person. Aus dem XÖV-Standard xMeld.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="EA">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Ehe aufgehoben</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="GS">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>geschieden</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="GT">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>getrennt lebend</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="LA">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>aufgehobene Lebenspartnerschaft</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="LD">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>ledig</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="LE">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>durch Todeserklärung aufgelöste Lebenspartnerschaft</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="LP">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>in eingetragener Lebenspartnerschaft</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="LV">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>durch Tod aufgelöste Lebenspartnerschaft</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="NB">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>nicht bekannt</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="VH">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>verheiratet</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="VW">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>verwitwet</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:familienstand">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.Geschlecht">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>XFall-Daten-Koordination</listAgencyName>
+        <listName>XFall-Daten-Codeliste Geschlecht</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.Geschlecht umfasst beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.Geschlecht. Beschreibt das Geschlecht einer Person.  Aus dem XÖV-Standard xMeld.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="m">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>männlich</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="w">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>weiblich</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="x">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>unbestimmt</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:geschlecht">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="2.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.GesetzlicherVertreter">
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="Mu">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Mutter</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="Va">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Vater</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="Vo">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Vormund</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:gesetzlichervertreter" />
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.GrundFamilienstand">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>XFall-Daten-Koordination</listAgencyName>
+        <listName>XFall-Daten-Codeliste Grund Familienstand</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.GrundFamilienstand umfasst beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.GrundFamilienstand. Beschreibt den rechtlichen Grund der Beendigung oder Nichtigkeit der letzten Ehe oder der letzten Familienpartnerschaft.  Aus dem XÖV-Standard xMeld.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="1">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Tod des Ehegatten oder des Lebenspartners</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="2">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Scheidung der Ehe</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="3">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Aufhebung der Ehe</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="4">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Ehegatte für Tod erklärt (Die Ehe wird dadurch nicht automatisch aufgelöst, sondern erst durch eine erneute Eheschließung des überlebenden Ehegatten)</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="5">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Ehe durch Todeserklärung beendet (Bis 02.10.1990 löste eine Todeserklärung in der DDR die Ehe auf)</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="6">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Ehe für nichtig erklärt (Der vorherige Familienstand lebt wieder auf)</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="7">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Aufhebung der Lebenspartnerschaft</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="8">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>sonstige Gründe</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:grundfamilienstand">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.GrundGewerbeabmeldung">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>XFall-Daten-Koordination</listAgencyName>
+        <listName>XFall-Daten-Codeliste Grund Gewerbeabmeldung</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.GrundGewerbeabmeldung umfasst beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.GrundGewerbeabmeldung. Hier wird der Grund, warum ein Gewerbe abgemeldet wird, aufgelistet.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="EV">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Erbfolge / Verkauf / Verpachtung</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="GA">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Gesellschafteraustritt</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="GU">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Gründung nach Umwandlungsgesetz</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="VA">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Vollständige Aufgabe</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="VE">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Verlegung in einen anderen Meldebezirk</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="WR">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Wechsel der Rechtsform</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:grundgewerbeabmeldung">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.GrundGewerbeanmeldung">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>XFall-Daten-Koordination</listAgencyName>
+        <listName>XFall-Daten-Codeliste Grund Gewerbeanmeldung</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.GrundGewerbeanmeldung umfasst beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.GrundGewerbeanmeldung. Hier wird der Grund, warum ein Gewerbe angemeldet wird, aufgelistet.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="EK">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Erbfolge / Kauf / Pacht</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="GE">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Gesellschaftereintritt</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="GU">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Gründung nach Umwandlungsgesetz</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="NG">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Neugründung</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="WR">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Wechsel der Rechtsform</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="WV">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Wiedereröffnung nach Verlegung aus einem  anderen Meldebezirk</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:grundgewerbeanmeldung">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.Kanal">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>XFall-Daten-Koordination</listAgencyName>
+        <listName>XFall-Daten-Codeliste Kanal</listName>
+      </xs:appinfo>
+      <xs:documentation>Codeliste Kanal. Tabelle von Möglichkeiten des Kommunikationsaustausches. Enthalten sind die Kanäle.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="demail">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>DE-Mail</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="egvp">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>EGVP</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="email">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>E-Mail</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="epostbrief">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>ePostBrief</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="fax">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Telefax</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="mobil">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Mobiltelefon</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="osci">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>OSCI</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="telefon">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Telefon</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:kanal">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="required" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.Kanal_ListeNichtAbgeschlossen">
+    <xs:annotation>
+      <xs:documentation>Diese Klasse gestattet, alternativ aus einem Code aus der Codeliste Kanal, die Verwendung eines anderen frei gewählten Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="code" type="xfd:Code.Kanal">
+        <xs:annotation>
+          <xs:appinfo>
+            <listAgencyName>XFall-Daten-Koordination</listAgencyName>
+            <listName>XFall-Daten-Codeliste Kanal</listName>
+          </xs:appinfo>
+          <xs:documentation>Codeliste Kanal. Tabelle von Möglichkeiten des Kommunikationsaustausches. Enthalten sind die Kanäle.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nichtGelisteterWert" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Hier kann ein zusätzlicher Wert angegeben werden ohne dass dieser in der Codeliste vorhanden ist. Es ist somit möglich Freitext anzugeben.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="Code.KfzArtZulassung">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>XFall-Daten-Koordination</listAgencyName>
+        <listName>XFall-Daten-Codeliste Kfz-Zulassung</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.KfzZulassung umfasst beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.KfzZulassung.Hier werden die Arten der Kfz-Zulassung aufgelistet, was zu erledigen ist.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="0">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Zulassung, Wiederzulassung, Umschreibung</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="1">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Ersatzfahrzeugbrief bzw. Zulassungsbescheinigung Teil I</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="10">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>endgültige Abmeldung (Verschrottung, Ausfuhr)</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="11">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>EWG-Übereinstimmungsbescheinigung (COC-Papier)</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="2">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Ersatzfahrzeugbrief bzw. Zulassungsbescheinigung Teil II</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="3">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>anderes Kennzeichen</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="4">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Ausfuhrkennzeichen</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="5">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Änderung der Halter und/oder Technikdaten</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="6">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>rotes Dauerkennzeichen für Händler</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="7">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Kurzzeitkennzeichen</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="8">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Saisonzulassung</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="9">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>vorübergehende Stilllegung</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:kfzartzulassung">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.KfzSteuerentrichtung">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>XFall-Daten-Koordination</listAgencyName>
+        <listName>XFall-Daten-Codeliste KfzSteuerentrichtung</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.KfzSteuerentrichtung umfasst beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.KfzSteuerentrichtung. Hier wird die Periode der Kfz-Steuerzahlungsweise angegeben.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="1">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>monatlich</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="2">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>vierteljährlich</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="3">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>halbjährlich</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="4">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>jährlich</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:kfzsteuerentrichtung">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.KfzVerwendung">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>XFall-Daten-Koordination</listAgencyName>
+        <listName>XFall-Daten-Codeliste KfzVerwendung</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.KfzVerwendung umfasst beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.KfzVerwendung. Hier wird die Verwendung des Kraftfahrzeugs angegeben.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="1">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Fahrzeug zur Eigenverwendung</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="2">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Taxi</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="3">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Mietwagen</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="4">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Fahrten für/durch Kindergartenträger</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="5">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Tankfahrzeug nach GGVS</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="6">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Schüler/Behindertenbeförderung</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="7">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Selbstfahrer-Vermietfahrzeug</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="8">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Linienbus</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:kfzverwendung">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.Pruefung">
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="AB">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Abschlusspruefung</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="EW">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Erste Wiederholungspruefung</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="ZW">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Zweite Wiederholungspruefung</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:pruefung" />
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.Rolle">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>XFall-Daten-Koordination</listAgencyName>
+        <listName>XFall-Daten-Codeliste Rolle</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.Rolle umfasst beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.Rolle. Hier werden die beteiligten Akteure aufgelistet.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="AN">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Andere</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="AS">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Antragsteller</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="EA">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Einheitlicher Ansprechpartner</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="ZS">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Zuständige Stelle</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:rolle">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.Schulabschluss">
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="AA">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Im Ausland erworbener Abschluss</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="HA">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Hauptschulabschluss</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="HF">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Hochschul-/Fachhochschulreife</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="OH">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Ohne Hauptschulabschluss</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="RA">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Realschulabschluss oder vergleichbarer Abschluss</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:schulabschluss" />
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.Staat">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>Destatis</listAgencyName>
+        <listName>Code Destatis.Staat</listName>
+      </xs:appinfo>
+      <xs:documentation>Codeliste Staat (eigenständige Staaten) aus der Staats- und Gebietssystematik des Statistischen Bundesamtes. Enthalten sind alle Staaten im vollen politischen Sinne.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" type="xs:token" form="unqualified" />
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staat">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="required">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.Staatsangehoerigkeit">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>Destatis</listAgencyName>
+        <listName>Code Destatis.Staatsangehörigkeit</listName>
+      </xs:appinfo>
+      <xs:documentation>Codeliste Staatsangehörigkeit (eigenständige Staaten). Tabelle von Staaten und Staatsangehörigkeiten. Enthalten sind alle Staaten im vollen politischen Sinne.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" type="xs:token" form="unqualified" />
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="required">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.Staatsangehoerigkeit_ListeNichtAbgeschlossen">
+    <xs:annotation>
+      <xs:documentation>Diese Klasse gestattet, alternativ aus einem Code aus der Codeliste Staatsangehörigkeit, die Verwendung eines anderen frei gewählten Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="code" type="xfd:Code.Staatsangehoerigkeit">
+        <xs:annotation>
+          <xs:appinfo>
+            <listAgencyName>Destatis</listAgencyName>
+            <listName>Code Destatis.Staatsangehörigkeit</listName>
+          </xs:appinfo>
+          <xs:documentation>Codeliste Staatsangehörigkeit (eigenständige Staaten). Tabelle von Staaten und Staatsangehörigkeiten. Enthalten sind alle Staaten im vollen politischen Sinne.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nichtGelisteterWert" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Hier kann ein zusätzlicher Wert angegeben werden ohne dass dieser in der Codeliste vorhanden ist. Es ist somit möglich Freitext anzugeben.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="Familienstand">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="familienstand" minOccurs="0" type="xfd:Code.Familienstand">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="zusatz" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="grund" minOccurs="0" type="xfd:Code.GrundFamilienstand">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="gueltigkeit" minOccurs="0" type="xfd:Zeitraum">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="behoerde" minOccurs="0" type="xfd:Behoerde">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Geburt">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente
+
+Problem Geburtsdatum:
+Im eAT ist es möglich, dass nur das Geburtsjahr bekannt ist und nicht ein vollständiges Geburtsdatum. Somit ist folgende Lösung möglich:
+Der Feldtyp "datum" (date) für das Geburtsdatum (Geburt.datum) bleibt. Damit die Information aus dem eAT dennoch transportiert werden kann ist hierfür das "partDatum" zu verwenden.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="datum" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="zusatz" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="partiellesDatum" minOccurs="0" type="xfd:PartiellesDatum">
+        <xs:annotation>
+          <xs:appinfo>
+            <implementationHint>Es muss sichergestellt werden, dass sich "datum" und "partiellesDatum" nicht widersprechen, sonst muss das XML-Dokument als fehlerhaft / nicht-wohlgeformt zurückgewiesen werden. In XFall kann eine Verifikation transportiert werden. Mit dieser Verifikation muss sichergestellt werden, welches Datum mittels eID verifiziert wurde.</implementationHint>
+          </xs:appinfo>
+          <xs:documentation>DG8: Nicht bei allen Ausweisinhabern ist das Geburtsdatum vollständig bekannt. In der Datengrupppe DG8 wird das 
+Geburtsdatum im Format JJJJMMTT gespeichert, soweit es bekannt ist, unbekannte Teile werden durch Leerzeichen aufgefüllt.
+Die relevante Stelle an welcher das Datumsformat spezifiziert ist findet sich in der BSI TR-03127 "Architektur elektronischer Personalausweis" im Kapitel 3.2.2 "eID-Anwendung" (und da jeweils im Zusammenhang mit der Datengruppe 8,  welche das Geburtsdatum enthält)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="geburtsort" minOccurs="0" type="xfd:Anschrift">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Genehmigung">
+    <xs:annotation>
+      <xs:documentation>Falls der Betriebsinhaber für die angemeldete Tätigkeit eine Erlaubnis benötigt, in der Handwerksrolle einzutragen.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="erteilt" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>boolean ja / nein</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="datum" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Austellungsdatum</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="geber" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Erteilende Behörde oder Handwerkskammer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="zusatz" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>enthält folgende Auflagen bzw. Beschränkungen</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Geschlecht">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="geschlecht" type="xfd:Code.Geschlecht">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Gewerbeeintrag">
+    <xs:annotation>
+      <xs:documentation>Eintrag ins Gewerberegister. Das Gewerberegister ist das Verzeichnis aller Unternehmen der Gemeinde. Wer den selbständigen Betrieb eines stehenden Gewerbes oder den einer Zweigniederlassung oder einer unselbständigen Zweigstelle anfängt, hat dies der für den betreffenden Ort zuständigen Behörde anzuzeigen, umzumelden oder abzumelden.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="nr" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Nummer des Handelsregistereintrages. HRA oder HRB-Nummer.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="rechtsform" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Rechtliche Organisation bzw. rechtlicher Rahmen eines Unternehmens, durch den Teile der rechtlichen Beziehungen innerhalb des Betriebs und zur Unternehmensumwelt geregelt werden.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="plz" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>PLZ des Registereintrags</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ort" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Ort des Registereintrags</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="gerichtsschluessel" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Gerichtsschlüssel.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Gewerbemeldung" abstract="true">
+    <xs:annotation>
+      <xs:documentation>Die Gewerbemeldung ergänzt die Klasse XFallDatensatz dann um gewerbemeldungsspezifische Elemente. 
+Die Angaben zur Person sind in der Rolle als Antragsteller in der Klasse Beteiligter hinterlegt.
+
+Die Gewerbemeldung enthält alle Daten der Formulare:
+
+- Gewerbeanmeldung
+- Gewerbeummeldung
+- Gewerbeabmeldung</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="xfd:XFallDatensatz">
+        <xs:sequence>
+          <xs:element name="entgegennehmendeGemeinde" minOccurs="0" type="xoev-lc:String.Latin">
+            <xs:annotation>
+              <xs:documentation>Name der entgegennehmenden Gemeinde</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ags" minOccurs="0" type="xfd:Code.AGS">
+            <xs:annotation>
+              <xs:documentation>Der Amtliche Gemeindeschlüssel (AGS), früher auch Amtliche Gemeindekennzahl (GKZ) oder Gemeindekennziffer, ist eine Ziffernfolge zur Identifizierung politisch selbständiger Gemeinden oder gemeindefreier Gebiete. Gemeindekennzahl Betriebsstätte (Sitz)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="eingetragenerName" minOccurs="0" type="xoev-lc:String.Latin">
+            <xs:annotation>
+              <xs:documentation>Im Handels-, Genossenschafts- oder Vereinsregister eingetragener Name ohne Rechtsform. Die Rechtsform ist in der Klasse Gewerbeeintrag hinterlegt.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="zahlGeschaeftsfuehrenderGesellschafter" minOccurs="0" type="xs:int">
+            <xs:annotation>
+              <xs:documentation>Zahl der geschäftsführenden Gesellschafter (nur bei Personengesellschaften).
+Es darf nur eins der beiden Felder "zahlGeschaeftsfuehrenderGesellschafter" oder "zahlGesetzlicherVertreter" ausgefühlt sein</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="zahlGesetzlicherVertreter" minOccurs="0" type="xs:int">
+            <xs:annotation>
+              <xs:documentation>Zahl der gesetzlichen Vertreter (nur bei juristischen Personen).
+Es darf nur eins der beiden Felder "zahlGeschaeftsfuehrenderGesellschafter" oder "zahlGesetzlicherVertreter" ausgefühlt sein</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="gewerbeeintrag" minOccurs="0" type="xfd:Gewerbeeintrag">
+            <xs:annotation>
+              <xs:documentation>Eintrag ins Gewerberegister. Das Gewerberegister ist das Verzeichnis aller Unternehmen der Gemeinde. Wer den selbständigen Betrieb eines stehenden Gewerbes oder den einer Zweigniederlassung oder einer unselbständigen Zweigstelle anfängt, hat dies der für den betreffenden Ort zuständigen Behörde anzuzeigen, umzumelden oder abzumelden.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="betriebsleiter" minOccurs="0" type="xfd:NatuerlichePerson">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente
+
+Mensch als Einzelwesen,der um seines Menschseins willen von der Rechtsordnung ohne weitere Voraussetzung als Subjekt von Rechten und Pflichten anerkannt wird.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="gesetzlicherVertreter" minOccurs="0" maxOccurs="unbounded" type="xfd:NatuerlichePerson">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente
+
+Mensch als Einzelwesen,der um seines Menschseins willen von der Rechtsordnung ohne weitere Voraussetzung als Subjekt von Rechten und Pflichten anerkannt wird.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="geschaeftsfuehrenderGesellschafter" minOccurs="0" maxOccurs="unbounded" type="xfd:NatuerlichePerson">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente
+
+Mensch als Einzelwesen,der um seines Menschseins willen von der Rechtsordnung ohne weitere Voraussetzung als Subjekt von Rechten und Pflichten anerkannt wird.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="betriebsstaette" minOccurs="0" type="xfd:Betrieb">
+            <xs:annotation>
+              <xs:documentation>Anschrift der Betriebsstätte</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="hauptniederlassung" minOccurs="0" type="xfd:Betrieb">
+            <xs:annotation>
+              <xs:documentation>Hauptniederlassung - falls Betriebsstätte lediglich Zweigstelle ist -</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="fruehereBetriebsstaette" minOccurs="0" type="xfd:Betrieb">
+            <xs:annotation>
+              <xs:documentation>Frühere Betriebsstätte</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="kuenftigeBetriebsstaette" minOccurs="0" type="xfd:Betrieb">
+            <xs:annotation>
+              <xs:documentation>künftige Betriebsstätte, falls an einem anderen Ort eine Neuerrichtung beabsichtigt ist</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="artDesGemeldetenBetriebs" minOccurs="0" type="xfd:Code.ArtBetrieb">
+            <xs:annotation>
+              <xs:documentation>Art des angemeldeten Betriebs: (Codetabelle)
+Industrie, Handwerk, Handel, Sonstiges</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="beschaeftigteVollzeit" minOccurs="0" type="xs:int">
+            <xs:annotation>
+              <xs:documentation>Zahl der tätigen Personen im Geschäft ohne Inhaber, die Vollzeit arbeiten.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="beschaeftigteTeilzeit" minOccurs="0" type="xs:int">
+            <xs:annotation>
+              <xs:documentation>Zahl der tätigen Personen im Geschäft ohne Inhaber, die Teilzeit arbeiten.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="keineBeschaeftigtenPersonen" minOccurs="0" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>Es arbeiten zusätzlich zum Inhaber keine weiteren Personen im Geschäft.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="meldungErstattetFuer" minOccurs="0" type="xfd:Code.ArtNiederlassung">
+            <xs:annotation>
+              <xs:documentation>Die Meldung wird erstattet für eine Hauptniederlassung, einen Zweigniederlassung, eine unselbständige Zweigstelle, Automatenaufstellungsgewerbe oder Reisegewerbe. (Codetabelle)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="erlaubnis" minOccurs="0" type="xfd:Genehmigung">
+            <xs:annotation>
+              <xs:documentation>Falls der Betriebsinhaber für die angemeldete Tätigkeit eine Erlaubnis benötigt, in der Handwerksrolle einzutragen.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="handwerkskarte" minOccurs="0" type="xfd:Genehmigung">
+            <xs:annotation>
+              <xs:documentation>Falls der Betriebsinhaber für die angemeldete Tätigkeit eine Erlaubnis benötigt, in der Handwerksrolle einzutragen.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="aufenthaltsgenehmigung" minOccurs="0" type="xfd:Genehmigung">
+            <xs:annotation>
+              <xs:documentation>Falls der Betriebsinhaber für die angemeldete Tätigkeit eine Erlaubnis benötigt, in der Handwerksrolle einzutragen.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="auflageOderBeschraenkung" minOccurs="0" type="xfd:Genehmigung">
+            <xs:annotation>
+              <xs:documentation>Falls der Betriebsinhaber für die angemeldete Tätigkeit eine Erlaubnis benötigt, in der Handwerksrolle einzutragen.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Gewerbetaetigkeit">
+    <xs:annotation>
+      <xs:documentation>Tätigkeit(en), die das Gewerbe ausführt. Die Haupttätigkeit wird mit dem Boolean Schwerpunkt versehen.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="taetigkeit" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>genau angegebenen Tätigkeit, Arbeit die das angemeldete Gewerbe ausführt z.B. : Herstellung von Möbeln, Elektroinstallation und Elektroeinzelhandel, Großhandel mit Lebensmittel usw.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="wzschluessel" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Wirtschaftszweigschüssel, Branchenschlüssel. Klassifikation der Wirtschaftszweige in Gruppen von Unternehmen, die nah verwandte Substitute herstellen.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nebenerwerb" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Wird die Tätigkeit (vorerst) im Nebenbetrieb betrieben. Ja / Nein</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="datum" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Datum des Beginns der angemeldeten Tätigkeit, Datum der Änderung, Datum der Betriebsaufgabe</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="schwerpunkt" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Tätigkeit ist Schwerpunkt, wenn gesetzt</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Identifikation">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" minOccurs="0" type="xfd:Identifikator">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="beschreibung" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Kommunikation">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="kanal" minOccurs="0" type="xfd:Code.Kanal">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kennung" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="istDienstlich" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="zusatz" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Kraftfahrzeug">
+    <xs:annotation>
+      <xs:documentation>Als Kraftfahrzeug (Abkürzung: KFZ oder Kfz),  bezeichnet man ein maschinell angetriebenes, nicht an Schienen gebundenes Landfahrzeug.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="bisherigesAmtlichesKennzeichen" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Die überwiegende Mehrzahl der Kraftfahrzeuge oder Anhänger dürfen auf öffentlichen Straßen nur in Betrieb gesetzt werden, wenn sie durch Zuteilung eines amtlichen Kennzeichens von der Zulassungsstelle im Verkehr zugelassen sind.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="fahrzeugArt" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Fahrzeugtyp. Typenbezeichnung des Kraftfahrzeuges z.B.: PKW, LKW, KRAD, ANH, SFZ, ZGM ...</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="fahrzeugHersteller" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Der Fabrikant des Kraftfahrzeugs, der sich als Hersteller ausgibt, indem er seinen Namen, sein Warenzeichen oder ein anderes Erkennungszeichen auf dem Produkt anbringt.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="fahrgestellnummer" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Fahrzeugidentifikationsnummer (FIN - vgl. Fahrzeugpapiere). Diese Nummer ist eine eindeutige Seriennummer eines Autos. Über die Fahrgestellnummer kann beispielsweise der Fahrzeughalter ermittelt werden. Die Nummer befindet sich an drei Stellen im Fahrzeug.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="fahrzeugFarbe" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Die Farbe des Fahrzeugs.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="zukuenftigesAmtlichesKennzeichen" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>(Reserviertes) zukünftiges Kennzeichen. Die überwiegende Mehrzahl der Kraftfahrzeuge oder Anhänger dürfen auf öffentlichen Straßen nur in Betrieb gesetzt werden, wenn sie durch Zuteilung eines amtlichen Kennzeichens von der Zulassungsstelle im Verkehr zugelassen sind.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="fahrzeugbriefNummer" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Fahrzeugbrief, Kraftfahrzeugbrief, für jedes Kraftfahrzeug bei der erstmaligen Zulassung ausgestelltes Dokument, das der Sicherung des Eigentums und anderer Rechte am Fahrzeug dient.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nummerZulassungsbescheinigung" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Nummer der Zulassungsbescheinigung Teil II. Die Zulassungsbescheinigung ist eine amtliche Urkunde über die Zulassung von Fahrzeugen zum Straßenverkehr.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="verwendung" minOccurs="0" type="xfd:Code.KfzVerwendung">
+        <xs:annotation>
+          <xs:documentation>Das Fahrzeug wird verwendet als. Codetabelle.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="wunschkennzeichen" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Wunschkennzeichen Boolean ja/Nein</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="seriekennzeichen" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Seriekennzeichen. Boolean ja/nein</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Kraftfahrzeugsteuer">
+    <xs:annotation>
+      <xs:documentation>Kraftfahrzeugsteuer, für das Halten von Fahrzeugen zum Verkehr auf öffentlichen Straßen erhobene Steuer. Die Steuerpflicht für das Halten von Fahrzeugen beginnt mit der Zulassung eines Fahrzeuges und endet mit dessen Abmeldung.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="steuerangleichungstermin" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Steuerangleichungstermin.Gewünschter einheitlicher Steuertermin. Halter/Halterinnen mit größerem Fahrzeugbestand wünschen oft einen Steuerangleichungstermin.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kfzSteuerBefreit" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Der Halter ist Kfz-Steuer befreit.(grünes Kennzeichen) Boolean Ja/ Nein</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="grundKfzSteuerBefreit" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Grund für die Kfz-Steuerbefreiung.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kfzSteuerentrichtung" minOccurs="0" type="xfd:Code.KfzSteuerentrichtung">
+        <xs:annotation>
+          <xs:documentation>Periode der Steuerentrichtung als Codetabelle.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="anhaengerZuschlag" minOccurs="0" type="xfd:Code.AnhaengerZuschlag">
+        <xs:annotation>
+          <xs:documentation>Zur Festsetzung eines Anhängerzuschlags der Kfz-Steuer anzugebende Gewicht als Codetabelle.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="bankverbindung" type="xfd:Bankverbindung" form="unqualified">
+        <xs:annotation>
+          <xs:documentation>Eine Bankverbindung umfasst alle notwendigen Informationen, um eine Überweisung auf ein Bankkonto vorzunehmen. Dieser Typ ist abstrakt. Es sollen die abgeleiteten Typen für nationale und internationale Bankverbindungen verwendet werden.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NameNatuerlichePerson">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="titel" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="anrede" minOccurs="0" maxOccurs="unbounded" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="namenssuffix" minOccurs="0" maxOccurs="unbounded" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vorname" minOccurs="0" type="xfd:AllgemeinerName">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="rufname" minOccurs="0" type="xfd:AllgemeinerName">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="fruehererVorname" minOccurs="0" maxOccurs="unbounded" type="xfd:AllgemeinerName">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="familienname" minOccurs="0" type="xfd:AllgemeinerName">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="geburtsname" minOccurs="0" type="xfd:AllgemeinerName">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ehename" minOccurs="0" type="xfd:AllgemeinerName">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="lebenspartnerschaftsname" minOccurs="0" type="xfd:AllgemeinerName">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="fruehererFamilienname" minOccurs="0" maxOccurs="unbounded" type="xfd:AllgemeinerName">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ordensname" minOccurs="0" type="xfd:AllgemeinerName">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kuenstlername" minOccurs="0" maxOccurs="unbounded" type="xfd:AllgemeinerName">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="weitererName" minOccurs="0" maxOccurs="unbounded" type="xfd:AllgemeinerName">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="alternativeRepraesentation" minOccurs="0" maxOccurs="unbounded" type="xfd:AlternativeRepraesentation">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NameOrganisation">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kurzbezeichnung" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NatuerlichePerson">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente
+
+Mensch als Einzelwesen,der um seines Menschseins willen von der Rechtsordnung ohne weitere Voraussetzung als Subjekt von Rechten und Pflichten anerkannt wird.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="xfd:Person">
+        <xs:sequence>
+          <xs:element name="id" minOccurs="0" type="xfd:Identifikator">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="nameNatuerlichePerson" minOccurs="0" type="xfd:NameNatuerlichePerson">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="geschlecht" minOccurs="0" maxOccurs="unbounded" type="xfd:Geschlecht">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="geburt" minOccurs="0" type="xfd:Geburt">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="staatsangehoerigkeit" minOccurs="0" maxOccurs="unbounded" type="xfd:Staatsangehoerigkeit">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="anschrift" minOccurs="0" maxOccurs="unbounded" type="xfd:Anschrift">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="kommunikation" minOccurs="0" maxOccurs="unbounded" type="xfd:Kommunikation">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ausweisdokument" minOccurs="0" maxOccurs="unbounded" type="xfd:Ausweisdokument">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="identifikationsnummer" minOccurs="0" maxOccurs="unbounded" type="xfd:Identifikation">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="familienstand" minOccurs="0" maxOccurs="unbounded" type="xfd:Familienstand">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Organisation">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente
+
+Es wurde bewusst vermieden von einer juristischen Person zu sprechen da eine Organisation generischer ist und alle Formen von Personengruppen, die durch eine natürliche Person vertreten werden, abdeckt. Eine Organisation kann eine juristische Person, eine Behörde oder eine beliebige andere Form (Verein etc.) sein.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="xfd:Person">
+        <xs:sequence>
+          <xs:element name="id" minOccurs="0" type="xfd:Identifikator">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="rechtsform" minOccurs="0" type="xoev-lc:String.Latin">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="branche" minOccurs="0" maxOccurs="unbounded" type="xoev-lc:String.Latin">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="zweck" minOccurs="0" maxOccurs="unbounded" type="xoev-lc:String.Latin">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="anschrift" minOccurs="0" maxOccurs="unbounded" type="xfd:Anschrift">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" minOccurs="0" type="xfd:NameOrganisation">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="identifikation" minOccurs="0" maxOccurs="unbounded" type="xfd:Identifikation">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="existenzzeitraum" minOccurs="0" type="xfd:Zeitraum">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="kommunikation" minOccurs="0" maxOccurs="unbounded" type="xfd:Kommunikation">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="registrierung" minOccurs="0" maxOccurs="unbounded" type="xfd:Registrierung">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Person" abstract="true" />
+  <xs:complexType name="Registrierung">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" minOccurs="0" type="xfd:Identifikator">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="registertyp" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="gueltigkeit" minOccurs="0" type="xfd:Zeitraum">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="registrierendeBehoerde" minOccurs="0" type="xfd:Behoerde">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Staat">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="staat" type="xfd:Code.Staat">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Staatsangehoerigkeit">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="staatsangehoerigkeit" type="xfd:Code.Staatsangehoerigkeit">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Transport">
+    <xs:annotation>
+      <xs:documentation>Enthält transportrelevante, zusätzliche (Meta-) Informationen, die nicht Teil des eigentlichen Datensatzes sind. Diese Klasse ist beim Transport der Daten ohne den Transportcontainer XFall verpflichtend.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="namensraum" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Name des generierenden, erstellenden Systems. Der Namensraum definiert, in welchem Kontext die Datenstruktur Gültigkeit hat. Damit kann z.B. eine länderspzifische Ableitung gebildet werden, sofern die Datenstruktur Landesrecht berührt. Konzeptionell kann damit sogar bis auf die Gemeindeebene heruntergebrochen werden, sofern das im Einzelfall nötig ist. Ein Beispiel dafür ist die Abfallentsorgung, bei der es in verschiedenen Gemeinden unterschiedliche Containergrößen gibt, die der Bürger zur Müllentsorgung wählen kann.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="erstelltUm" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Erstellungszeitpunkt, Zeitstempel.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="erstelltVon" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Name erstellenden Systems.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Verifikation">
+    <xs:annotation>
+      <xs:documentation>Bestätigung der Echtheit der Daten durch Bereitstellung eines Nachweises z.B. NPA = neuer Personalausweis</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="verifikation" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Durch welches Dokument wurde der Nachweis der Echtheit der Daten nachgewiesen. z.B. NPA = neuer Personalausweis</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="zeitpunkt" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Zeitangabe der Prüfung der Echtheit.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="attribut" maxOccurs="unbounded" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Hier wird abgelegt welches Attribut im Datensatz verifiziert wurde.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="gueltigkeit" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Gültigkeit des vorgelegten Dokuments z.B. NPA</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="XFallDatensatz" abstract="true">
+    <xs:annotation>
+      <xs:documentation>Basisklasse für Nachrichten. Enthält grundlegende Metainformationen zur Nachricht.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" minOccurs="0" type="xfd:Identifikator">
+        <xs:annotation>
+          <xs:documentation>Identifikation zur Herstellung eines eindeutigen Bezuges.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="transport" minOccurs="0" type="xfd:Transport">
+        <xs:annotation>
+          <xs:documentation>Enthält transportrelevante, zusätzliche (Meta-) Informationen, die nicht Teil des eigentlichen Datensatzes sind. Diese Klasse ist beim Transport der Daten ohne den Transportcontainer XFall verpflichtend.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="beteiligter" minOccurs="0" maxOccurs="unbounded" type="xfd:Beteiligter">
+        <xs:annotation>
+          <xs:documentation>Das Element "Beteiligter" benennt eine am Verfahren beteiligte Partei. Dies kann derzeit eine natürliche Person oder eine Organisation sein.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="produktbezeichnung" type="xoev-lc:String.Latin" use="optional">
+      <xs:annotation>
+        <xs:documentation>Bezeichnung des Produkts, welche die XFall-Daten-Schnittstelle implementiert.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="produkthersteller" type="xoev-lc:String.Latin" use="optional">
+      <xs:annotation>
+        <xs:documentation>Name des Produktherstellers. Hersteller des Produkts, welche die XFall-Daten-Schnittstelle implementiert. Die Produktattribute sind wichtig fürs Debugging.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="produktversion" type="xoev-lc:String.Latin" use="optional">
+      <xs:annotation>
+        <xs:documentation>Versionsnummer des Produkts, welches XFall-Daten implementiert.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="xFallDatenVersion" type="xoev-lc:String.Latin" use="required">
+      <xs:annotation>
+        <xs:documentation>Versionsnummer der verwendeten XFallDaten-Version, z.B. "1.0"</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="Zeitraum">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="beginn" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ende" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="zusatz" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

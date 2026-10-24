@@ -1,0 +1,183 @@
+### -----------------------------------------------------------------
+### Fallstudie Web Scraping: Wo sitzen die Bundesbehörden?
+### Modul 2 "Der Daten-Lifecycle", Session 4. Simon Munzert, Hertie School
+### -----------------------------------------------------------------
+
+## Ziel
+# 1. Die Tabellen der Obersten Bundesbehörden und Bundesoberbehörden aus
+#    Wikipedia holen
+# 2. Die Daten aufräumen (ein Hauptsitz pro Behörde)
+# 3. Die Städte mit einem Open-Source-Geokodierer in Koordinaten verwandeln
+# 4. Eine Karte zeichnen
+#
+# Arbeitsverzeichnis: dieser Ordner (RStudio: Session > Set Working Directory
+# > To Source File Location).
+
+## Pakete ------------------------------------------------------------
+
+library(tidyverse)
+library(rvest)      # HTML lesen und auswählen
+library(httr2)      # Anfragen an die Geokodier-API
+library(sf)         # Geodaten
+library(giscoR)     # Ländergrenzen von Eurostat
+library(ragg)       # saubere PNG-Ausgabe mit Fira Sans
+
+user_agent <- "Hertie-School-Datenkurs (munzert@hertie-school.org)"
+invisible(Sys.setlocale("LC_CTYPE", "de_DE.UTF-8"))
+
+
+## Schritt 1: Die Seite ansehen ------------------------------------------
+
+url <- "https://de.wikipedia.org/wiki/Bundesbehörde_(Deutschland)"
+browseURL(url)   # erst im Browser: Welche Tabellen gibt es? Wo stehen die Sitze?
+
+# Rechtsklick auf eine Tabellenzeile > "Untersuchen": Jede Tabelle ist ein
+# <table class="wikitable">, jede Zeile ein <tr>, jede Zelle ein <td>.
+# Das ist unser Zugriffspfad.
+
+
+## Schritt 2: Die Seite in R laden ----------------------------------------
+
+seite <- read_html(url)
+seite   # nur Text, kein Bild: genau das, was "Seitenquelltext anzeigen" liefert
+
+tabellen <- html_elements(seite, "table.wikitable")
+length(tabellen)   # 5 Tabellen auf der Seite
+
+# Welche ist welche? Die Überschrift (<h2>) vor jeder Tabelle verrät es.
+map_chr(tabellen, \(t) html_text2(html_element(t, xpath = "preceding::h2[1]")))
+
+oberste <- html_table(tabellen[[1]])   # Oberste Bundesbehörden
+obere   <- html_table(tabellen[[2]])   # Bundesoberbehörden
+oberste
+obere
+
+
+## Schritt 3: Aufräumen -----------------------------------------------------
+
+# Zwei Tabellen, zwei Spaltensätze. Wir brauchen pro Behörde: Kürzel, Name,
+# Typ und genau einen Sitz. Bei mehreren Orten ("Berlin und Pullach",
+# "Hamburg und Rostock") nehmen wir den ersten; Zusätze in Klammern fallen weg.
+
+erster_ort <- function(x) {
+  x |>
+    str_remove_all("\\[\\d+\\]") |>              # Fußnoten [3]
+    str_remove("\\s*\\(.*?\\)") |>               # "(vorläufig)"
+    str_split_i(" und |,|/| – | –", 1) |>        # ersten Ort nehmen
+    str_squish()
+}
+
+behoerden <- bind_rows(
+  oberste |> transmute(kuerzel = Kürzel, name = Name, typ = "Oberste Bundesbehörde",
+                       sitz = erster_ort(`Erster Dienstsitz`), aufsicht = NA_character_),
+  obere   |> transmute(kuerzel = Kürzel, name = Name, typ = "Bundesoberbehörde",
+                       sitz = erster_ort(Hauptsitz), aufsicht = Aufsichtsbehörde)
+) |>
+  mutate(name = str_remove_all(name, "\\[\\d+\\]") |> str_squish())
+
+behoerden
+count(behoerden, typ)
+count(behoerden, sitz, sort = TRUE)
+
+
+## Schritt 4: Geokodieren ---------------------------------------------------
+
+# Aus Ortsnamen werden Koordinaten. Wir nutzen zwei Open-Source-Geokodierer auf
+# OpenStreetMap-Basis, beide kostenlos und ohne Schlüssel: Photon (photon.komoot.io)
+# als erste Wahl, Nominatim (nominatim.openstreetmap.org) als Ersatz, falls Photon
+# gerade nicht antwortet. Nominatim erlaubt höchstens eine Anfrage pro Sekunde.
+
+frage_ab <- function(req) {
+  # führt eine Anfrage aus; bei Netzfehlern oder Fehlercodes kommt NULL zurück
+  antwort <- tryCatch(req |> req_timeout(10) |> req_error(is_error = \(r) FALSE) |> req_perform(),
+                      error = \(e) NULL)
+  if (is.null(antwort) || resp_status(antwort) != 200) return(NULL)
+  resp_body_json(antwort)
+}
+
+geokodiere <- function(ort) {
+  leer <- tibble(lon = NA_real_, lat = NA_real_, dienst = NA_character_)
+  # 1. Versuch: Photon
+  js <- request("https://photon.komoot.io/api/") |>
+    req_user_agent(user_agent) |>
+    req_url_query(q = paste(ort, "Deutschland"), lang = "de", limit = 1, osm_tag = "place") |>
+    frage_ab()
+  Sys.sleep(0.5)
+  if (length(js$features) > 0) {
+    k <- js$features[[1]]$geometry$coordinates
+    return(tibble(lon = k[[1]], lat = k[[2]], dienst = "Photon"))
+  }
+  # 2. Versuch: Nominatim
+  js <- request("https://nominatim.openstreetmap.org/search") |>
+    req_user_agent(user_agent) |>
+    req_url_query(q = ort, countrycodes = "de", format = "jsonv2", limit = 1) |>
+    frage_ab()
+  Sys.sleep(1.1)                                   # Nominatim: maximal 1 Anfrage pro Sekunde
+  if (length(js) > 0) {
+    return(tibble(lon = as.numeric(js[[1]]$lon), lat = as.numeric(js[[1]]$lat), dienst = "Nominatim"))
+  }
+  leer
+}
+geokodiere("Bonn")
+
+cache_datei <- "daten/orte-geokodiert.csv"
+dir.create("daten", showWarnings = FALSE)
+orte <- distinct(behoerden, sitz)
+if (file.exists(cache_datei)) {
+  orte_geo <- read_csv(cache_datei, show_col_types = FALSE)
+} else {
+  orte_geo <- orte |> mutate(koord = map(sitz, geokodiere)) |> unnest(koord)
+  write_csv(orte_geo, cache_datei)
+}
+orte_geo
+count(orte_geo, dienst)        # welcher Dienst hat geantwortet?
+filter(orte_geo, is.na(lat))   # nichts gefunden? Dann hier nachbessern.
+
+behoerden_geo <- left_join(behoerden, orte_geo, by = "sitz")
+write_csv(behoerden_geo, "daten/bundesbehoerden.csv")
+
+
+## Schritt 5: Karte ------------------------------------------------------------
+
+laender <- gisco_get_nuts(nuts_level = 1, country = "DE", resolution = "03", year = "2021")
+deutschland <- st_union(laender)
+
+# Mehrere Behörden am selben Ort: ein Punkt, Größe nach Anzahl
+punkte <- behoerden_geo |>
+  filter(!is.na(lat)) |>
+  count(sitz, lon, lat, name = "n") |>
+  st_as_sf(coords = c("lon", "lat"), crs = 4326)
+
+farbe_dunkel <- "#1A292C"; farbe_akzent <- "#C2001A"
+
+karte <- ggplot() +
+  geom_sf(data = deutschland, fill = "#f2f2f2", colour = NA) +
+  geom_sf(data = laender, fill = NA, colour = "white", linewidth = 0.6) +
+  geom_sf(data = punkte, aes(size = n), colour = farbe_akzent, alpha = 0.75) +
+  ggrepel::geom_text_repel(
+    data = punkte |> filter(n >= 2),
+    aes(label = paste0(sitz, " (", n, ")"), geometry = geometry),
+    stat = "sf_coordinates", family = "Fira Sans", size = 3.4, colour = farbe_dunkel,
+    min.segment.length = 0, segment.colour = "grey60") +
+  scale_size_area(max_size = 16, breaks = c(1, 5, 10, 20), name = "Behörden am Ort") +
+  coord_sf(crs = 25832) +
+  labs(title = paste0(nrow(behoerden_geo), " Bundesbehörden, ", nrow(punkte), " Standorte"),
+       subtitle = "Oberste Bundesbehörden und Bundesoberbehörden nach erstem Dienstsitz bzw. Hauptsitz",
+       caption = paste0("Quelle: de.wikipedia.org/wiki/Bundesbehörde_(Deutschland), abgerufen ", format(Sys.Date(), "%d.%m.%Y"),
+                        ". Geokodierung: ", paste(unique(na.omit(orte_geo$dienst)), collapse = "/"), " (OpenStreetMap). Grenzen: Eurostat GISCO.")) +
+  theme_void(base_family = "Fira Sans", base_size = 13) +
+  theme(plot.title = element_text(face = "bold", size = 17, colour = farbe_dunkel),
+        plot.subtitle = element_text(colour = "#555555", margin = margin(b = 8)),
+        plot.caption = element_text(colour = "#888888", size = 8, hjust = 0),
+        plot.title.position = "plot", plot.caption.position = "plot",
+        legend.position = "right",
+        plot.background = element_rect(fill = "white", colour = NA),
+        plot.margin = margin(10, 10, 10, 10))
+karte
+
+ggsave("bundesbehoerden-karte.png", karte, width = 8.5, height = 10, dpi = 200, device = agg_png, bg = "white")
+
+# Wer beaufsichtigt wie viele Bundesoberbehörden?
+behoerden_geo |>
+  filter(typ == "Bundesoberbehörde") |>
+  count(aufsicht, sort = TRUE)

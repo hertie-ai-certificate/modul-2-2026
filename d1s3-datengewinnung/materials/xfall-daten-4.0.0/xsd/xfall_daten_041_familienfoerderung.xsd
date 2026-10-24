@@ -1,0 +1,820 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xfd="http://xoev.de/schemata/xfall_daten/4_0_0" xmlns:xoev-lc="http://xoev.de/latinchars/1_1/datatypes" targetNamespace="http://xoev.de/schemata/xfall_daten/4_0_0" version="4.0.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:annotation>
+    <xs:documentation>Das Paket Familienförderung enthält die Nachrichten zum Transport von Daten im Kontext mit der Beantragung von Elterngeld.</xs:documentation>
+  </xs:annotation>
+  <xs:include schemaLocation="xfall_daten_baukasten.xsd" />
+  <xs:import schemaLocation="latinchars.xsd" namespace="http://xoev.de/latinchars/1_1/datatypes" />
+  <xs:complexType name="Bezugszeitraum">
+    <xs:annotation>
+      <xs:documentation>Klasse zur Kapselung des Bezugszeitraums, Angabe in Lebensmonaten.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vonLebensmonat" minOccurs="0" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Von (Lebensmonat)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="bisLebensmonat" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Bis (Lebensmonat)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EinkuenfteSpezifikation">
+    <xs:annotation>
+      <xs:documentation>Klasse zur Kapselung der Spezifikation für Einkünfte mit Zeitraum, Betrag und Wochenstunden.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="zeitraum" minOccurs="0" type="xfd:Zeitraum">
+        <xs:annotation>
+          <xs:documentation>Zeitraum für die Einkünfte.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="betragEuroMonatlich" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>Der durchschnittliche monatliche Betrag in Euro.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="wochenstunden" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>Die Anzahl der Wochenstunden.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Elternteil">
+    <xs:annotation>
+      <xs:documentation>Klasse zur Strukturierung der Daten, die pro Elternteil anzugeben sind.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="unverheiratetesZusammenleben" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Unverheiratetes Zusammenleben mit dem anderen Elternteil.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="inDeutschland" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Wohnsitz / gewöhnlicher Aufenthalt:
+in Deutschland</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="inDeutschlandSeitMeinerGeburt" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Wohnsitz / gewöhnlicher Aufenthalt:
+in Deutschland seit meiner Geburt</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="inDeutschlandSeit" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Wohnsitz / gewöhnlicher Aufenthalt:
+in Deutschland seit</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="imAuslandSeit" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Wohnsitz / gewöhnlicher Aufenthalt:
+im Ausland seit</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="imAuslandBis" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Wohnsitz / gewöhnlicher Aufenthalt:
+im Ausland bis</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="imAuslandGrund" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Wohnsitz / gewöhnlicher Aufenthalt:
+im Ausland aus folgendem Grund (z.B. Entsendung)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="imAuslandSeitMitInlaendischemArbeitsverhaeltnis" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Wohnsitz / gewöhnlicher Aufenthalt:
+im Ausland seit, ich stehejedoch in einem inländischen Arbeitsverhältnis</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="auslaendischesArbeitsverhaeltnis" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Ausländisches Arbeitsverhältnis.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="auslaendischesArbeitsverhaeltnisLand" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Ausländisches Arbeitsverhältnis, Beschäftigungsland.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="natoTruppe" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>NATO-Truppe oder ziviles Gefolge, Diplomaten.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="antragstellung" minOccurs="0" type="xfd:Code.Antragstellung">
+        <xs:annotation>
+          <xs:documentation>Antragstellung gemäß Codeliste.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="leistungsartHoeheMindestbetrag" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Leistungsart/-höhe:
+Mindestbetrag (300 Euro zzgl. evtl. Zuschläge)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="leistungsArtHoeheAusErwerbseinkommen" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Leistungsart/-höhe:
+Elterngeld aus Erwerbseinkommen vor Geburt des Kindes</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="bezugszeitraum" minOccurs="0" maxOccurs="unbounded" type="xfd:Bezugszeitraum">
+        <xs:annotation>
+          <xs:documentation>Festlegung des Bezugszeitraums.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kindschaftsVerhaeltnisLeiblichAdoptiv" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Kindschaftsverhältnis:
+leibliches Kind / Adoptivkind</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kindschaftsVerhaeltnisInAdoptionspflege" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Kindschaftsverhältnis:
+in Adoptionspflege</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kindschaftsVerhaeltnisSonstiges" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Kindschaftsverhältnis:
+sonstiges Kindschaftsverhältnis</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kindschaftsVerhaeltnisSonstigesText" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kindschaftsverhältnis:
+Text zum sonstigen Kindschaftsverhältnis</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kindschaftsVerhaeltnisNichtSorgeberechtigt" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Kindschaftsverhältnis:
+nicht sorgeberechtigter Elternteil</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="betreuungImEigenenHaushaltStaendig" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Betreuung und Erziehung im eigenen Haushalt:
+ständig ab Geburt</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="betreuungImEigenenHaushaltZeitweise" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Betreuung und Erziehung im eigenen Haushalt:
+zeitweise</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="betreuungImEigenenHaushaltZeitraum" minOccurs="0" type="xfd:Zeitraum">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="auszahlungsVarianteGanzerMonatsbetrag" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Auszahlungsvariante:
+ganzer Monatsbetrag</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="auszahlungsVarianteHalberMonatsbetrag" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Auszahlungsvariante:
+halber Monatsbetrag bei doppelter Laufzeit</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="krankenVersicherung" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Krankenversicherung der Eltern:
+ja</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="krankenVersicherungPflichtversichert" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Krankenversicherung der Eltern:
+ja, pflichtversichert</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="krankenVersicherungFreiwilligVersichert" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Krankenversicherung der Eltern:
+ja, freiwillig versichert</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="krankenVersicherungMitversichert" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Krankenversicherung der Eltern:
+ja, als Familienangehöriger mitversichert</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="krankenVersicherungBezeichnungUndSitz" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Krankenversicherung der Eltern:
+Bezeichnung und Sitz der Krankenkasse</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="krankenVersicherungMitgliedsNummer" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Krankenversicherung der Eltern:
+Mitglieds-Nr.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="krankenVersicherungPrivatVersichert" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Krankenversicherung der Eltern:
+nein, privat versichert</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vorGeburtEinkommen" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Zeitraum vor der Geburt des Kindes:
+Einkommen aus Erwerbstätigkeit</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vorGeburtSonstige" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Zeitraum vor der Geburt des Kindes:
+Bezug von sonstigen Leistungen</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nachGeburtKeineErwerbstaetigkeit" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Zeitraum nach der Geburt des Kindes:
+keine Erwerbstätigkeit</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nachGeburtIchNehmeElternzeit" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Zeitraum nach der Geburt des Kindes:
+ich nehme Elternzeit</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nachGeburtElternzeitZeitraum" minOccurs="0" type="xfd:Zeitraum">
+        <xs:annotation>
+          <xs:documentation>Zeitraum nach der Geburt des Kindes:
+ich nehme Elternzeit von bis</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nachGeburtElternzeitAbSeit" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Zeitraum nach der Geburt des Kindes:
+ich nehme Elternzeit ab/seit</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nachGeburtElternzeitWochenstunden" minOccurs="0" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>Zeitraum nach der Geburt des Kindes:
+ich nehme Elternzeit ab/seit mit Wochenstunden</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nachGeburtResturlaub" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Zeitraum nach der Geburt des Kindes:
+Resturlaub</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nachGeburtResturlaubAnzahlTage" minOccurs="0" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>Zeitraum nach der Geburt des Kindes:
+Resturlaub, Anzahl Tage</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nachGeburtResturlaubZeitraum" minOccurs="0" type="xfd:Zeitraum">
+        <xs:annotation>
+          <xs:documentation>Zeitraum nach der Geburt des Kindes:
+Resturlaub von bis</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nachGeburtResturlaubAusTaetigkeitMitAnzahlWochenstunden" minOccurs="0" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>Zeitraum nach der Geburt des Kindes:
+der Resturlaub resultiert aus einer Tätigkeit mit dieser Anzahl Wochenstunden</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nachGeburtBerufsbildung" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Zeitraum nach der Geburt des Kindes:
+Berufsbildung</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nachGeburtBerufsbildungVoraussBis" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Zeitraum nach der Geburt des Kindes:
+Berufsbildung mit diesem voraussichtlichen Ende</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nachGeburtTagespflege" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Zeitraum nach der Geburt des Kindes:
+Tagespflege</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nachGeburtTagespflegeAnzahlKinder" minOccurs="0" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Zeitraum nach der Geburt des Kindes:
+Tagespflege; Anzahl der Kinder</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="persoenlicheAngaben" type="xfd:NatuerlichePerson">
+        <xs:annotation>
+          <xs:documentation>Angaben zur Person.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nachGeburtBezugSonstige" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Zeitraum nach der Geburt des Kindes:
+Bezug von sonstigen Leistungen</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="bankverbindung" minOccurs="0" type="xfd:Bankverbindung">
+        <xs:annotation>
+          <xs:documentation>Bankverbindung</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="erklaerungVorGeburt" minOccurs="0" type="xfd:ErklaerungZumEinkommenVorDerGeburt">
+        <xs:annotation>
+          <xs:documentation>Erklärung zum Einkommen vor der Geburt des Kindes.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="erklaerungNachGeburt" minOccurs="0" type="xfd:ErklaerungZumEinkommenNachDerGeburt">
+        <xs:annotation>
+          <xs:documentation>Erklärung zum Einkommen nach der Geburt des Kindes</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ErklaerungZumEinkommenNachDerGeburt">
+    <xs:annotation>
+      <xs:documentation>Erklärung zum Einkommen nach der Geburt des Kindes</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="nichtselbstaendigeArbeit" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Einkünfte aus nichtselbstständiger Arbeit (auch Minijob).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="selbstaendigeArbeit" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Gewinneinkünfte (positiv oder negativ) aus selbstständiger Arbeit.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="gewerbebetrieb" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Gewinneinkünfte (positiv oder negativ) aus Gewerbebetrieb, z.B. auch Photovoltaik.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="landUndForstwirtschaft" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Gewinneinkünfte (positiv oder negativ) aus Land- und Forstwirtschaft.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="sonstigeEinnahmen" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Sonstige Einnahmen, z.B. Kurzarbeitergeld, Arbeitslosengeld I.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nichtselbstaendig" minOccurs="0" type="xfd:Zeitraum">
+        <xs:annotation>
+          <xs:documentation>Nichtselbstständige Arbeit:
+Erwerbstätigkeit im beantragten Zeitraum, wenn zutreffend.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="taetigkeitMitDurchschnittlichWochenstunden" minOccurs="0" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>Nichtselbstständige Arbeit:
+Es werden Einkünfte erzielt aus Voll-/Teilzeittätigkeit mit durchschnittlicher Anzahl Wochenstunden.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="geringfuegigeBeschaeftigungen" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Nichtselbstständige Arbeit:
+Es werden Einkünfte erzielt aus einer (mehreren) geringfügigen Beschäftigung/en.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="selbstaendigeArbeitSpez" minOccurs="0" type="xfd:EinkuenfteSpezifikation">
+        <xs:annotation>
+          <xs:documentation>Selbstständige Arbeit / Gewerbebetrieb / Land- und Forstwirtschaft
+Voraussichtlicher Gewinn/Verlust für selbstständige Arbeit.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="gewerbebetriebSpez" minOccurs="0" type="xfd:EinkuenfteSpezifikation">
+        <xs:annotation>
+          <xs:documentation>Selbstständige Arbeit / Gewerbebetrieb / Land- und Forstwirtschaft
+Voraussichtlicher Gewinn/Verlust für Gewerbebetrieb.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="landUndForstwirtschaftSpez" minOccurs="0" type="xfd:EinkuenfteSpezifikation">
+        <xs:annotation>
+          <xs:documentation>Selbstständige Arbeit / Gewerbebetrieb / Land- und Forstwirtschaft
+Voraussichtlicher Gewinn/Verlust für Land- und Forstwirtschaft.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="tatsaechlicheBetriebsausgabenStattPauschale" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Selbstständige Arbeit / Gewerbebetrieb / Land- und Forstwirtschaft:
+Da in diesem Zeitraum höhere Betriebsausgaben entstehen, wird beantragt, anstelle der Betriebsausgabenpauschale die
+mit den zugrunde gelegten Einnahmen zusammenhängenden tatsächlichen Betriebsausgaben abzuziehen.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ergaenzendeAnmerkungen" minOccurs="0" maxOccurs="unbounded" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Ergänzende Anmerkungen.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ErklaerungZumEinkommenVorDerGeburt">
+    <xs:annotation>
+      <xs:documentation>Erklärung zum Einkommen vor der Geburt des Kindes.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="nichtselbstaendigeArbeit" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Einkünfte aus nichtselbständiger Arbeit (auch Minijob)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="selbstaendigeArbeit" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Einkünfte (positiv oder negativ) aus selbständiger Arbeit</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="gewerbebetrieb" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Einkünfte (positiv oder negativ) aus Gewerbebetrieb, z.B. auch Photovoltaik</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="landUndForstwirtschaft" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Einkünfte (positiv oder negativ) aus Land- und Forstwirtschaft</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="sonstigeEinkuenfte" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Sonstige Einnahmen, z.B. Kurzarbeitergeld, Arbeitslosengeld I</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="elterngeldbezug" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Maßgeblicher Zwölfmonatszeitraum:
+Elterngeld- oder Mutterschaftsgeldbezug vor der Geburt des Kindes oder einer Mutterschutzfrist (nicht als Beamtin) unterlegen, ohne Bezug von Mutterschaftsgeld.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="einkommensverlust" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Maßgeblicher Zwölfmonatszeitraum:
+Einkommensverlust wegen einer maßgeblich auf die Schwangerschaft zurück zu führenden Erkrankung oder die Ableistung von Wehr- und Zivildienst.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="volleErwerbstaetigkeit" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Nichtselbständige Arbeit:
+Im maßgeblichen Zwölfmonatszeitraum wurde Einkommen erzielt aus
+voller Erwerbstätigkeit.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="teilzeittaetigkeit" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Nichtselbständige Arbeit:
+Im maßgeblichen Zwölfmonatszeitraum wurde Einkommen erzielt aus
+Teilzeittätigkeit.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="freiwilligendienst" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Nichtselbständige Arbeit:
+Im maßgeblichen Zwölfmonatszeitraum wurde Einkommen erzielt aus
+einem Freiwilligendienst (z.B. FSJ/FÖJ/FBD)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="geringfuegigeBeschaeftigung" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Nichtselbständige Arbeit:
+Im maßgeblichen Zwölfmonatszeitraum wurde Einkommen erzielt aus
+einer/mehreren geringfügigen Beschäftigung/en.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="midijob" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Nichtselbständige Arbeit:
+Im maßgeblichen Zwölfmonatszeitraum wurde Einkommen erzielt aus
+Midijob (Gleitzone).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="berufsausbildung" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Nichtselbständige Arbeit:
+Im maßgeblichen Zwölfmonatszeitraum wurde Einkommen erzielt aus
+Berufsausbildung</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dasArbeitsverhaeltnisEndeteAm" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Nichtselbständige Arbeit:
+Das Arbeitsverhältnis endete an diesem Datum (z.B. wegen Kündigung, Befristung)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="artSelbstaendigerTaetigkeit" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Selbständige Arbeit / Gewerbebetrieb / Land- und Forstwirtschaft:
+Art der selbständigen Tätigkeit / Art des Gewerbes (auch Photovoltaik).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="zeitanteiligOderDurchgehend" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Selbständige Arbeit / Gewerbebetrieb / Land- und Forstwirtschaft:
+Diese Tätigkeiten wurden in den zwölf Kalendermonaten vor dem Monat der Geburt des Kindes und/oder im letzten
+abgeschlossenen steuerlichen Veranlagungszeitraum (Kalenderjahr vor der Geburt des Kindes) zeitanteilig oder
+durchgehend ausgeübt (ja/nein).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="keineSteuererklaerungspflicht" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Selbständige Arbeit / Gewerbebetrieb / Land- und Forstwirtschaft:
+Es besteht keine Steuererklärungspflicht.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="abweichendesWirtschaftsjahr" minOccurs="0" type="xfd:Zeitraum">
+        <xs:annotation>
+          <xs:documentation>Selbständige Arbeit / Gewerbebetrieb / Land- und Forstwirtschaft:
+Bei Gewerbetreibenden, deren Firma im Handelsregister eingetragen ist, kann das Wirtschaftsjahr vom Kalenderjahr
+abweichen.
+Falls abweichendes Wirtschaftsjahr festgelegt, hier den Zeitraum eintragen.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="verschiebungVeranlagung" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Selbständige Arbeit / Gewerbebetrieb / Land- und Forstwirtschaft:
+Soweit in diesem Zeitraum ein unter Rubrik Z aufgeführter Sachverhalt fällt, wird beantragt, bei der Ermittlung des
+Einkommens die hiervon betroffenen Kalendermonate zu verschieben. Maßgeblich ist dann der steuerliche Veranlagungszeitraum, der dem vorangegangenen Veranlagungszeitraum zugrunde liegt. Der Antrag auf Verschiebung kann nur einheitlich für alle Einkunftsarten gestellt werden.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="pflichtbeitraegeZurGesetzlichenSozialversicherung" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Selbständige Arbeit / Gewerbebetrieb / Land- und Forstwirtschaft:
+Pfl ichtbeiträge zur gesetzlichen Sozialversicherung.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="pflichtbeitraegeZuBerufsstaendischerVersorgung" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Selbständige Arbeit / Gewerbebetrieb / Land- und Forstwirtschaft:
+Pfl ichtbeiträge zu berufsständischen Versorgungswerken oder zur Künstlersozialkasse.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kirchensteuerpflichtig" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Selbständige Arbeit / Gewerbebetrieb / Land- und Forstwirtschaft:
+Verpflichtung zu Kirchensteuerzahlungen.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="gewerbeNachGeburtStillgelegt" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Selbständige Arbeit / Gewerbebetrieb / Land- und Forstwirtschaft:
+Das Gewerbe wird nach der Geburt des Kindes voraussichtlich still gelegt oder abgemeldet.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="arbeitslosengeld1" minOccurs="0" type="xfd:Zeitraum">
+        <xs:annotation>
+          <xs:documentation>Sonstige Einnahmen:
+Arbeitslosengeld I (Zeitraum), falls zutreffend.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kurzarbeitergeld" minOccurs="0" type="xfd:Zeitraum">
+        <xs:annotation>
+          <xs:documentation>Sonstige Einnahmen:
+Kurzarbeitergeld/Insolvenzgeld (Zeitraum), falls zutreffend.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="krankengeld" minOccurs="0" type="xfd:Zeitraum">
+        <xs:annotation>
+          <xs:documentation>Sonstige Einnahmen:
+Krankengeld (Zeitraum), falls zutreffend.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="rentenOderAndereLeistungen" minOccurs="0" type="xfd:Zeitraum">
+        <xs:annotation>
+          <xs:documentation>Sonstige Einnahmen:
+Renten oder andere Leistungen (Zeitraum), falls zutreffend.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="rentenOderAndereLeistungenArt" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Sonstige Einnahmen:
+Renten oder andere Leistungen (Art).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WeiteresKindImHaushalt">
+    <xs:annotation>
+      <xs:documentation>Klasse zur Kapselung der Angaben für Geschwisterkinder.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="kind" type="xfd:NatuerlichePerson">
+        <xs:annotation>
+          <xs:documentation>Angaben zur Person.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="geburtsAdoptionsDatum" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Geburts-/Adoptionsdatum</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kindschaftsVerhaeltnisZuElternteil1" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kindschaftsverhältnis zum Elternteil.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kindschaftsVerhaeltnisZuElternteil2" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kindschaftsverhältnis zum Elternteil.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="familienfoerderung.elterngeld.04101001">
+    <xs:annotation>
+      <xs:appinfo>
+        <rechtsgrundlage>Bundeselterngeld- und Elternzeitgesetz - BEEG</rechtsgrundlage>
+      </xs:appinfo>
+      <xs:documentation>Antrag auf Elterngeld.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xfd:XFallDatensatz">
+          <xs:sequence>
+            <xs:element name="elternteil1" minOccurs="0" type="xfd:Elternteil">
+              <xs:annotation>
+                <xs:documentation>Klasse zur Strukturierung der Daten, die pro Elternteil anzugeben sind.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="elternteil2" minOccurs="0" type="xfd:Elternteil">
+              <xs:annotation>
+                <xs:documentation>Klasse zur Strukturierung der Daten, die pro Elternteil anzugeben sind.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="kind" type="xfd:NatuerlichePerson">
+              <xs:annotation>
+                <xs:documentation>Kind, für das Elterngeld beantragt wird, Angaben zur Person.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="datumDerHaushaltsaufnahme" minOccurs="0" type="xs:date">
+              <xs:annotation>
+                <xs:documentation>Bei Adoption/Adoptionspflege das Datum der Haushaltsaufnahme.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="zahlDerMehrlinge" minOccurs="0" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>Bei Mehrlingsgeburt die Zahl der Mehrlinge.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="vornamenDerMehrlinge" minOccurs="0" maxOccurs="unbounded" type="xoev-lc:String.Latin">
+              <xs:annotation>
+                <xs:documentation>Bei Mehrlingsgeburt die Vornamen.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="voraussetzungEinkommenMindertSich" minOccurs="0" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Für Elternteile, die Elterngeld alleine und für mehr als 12 Lebensmonate beanspruchen (insb. Alleinerziehende).
+Voraussetzung, mein Einkommen aus Erwerbstätigkeit mindert sich nach der Geburt.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="voraussetzungAlleinigesSorgerecht" minOccurs="0" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Für Elternteile, die Elterngeld alleine und für mehr als 12 Lebensmonate beanspruchen (insb. Alleinerziehende).
+Voraussetzung, mir steht die elterliche Sorge/das Aufenthaltsbestimmungsrecht alleine zu.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="voraussetzungKeineGemeinsameWohnung" minOccurs="0" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Für Elternteile, die Elterngeld alleine und für mehr als 12 Lebensmonate beanspruchen (insb. Alleinerziehende).
+Voraussetzung, mein Kind und ich wohnen mit dem anderen Elternteil nicht in einer gemeinsamen Wohnung.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="antragFuer13und14Lebensmonat" minOccurs="0" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Für Elternteile, die Elterngeld alleine und für mehr als 12 Lebensmonate beanspruchen (insb. Alleinerziehende).
+Voraussetzungen liegen alle vor.
+Ich beantrage daher das Elterngeld auch für den 13. und 14. Lebensmonat.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="keinMutterschaftsgeld" minOccurs="0" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Anrechnung von anderen Leistungen (Mutterschaftsgeld / Arbeitgeberzuschuss / vergleichbare Leistungen):
+Kein Mutterschaftsgeld.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="weitereKinderImHaushalt" minOccurs="0" maxOccurs="unbounded" type="xfd:WeiteresKindImHaushalt">
+              <xs:annotation>
+                <xs:documentation>Geschwisterkinder.
+Folgende Kinder leben in meinem/unseren Haushalt und werden von mir/uns betreut und erzogen.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="mutterschaftsgeldAlsLaufendeZahlung" minOccurs="0" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Anrechnung von anderen Leistungen (Mutterschaftsgeld / Arbeitgeberzuschuss / vergleichbare Leistungen):
+Mutterschaftsgeld als laufende Zahlung.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="mutterschaftsgeldGesetzlich" minOccurs="0" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Anrechnung von anderen Leistungen (Mutterschaftsgeld / Arbeitgeberzuschuss / vergleichbare Leistungen):
+Mutterschaftsgeld als laufende Zahlung, gesetzlich.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="mutterschaftsgeldFreiwillig" minOccurs="0" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Anrechnung von anderen Leistungen (Mutterschaftsgeld / Arbeitgeberzuschuss / vergleichbare Leistungen):
+Mutterschaftsgeld als laufende Zahlung, freiwillig.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="mutterschaftsgeldArbeitgeberzuschuss" minOccurs="0" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Anrechnung von anderen Leistungen (Mutterschaftsgeld / Arbeitgeberzuschuss / vergleichbare Leistungen):
+Mutterschaftsgeld als laufende Zahlung.
+Arbeitgeberzuschuss zum Mutterschaftsgeld.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="mutterschaftsgeldDienstBezuege" minOccurs="0" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Anrechnung von anderen Leistungen (Mutterschaftsgeld / Arbeitgeberzuschuss / vergleichbare Leistungen):
+Mutterschaftsgeld als laufende Zahlung.
+Dienst- oder Anwärterbezüge ab der Entbindung</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="mutterschaftsgeldDienstBis" minOccurs="0" type="xs:date">
+              <xs:annotation>
+                <xs:documentation>Anrechnung von anderen Leistungen (Mutterschaftsgeld / Arbeitgeberzuschuss / vergleichbare Leistungen):
+Mutterschaftsgeld als laufende Zahlung.
+Dienst- oder Anwärterbezüge ab der Entbindung
+für die Zeit bis.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="mutterschaftsgeldDienstSchutzfristAb" minOccurs="0" type="xs:date">
+              <xs:annotation>
+                <xs:documentation>Anrechnung von anderen Leistungen (Mutterschaftsgeld / Arbeitgeberzuschuss / vergleichbare Leistungen):
+Mutterschaftsgeld als laufende Zahlung.
+Dienst- oder Anwärterbezüge ab der Entbindung.
+Beginn der Schutzfrist am.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="mutterschaftsgeldZuschuesse" minOccurs="0" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Anrechnung von anderen Leistungen (Mutterschaftsgeld / Arbeitgeberzuschuss / vergleichbare Leistungen):
+Mutterschaftsgeld als laufende Zahlung.
+Zuschüsse nach beamtenrechtlichen Vorschriften.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="mutterschaftgeldZuschuesseZeitraum" minOccurs="0" type="xfd:Zeitraum">
+              <xs:annotation>
+                <xs:documentation>Anrechnung von anderen Leistungen (Mutterschaftsgeld / Arbeitgeberzuschuss / vergleichbare Leistungen):
+Mutterschaftsgeld als laufende Zahlung.
+Zuschüsse nach beamtenrechtlichen Vorschriften.
+Zeitraum (von/bis)</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="mutterschaftsgeldZuschuesseHoeheEuro" minOccurs="0" type="xs:decimal">
+              <xs:annotation>
+                <xs:documentation>Anrechnung von anderen Leistungen (Mutterschaftsgeld / Arbeitgeberzuschuss / vergleichbare Leistungen):
+Mutterschaftsgeld als laufende Zahlung.
+Zuschüsse nach beamtenrechtlichen Vorschriften.
+Höhe in Euro.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="mutterschaftsgeldAuslaendischeFamilienleistungen" minOccurs="0" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Anrechnung von anderen Leistungen (Mutterschaftsgeld / Arbeitgeberzuschuss / vergleichbare Leistungen):
+Mutterschaftsgeld als laufende Zahlung.
+Ausländische Familienleistungen.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="einverstaendnisArbeitgeberAuskuenfte" minOccurs="0" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Ich bin damit einverstanden, daß die Elternegeldstelle von meinem Arbeitgeber weitere Auskünfte einholt, soweit diese für die Entscheidung erforderlich sind.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="einkommensteuerbescheidLiegtVor" minOccurs="0" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Der Einkommensteuerbescheid für das Jahr vor der Geburt liegt vor.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="einkommensgrenzeUeberschreitung" minOccurs="0" type="xfd:Code.ElterngeldEinkommensgrenze">
+              <xs:annotation>
+                <xs:documentation>Überschreitung derEinkommensgrenze gemäß Codeliste.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+

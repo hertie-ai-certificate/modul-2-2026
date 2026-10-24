@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xfd="http://xoev.de/schemata/xfall/3_0/daten" targetNamespace="http://xoev.de/schemata/xfall/3_0/daten" version="3.0.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:annotation>
+    <xs:documentation>Sammlung von technischen Datentypen, z.B.  Einschränkungen von W3C-Datentypen.</xs:documentation>
+  </xs:annotation>
+  <xs:complexType name="Identifikator">
+    <xs:annotation>
+      <xs:documentation>Typ zur Abbildung von Identifikatoren. Zeichenkette zur eindeutigen Unterscheidung einer Instanz eines Objekts innerhalb eines Identifikationsschemas von allen anderen Objekten im selben Schema mit Zusatzinformationen.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:token">
+        <xs:attribute name="schemeAgencyID" type="xs:token" use="optional">
+          <xs:annotation>
+            <xs:documentation>ID der Stelle, welche das Identifikationsschema verwaltet.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="schemeAgencyName" type="xs:string" use="optional">
+          <xs:annotation>
+            <xs:documentation>Bezeichnung der Stelle, welche das Identifikationsschema verwaltet.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="schemeDataURI" type="xs:anyURI" use="optional">
+          <xs:annotation>
+            <xs:documentation>URI, welche definiert, wo sich die Daten des Identifikationsschemas befinden.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="schemeID" type="xs:token" use="optional">
+          <xs:annotation>
+            <xs:documentation>ID des Identifikationsschemas.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="schemeName" type="xs:string" use="optional">
+          <xs:annotation>
+            <xs:documentation>Bezeichnung des Identifikationsschemas.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="schemeURI" type="xs:anyURI" use="optional">
+          <xs:annotation>
+            <xs:documentation>URI, welche definiert, wo sich das Identifikationsschema befindet.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="schemeVersionID" type="xs:token" use="optional">
+          <xs:annotation>
+            <xs:documentation>Version des Identifikationsschemas.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>
+

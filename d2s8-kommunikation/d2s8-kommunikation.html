@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Tag 2: Big Data, Good Data? Die kritische Nutzung von Daten</title>
+    <title>Der Daten-Lifecycle</title>
     <meta charset="utf-8" />
     <meta name="author" content="Simon Munzert" />
     <script src="libs/header-attrs/header-attrs.js"></script>
@@ -17,7 +17,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Tag 2: Big Data, Good Data? Die kritische Nutzung von Daten
+# Der Daten-Lifecycle
 ]
 .subtitle[
 ## Session 8: Kommunikation von und mit Daten
@@ -58,22 +58,7 @@ class: center, middle, inverse, title-slide
 
 5. [Interaktive Kommunikation und Monitoring mit Dashboards](#dashboards)
 
----
-background-image: url("../pics/berlin-strassenabschnitte-geojson.png")
-background-size: contain
-background-color: #000000
-
-# Was sehen Sie hier?
-
-&lt;!-- Source: https://daten.odis-berlin.de/de/dataset/detailnetz_strassenabschnitte/ --&gt;
-
-
----
-background-image: url("../pics/berlin-strassenabschnitte-map.png")
-background-size: contain
-background-color: #000000
-
-# So besser?
+6. [Dashboards in der Verwaltung](#dashboardsverwaltung)
 
 
 &lt;!-- ############################################ --&gt;
@@ -87,35 +72,21 @@ name: whyviz
 
 
 ---
-# Warum Datenvisualisierung?
+background-image: url("../pics/berlin-strassenabschnitte-geojson.png")
+background-size: contain
+background-color: #000000
 
-.pull-left[
+# Was seht Ihr hier?
 
-### Eine mächtige Methode in der Data-Science-Toolbox
-
-- Datenvisualisierung ist eine Methode zur Exploration (und nicht nur Darstellung) von Daten.
-- Dabei geht es um mehr als Datenvisualisierung im engeren Sinne, d.h. um die **Kodierung quantitativer Informationen** in visuellen Objekten.
-- Entscheidungsträger sind meist an **Mustern** und **Regelmäßigkeiten** interessiert, nicht an einzelnen und genauen Werten.
-- Zwei Möglichkeiten, quantitative Informationen sinnvoll zu nutzen:
-
-&lt;div align="center"&gt;
-&lt;img src="../pics/d5-s1-table-vs-patterns.png" width=300&gt;
-&lt;/div&gt;
-]
+&lt;!-- Source: https://daten.odis-berlin.de/de/dataset/detailnetz_strassenabschnitte/ --&gt;
 
 
-.pull-right[
+---
+background-image: url("../pics/berlin-strassenabschnitte-map.png")
+background-size: contain
+background-color: #000000
 
-### Das Argument für Visualisierung
-
-- Visualisierung setzt **wenig oder keine Annahmen** über die Natur der Daten voraus.
-- Visualisierung **lässt Sie Dinge sehen**, die sonst unsichtbar wären, insbesondere Beziehungen zwischen Daten (Muster, Trends, Ausreißer).
-- Visualisierung erleichtert die Interaktion zwischen Entscheidungsträger und Daten - **sie ist ein Mittel zur Hypothesenbildung und Entscheidungsfindung**.
-
-&lt;i&gt;"Die entscheidende Frage ist, wie man die Daten am besten in etwas umwandelt, das Menschen verstehen können, um optimale Entscheidungen zu treffen." &lt;/i&gt;
-[Colin Ware, 2013](https://books.google.de/books?id=qFmS95vf6H8C&amp;pg=PA5)
-]
-
+# So besser?
 
 
 ---
@@ -123,7 +94,7 @@ name: whyviz
 
 .pull-left[
 - Die Tabelle auf der rechten Seite enthält die Datensätze I bis IV, die jeweils aus elf `\((x,y)\)`-Punkten bestehen.
-- .hlred[Studieren Sie die Tabelle sorgfältig]. Wie verhalten sich `\(x\)` und `\(y\)` sowie ihr Verhältnis zueinander in den verschiedenen Datensätzen?
+- .hlred[Studiert die Tabelle sorgfältig]. Wie verhalten sich `\(x\)` und `\(y\)` sowie ihr Verhältnis zueinander in den verschiedenen Datensätzen?
 ]
 
 .pull-right[
@@ -138,7 +109,7 @@ name: whyviz
 
 .pull-left[
 - Die Tabelle auf der rechten Seite enthält die Datensätze I bis IV, die jeweils aus elf `\((x,y)\)`-Punkten bestehen.
-- .hlred[Studieren Sie die Tabelle sorgfältig]. Wie verhalten sich `\(x\)` und `\(y\)` sowie ihr Verhältnis zueinander in den verschiedenen Datensätzen?
+- .hlred[Studiert die Tabelle sorgfältig]. Wie verhalten sich `\(x\)` und `\(y\)` sowie ihr Verhältnis zueinander in den verschiedenen Datensätzen?
 - Es zeigt sich, dass alle Datensätze nahezu identische einfache deskriptive Statistiken in Bezug auf Mittelwert, Standardabweichung, Korrelation und lineare Anpassung aufweisen!
 ]
 
@@ -154,7 +125,7 @@ name: whyviz
 
 .pull-left[
 - Die Tabelle auf der rechten Seite enthält die Datensätze I bis IV, die jeweils aus elf `\((x,y)\)`-Punkten bestehen.
-- .hlred[Studieren Sie die Tabelle sorgfältig]. Wie verhalten sich `\(x\)` und `\(y\)` sowie ihr Verhältnis zueinander in den verschiedenen Datensätzen?
+- .hlred[Studiert die Tabelle sorgfältig]. Wie verhalten sich `\(x\)` und `\(y\)` sowie ihr Verhältnis zueinander in den verschiedenen Datensätzen?
 - Es zeigt sich, dass alle Datensätze nahezu identische einfache deskriptive Statistiken in Bezug auf Mittelwert, Standardabweichung, Korrelation und lineare Anpassung aufweisen!
 - .hlred[Die grafische Darstellung der Daten zeigt sehr unterschiedliche Verteilungen] und widerspricht der Heuristik, dass "numerische Berechnungen genau sind, aber Grafiken grob sind". ([Anscombe 1973](https://www.tandfonline.com/doi/abs/10.1080/00031305.1973.10478966)).
 ]
@@ -165,6 +136,36 @@ name: whyviz
 &lt;img src="../pics/d5-s1-anscombe-plot.png" width=600&gt;
 &lt;/div&gt;
 ]
+
+
+
+
+
+---
+# Warum Datenvisualisierung?
+
+.pull-left[
+
+### Eine mächtige Methode in der Data-Science-Toolbox
+
+- Datenvisualisierung ist eine Methode zur Exploration (und nicht nur Darstellung) von Daten.
+- Dabei geht es um mehr als Datenvisualisierung im engeren Sinne, d.h. um die **Kodierung quantitativer Informationen** in visuellen Objekten.
+- Entscheidungsträger sind meist an **Mustern** und **Regelmäßigkeiten** interessiert, nicht an einzelnen und genauen Werten.
+]
+
+
+.pull-right[
+
+### Das Argument für Visualisierung
+
+- Visualisierung setzt **wenig oder keine Annahmen** über die Natur der Daten voraus.
+- Visualisierung **lässt Euch Dinge sehen**, die sonst unsichtbar wären, insbesondere Beziehungen zwischen Daten (Muster, Trends, Ausreißer).
+- Visualisierung erleichtert die Interaktion zwischen Entscheidungsträger und Daten - **sie ist ein Mittel zur Hypothesenbildung und Entscheidungsfindung**.
+
+&lt;i&gt;"Die entscheidende Frage ist, wie man die Daten am besten in etwas umwandelt, das Menschen verstehen können, um optimale Entscheidungen zu treffen." &lt;/i&gt;
+[Colin Ware, 2013](https://books.google.de/books?id=qFmS95vf6H8C&amp;pg=PA5)
+]
+
 
 
 
@@ -201,26 +202,6 @@ Datenvisualisierung ist eine Schlüsselkompetenz für die Vermittlung von Erkenn
 &lt;br&gt;
 &lt;img src="../pics/d5-s1-data-science-wrangle.png" width=450&gt;
 &lt;/div&gt;
-]
-
----
-# Visualisierung im Data-Science-Workflow
-
-.pull-left[
-Datenvisualisierung ist eine Schlüsselkompetenz für die Vermittlung von Erkenntnissen aus Daten. Sie ist in jedem Schritt des Workflows von Bedeutung.
-
-**Datenaufbereitung**
-- Sanity checks
-- Identifizierung von Ausreißern
-- Unterstützung von Data cleaning
-]
-
-.pull-right[
-
-&lt;div align="center"&gt;
-&lt;br&gt;
-&lt;img src="../pics/d5-s1-data-science-wrangle.png" width=450&gt;
-&lt;/div&gt;
 
 &lt;div align="center"&gt;
 &lt;br&gt;
@@ -231,31 +212,6 @@ Scatter plots to identify outliers in bivariate relationships.
 &lt;/div&gt;
 ]
 
-
----
-# Visualisierung im Data-Science-Workflow
-
-.pull-left[
-Datenvisualisierung ist eine Schlüsselkompetenz für die Vermittlung von Erkenntnissen aus Daten. Sie ist in jedem Schritt des Workflows von Bedeutung.
-
-**Datenaufbereitung**
-- Sanity checks
-- Identifizierung von Ausreißern
-- Unterstützung von Data cleaning
-
-**Datenexploration**
-- Darstellung von Verteilungen
-- Muster und Beziehungen entdecken
-]
-
-.pull-right[
-
-&lt;div align="center"&gt;
-&lt;br&gt;
-&lt;img src="../pics/d5-s1-data-science-explore.png" width=450&gt;
-&lt;/div&gt;
-
-]
 
 
 ---
@@ -290,29 +246,6 @@ Correlogram to visualize amount of association &lt;br&gt; between pairs of varia
 &lt;/div&gt;
 ]
 
-
----
-# Visualisierung im Data-Science-Workflow
-
-.pull-left[
-Datenvisualisierung ist eine Schlüsselkompetenz für die Vermittlung von Erkenntnissen aus Daten. Sie ist in jedem Schritt des Workflows von Bedeutung.
-
-**Modellieren**
-- Hypothesen testen
-- Zusammenfassen von (mehrfachen) Modellschätzungen
-- Visualisierung der Unsicherheit
-- Robustheits-/Sensitivitätsanalysen berichten
-]
-
-.pull-right[
-
-&lt;div align="center"&gt;
-&lt;br&gt;
-&lt;img src="../pics/d5-s1-data-science-model.png" width=450&gt;
-&lt;/div&gt;
-
-]
-
 ---
 # Visualisierung im Data-Science-Workflow
 
@@ -339,32 +272,6 @@ Datenvisualisierung ist eine Schlüsselkompetenz für die Vermittlung von Erkenn
 &lt;/div&gt;
 &lt;div align="center" style="font-size:16px;"&gt;
 Raw data and trend line with confidence bands&lt;br&gt;to visualize uncertainty of fit&lt;/div&gt;
-]
-
----
-# Visualisierung im Data-Science-Workflow
-
-.pull-left[
-Datenvisualisierung ist eine Schlüsselkompetenz für die Vermittlung von Erkenntnissen aus Daten. Sie ist in jedem Schritt des Workflows von Bedeutung.
-
-**Modellieren**
-- Hypothesen testen
-- Zusammenfassen von (mehrfachen) Modellschätzungen
-- Visualisierung der Unsicherheit
-- Robustheits-/Sensitivitätsanalysen berichten
-
-**Kommunizieren**
-- Präsentation von Rohdaten/aufbereiteten Daten
-- Darstellung der Auswirkungen von Modellergebnissen
-]
-
-.pull-right[
-
-&lt;div align="center"&gt;
-&lt;br&gt;
-&lt;img src="../pics/d5-s1-data-science-communicate.png" width=450&gt;
-&lt;/div&gt;
-
 ]
 
 
@@ -410,8 +317,8 @@ class: exercise, center, middle
 .content-box-white[
 **Warum Datenvisualisierung in der / durch die Verwaltung?**
 
-1.    (Wie) kann die Visualisierung von Daten in Ihrem Arbeitskontext nützlich sein?
-2.    Glauben Sie, dass Datenvisualisierung die Kommunikation zwischen verschiedenen Abteilungen und mit der Öffentlichkeit verbessern kann?
+1.    (Wie) kann die Visualisierung von Daten in Eurem Arbeitskontext nützlich sein?
+2.    Wie kann Datenvisualisierung die Kommunikation zwischen verschiedenen Abteilungen und mit der Öffentlichkeit verbessern?
 ]
 
 
@@ -429,7 +336,7 @@ name: plottypes
 ---
 # Verschiedene Visualisierungen für verschiedene Zwecke
 
-Ein häufiger Fehler bei der Visualisierung ist, dass .hlred[Plot-Typen für Zwecke verwendet werden, für die sie nicht gedacht sind]. Bevor Sie mit dem Abbildungen erstellen, fragen Sie sich selbst:
+Ein häufiger Fehler bei der Visualisierung ist, dass .hlred[Plot-Typen für Zwecke verwendet werden, für die sie nicht gedacht sind]. Bevor Ihr Abbildungen erstellt, fragt Euch selbst:
 
 --
 
@@ -589,7 +496,7 @@ name: clickvscode
 .pull-left[
 ## Klick-basierte Tools
 
-Diese Tools sind **benutzerfreundliche Anwendungen**, für die man keine Programmierkenntnisse braucht. Sie *klicken einfach auf Schaltflächen*, *ziehen Elemente* und *wählen Optionen aus, um Visualisierungen zu erstellen*. Diese Anwendungen sind ideal, wenn Sie schnell Diagramme und Grafiken erstellen möchten, ohne sich in die Feinheiten der Programmierung einarbeiten zu müssen. "Malen-nach-Zahlen"-Tools.
+Diese Tools sind **benutzerfreundliche Anwendungen**, für die man keine Programmierkenntnisse braucht. Ihr *klickt einfach auf Schaltflächen*, *zieht Elemente* und *wählt Optionen aus, um Visualisierungen zu erstellen*. Diese Anwendungen sind ideal, wenn Ihr schnell Diagramme und Grafiken erstellen möchtet, ohne Euch in die Feinheiten der Programmierung einarbeiten zu müssen. "Malen-nach-Zahlen"-Tools.
 
 &lt;div align="center"&gt;
 &lt;img src="../pics/d5-s2-tableau.png" height=200&gt;
@@ -612,7 +519,7 @@ Diese Tools sind **benutzerfreundliche Anwendungen**, für die man keine Program
 
 .pull-left[
 ## Code-basierte Tools
-Tools für **Künstler, die lieber von Grund auf malen.** Anstatt auf Schaltflächen zu klicken, skripten Sie Grafiken *in einer Programmiersprache* wie `Python` oder `R`, um Ihre Visualisierungen zu erstellen. Das bedeutet große **Flexibilität** und **Kontrolle** über jedes Detail. Steile Programmierlernkurve - eher nur für Profis.
+Tools für **Künstler, die lieber von Grund auf malen.** Anstatt auf Schaltflächen zu klicken, skriptet Ihr Grafiken *in einer Programmiersprache* wie `Python` oder `R`, um Eure Visualisierungen zu erstellen. Das bedeutet große **Flexibilität** und **Kontrolle** über jedes Detail. Steile Programmierlernkurve - eher nur für Profis.
 
 &lt;br&gt;
 &lt;div align="center"&gt;
@@ -718,7 +625,7 @@ class: midtext
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td style="border:1px solid #ccc; padding:6px;"&gt;R (ggplot2, plotly, Shiny)&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:6px;"&gt;&lt;a href="https://www.r-project.org/" target="_blank"&gt;R&lt;/a&gt; (&lt;a href="https://ggplot2.tidyverse.org/" target="_blank"&gt;ggplot2&lt;/a&gt;, &lt;a href="https://plotly.com/r/" target="_blank"&gt;plotly&lt;/a&gt;, &lt;a href="https://shiny.posit.co/" target="_blank"&gt;Shiny&lt;/a&gt;)&lt;/td&gt;
       &lt;td style="border:1px solid #ccc; padding:6px;"&gt;
         &lt;ul style="margin:0 0 0 1em; padding:0;"&gt;
           &lt;li&gt;Hohe Flexibilität&lt;/li&gt;
@@ -739,7 +646,7 @@ class: midtext
     &lt;/tr&gt;
 
     &lt;tr&gt;
-      &lt;td style="border:1px solid #ccc; padding:6px;"&gt;Python (matplotlib, seaborn, plotly, Dash)&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:6px;"&gt;&lt;a href="https://www.python.org/" target="_blank"&gt;Python&lt;/a&gt; (&lt;a href="https://matplotlib.org/" target="_blank"&gt;matplotlib&lt;/a&gt;, &lt;a href="https://seaborn.pydata.org/" target="_blank"&gt;seaborn&lt;/a&gt;, &lt;a href="https://plotly.com/python/" target="_blank"&gt;plotly&lt;/a&gt;, &lt;a href="https://dash.plotly.com/" target="_blank"&gt;Dash&lt;/a&gt;)&lt;/td&gt;
       &lt;td style="border:1px solid #ccc; padding:6px;"&gt;
         &lt;ul style="margin:0 0 0 1em; padding:0;"&gt;
           &lt;li&gt;Breites Ökosystem&lt;/li&gt;
@@ -760,7 +667,7 @@ class: midtext
     &lt;/tr&gt;
 
     &lt;tr&gt;
-      &lt;td style="border:1px solid #ccc; padding:6px;"&gt;Tableau&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:6px;"&gt;&lt;a href="https://www.tableau.com/" target="_blank"&gt;Tableau&lt;/a&gt;&lt;/td&gt;
       &lt;td style="border:1px solid #ccc; padding:6px;"&gt;
         &lt;ul style="margin:0 0 0 1em; padding:0;"&gt;
           &lt;li&gt;Intuitive Bedienung&lt;/li&gt;
@@ -776,13 +683,13 @@ class: midtext
           &lt;li&gt;Begrenzte algorithmische Erweiterbarkeit&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/td&gt;
-      &lt;td style="border:1px solid #ccc; padding:6px;"&gt;Kostenpflichtig (~70 €/User/Monat)&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:6px;"&gt;Kostenpflichtig (Creator ca. 75 $/User/Monat)&lt;/td&gt;
       &lt;td style="border:1px solid #ccc; padding:6px;"&gt;Sehr gut für Berichtswesen/Management&lt;/td&gt;
       &lt;td style="border:1px solid #ccc; padding:6px;"&gt;Open-Data-Visuals, Controlling, Dashboards&lt;/td&gt;
     &lt;/tr&gt;
 
     &lt;tr&gt;
-      &lt;td style="border:1px solid #ccc; padding:6px;"&gt;Power BI&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:6px;"&gt;&lt;a href="https://www.microsoft.com/power-platform/products/power-bi" target="_blank"&gt;Power BI&lt;/a&gt;&lt;/td&gt;
       &lt;td style="border:1px solid #ccc; padding:6px;"&gt;
         &lt;ul style="margin:0 0 0 1em; padding:0;"&gt;
           &lt;li&gt;MS-Integration (Excel/Teams/Azure)&lt;/li&gt;
@@ -797,13 +704,13 @@ class: midtext
           &lt;li&gt;Performance-Limits bei großen Daten&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/td&gt;
-      &lt;td style="border:1px solid #ccc; padding:6px;"&gt;Kostenpflichtig (ab ~10 €/User/Monat)&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:6px;"&gt;Kostenpflichtig (Pro ca. 14 $/User/Monat)&lt;/td&gt;
       &lt;td style="border:1px solid #ccc; padding:6px;"&gt;Ideal bei bestehender MS-Infrastruktur&lt;/td&gt;
       &lt;td style="border:1px solid #ccc; padding:6px;"&gt;KPI-Monitoring, Personal-/Finanzberichte&lt;/td&gt;
     &lt;/tr&gt;
 
     &lt;tr&gt;
-      &lt;td style="border:1px solid #ccc; padding:6px;"&gt;Excel (Diagramme, Power Query, Power Pivot)&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:6px;"&gt;&lt;a href="https://www.microsoft.com/microsoft-365/excel" target="_blank"&gt;Excel&lt;/a&gt; (Diagramme, &lt;a href="https://learn.microsoft.com/power-query/" target="_blank"&gt;Power Query&lt;/a&gt;, Power Pivot)&lt;/td&gt;
       &lt;td style="border:1px solid #ccc; padding:6px;"&gt;
         &lt;ul style="margin:0 0 0 1em; padding:0;"&gt;
           &lt;li&gt;Niedrige Einstiegshürde&lt;/li&gt;
@@ -825,7 +732,7 @@ class: midtext
     &lt;/tr&gt;
 
     &lt;tr&gt;
-      &lt;td style="border:1px solid #ccc; padding:6px;"&gt;Highcharts / Highmaps&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:6px;"&gt;&lt;a href="https://www.highcharts.com/" target="_blank"&gt;Highcharts&lt;/a&gt; / &lt;a href="https://www.highcharts.com/products/maps/" target="_blank"&gt;Highmaps&lt;/a&gt;&lt;/td&gt;
       &lt;td style="border:1px solid #ccc; padding:6px;"&gt;
         &lt;ul style="margin:0 0 0 1em; padding:0;"&gt;
           &lt;li&gt;Interaktive Webcharts&lt;/li&gt;
@@ -856,11 +763,11 @@ class: midtext
 .pull-left[
 1. **Immer zuerst einen Plan entwickeln**.
 
-2. Ziehen Sie auch code-basierte Lösungen in Betracht, um reproduzierbar zu bleiben (d.h. &lt;code&gt;R/Python&lt;/code&gt; vor Excel).
+2. Zieht auch code-basierte Lösungen in Betracht, um reproduzierbar zu bleiben (d.h. &lt;code&gt;R/Python&lt;/code&gt; vor Excel).
 
 3. Für konzeptionelle Diagramme (nicht: Datenvisualisierung!) können andere Werkzeuge gut geeignet sein (z.B. Powerpoint oder sogar handgezeichnete Figuren).
 
-4. Lassen Sie sich nicht von interaktiven Elementen ablenken (wie sie z. B. von highcharts.com, Tableau und anderen angeboten werden).
+4. Lasst Euch nicht von interaktiven Elementen ablenken (wie sie z. B. von highcharts.com, Tableau und anderen angeboten werden).
 
 5. Eine gute Visualisierung braucht Zeit, selbst wenn man erfahren ist. 
 ]
@@ -886,106 +793,89 @@ name: goodpractices
 
 &lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
 
----
 
-# Was ist hier los?
-
-&lt;div align="center"&gt;
-&lt;img src="../pics/d5-s2-tucker-carlson.jpeg" height=500&gt;
-&lt;/div&gt;
-
----
-
-# Was ist hier los?
-
-&lt;div align="center"&gt;
-&lt;img src="../pics/d5-s2-violent-crime.png" height=500&gt;
-&lt;/div&gt;
-
----
-
-# Was ist hier los?
-
-&lt;div align="center"&gt;
-&lt;img src="../pics/d5-s2-smartphone-share.png" height=500&gt;
-&lt;/div&gt;
-
----
-
-# Was ist hier los?
-
-&lt;div align="center"&gt;
-&lt;img src="../pics/gun-deaths.jpeg" height=500&gt;
-&lt;/div&gt;
 
 
 ---
+# Welche Abbildung gefällt Euch besser?
 
-# Todsünde der Datenvisualisierung: Achsentrunkierung
-
-&lt;br&gt;
+.pull-left[
 &lt;div align="center"&gt;
-&lt;img src="../pics/d5-s2-retirement-wrong.png" height=380&gt;&lt;br&gt;
-&lt;b&gt;Misleading&lt;/b&gt;
+&lt;img src="../pics/economist-mistakes-truncating-scale-bad.png" style="width:80%; height:auto;"&gt;
 &lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/economist-mistakes-truncating-scale-good.png" style="width:80%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+--
+
+.footnote[`Quelle` [Sarah Leo, The Economist](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368). Links ❌, rechts ✅: Die abgeschnittene Skala täuscht, die Farben auch.]
 
 
 ---
-# Besser
+# Welche Abbildung gefällt Euch besser?
 
-&lt;br&gt;
+.pull-left[
 &lt;div align="center"&gt;
-&lt;img src="../pics/d5-s2-retirement-right.png" height=380&gt;&lt;br&gt;
-.t-good[**Better**]
+&lt;img src="../pics/economist-mistakes-double-scales-bad.png" style="width:80%; height:auto;"&gt;
 &lt;/div&gt;
+]
 
----
-
-# Todsünde der Datenvisualisierung: Doppelte Achsen
-
-&lt;br&gt;
+.pull-right[
 &lt;div align="center"&gt;
-&lt;img src="../pics/d5-s2-dualaxis.png" height=360&gt;&lt;br&gt;
-&lt;b&gt;Misleading&lt;/b&gt;
+&lt;img src="../pics/economist-mistakes-double-scales-good.png" style="width:80%; height:auto;"&gt;
 &lt;/div&gt;
+]
 
----
-# Besser
+--
 
-&lt;br&gt;
-&lt;div align="center"&gt;
-&lt;img src="../pics/d5-s2-dualaxis-4.png" height=380&gt;&lt;br&gt;
-.t-good[**Better**]
-&lt;/div&gt;
+.footnote[`Quelle` [Sarah Leo, The Economist](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368). Links ❌, rechts ✅: Die beiden Skalen sind so gewählt, dass die Linien zusammenpassen. Die bessere Abbildung macht die prozentuale Veränderung vergleichbar.]
 
 
 ---
-# Auch besser
+# Welche Abbildung gefällt Euch besser?
 
-&lt;br&gt;
+.pull-left[
 &lt;div align="center"&gt;
-&lt;img src="../pics/d5-s2-dualaxis-5.png" height=380&gt;&lt;br&gt;
-.t-good[**Better**]
+&lt;img src="../pics/economist-mistakes-plot-type-good.png" style="width:80%; height:auto;"&gt;
 &lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/economist-mistakes-plot-type-bad.png" style="width:80%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+--
+
+.footnote[`Quelle` [Sarah Leo, The Economist](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368). Rechts ❌, links ✅: Der Diagrammtyp nimmt jede Schwankung in Umfragedaten für bare Münze; außerdem die Höhe der y-Achse. [Francis Gagnon](https://chezvoila.com/blog/yaxis/): Bei einem Liniendiagramm, das nicht bei null beginnt, sollte das untere Drittel der Zeichenfläche leer bleiben.]
 
 
 ---
-# Todsünde der Datenvisualisierung: sinnlose 3D-Elemente
+# Welche Abbildung gefällt Euch besser?
 
-&lt;br&gt;
+.pull-left[
 &lt;div align="center"&gt;
-&lt;img src="../pics/d5-s2-titanic-3d.png" height=360&gt;&lt;br&gt;
-&lt;b&gt;Misleading&lt;/b&gt;
+&lt;img src="../pics/economist-mistakes-mind-stretch-bad.png" style="width:80%; height:auto;"&gt;
 &lt;/div&gt;
+]
 
----
-# Besser
-
-&lt;br&gt;
+.pull-right[
 &lt;div align="center"&gt;
-&lt;img src="../pics/d5-s2-titanic-2d.png" height=360&gt;&lt;br&gt;
-.t-good[**Better**]
+&lt;img src="../pics/economist-mistakes-mind-stretch-good.png" style="width:80%; height:auto;"&gt;
 &lt;/div&gt;
+]
+
+--
+
+.footnote[`Quelle` [Sarah Leo, The Economist](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368). Links ❌, rechts ✅: Schwer zu lesen, weil negative und positive Skala in einer Abbildung kombiniert sind.]
+
+
 
 
 ---
@@ -1014,110 +904,6 @@ class: smalltext
 18. [Keine 3D-Diagramme verwenden.](https://clauswilke.com/dataviz/no-3d.html)  
 19. [Wähle gut lesbare Schriftarten und -größen.](https://clauswilke.com/dataviz/small-axis-labels.html)  
 20. [Manchmal reicht auch einfach eine Tabelle.](https://clauswilke.com/dataviz/figure-titles-captions.html#figure-titles-and-captions)
-
-
-
----
-# Daten-Tatort II: Sind bestimmte Musikgenres tödlicher als andere?
-
-.pull-left[
-&lt;div align="center"&gt;
-&lt;img src="../pics/musician_mortality.jpeg" height=430&gt;
-&lt;/div&gt;
-
-`Quelle` [The Conversation](https://theconversation.com/music-to-die-for-how-genre-affects-popular-musicians-life-expectancy-36660), `Hintergrund (mit Autoren-Replik)` [Calling Bullshit](https://callingbullshit.org/case_studies/case_study_musician_mortality.html)
-]
-
-.pull-right[
-&gt; [Study author Dianna Kenny] found that musicians from older genres – including blues, jazz, country and gospel – have similar lifespans to American people their own age. The life expectancy for R&amp;B musicians is slightly lower, while the life expectancy for newer genres like rock, techno, punk, metal, rap and hip hop is significantly shorter."
-
-&lt;div align="right"&gt;Ana Swanson, &lt;a href="https://www.washingtonpost.com/news/wonk/wp/2015/04/15/the-causes-of-musicians-deaths-by-genre/"&gt;Washington Post&lt;/a&gt;&lt;/div&gt;
-
-&gt; "It's a cautionary tale to some degree," Kenny told the Washington Post. "People who go into rap music or hip hop or punk, they're in a much more occupational hazard profession compared to war. We don't lose half our army in a battle."
-
-&lt;div align="right"&gt;Dianna Kenny, &lt;a href="https://www.washingtonpost.com/news/morning-mix/wp/2015/03/25/over-half-of-dead-hip-hop-artists-were-murdered-study-finds/"&gt;quoted by Washington Post&lt;/a&gt;&lt;/div&gt;
-]
-
-
----
-# Weitere Evidenz
-
-.pull-left[
-&lt;div align="center"&gt;
-&lt;img src="../pics/musician_mortality2.jpeg" height=450&gt;
-&lt;/div&gt;
-]
-
---
-
-.pull-right[
-## Some issues
-
-1. **Sanity check:** Sind manche Genres wirklich so tödlich? Sterben z. B. Rap-Musiker wirklich mit einem Durchschnittsalter von ~30 Jahren?
-2. **Datenzensierung:** Einige Genres sind jünger als andere, und die Auswertung setzt voraus, dass die Musiker bereits gestorben sind. Die meisten Rap- und Hip-Hop-Stars sind heute noch am Leben - Lebensdauer unbekannt!
-3. **Bedingte Wahrscheinlichkeiten:** Die Wahrscheinlichkeiten der einzelnen Todesursachen hängen davon ab, dass der Tod zum Zeitpunkt der Untersuchung bereits eingetreten ist.
-4) (Kleineres Problem) Liniendiagramm für kategoriale Daten?  [Keine gute Idee.](https://www.jmp.com/en_gb/statistics-knowledge-portal/exploratory-data-analysis/line-graph.html#:~:text=Line%20graphs%20do%20not%20make,might%20have%20a%20defined%20order.)
-]
-
-
----
-# Lösung des Falles
-
-.pull-left[
-
-|                       	| Evidenz und Schlüsse                           	|
-|-----------------------	|----------------------------------------------------	|
-| **Der Tatort**   	| Musikgenre korreliert mit Todesalter                 	|
-| **Die Verdächtigen**    	| Lifestyle (z.B. Drogenkonsum), Alter des Genres, unvollständige Datenerhebung |
-| **Die Tatwaffe** 	| Konfundierung durch Daten-Zensur                              	|
-
-&gt; "In other words, it's not that rap stars will likely die young; it's that the rap stars who have died certainly died young because rap hasn't been around long enough for it to be otherwise." &lt;div align="right"&gt;Carl Bergstrom and Jevin West, &lt;a href="https://callingbullshit.org/case_studies/case_study_musician_mortality.html"&gt;Calling Bullshit&lt;/a&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/div&gt;
-
-&lt;div class="font50"&gt;&lt;br&gt;&lt;br&gt;&lt;sup&gt;1&lt;/sup&gt;Die Autorin Dianna Kenny hat mit einer plausiblen Antwort reagiert und auf eine &lt;a href="http://dx.doi.org/10.21091/mppa.2016.1007"&gt;besser designte Studie verwiesen&lt;/a&gt;, deren Evidenz konsistent mit den ursprünglichen Mustern zu sein scheint.&lt;/div&gt;
-]
-
-.pull-right-center[
-&lt;div align="center"&gt;
-&lt;br&gt;
-&lt;b&gt;Inspector Lestrade:&lt;/b&gt;&lt;br&gt;
-&lt;img src="../pics/tikz/tikz-024.png" width=400&gt;
-&lt;br&gt;
-&lt;b&gt;Sherlock:&lt;/b&gt;&lt;br&gt;
-&lt;img src="../pics/tikz/tikz-025.png" width=400&gt;
-&lt;/div&gt;
-]
-
-
-
-
----
-# Diskussion in Gruppen
-
-.pull-left[
-## 5 Minuten in 2er-Teams
-
-- **Was ist Ihrer Meinung nach das Ziel der Visualisierung?**
-
-    - Was wollte der Designer vermitteln?
-    - Gelingt es ihm/ihr, die Botschaft zu vermitteln?
-
-
-- **Finden Sie irgendwelche grundlegenden Probleme mit der Visualisierung?**
-
-    - Ist dies die beste Art der Darstellung?
-    - Gibt es irgendwelche Merkmale, die den Betrachter in die Irre führen könnten?
-    
-
-- **Können Sie sich vorstellen, wie man die Visualisierung verbessern könnte?**
-
-]
-
-.pull-right[
-&lt;div align="center"&gt;
-&lt;br&gt;
-&lt;img src="../pics/d5-s2-fed-expenditure.png" width=500&gt;
-&lt;/div&gt;
-]
 
 
 
@@ -1214,9 +1000,9 @@ name: dashboards
 .pull-center[
 &lt;div align="center"&gt;
 &lt;br&gt;
-&lt;img src="../pics/london-dashboard.png" width="600"/&gt;
+&lt;img src="../pics/covid-dashboard-zeit.png" width="700"/&gt;
 &lt;/div&gt;
-`Credit` [idashboards.com](https://www.matillion.com/resources/blog/dashboard-examples-the-good-the-bad-and-the-ugly)
+`Quelle` [ZEIT Online](https://www.zeit.de/wissen/corona-karte-deutschland-aktuelle-zahlen-landkreise)
 ]
 
 
@@ -1249,13 +1035,13 @@ name: dashboards
 ---
 # Durchdachte Gestaltung und Nutzung des Dashboards
 
-.footnote[&lt;sup&gt;1&lt;/sup&gt;Quelle: [Stephen Few/Perceptual Edge](http://perceptualedge.com/articles/misc/Dashboard_Design_Requirements_Questionnaire.pdf)
+.footnote[`Quelle` [Stephen Few/Perceptual Edge](http://perceptualedge.com/articles/misc/Dashboard_Design_Requirements_Questionnaire.pdf)
 ]
 
 .pull-left[
-## Checkliste&lt;sup&gt;1&lt;/sup&gt;
+## Checkliste
 
-1. Geht es um ein Monitoring, bei dem Ihre Daten/Metriken häufig aktualisiert werden müssen?
+1. Geht es um ein Monitoring, bei dem Eure Daten/Metriken häufig aktualisiert werden müssen?
 
 2. Wer wird das Dashboard nutzen und zu welchem Zweck? Welche Fragen sollen damit beantwortet werden? Welche Maßnahmen werden sie als Reaktion auf diese Antworten ergreifen?
 
@@ -1268,57 +1054,245 @@ name: dashboards
 .pull-right[
 ## Design-Hinweise
 
-- Minimieren Sie Ablenkungen.
-- Konzentrieren Sie sich auf sinnvolle KPIs, nicht auf solche, die interessant aussehen.
-- Überladen Sie das Dashboard nicht mit Informationen.
-- Wenden Sie alle Regeln guter Visualisierung an.
-- Verwenden Sie interaktive Elemente mit Bedacht (z. B. um optionale Inhalte bedingt sichtbar zu machen).
+- Minimiert Ablenkungen.
+- Konzentriert Euch auf sinnvolle KPIs, nicht auf solche, die interessant aussehen.
+- Überladet das Dashboard nicht mit Informationen.
+- Wendet alle Regeln guter Visualisierung an.
+- Verwendet interaktive Elemente mit Bedacht (z. B. um optionale Inhalte bedingt sichtbar zu machen).
 - Idealerweise ist alles Wesentliche auf einem Bildschirm sichtbar (auch auf Smartphones?).
 ]
 
 
-
+&lt;!-- ############################################ --&gt;
 ---
-# Dashboards in freier Wildbahn: COVID-19-Edition
+class: inverse, center, middle
+name: dashboardsverwaltung
 
-.pull-left-center[
-&lt;div align="center"&gt;
-&lt;img src="../pics/covid-dashboard-nyt2.png" width="500"/&gt;
-&lt;/div&gt;
-`Quelle` [NY Times](https://www.nytimes.com/interactive/2021/us/covid-cases-deaths-tracker.html
-)
-]
-
---
-
-.pull-right-center[
-&lt;div align="center"&gt;
-&lt;br&gt;
-&lt;img src="../pics/covid-dashboard-owid.png" width="600"/&gt;
-&lt;/div&gt;
-`Quelle` [Our World in Data](https://ourworldindata.org/explorers/coronavirus-data-explorer?zoomToSelection=true)
-]
+# Dashboards in der Verwaltung
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
 
 
 ---
-# Dashboards in freier Wildbahn: COVID-19-Edition
+# Dashboards in freier Wildbahn: Verwaltungsedition (1/3)
 
-.pull-left-small-center[
+.pull-left-wide2[
 &lt;div align="center"&gt;
-&lt;br&gt;
-&lt;img src="../pics/covid-dashboard-sz.png" width="250"/&gt;
+&lt;img src="../pics/dashboard-konjunktur-2026.png" width="100%" style="border:1px solid #ccc;"&gt;
 &lt;/div&gt;
-`Quelle` [SZ Online](https://www.sueddeutsche.de/wissen/corona-zahlen-1.4844448)
+.font80[`Quelle` [Dashboard Konjunktur, Statistisches Bundesamt](https://www.dashboard-konjunktur.de/), Screenshot vom 23.10.2026]
 ]
 
---
+.pull-right-small2[
+.font90[
+## Dashboard Deutschland
 
-.pull-right-wide-center[
+- Seit Dezember 2020 betreibt Destatis das [Dashboard Deutschland](https://www.dashboard-deutschland.de/), seit 2026 geteilt in **Konjunktur** und **Integration**.
+- Rund 100 interaktive Grafiken, viele Indikatoren **täglich** aktualisiert (Ölpreis, Kraftstoffpreise, Lkw-Maut-Fahrleistung), ergänzt um externe Quellen.
+- Jede Kachel verlinkt auf die Rohdaten in GENESIS.
+- Zielgruppe: Öffentlichkeit, Presse, Politik
+]
+]
+
+
+---
+# Dashboards in freier Wildbahn: Verwaltungsedition (2/3)
+
+.pull-left-wide2[
 &lt;div align="center"&gt;
-&lt;br&gt;
-&lt;img src="../pics/covid-dashboard-zeit.png" width="700"/&gt;
+&lt;img src="../pics/dashboard-digitale-verwaltung-2026.png" width="100%" style="border:1px solid #ccc;"&gt;
 &lt;/div&gt;
-`Quelle` [ZEIT Online](https://www.zeit.de/wissen/corona-karte-deutschland-aktuelle-zahlen-landkreise)
+.font80[`Quelle` [Dashboard Digitale Verwaltung, BMDS](https://dashboard.digitale-verwaltung.de/), Screenshot vom 23.10.2026]
+]
+
+.pull-right-small2[
+.font90[
+## Dashboard Digitale Verwaltung
+
+- Nachfolger des [OZG-Dashboards](https://www.bmi.bund.de/SharedDocs/pressemitteilungen/DE/2022/05/ozg-dashboard.html), betrieben vom Digitalministerium: **Verfügbarkeit, Nutzung und Qualität** von Onlinediensten je Land und Kreis.
+- Datenbasis ist der Portalverbund Online-Gateway (PVOG), gepflegt von Bund und Ländern; Rohdaten zum Download, offene Schnittstelle.
+- Ein Dashboard als **Rechenschaftsinstrument**: Es erzeugt ein Länderranking, auf das sich Rechnungshöfe und Presse beziehen.]
+]
+
+
+---
+# Dashboards in freier Wildbahn: Verwaltungsedition (3/3)
+
+.pull-left-wide2[
+&lt;div align="center"&gt;
+&lt;img src="../pics/dashboard-infektionsradar-2026.png" width="100%" style="border:1px solid #ccc;"&gt;
+&lt;/div&gt;
+.font80[`Quelle` [Infektionsradar, Robert Koch-Institut](https://infektionsradar.rki.de/), Screenshot vom 23.10.2026]
+]
+
+.pull-right-small2[
+.font90[
+## Infektionsradar (RKI)
+
+- Nachfolger des COVID-19-Dashboards, das 2020 bis 2023 täglich Millionen Aufrufe hatte.
+- Drei Indikatorgruppen statt einer Zahl: **Infektionsgeschehen, Krankheitsschwere, Belastung des Gesundheitssystems**, jeweils mit Trendpfeil.
+- Der Kontext ist eingebaut: „Wie wird die Infektionslage bestimmt?“ steht direkt neben den Zahlen.
+
+️✎ Lehre aus der Pandemie: Eine einzelne Kennzahl (7-Tage-Inzidenz) wurde zur Steuerungsgröße mit Rechtsfolgen. Heute: mehrere Indikatoren, erklärt.
+]
+]
+
+---
+# Governance von Dashboards
+
+.pull-left[
+.font90[
+## Jede Kennzahl braucht einen Steckbrief
+
+- **Definition und Berechnung**: Was genau wird gezählt, was nicht? (Beispiel OZG: Leistungsbündel, Reifegrade, „in mindestens einer Kommune verfügbar“.)
+- **Quelle und Aktualisierung**: Woher kommen die Daten, wer pflegt sie, wie oft? Was passiert, wenn die Lieferung ausbleibt?
+- **Verantwortliche Person** je Kennzahl, nicht je Dashboard.
+- **Änderungsprotokoll**: Wenn sich Zählweise oder Modell ändern (OZG: neues Reifegradmodell, [IT-PLR 2025/25](https://www.it-planungsrat.de/beschluss/beschluss-2025-25)), muss das im Dashboard stehen, sonst vergleicht man Äpfel mit Birnen.
+]
+]
+
+.pull-right[
+.font90[
+## Außerdem zu bedenken
+
+- **Barrierefreiheit**: Öffentliche Stellen müssen digitale Angebote nach [BITV 2.0](https://www.gesetze-im-internet.de/bitv_2_0/) barrierefrei gestalten. Farbkodierte Karten ohne Alternativtext fallen durch.
+- **Datenschutz**: Kleine Fallzahlen auf Kreisebene können Personen identifizierbar machen. Zu beachten bei Aggregation und Schwellenwerten.
+- **Transparenz**: Rohdaten und Methodik veröffentlichen (wie das Dashboard Digitale Verwaltung).
+- **Lebenszyklus**: Wer schaltet das Dashboard ab, wenn niemand mehr hinschaut?
+]
+]
+
+
+---
+# Governance durch Dashboards: Steuern nach Zahlen
+
+.pull-left[
+.font90[
+## Dashboards steuern, ob man will oder nicht
+
+- Der **Sächsische Rechnungshof** stellte 2026 fest: Sachsen lag im Dashboard des Bundes mit 995 online verfügbaren Leistungen auf dem vorletzten Platz. Wie viele davon OZG-konform sind, „ist aus dem Dashboard des Bundes nicht ersichtlich“ ([SRH, Jahresbericht 2026](https://www.rechnungshof.sachsen.de/JB2026-B1_OZG.pdf)).
+- Schon 2022 warf der **Bundesrechnungshof** dem Innenministerium vor, das OZG-Dashboard beschönige: Ein Leistungsbündel galt als digital, sobald die am weitesten digitalisierte Teilleistung online war ([netzpolitik.org](https://netzpolitik.org/2022/onlinezugangsgesetz-bundesrechnungshof-wirft-innenministerium-beschoenigung-vor/)).
+- 2021 knüpfte die „Bundesnotbremse“ ([§ 28b IfSG a.F.](https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/2022/03/rk20220323_1bvr129521.html)) nächtliche Ausgangsbeschränkungen (ab Inzidenz 100) und Schulschließungen (ab 165) automatisch an die **7-Tage-Inzidenz** eines Landkreises. Eine Dashboard-Kennzahl wurde zum Tatbestandsmerkmal.
+]
+]
+
+.pull-right[
+.font90[
+## Was daraus folgt
+
+- **Goodharts Gesetz** gilt auch für Behörden: Wird eine Kennzahl zum Ziel, wird sie optimiert, nicht das Problem dahinter.
+- **Rankings erzeugen Druck**, aber keine Erklärung. Wer ein Dashboard zur Steuerung nutzt, muss die Mechanik der Zahl verstehen und sie den Gesteuerten erklären.
+- **Interne Steuerung braucht andere Dashboards als öffentliche Rechenschaft.** Berlin baut mit D:ASH (rund 150 Kennzahlen zu den Bürgerämtern, Senatskanzlei mit Amt für Statistik) ein internes Steuerungsinstrument, kein Schaufenster ([AfS Berlin-Brandenburg](https://www.statistik-berlin-brandenburg.de/publikationen/fachgespraech/2022/senatskanzlei)).
+- **Steuerungszahlen vorab festlegen**, mit Zielwert, Toleranz und Reaktionsplan. Sonst entscheidet das Dashboard, worüber gesprochen wird.
+]
+]
+
+
+---
+# Womit bauen? Eine Landkarte der Werkzeuge
+
+&lt;table style="width:100%; table-layout:fixed; border-collapse:collapse; font-size:12px; line-height:1.3;"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style="border:1px solid #ccc; padding:5px 6px; text-align:left; width:13%;"&gt;Zweck&lt;/th&gt;
+      &lt;th style="border:1px solid #ccc; padding:5px 6px; text-align:left; width:22%;"&gt;Werkzeuge&lt;/th&gt;
+      &lt;th style="border:1px solid #ccc; padding:5px 6px; text-align:left; width:19%;"&gt;Lizenz / Kosten&lt;/th&gt;
+      &lt;th style="border:1px solid #ccc; padding:5px 6px; text-align:left; width:25%;"&gt;Eignung für die Verwaltung&lt;/th&gt;
+      &lt;th style="border:1px solid #ccc; padding:5px 6px; text-align:left;"&gt;Wann passend&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style="border:1px solid #ccc; padding:5px 6px; vertical-align:top;"&gt;&lt;b&gt;Interne Kennzahlen&lt;/b&gt;&lt;br&gt;(BI-Plattform)&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:5px 6px; vertical-align:top;"&gt;&lt;a href="https://www.microsoft.com/power-platform/products/power-bi" target="_blank"&gt;Power BI&lt;/a&gt;, &lt;a href="https://www.tableau.com/" target="_blank"&gt;Tableau&lt;/a&gt;; Open Source: &lt;a href="https://www.metabase.com/" target="_blank"&gt;Metabase&lt;/a&gt;, &lt;a href="https://superset.apache.org/" target="_blank"&gt;Apache Superset&lt;/a&gt;&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:5px 6px; vertical-align:top;"&gt;Power BI, Tableau: proprietär, Lizenz je Nutzer. Metabase: AGPL (Open Source) oder kostenpflichtige Pro-Version. Superset: Apache 2.0&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:5px 6px; vertical-align:top;"&gt;Hoch. Power BI dort, wo Microsoft 365 ohnehin läuft; Metabase/Superset, wenn digitale Souveränität zählt und der IT-Dienstleister betreibt&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:5px 6px; vertical-align:top;"&gt;Viele Nutzer, Rechte- und Rollenkonzept, direkte Anbindung an die Datenbanken des Hauses&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style="border:1px solid #ccc; padding:5px 6px; vertical-align:top;"&gt;&lt;b&gt;Öffentliche Dashboards&lt;/b&gt;&lt;br&gt;(Website, Presse)&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:5px 6px; vertical-align:top;"&gt;&lt;a href="https://www.datawrapper.de/" target="_blank"&gt;Datawrapper&lt;/a&gt; (Einzelgrafiken zum Einbetten), &lt;a href="https://observablehq.com/framework/" target="_blank"&gt;Observable Framework&lt;/a&gt;, &lt;a href="https://evidence.dev/" target="_blank"&gt;Evidence&lt;/a&gt; (Dashboards als statische Websites)&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:5px 6px; vertical-align:top;"&gt;Datawrapper: Cloud-Dienst aus Berlin, kostenlose Stufe, Team-Tarife. Observable Framework: ISC, Evidence: MIT (beide Open Source)&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:5px 6px; vertical-align:top;"&gt;Hoch für Öffentlichkeitsarbeit. Datawrapper erfüllt WCAG, aber die Daten liegen beim Anbieter: nur aggregierte, veröffentlichungsreife Daten hochladen. Statische Seiten laufen auf jedem Webserver&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:5px 6px; vertical-align:top;"&gt;Wenige Grafiken, hohe Zugriffszahlen, Barrierefreiheit Pflicht&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style="border:1px solid #ccc; padding:5px 6px; vertical-align:top;"&gt;&lt;b&gt;Analyse-Teams&lt;/b&gt;&lt;br&gt;(Code)&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:5px 6px; vertical-align:top;"&gt;&lt;a href="https://streamlit.io/" target="_blank"&gt;Streamlit&lt;/a&gt;, &lt;a href="https://dash.plotly.com/" target="_blank"&gt;Dash&lt;/a&gt; (Python); &lt;a href="https://shiny.posit.co/" target="_blank"&gt;Shiny&lt;/a&gt; (R und Python)&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:5px 6px; vertical-align:top;"&gt;Streamlit: Apache 2.0. Dash: MIT. Shiny: GPL-3 (R) bzw. MIT (Python). Hosting-Produkte (Posit Connect) kostenpflichtig&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:5px 6px; vertical-align:top;"&gt;Gut für Statistikstellen und Datenteams. Braucht einen Server mit Python oder R; Betrieb und Updates müssen im Haus oder beim Dienstleister geklärt sein&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:5px 6px; vertical-align:top;"&gt;Prototypen, explorative Werkzeuge, Modelle hinter dem Dashboard&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style="border:1px solid #ccc; padding:5px 6px; vertical-align:top;"&gt;&lt;b&gt;Betrieb und Technik&lt;/b&gt;&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:5px 6px; vertical-align:top;"&gt;&lt;a href="https://grafana.com/" target="_blank"&gt;Grafana&lt;/a&gt;&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:5px 6px; vertical-align:top;"&gt;AGPL (Open Source); Enterprise- und Cloud-Varianten kostenpflichtig&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:5px 6px; vertical-align:top;"&gt;Standard in IT-Betrieb und Rechenzentren; für Fachkennzahlen und Außendarstellung ungeeignet&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:5px 6px; vertical-align:top;"&gt;Zeitreihen aus Systemen: Antragsvolumen pro Stunde, Verfügbarkeit von Onlinediensten&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style="border:1px solid #ccc; padding:5px 6px; vertical-align:top;"&gt;&lt;b&gt;Darunter: Daten und Hosting&lt;/b&gt;&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:5px 6px; vertical-align:top;"&gt;&lt;a href="https://www.postgresql.org/" target="_blank"&gt;PostgreSQL&lt;/a&gt;, &lt;a href="https://duckdb.org/" target="_blank"&gt;DuckDB&lt;/a&gt;, Parquet/CSV; eigenes Rechenzentrum, IT-Dienstleister oder &lt;a href="https://www.deutsche-verwaltungscloud.de/" target="_blank"&gt;Deutsche Verwaltungscloud&lt;/a&gt;; Code über &lt;a href="https://opencode.de/" target="_blank"&gt;Open CoDE&lt;/a&gt;&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:5px 6px; vertical-align:top;"&gt;PostgreSQL: PostgreSQL-Lizenz, DuckDB: MIT (beide Open Source). Open CoDE: Plattform der Verwaltung für offenen Code&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:5px 6px; vertical-align:top;"&gt;Sehr hoch. Offene Formate und Open-Source-Datenbanken sind Teil des Deutschland-Stacks; Code auf Open CoDE kann von anderen Behörden nachgenutzt werden&lt;/td&gt;
+      &lt;td style="border:1px solid #ccc; padding:5px 6px; vertical-align:top;"&gt;Das Dashboard ist die Spitze. Ohne saubere Datenquelle mit klarer Zuständigkeit ist jedes Werkzeug gleich schlecht&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+
+---
+# Faustregeln für die Werkzeugwahl
+
+.pull-left[
+.font90[
+## Vier Fragen vor der Entscheidung
+
+1. **Wer schaut drauf?** Intern mit Anmeldung oder öffentlich? Zehn Personen oder zehntausend?
+2. **Woher kommen die Daten?** Live aus einer Datenbank oder monatlich als CSV? Das entscheidet, ob Ihr eine BI-Plattform braucht oder eine statische Seite reicht.
+3. **Wer pflegt es in zwei Jahren?** Das Werkzeug, das Euer Team kennt, schlägt das bessere Werkzeug, das niemand kennt.
+4. **Was darf es kosten, was muss es dürfen?** Lizenzen pro Nutzer summieren sich; Open Source kostet Betrieb; Cloud-Dienste brauchen eine Datenschutzprüfung.
+]
+]
+
+.pull-right[
+.font90[
+## Typische Antworten
+
+- **Kleines Team, Microsoft-Umgebung**: Power BI. Ist meist schon lizenziert, Intranet-Veröffentlichung inklusive.
+- **Open Source gewünscht, Daten in einer Datenbank**: Metabase zum Start, Superset bei Wachstum.
+- **Zahlen für die Öffentlichkeit**: Datawrapper für Grafiken im Web-Auftritt; Observable oder Evidence, wenn es ein ganzes Dashboard sein soll.
+- **Daten- oder Statistikteam**: Streamlit oder Shiny für alles, was Analyse enthält.
+- **Egal welches Werkzeug**: Rohdaten und Methodik daneben veröffentlichen.
+]
+]
+
+
+---
+# Bauen ist billig geworden. Daten und Pflege nicht.
+
+.pull-left[
+.font90[
+## Was sich geändert hat
+
+- Mit Coding-Assistenten wie [Claude Code](https://claude.com/product/claude-code), [Codex](https://openai.com/codex/) oder [Cursor](https://cursor.com/) entsteht aus einer CSV-Datei und einer Beschreibung in **Stunden** ein funktionierendes Dashboard, mit Filtern, Karten und Export.
+- Das gilt für alle Werkzeuge der Landkarte: Die Assistenten kennen Streamlit, Shiny, Observable und SQL besser als die meisten Teams.
+- Der Prototyp ist damit kein Projekt mehr, sondern ein Nachmittag. Das verschiebt die Frage von „Können wir das?“ zu „Sollten wir das, und wer kümmert sich danach?“
+
+️✎ Vorsicht bleibt: Generierter Code braucht Review, und echte Verwaltungsdaten gehören nicht ungeprüft in einen Cloud-Assistenten.
+]
+]
+
+.pull-right[
+.font90[
+## Wo die Ressourcen jetzt hingehören
+
+- **Daten**: Zugang, Definitionen, Qualität, Zuständigkeit (Sessions 3 und 5). Das Dashboard zeigt nur, was die Datenquelle hergibt.
+- **Pflege**: Schnittstellen ändern sich, Zählweisen auch. Wer aktualisiert, wer prüft, wer schaltet ab? Ein Dashboard ohne Betriebskonzept ist eine Altlast mit Verzögerung.
+- **Design, das den Nutzern dient**: Welche Entscheidung soll jemand damit treffen? Mit drei echten Nutzern testen schlägt jede Designregel.
+- **Betrieb und Sicherheit**: Hosting, Zugriffsrechte, Barrierefreiheit, Datenschutz.
+
+️✎ Faustregel: Ein Zehntel des Aufwands für den Bau, der Rest für Daten, Pflege und Nutzer.
+]
 ]
 
 

@@ -1,0 +1,290 @@
+---
+title: "Praxis-Session I: Web Scraping"
+subtitle: "Daten aus Behörden-Webseiten holen, am Beispiel des Berliner Serviceportals"
+author: "Simon Munzert, Hertie School"
+date: "Modul 2, Session 4"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 2
+    number_sections: true
+    code_download: true
+    theme: flatly
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, cache = FALSE)
+```
+
+# Worum es geht
+
+Viele Daten, die Ihr braucht, liegen nicht als Tabelle vor, sondern **auf einer Webseite**: Gebührenverzeichnisse, Zuständigkeiten, Ausschreibungen, Pressemitteilungen, Rechtsgrundlagen. Web Scraping heißt: Ein Programm ruft diese Seiten auf, wie ein Browser es tun würde, und zieht die gewünschten Informationen heraus.
+
+Wir arbeiten mit dem **Berliner Serviceportal** ([service.berlin.de](https://service.berlin.de/dienstleistungen/)). Dort sind über 1.100 Verwaltungsdienstleistungen beschrieben, jede nach demselben Muster: Voraussetzungen, Unterlagen, Gebühren, Bearbeitungszeit, Rechtsgrundlagen. Genau diese Gleichförmigkeit macht die Seite scrapebar.
+
+**Was Ihr am Ende könnt:**
+
+1. Eine Webseite in R laden und verstehen, dass sie nur Text ist.
+2. Einzelne Elemente (Überschrift, Gebühren, Links) gezielt herausholen.
+3. Das für viele Seiten automatisieren und eine Tabelle daraus bauen.
+4. Einschätzen, wann Scraping sinnvoll ist, und wann nicht.
+
+**Was Ihr braucht:** R mit den Paketen `rvest` und `tidyverse`. Programmierkenntnisse werden nicht vorausgesetzt. Die Codeblöcke könnt Ihr nacheinander ausführen und verändern.
+
+```{r packages}
+library(rvest)      # Webseiten auslesen
+library(httr2)      # Webseiten abrufen
+library(tidyverse)  # Daten verarbeiten
+library(robotstxt)  # prüfen, was eine Seite erlaubt
+```
+
+Eine Höflichkeitsregel vorweg: Wir sagen der Webseite, **wer wir sind**. Das verlangt das Berliner Portal in seiner `robots.txt` ausdrücklich. Dazu setzen wir einen sogenannten User-Agent, eine Art Absenderkennung, und bauen uns eine kleine Ladefunktion, die ihn bei jedem Abruf mitschickt.
+
+```{r user-agent}
+mein_ua <- "Hertie-School-Datenkurs (munzert@hertie-school.org)"
+
+lade_seite <- function(url) {
+  request(url) |>
+    req_user_agent(mein_ua) |>
+    req_perform() |>
+    resp_body_html()
+}
+```
+
+
+# Eine Webseite ist nur Text
+
+Nehmen wir die Dienstleistung **„Wohnsitz anmelden“**. Im Browser sieht das so aus: <https://service.berlin.de/dienstleistung/120686/>
+
+In R laden wir dieselbe Seite:
+
+```{r load-page}
+url <- "https://service.berlin.de/dienstleistung/120686/"
+seite <- lade_seite(url)
+seite
+```
+
+Was wir bekommen, ist das **HTML-Dokument**: der Text, aus dem der Browser die Seite zeichnet. HTML besteht aus **Tags** in spitzen Klammern, die den Inhalt strukturieren. Ein Ausschnitt dessen, was der Browser bekommt:
+
+```{r raw-html}
+seite |> as.character() |> substr(1, 600) |> cat()
+```
+
+Das ist unübersichtlich, aber es enthält eine Struktur. Wer sie im Browser sehen will: Rechtsklick auf ein Element, „Untersuchen“ (Chrome, Edge, Firefox). Dort seht Ihr für jedes Element den Tag (etwa `h1`, `p`, `a`, `div`) und oft eine `class` oder `id`.
+
+Die Überschrift der Seite steckt in einem `<h1>`-Tag:
+
+```{r h1}
+seite |> html_element("h1") |> html_text2()
+```
+
+`html_element("h1")` sucht das erste `h1`-Element, `html_text2()` gibt den Text ohne Tags zurück. Das ist der ganze Trick, alles Weitere ist Variation.
+
+
+# Gezielt Elemente herausholen
+
+## Mit CSS-Selektoren navigieren
+
+Um ein bestimmtes Element zu treffen, nutzen wir **CSS-Selektoren**, dieselbe Sprache, mit der Webdesigner Seiten gestalten. Die wichtigsten Muster:
+
+| Selektor | Bedeutung | Beispiel |
+|---|---|---|
+| `h1` | alle `h1`-Tags | Überschrift |
+| `.title` | alle Elemente mit `class="title"` | `h1.title` |
+| `#gebuehren` | das Element mit `id="gebuehren"` | der Gebühren-Block |
+| `#gebuehren p` | alle `p` **innerhalb** von `#gebuehren` | der Gebührentext |
+| `a` | alle Links | `html_attr("href")` holt die Adresse |
+
+Auf der Berliner Seite hat jeder Abschnitt einen eigenen Block mit einer `id`. Das erkennt man im Inspektor, zum Beispiel `<div class="block" id="gebuehren">`. Damit:
+
+```{r blocks}
+seite |> html_element("#gebuehren p") |> html_text2()
+seite |> html_element("#bearbeitungszeit p") |> html_text2()
+```
+
+Die erforderlichen Unterlagen stehen als Liste (`li`-Elemente) im Block `#unterlagen`. Mit `html_elements()` (Plural) bekommen wir **alle** Treffer:
+
+```{r unterlagen}
+seite |> html_elements("#unterlagen > ul > li") |> html_text2()
+```
+
+Das `>` bedeutet „direktes Kind“: Wir wollen nur die Hauptpunkte, nicht die eingerückten Unterlisten.
+
+## Links auslesen
+
+Rechtsgrundlagen sind Links auf [gesetze-im-internet.de](https://www.gesetze-im-internet.de/). Text und Adresse holen wir getrennt:
+
+```{r rechtsgrundlagen}
+rg <- seite |> html_elements("#rechtsgrundlagen a")
+tibble(
+  gesetz = rg |> html_text2(),
+  link   = rg |> html_attr("href")
+)
+```
+
+## Aufgabe 1
+
+Ändert die URL auf eine andere Dienstleistung aus der [A–Z-Liste](https://service.berlin.de/dienstleistungen/), etwa die Gewerbeanmeldung (<https://service.berlin.de/dienstleistung/121921/>), und holt Gebühren, Bearbeitungszeit und Rechtsgrundlagen. Was passiert, wenn ein Block auf der Seite nicht existiert?
+
+
+# Vom Einzelfall zur Tabelle
+
+## Eine Funktion schreiben
+
+Alles, was wir für eine Seite tun, packen wir in eine **Funktion**: URL rein, eine Tabellenzeile raus. So lässt es sich auf beliebig viele Seiten anwenden.
+
+```{r function}
+hole_dienstleistung <- function(url) {
+  seite <- lade_seite(url)
+  text_von <- function(selektor) {
+    el <- html_element(seite, selektor)
+    if (inherits(el, "xml_missing")) NA_character_ else html_text2(el)
+  }
+  tibble(
+    titel            = text_von("h1"),
+    gebuehren        = text_von("#gebuehren p"),
+    bearbeitungszeit = text_von("#bearbeitungszeit p"),
+    n_unterlagen     = length(html_elements(seite, "#unterlagen > ul > li")),
+    online           = !inherits(html_element(seite, "#Online-Abwicklung"), "xml_missing"),
+    rechtsgrundlagen = html_elements(seite, "#rechtsgrundlagen a") |> html_text2() |> paste(collapse = " | "),
+    url              = url
+  )
+}
+
+hole_dienstleistung("https://service.berlin.de/dienstleistung/120686/")
+```
+
+Zwei Details lohnen den Blick: `text_von()` fängt den Fall ab, dass ein Block fehlt (sonst bricht der Code ab), und `online` prüft nur, **ob** es einen Abschnitt „Online-Abwicklung“ gibt.
+
+## Die Liste aller Dienstleistungen
+
+Woher kommen die URLs? Von der A–Z-Übersicht. Dort sind alle Dienstleistungen verlinkt, und jeder Link hat dasselbe Muster `/dienstleistung/ZAHL/`:
+
+```{r list}
+liste <- lade_seite("https://service.berlin.de/dienstleistungen/")
+alle <- tibble(
+  titel = liste |> html_elements("a[href*='/dienstleistung/']") |> html_text2(),
+  url   = liste |> html_elements("a[href*='/dienstleistung/']") |> html_attr("href")
+) |>
+  distinct(url, .keep_all = TRUE)
+
+nrow(alle)
+head(alle, 10)
+```
+
+`a[href*='/dienstleistung/']` heißt: alle Links, deren Adresse `/dienstleistung/` enthält. Über 1.100 Treffer.
+
+## Viele Seiten abrufen
+
+Wir holen jetzt nicht alle 1.100 Seiten (das dauert und belastet den Server), sondern eine **thematische Auswahl**: alles, was mit Gewerbe zu tun hat.
+
+```{r gewerbe}
+gewerbe <- alle |> filter(str_detect(titel, "^Gewerbe"))
+gewerbe
+```
+
+Wir rufen jede Seite auf, mit einer kurzen Pause dazwischen. Das ist die zweite Höflichkeitsregel: **nicht schneller anfragen als ein Mensch klicken könnte**.
+
+```{r loop}
+ergebnis <- gewerbe$url |>
+  map(\(u) { Sys.sleep(0.5); hole_dienstleistung(u) }) |>
+  list_rbind()
+
+ergebnis |> select(titel, gebuehren, bearbeitungszeit, n_unterlagen, online)
+```
+
+## Auswerten
+
+Jetzt sind es Daten wie jede andere Tabelle:
+
+```{r analyse}
+ergebnis |>
+  summarise(
+    dienstleistungen      = n(),
+    anteil_online         = mean(online),
+    unterlagen_im_schnitt = mean(n_unterlagen),
+    gebuehrenfrei         = sum(str_detect(gebuehren, regex("keine|gebührenfrei|kostenlos", ignore_case = TRUE)), na.rm = TRUE)
+  )
+```
+
+Welche Gesetze werden am häufigsten als Rechtsgrundlage genannt?
+
+```{r gesetze}
+ergebnis |>
+  separate_longer_delim(rechtsgrundlagen, delim = " | ") |>
+  mutate(gesetz = str_extract(rechtsgrundlagen, "^[^§]+") |> str_trim()) |>
+  count(gesetz, sort = TRUE) |>
+  head(10)
+```
+
+## Aufgabe 2
+
+Ersetzt `"^Gewerbe"` durch ein anderes Muster, etwa `"Wohn"`, `"Kinder"` oder `"Führerschein"`. Wie unterscheiden sich die Bereiche in Bearbeitungszeit und Online-Angebot? Haltet die Auswahl bei etwa 10 bis 30 Seiten.
+
+
+# Weiterklicken: vom Portal ins Gesetz
+
+Scraping wird mächtig, wenn man **Links folgt**. Die Rechtsgrundlagen verweisen auf gesetze-im-internet.de. Auch diese Seiten sind gleichförmig aufgebaut, der Normtext steht in einem `div` der Klasse `jnhtml`:
+
+```{r gesetz}
+bmg17 <- lade_seite("https://www.gesetze-im-internet.de/bmg/__17.html")
+bmg17 |> html_element("h1") |> html_text2()
+bmg17 |> html_element("div.jnhtml") |> html_text2() |> str_trunc(600)
+```
+
+Und das Inhaltsverzeichnis eines ganzen Gesetzes, hier das Bundesmeldegesetz, ist eine Tabelle mit Links:
+
+```{r inhaltsverzeichnis}
+bmg <- lade_seite("https://www.gesetze-im-internet.de/bmg/index.html")
+tibble(
+  norm = bmg |> html_elements("a[href^='__']") |> html_text2(),
+  link = bmg |> html_elements("a[href^='__']") |> html_attr("href")
+) |>
+  mutate(link = paste0("https://www.gesetze-im-internet.de/bmg/", link)) |>
+  head(10)
+```
+
+## Aufgabe 3
+
+Nehmt die erste Rechtsgrundlage aus Eurer Tabelle `ergebnis` und holt den Normtext. Tipp: Die Links stehen in der Funktion noch nicht drin, Ihr müsst `hole_dienstleistung()` um ein Feld `rechtsgrundlagen_links` erweitern (`html_attr("href")`).
+
+
+# Regeln und Grenzen
+
+## Darf man das?
+
+- **robots.txt**: Fast jede Webseite hat unter `/robots.txt` eine Datei, in der steht, welche Bereiche automatisiert abgerufen werden dürfen. Das ist keine Rechtsnorm, aber die Konvention, an die sich seriöse Programme halten.
+
+```{r robots}
+paths_allowed("https://service.berlin.de/dienstleistungen/", user_agent = mein_ua)
+paths_allowed("https://service.berlin.de/terminvereinbarung/", user_agent = mein_ua)
+```
+
+- **Nutzungsbedingungen** der Seite lesen. Das Berliner Portal erlaubt automatisierte Abrufe, verlangt aber eine Kennung im User-Agent und behält sich Sperren vor.
+- **Nicht überlasten**: Pausen zwischen Anfragen, keine Parallelität, nur holen, was gebraucht wird.
+- **Urheberrecht und Datenschutz**: Verwaltungsinformationen wie Gebühren sind unproblematisch. Bei Texten Dritter (Pressemitteilungen, Zeitungen) und erst recht bei personenbezogenen Daten gelten andere Regeln. Für die eigene Analyse ist das meiste erlaubt (§ 44b UrhG, Text und Data Mining), für die Weiterveröffentlichung nicht.
+
+## Wann Scraping nicht funktioniert
+
+- **Dynamische Seiten**: Viele moderne Seiten laden ihre Inhalte erst per JavaScript nach. Unser Lader sieht dann nur ein leeres Gerüst. Beispiel: die Liste der Pressemitteilungen bei Destatis. Dann braucht es einen gesteuerten Browser (Paket `chromote`) oder man findet die Datenquelle, die die Seite im Hintergrund abruft, meist eine API.
+- **Logins und Formulare**: Möglich, aber aufwendig und oft untersagt.
+- **Änderungen am Layout**: Wird die Seite umgebaut, bricht der Scraper. Scraping ist eine Lösung für Daten, die es **nur** so gibt, nicht für dauerhafte Datenflüsse.
+
+## Die bessere Alternative
+
+Wenn die Betreiberin der Seite die Daten auch **als Schnittstelle (API)** anbietet, ist das immer vorzuziehen: stabiler, schneller, erlaubt. Das Berliner Portal hat eine API für Termine (nicht öffentlich), viele Bundesbehörden haben offene APIs. Damit geht es im zweiten Skript weiter.
+
+
+# Zusammenfassung
+
+- Eine Webseite ist ein Textdokument mit Struktur (HTML). Diese Struktur lässt sich mit **CSS-Selektoren** ansprechen.
+- Der Dreischritt: laden (`lade_seite()`, im Kern `read_html()`), `html_element(s)()` finden, `html_text2()` oder `html_attr()` extrahieren.
+- Eine **Funktion** plus eine **Liste von URLs** macht aus Einzelabrufen eine Tabelle.
+- Höflichkeit und Regeln: Kennung setzen, `robots.txt` prüfen, Pausen einbauen, Nutzungsbedingungen lesen.
+- Scraping ist der Notnagel. Gibt es eine API, nehmt die API.
+
+```{r session-info, echo=FALSE}
+cat("Erstellt am", format(Sys.time(), "%d.%m.%Y %H:%M"), "mit R", getRversion() |> as.character(), "und rvest", packageVersion("rvest") |> as.character())
+```

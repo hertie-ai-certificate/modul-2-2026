@@ -1,0 +1,216 @@
+---
+title: "Praxis-Session II: Von Scans zu Tabellen"
+subtitle: "OCR, Sprachmodelle für Bereinigung und Klassifikation, saubere Ablage in CSVs"
+author: "Simon Munzert, Hertie School"
+date: "Modul 2, Session 7"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 2
+    number_sections: true
+    code_download: true
+    theme: flatly
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+options(width = 110)
+```
+
+# Worum es geht
+
+Im Bürgerservice einer Stadt gehen jeden Tag Schreiben ein: Beschwerden über Schlaglöcher, Lärm, nicht geleerte Tonnen, hin und wieder auch ein Lob. Viele kommen als Brief, Fax oder Foto. Bevor jemand sie bearbeiten kann, muss jemand sie lesen, dem richtigen Amt zuordnen und die Kerndaten erfassen: Wer schreibt, worum geht es, wo, wie dringend.
+
+Genau das bauen wir heute als **Datenpipeline** nach, in vier Schritten:
+
+1. **OCR**: Aus dem Scan wird Text (Optical Character Recognition, Texterkennung).
+2. **Bereinigen und strukturieren**: Ein Sprachmodell korrigiert OCR-Fehler und zieht die Kerndaten heraus.
+3. **Klassifizieren**: Das Sprachmodell ordnet jedes Schreiben einem Themenbereich und einer Dringlichkeit zu.
+4. **Ablegen und prüfen**: Jeder Schritt schreibt eine CSV-Datei in seinen eigenen Ordner. Am Ende vergleichen wir mit dem, was richtig gewesen wäre.
+
+**Was Ihr am Ende könnt:**
+
+- Einschätzen, was OCR leistet und woran es scheitert.
+- Einem Sprachmodell eine feste Antwortstruktur vorgeben, statt auf gutes Zureden zu hoffen.
+- Eine Pipeline so ablegen, dass jeder Schritt nachvollziehbar und wiederholbar ist.
+
+**Was Ihr braucht:** R mit den Paketen `tidyverse`, `tesseract`, `pdftools`, `magick` und `ellmer`. Für die Schritte 2 und 3 entweder einen API-Schlüssel eines Sprachmodell-Anbieters (Anthropic, OpenAI oder Google Gemini), gesetzt als Umgebungsvariable, oder ein lokal laufendes Open-Source-Modell über [Ollama](https://ollama.com) (siehe README). Ohne Schlüssel laufen Schritt 1 und die Auswertung der gespeicherten Ergebnisse.
+
+```{r pakete}
+source("R/pipeline.R")   # lädt die Pakete und alle Funktionen der Pipeline
+```
+
+# Die Rohdaten
+
+Acht erfundene Schreiben an die Stadt Musterstadt, erzeugt mit `erzeuge_rohdaten.R`: verschiedene Schriften (auch eine „Handschrift“), Formate (PNG, JPG, PDF), leicht schief gescannt, verrauscht. Dazu ein **Manifest** `dokumente.csv`: eine Zeile pro Dokument mit Dateiname und den Angaben, die wir am Ende als richtig ansehen (Goldstandard).
+
+```{r manifest}
+manifest <- read_csv("daten/01_rohdaten/dokumente.csv", show_col_types = FALSE)
+manifest |> select(id, datei, absender, datum, kategorie, dringlichkeit) |> knitr::kable()
+```
+
+So sieht ein Scan aus:
+
+```{r scan-beispiel, out.width="45%", fig.align="center"}
+als_bild("daten/01_rohdaten/A02_anliegen.jpg") |> image_resize("600x")
+```
+
+Ein Manifest ist eine gute Gewohnheit: Es sagt, was im Ordner liegt, woher es kommt und was man darüber weiß. Ohne Manifest ist ein Ordner mit 400 Scans nur ein Ordner mit 400 Scans.
+
+# Schritt 1: OCR
+
+Tesseract ist eine frei verfügbare Texterkennung, die lokal läuft. Die Daten verlassen den Rechner nicht, was im Verwaltungskontext oft die Voraussetzung ist. Die Alternativen sind Cloud-Dienste (Azure, Google, AWS) oder multimodale Sprachmodelle, die Bilder direkt lesen; sie sind meist besser bei Handschrift, dafür verlassen die Dokumente das Haus.
+
+Ein Bild wird in Graustufen umgewandelt, von Flecken befreit und in Schwarz-Weiß gebracht. Das klingt banal, macht aber bei verrauschten Scans den Unterschied:
+
+```{r ocr-vergleich, cache=TRUE}
+ohne <- ocr_dokument("daten/01_rohdaten/A02_anliegen.jpg", vorverarbeitung = FALSE)
+mit  <- ocr_dokument("daten/01_rohdaten/A02_anliegen.jpg", vorverarbeitung = TRUE)
+original <- read_csv("daten/01_rohdaten/originaltexte.csv", show_col_types = FALSE)
+
+tibble(variante = c("ohne Vorverarbeitung", "mit Vorverarbeitung"),
+       worttrefferquote = c(worttrefferquote(ohne, original$text[2]), worttrefferquote(mit, original$text[2]))) |>
+  knitr::kable(digits = 2)
+```
+
+```{r ocr-vergleich-text}
+cat(str_sub(ohne, 1, 500))
+cat("\n---\n")
+cat(str_sub(mit, 1, 500))
+```
+
+Jetzt alle acht Dokumente. Die Funktion `schritt_ocr()` schreibt pro Dokument eine Textdatei und eine Sammeltabelle nach `daten/02_ocr/`. Liegt die Tabelle schon vor, wird sie geladen statt neu berechnet.
+
+```{r ocr-alle}
+ocr <- schritt_ocr(manifest)
+
+ocr |>
+  left_join(original, by = "id") |>
+  mutate(worttrefferquote = map2_dbl(ocr_text, text, worttrefferquote)) |>
+  select(id, datei, ocr_zeichen, worttrefferquote) |>
+  knitr::kable(digits = 2)
+```
+
+Die Trefferquote sagt, wie viele Wörter des Originals im OCR-Text wiedergefunden werden. Sie sagt nicht, ob Zahlen stimmen: Aus „Rosenallee 18“ wurde „Rosenallee 1g“, und ein Datum wie „14.09.26“ muss später jemand deuten. Das ist die Arbeit für Schritt 2.
+
+```{r ocr-fehlerbeispiel}
+cat(ocr$ocr_text[ocr$id == "A07"])
+```
+
+# Schritt 2: Bereinigen und strukturieren mit einem Sprachmodell
+
+## Warum nicht einfach fragen?
+
+Man kann einem Sprachmodell den OCR-Text geben und sagen: „Mach mir daraus eine Tabelle.“ Das funktioniert, aber jedes Mal etwas anders: Mal kommt JSON, mal eine Aufzählung, mal fehlt ein Feld, mal heißt es „Absender“, mal „Name“. Für ein Protokoll reicht das, für eine Datenbank nicht.
+
+Die Lösung ist eine **feste Antwortstruktur** (structured output): Wir sagen dem Modell nicht nur, was wir wollen, sondern in welchen Feldern mit welchen Typen. Das Modell muss genau diese Felder liefern. In `R/pipeline.R` ist das so definiert:
+
+```{r typ-anzeigen, eval=FALSE}
+typ_struktur <- type_object(
+  "Kerndaten eines Bürgerschreibens",
+  absender         = type_string("Name der absendenden Person(en), wie im Schreiben"),
+  datum_iso        = type_string("Datum des Schreibens im Format JJJJ-MM-TT; leer, wenn nicht erkennbar"),
+  betroffener_ort  = type_string("Ort oder Adresse, auf die sich das Anliegen bezieht"),
+  zusammenfassung  = type_string("Das Anliegen in einem Satz, maximal 25 Wörter"),
+  # ...
+)
+```
+
+Jede Feldbeschreibung ist Teil des Prompts. Je präziser sie ist („Format JJJJ-MM-TT“, „leer, wenn nicht erkennbar“), desto weniger muss man hinterher nacharbeiten.
+
+## Der Lauf
+
+Wir nutzen das Paket `ellmer`, das für alle gängigen Anbieter dieselbe Schnittstelle bietet. Standard ist hier ein **lokal laufendes Open-Source-Modell** über Ollama: Die Schreiben verlassen den Rechner nicht, es fallen keine Kosten an, und es braucht keinen Schlüssel. Cloud-Modelle (Anthropic, OpenAI, Gemini) sind meist genauer, dafür wandern die Daten zu einem Anbieter. Der Anbieter ist eine Einstellung; ein Schlüssel käme aus der Umgebung, nie aus dem Code.
+
+```{r llm-setup}
+ANBIETER <- "ollama"   # lokal; oder "anthropic", "openai", "gemini" mit Schlüssel
+llm_ok <- llm_schluessel_vorhanden(ANBIETER)
+chat <- if (llm_ok) erzeuge_chat(ANBIETER, system_prompt = system_prompt_verwaltung) else NULL
+cat("Sprachmodell verfügbar:", llm_ok, "\n")
+```
+
+Zuerst lassen wir das Modell die OCR-Fehler korrigieren (und dabei sagen, wie sicher es sich ist), dann extrahieren wir aus dem bereinigten Text die Felder. Beides landet in `daten/03_strukturiert/`.
+
+```{r llm-strukturieren, eval=llm_ok || file.exists("daten/03_strukturiert/anliegen_strukturiert.csv")}
+strukturiert <- schritt_strukturieren(ocr, chat)
+
+strukturiert |>
+  select(id, ocr_qualitaet, absender, datum_iso, betroffener_ort, zusammenfassung) |>
+  knitr::kable()
+```
+
+```{r llm-unsicher, eval=exists("strukturiert")}
+strukturiert |> filter(unsichere_stellen != "") |> select(id, unsichere_stellen) |> knitr::kable()
+```
+
+Zwei Dinge lohnen den Blick: Was hat das Modell als unsicher markiert, und stimmen die Daten, die es „bereinigt“ hat, mit dem Scan überein? Ein Sprachmodell korrigiert plausibel, nicht unbedingt richtig. Aus „Rosenallee 1g“ hat unser lokales Modell „Rosenallee 12“ gemacht: eine saubere Hausnummer, nur leider die falsche (im Scan steht 18). Das Modell hat den Scan nie gesehen, es rät aus dem Text. Solche Felder gehören in die Nachprüfung, nicht ungeprüft in die Datenbank.
+
+# Schritt 3: Klassifizieren
+
+Die Zuordnung zu einem Themenbereich ist eine Klassifikationsaufgabe. Früher hätte man dafür Trainingsdaten gebraucht, heute reicht oft eine Liste der erlaubten Werte und eine klare Beschreibung, was sie bedeuten. In der Pipeline ist die Liste fest vorgegeben; das Modell kann nicht „Verkehrssicherheit“ erfinden, wenn „Straßen und Verkehr“ gemeint ist.
+
+```{r llm-klassifizieren, eval=exists("strukturiert")}
+klassifiziert <- schritt_klassifizieren(strukturiert, chat)
+klassifiziert |> knitr::kable()
+```
+
+# Schritt 4: Zusammenführen und prüfen
+
+Am Ende steht eine Tabelle: eine Zeile pro Schreiben, mit allem, was die Pipeline erzeugt hat, und daneben der Goldstandard aus dem Manifest. Erst dieser Vergleich sagt, ob das Verfahren gut genug ist.
+
+```{r final, eval=exists("klassifiziert")}
+final <- manifest |>
+  select(id, datei, gold_kategorie = kategorie, gold_dringlichkeit = dringlichkeit) |>
+  left_join(strukturiert |> select(-datei), by = "id") |>
+  left_join(klassifiziert, by = "id")
+
+final |>
+  select(id, kategorie, gold_kategorie, dringlichkeit, gold_dringlichkeit) |>
+  mutate(kategorie_ok = kategorie == gold_kategorie, dringlichkeit_ok = dringlichkeit == gold_dringlichkeit) |>
+  knitr::kable()
+
+final |>
+  summarize(n = n(),
+            kategorie_korrekt = mean(kategorie == gold_kategorie),
+            dringlichkeit_korrekt = mean(dringlichkeit == gold_dringlichkeit)) |>
+  knitr::kable(digits = 2)
+```
+
+Mit acht Dokumenten ist das keine Evaluation, sondern ein Rauchtest. Für den Ernstfall braucht es ein paar hundert von Hand kodierte Fälle, und zwar aus dem eigenen Haus: Was in Musterstadt „hoch dringlich“ ist, entscheidet nicht das Modell.
+
+# Die Ablage
+
+So sieht der Ordner nach einem vollständigen Lauf aus:
+
+```
+praxis-ocr-llm/
+├── praxis-2-ocr-llm.R          das Skript (alles in einem Durchlauf)
+├── praxis-2-ocr-llm.Rmd        diese Dokumentation
+├── erzeuge_rohdaten.R          erzeugt die Beispielscans (einmalig)
+├── R/pipeline.R                die Funktionen
+├── daten/
+│   ├── 01_rohdaten/            Scans + dokumente.csv (Manifest, Goldstandard)
+│   ├── 02_ocr/                 ein .txt je Dokument + ocr_texte.csv
+│   ├── 03_strukturiert/        anliegen_strukturiert.csv
+│   └── 04_klassifikation/      anliegen_klassifiziert.csv
+└── output/
+    ├── ocr_guete.csv
+    ├── anliegen_final.csv
+    └── auswertung.csv
+```
+
+Vier Regeln stecken dahinter:
+
+1. **Rohdaten werden nie verändert.** Alles, was die Pipeline erzeugt, liegt woanders.
+2. **Ein Ordner pro Schritt, nummeriert.** Man sieht die Reihenfolge, ohne den Code zu lesen.
+3. **Jeder Schritt ist für sich wiederholbar.** Ändert sich der Prompt in Schritt 3, muss die OCR nicht neu laufen.
+4. **CSV, nicht Excel.** Textdateien, die jedes Programm lesen kann, auch in zehn Jahren.
+
+# Zum Weiterspielen
+
+- Ändert die Beschreibung von `dringlichkeit` in `R/pipeline.R` und lasst Schritt 3 mit `force = TRUE` neu laufen. Was verschiebt sich?
+- Legt ein eigenes, datenschutzrechtlich unkritisches Dokument in `daten/01_rohdaten/`, ergänzt es im Manifest und schickt es durch die Pipeline.
+- Tauscht den Anbieter (`ANBIETER <- "anthropic"`). Liefern zwei Modelle dieselbe Klassifikation?
+- Schaut Euch an, was passiert, wenn Ihr dem Modell den **rohen** OCR-Text statt des bereinigten gebt.

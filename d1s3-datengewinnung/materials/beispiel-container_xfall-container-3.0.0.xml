@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Beispielnachricht XFall-Container 3.0.0: Transport eines Antrags
+  Nachrichtentyp: application.transport.0300001 (Schema: xfallcontainer-application.xsd)
+
+  Der Container ist der "Briefumschlag": Er ist fuer alle Verfahren gleich und traegt
+  Absender/Empfaenger (partner), den Vorgang (mainApplication), den Teilantrag mit
+  Anlagen und Status (partialApplication) sowie als Inhalt (implementation) die
+  eigentliche Fachnachricht, hier die Gewerbeanmeldung aus XFall-Daten 4.0.0.
+
+  Lehrbeispiel, alle Angaben erfunden. Validiert gegen die offiziellen Schemata:
+  xmllint - -noout - -schema xfall-container-3.0.0/container-xsd/xsd/xfallcontainer-application.xsd beispiel-container_xfall-container-3.0.0.xml
+  (Bindestriche vor noout und schema ohne Leerzeichen)
+-->
+<xfc:application.transport.0300001
+    xmlns:xfc="http://xoev.de/schemata/xfall/3_0/container"
+    xmlns:xfd="http://xoev.de/schemata/xfall_daten/4_0_0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- Kopf: eindeutige Nachrichten-ID, verhindert Doppeleinreichungen und erlaubt Nachverfolgung -->
+  <xfc:header>
+    <xfc:messageID>urn:uuid:3f6c2a1e-7b4d-4e0a-9c2f-5d8e1a2b3c4d</xfc:messageID>
+  </xfc:header>
+
+  <!-- Inhalt: die Fachnachricht. Der Container schreibt hier nichts vor (xs:any, processContents="skip") -->
+  <xfc:implementation>
+      <xfd:gewerbe.gewerbeanmeldung.05001002
+          xmlns:xfd="http://xoev.de/schemata/xfall_daten/4_0_0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xFallDatenVersion="4.0.0"
+          produktbezeichnung="Serviceportal Niedersachsen"
+          produkthersteller="Beispielhersteller GmbH"
+          produktversion="2026.10">
+
+        <!-- Baustein "Transport": Wer hat die Nachricht wann erzeugt? (fuer alle Nachrichtentypen gleich) -->
+        <xfd:transport>
+          <xfd:namensraum>http://xoev.de/schemata/xfall_daten/4_0_0</xfd:namensraum>
+          <xfd:erstelltUm>2026-10-27T09:14:00</xfd:erstelltUm>
+          <xfd:erstelltVon>Serviceportal Niedersachsen</xfd:erstelltVon>
+        </xfd:transport>
+
+        <!-- Baustein "Beteiligter": die antragstellende Person (Rolle AS = Antragsteller) -->
+        <xfd:beteiligter xsi:type="xfd:BeteiligteNatPerson">
+          <xfd:rolle>
+            <code>AS</code>
+          </xfd:rolle>
+          <xfd:natuerlichePerson>
+            <xfd:nameNatuerlichePerson>
+              <xfd:anrede>Frau</xfd:anrede>
+              <xfd:vorname>
+                <xfd:name>Erika</xfd:name>
+              </xfd:vorname>
+              <xfd:familienname>
+                <xfd:name>Mustermann</xfd:name>
+              </xfd:familienname>
+            </xfd:nameNatuerlichePerson>
+            <xfd:geschlecht>
+              <xfd:geschlecht>
+                <code>w</code>
+              </xfd:geschlecht>
+            </xfd:geschlecht>
+            <xfd:geburt>
+              <xfd:datum>1984-03-12</xfd:datum>
+              <xfd:geburtsort>
+                <xfd:ort>Hannover</xfd:ort>
+              </xfd:geburtsort>
+            </xfd:geburt>
+            <!-- Staatsangehoerigkeit als Code aus der Destatis-Codeliste Staatsangehoerigkeit (000 = deutsch); listURI ist im Schema fest vorgegeben, listVersionID ist Pflicht -->
+            <xfd:staatsangehoerigkeit>
+              <xfd:staatsangehoerigkeit listURI="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit" listVersionID="2026-08-05">
+                <code>000</code>
+              </xfd:staatsangehoerigkeit>
+            </xfd:staatsangehoerigkeit>
+            <xfd:anschrift>
+              <xfd:strasse>Weender Straße</xfd:strasse>
+              <xfd:hausnummer>1</xfd:hausnummer>
+              <xfd:postleitzahl>37073</xfd:postleitzahl>
+              <xfd:ort>Göttingen</xfd:ort>
+            </xfd:anschrift>
+            <xfd:kommunikation>
+              <xfd:kanal listVersionID="1.0">
+                <code>email</code>
+              </xfd:kanal>
+              <xfd:kennung>erika.mustermann@example.org</xfd:kennung>
+            </xfd:kommunikation>
+          </xfd:natuerlichePerson>
+        </xfd:beteiligter>
+
+        <!-- Felder der Gewerbemeldung (fuer An-, Um- und Abmeldung gemeinsam) -->
+        <xfd:entgegennehmendeGemeinde>Stadt Göttingen</xfd:entgegennehmendeGemeinde>
+        <!-- Amtlicher Gemeindeschluessel: 03 = Niedersachsen, 159 = Landkreis Goettingen, 016 = Stadt Goettingen -->
+        <xfd:ags listVersionID="2026-01-01">
+          <code>03159016</code>
+        </xfd:ags>
+        <xfd:betriebsstaette>
+          <xfd:anschrift>
+            <xfd:strasse>Groner Straße</xfd:strasse>
+            <xfd:hausnummer>42</xfd:hausnummer>
+            <xfd:postleitzahl>37073</xfd:postleitzahl>
+            <xfd:ort>Göttingen</xfd:ort>
+          </xfd:anschrift>
+          <xfd:kommunikation>
+            <xfd:kanal listVersionID="1.0">
+              <code>telefon</code>
+            </xfd:kanal>
+            <xfd:kennung>+49 551 1234567</xfd:kennung>
+            <xfd:istDienstlich>true</xfd:istDienstlich>
+          </xfd:kommunikation>
+        </xfd:betriebsstaette>
+        <!-- Art des Betriebs: HAN = Handel, HDW = Handwerk, IND = Industrie, SON = Sonstiges -->
+        <xfd:artDesGemeldetenBetriebs>
+          <code>HAN</code>
+        </xfd:artDesGemeldetenBetriebs>
+        <xfd:beschaeftigteVollzeit>1</xfd:beschaeftigteVollzeit>
+        <xfd:beschaeftigteTeilzeit>2</xfd:beschaeftigteTeilzeit>
+        <!-- Meldung erstattet fuer: HNL = Hauptniederlassung, ZNL = Zweigniederlassung, UZS = unselbstaendige Zweigstelle, ... -->
+        <xfd:meldungErstattetFuer>
+          <code>HNL</code>
+        </xfd:meldungErstattetFuer>
+
+        <!-- Spezifische Felder der Gewerbeanmeldung -->
+        <xfd:angemeldet>
+          <xfd:taetigkeit>Einzelhandel mit Fahrrädern, Fahrradteilen und Zubehör</xfd:taetigkeit>
+          <!-- WZ 2008: 47.64.1 Einzelhandel mit Fahrraedern, Fahrradteilen und -zubehoer -->
+          <xfd:wzschluessel>47.64.1</xfd:wzschluessel>
+          <xfd:nebenerwerb>false</xfd:nebenerwerb>
+          <xfd:datum>2026-11-01</xfd:datum>
+          <xfd:schwerpunkt>true</xfd:schwerpunkt>
+        </xfd:angemeldet>
+        <xfd:angemeldet>
+          <xfd:taetigkeit>Reparatur von Fahrrädern</xfd:taetigkeit>
+          <xfd:wzschluessel>95.29.1</xfd:wzschluessel>
+          <xfd:nebenerwerb>false</xfd:nebenerwerb>
+          <xfd:datum>2026-11-01</xfd:datum>
+          <xfd:schwerpunkt>false</xfd:schwerpunkt>
+        </xfd:angemeldet>
+        <!-- Grund der Anmeldung: NG = Neugruendung (weitere Codes: EK, GE, GU, WR, WV) -->
+        <xfd:anmeldegrund>
+          <code>NG</code>
+        </xfd:anmeldegrund>
+      </xfd:gewerbe.gewerbeanmeldung.05001002>
+  </xfc:implementation>
+
+  <!-- Beteiligte: Antragstellerin (partnerType 0) und zustaendige Stelle (partnerType 2) -->
+  <xfc:partner>
+    <xfc:identityNamespace><code>DE-NI</code></xfc:identityNamespace>
+    <xfc:partnerID>buergerkonto-ni-00012345</xfc:partnerID>
+    <xfc:partnerType><code>0</code></xfc:partnerType>
+    <xfc:nationality listVersionID="2026-08-05"><code>000</code></xfc:nationality>
+    <xfc:formOfAddress>Frau</xfc:formOfAddress>
+    <xfc:firstName>Erika</xfc:firstName>
+    <xfc:lastName>Mustermann</xfc:lastName>
+    <xfc:street>Weender Straße</xfc:street>
+    <xfc:houseNo>1</xfc:houseNo>
+    <xfc:postalCode>37073</xfc:postalCode>
+    <xfc:city>Göttingen</xfc:city>
+    <xfc:country listVersionID="2026-08-05"><code>000</code></xfc:country>
+    <xfc:eMail>erika.mustermann@example.org</xfc:eMail>
+    <!-- Authentifizierungsniveau: 4 = ueber den elektronischen Personalausweis verifiziert -->
+    <xfc:authentNiveau><code>4</code></xfc:authentNiveau>
+  </xfc:partner>
+  <xfc:partner>
+    <xfc:identityNamespace><code>DE-NI</code></xfc:identityNamespace>
+    <xfc:partnerID>03159016-gewerbeamt</xfc:partnerID>
+    <xfc:partnerType><code>2</code></xfc:partnerType>
+    <xfc:nationality listVersionID="2026-08-05"><code>000</code></xfc:nationality>
+    <xfc:orgName1>Stadt Göttingen</xfc:orgName1>
+    <xfc:orgName2>Fachdienst Gewerbe und Märkte</xfc:orgName2>
+    <xfc:street>Hiroshimaplatz</xfc:street>
+    <xfc:houseNo>1-4</xfc:houseNo>
+    <xfc:postalCode>37083</xfc:postalCode>
+    <xfc:city>Göttingen</xfc:city>
+    <xfc:country listVersionID="2026-08-05"><code>000</code></xfc:country>
+    <xfc:eMail>gewerbeamt@goettingen.example.org</xfc:eMail>
+    <xfc:authentNiveau><code>3</code></xfc:authentNiveau>
+    <!-- Transportweg zur Behoerde: type aus Codeliste Transport (1-6), target = Adresse des Fachverfahrens -->
+    <xfc:transport>
+      <xfc:type><code>1</code></xfc:type>
+      <xfc:target>https://fachverfahren.goettingen.example.org/xfall/eingang</xfc:target>
+    </xfc:transport>
+  </xfc:partner>
+
+  <!-- Der Vorgang (Hauptantrag) -->
+  <xfc:mainApplication>
+    <xfc:applicationNamespace><code>DE-NI</code></xfc:applicationNamespace>
+    <xfc:mainApplicationID>NI-2026-0471123</xfc:mainApplicationID>
+    <xfc:caseID>GW-2026-000389</xfc:caseID>
+    <xfc:title>Gewerbeanmeldung Fahrrad Mustermann</xfc:title>
+    <xfc:description>Neugründung eines Fahrradeinzelhandels mit Werkstatt, Betriebsbeginn 01.11.2026</xfc:description>
+  </xfc:mainApplication>
+
+  <!-- Der Teilantrag: wer ist beteiligt, welche Anlagen, welcher Status -->
+  <xfc:partialApplication>
+    <xfc:partialApplicationID>NI-2026-0471123-1</xfc:partialApplicationID>
+    <xfc:title>Gewerbeanmeldung nach § 14 GewO</xfc:title>
+    <xfc:partnerFunction>
+      <xfc:partnerRole><code>AP</code></xfc:partnerRole>
+      <xfc:partnerID>buergerkonto-ni-00012345</xfc:partnerID>
+    </xfc:partnerFunction>
+    <xfc:partnerFunction>
+      <xfc:partnerRole><code>RA</code></xfc:partnerRole>
+      <xfc:partnerID>03159016-gewerbeamt</xfc:partnerID>
+    </xfc:partnerFunction>
+    <xfc:document>
+      <xfc:documentID>doc-1</xfc:documentID>
+      <xfc:name>Ausweiskopie</xfc:name>
+      <xfc:documentRepresentation>
+        <xfc:documentRepresentationID>doc-1-pdf</xfc:documentRepresentationID>
+        <xfc:mimeType>application/pdf</xfc:mimeType>
+        <xfc:filename>ausweis.pdf</xfc:filename>
+        <xfc:contentType>Anlage</xfc:contentType>
+      </xfc:documentRepresentation>
+    </xfc:document>
+    <xfc:deadline>
+      <xfc:endDate>2026-11-27</xfc:endDate>
+    </xfc:deadline>
+    <!-- Prozessstatus: 5 = abgesendet an die zustaendige Stelle -->
+    <xfc:status>
+      <xfc:currentStatus><code>5</code></xfc:currentStatus>
+    </xfc:status>
+  </xfc:partialApplication>
+</xfc:application.transport.0300001>

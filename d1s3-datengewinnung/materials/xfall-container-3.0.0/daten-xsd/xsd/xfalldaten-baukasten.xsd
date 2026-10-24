@@ -1,0 +1,899 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xfd="http://xoev.de/schemata/xfall/3_0/daten" xmlns:xoev-dt="http://xoev.de/schemata/basisdatentypen/1_0" targetNamespace="http://xoev.de/schemata/xfall/3_0/daten" version="3.0.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:annotation>
+    <xs:documentation>Sammlung aller fachlichen Typen z.B. zur Wiederverwendung in den Nachrichten der unterschiedlichen Hauptgruppen.</xs:documentation>
+  </xs:annotation>
+  <xs:include schemaLocation="xfalldaten-basistypen.xsd" />
+  <xs:import schemaLocation="xoev-basisdatentypen.xsd" namespace="http://xoev.de/schemata/basisdatentypen/1_0" />
+  <xs:complexType name="AllgemeinerName">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nichtVorhanden" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="namesart" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Anschrift">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" minOccurs="0" type="xfd:Identifikator">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="strassenschluessel" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="strasse" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="hausnummer" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="postfach" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="postleitzahl" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ort" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ortsteil" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="zusatz" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Ausweisdokument">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ausweisart" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ausstellenderStaat" minOccurs="0" type="xfd:Staat">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ausweisID" minOccurs="0" type="xfd:Identifikation">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ausstellendeBehoerde" minOccurs="0" type="xfd:Behoerde">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="gueltigkeit" minOccurs="0" type="xfd:Zeitraum">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Bankverbindung">
+    <xs:annotation>
+      <xs:documentation>Mit diesem Element können die in Deutschland üblichen Bankverbindungsdaten angegeben werden.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="geldinstitut" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Bezeichnung des Kreditinstituts.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="bankleitzahl" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Die Bankleitzahl des Kreditinstituts.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kontonummer" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Die Kontonummer des Kunden.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Behoerde">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" minOccurs="0" type="xfd:Identifikator">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="typ" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="zusatz" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BeteiligteNatPerson">
+    <xs:complexContent>
+      <xs:extension base="xfd:Beteiligter">
+        <xs:sequence>
+          <xs:element name="natuerlicheperson" minOccurs="0" type="xfd:NatuerlichePerson">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente
+
+Mensch als Einzelwesen,der um seines Menschseins willen von der Rechtsordnung ohne weitere Voraussetzung als Subjekt von Rechten und Pflichten anerkannt wird.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BeteiligteOrganisation">
+    <xs:annotation>
+      <xs:documentation>Es wurde bewusst vermieden von einer juristischen Person zu sprechen da eine Organisation generischer ist und alle Formen von Personengruppen, die durch eine natürliche Person vertreten werden, abdeckt. Eine Organisation kann eine juristische Person, eine Behörde oder eine beliebige andere Form (Verein etc.) sein.
+Die Natürliche Person und die Organisation stützen sich auf die entsprechenden Klassen aus den Kernkomponenten.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="xfd:Beteiligter">
+        <xs:sequence>
+          <xs:element name="organisation" minOccurs="0" type="xfd:Organisation">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente
+
+Es wurde bewusst vermieden von einer juristischen Person zu sprechen da eine Organisation generischer ist und alle Formen von Personengruppen, die durch eine natürliche Person vertreten werden, abdeckt. Eine Organisation kann eine juristische Person, eine Behörde oder eine beliebige andere Form (Verein etc.) sein.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Beteiligter" abstract="true">
+    <xs:annotation>
+      <xs:documentation>Das Element "Beteiligter" benennt eine am Verfahren beteiligte Partei. Dies kann derzeit eine natürliche Person oder eine Organisation sein.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="rolle" type="xfd:Code.RolleAkteur">
+        <xs:annotation>
+          <xs:documentation>Rolle beschreibt die Funktion die der Beteiligen im Vorgang einnimmt. Dies ist in der Codeliste Code.Rolle hinterlegt.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="verifikation" minOccurs="0" maxOccurs="unbounded" type="xfd:Verifikation">
+        <xs:annotation>
+          <xs:documentation>Bestätigung der Echtheit der Daten durch Bereitstellung eines Nachweises z.B. NPA = neuer Personalausweis</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Code.AGS">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>Statistisches Bundesamt, Wiesbaden (Destatis)</listAgencyName>
+        <listName>Amtlicher Gemeindeschlüssel (AGS)</listName>
+      </xs:appinfo>
+      <xs:documentation>Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Gemeindeschlüssel (AGS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" type="xs:token" form="unqualified" />
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="required">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.RolleAkteur">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>xFallDaten-Koordination</listAgencyName>
+        <listName>xFallDaten-Codeliste Rolle Akteur</listName>
+      </xs:appinfo>
+      <xs:documentation>Code.Rolle umfasst beschreibende Daten zur Übermittlung eines Codes aus der Codeliste CodeList.Rolle. Hier werden die beteiligten Akteure aufgelistet.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" form="unqualified">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="AN">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Andere</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="AS">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Antragsteller</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="EA">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Einheitlicher Ansprechpartner</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="ZS">
+                  <xs:annotation>
+                    <xs:appinfo>
+                      <codeName>Zuständige Stelle</codeName>
+                    </xs:appinfo>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:xfalldaten:rolleakteur">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="optional" fixed="1.0">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.Staat">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>Destatis</listAgencyName>
+        <listName>Code Destatis.Staat</listName>
+      </xs:appinfo>
+      <xs:documentation>Codeliste Staat (eigenständige Staaten) aus der Staats- und Gebietssystematik des Statistischen Bundesamtes. Enthalten sind alle Staaten im vollen politischen Sinne.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" type="xs:token" form="unqualified" />
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staat">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="required">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.Staatsangehoerigkeit">
+    <xs:annotation>
+      <xs:appinfo>
+        <listAgencyName>Destatis</listAgencyName>
+        <listName>Code Destatis.Staatsangehörigkeit</listName>
+      </xs:appinfo>
+      <xs:documentation>Codeliste Staatsangehörigkeit (eigenständige Staaten). Tabelle von Staaten und Staatsangehörigkeiten. Enthalten sind alle Staaten im vollen politischen Sinne.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-dt:Code">
+        <xs:sequence>
+          <xs:element name="code" type="xs:token" form="unqualified" />
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit">
+          <xs:annotation>
+            <xs:documentation>Der URI, welcher die Codeliste, auf deren Basis der übermittelte Schlüssel zu interpretieren ist, eindeutig identifiziert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="required">
+          <xs:annotation>
+            <xs:documentation>Die Version der Codeliste.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.Staatsangehoerigkeit_ListeNichtAbgeschlossen">
+    <xs:annotation>
+      <xs:documentation>Diese Klasse gestattet, alternativ aus einem Code aus der Codeliste Staatsangehörigkeit, die Verwendung eines anderen frei gewählten Wertes.</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="code" type="xfd:Code.Staatsangehoerigkeit">
+        <xs:annotation>
+          <xs:appinfo>
+            <listAgencyName>Destatis</listAgencyName>
+            <listName>Code Destatis.Staatsangehörigkeit</listName>
+          </xs:appinfo>
+          <xs:documentation>Codeliste Staatsangehörigkeit (eigenständige Staaten). Tabelle von Staaten und Staatsangehörigkeiten. Enthalten sind alle Staaten im vollen politischen Sinne.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nichtGelisteterWert" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Hier kann ein zusätzlicher Wert angegeben werden ohne dass dieser in der Codeliste vorhanden ist. Es ist somit möglich Freitext anzugeben.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="FormularA" abstract="true">
+    <xs:annotation>
+      <xs:documentation>Beispiel Formular 1</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="xfd:XFallDatensatz">
+        <xs:sequence>
+          <xs:element name="entgegennehmendeGemeinde" minOccurs="0" type="xoev-dt:String.Latin">
+            <xs:annotation>
+              <xs:documentation>Name der entgegennehmenden Gemeinde</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ags" minOccurs="0" type="xfd:Code.AGS">
+            <xs:annotation>
+              <xs:documentation>Der Amtliche Gemeindeschlüssel (AGS), früher auch Amtliche Gemeindekennzahl (GKZ) oder Gemeindekennziffer, ist eine Ziffernfolge zur Identifizierung politisch selbständiger Gemeinden oder gemeindefreier Gebiete. Gemeindekennzahl Betriebsstätte (Sitz)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="angabeZurPerson" minOccurs="0" type="xfd:NatuerlichePerson">
+            <xs:annotation>
+              <xs:documentation>Kernkomponente
+
+Mensch als Einzelwesen,der um seines Menschseins willen von der Rechtsordnung ohne weitere Voraussetzung als Subjekt von Rechten und Pflichten anerkannt wird.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Geburt">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="datum" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="zusatz" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="geburtsort" minOccurs="0" type="xfd:Anschrift">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Genehmigung">
+    <xs:annotation>
+      <xs:documentation>Falls der Betriebsinhaber für die angemeldete Tätigkeit eine Erlaubnis benötigt, in der Handwerksrolle einzutragen oder Ausländer ist.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="erteilt" minOccurs="0" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>boolean ja / nein</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="datum" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Austellungsdatum</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="geber" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Erteilende Behörde oder Handwerkskammer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="zusatz" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>enthält folgende Auflagen bzw. Beschränkungen</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Geschlecht">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="geschlecht" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Identifikation">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" minOccurs="0" type="xfd:Identifikator">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="beschreibung" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Kommunikation">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="kanal" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kennung" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="istDienstlich" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="zusatz" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Kostenfestsetzung">
+    <xs:sequence>
+      <xs:element name="rechtsgrundlageFuerDieGebuehrenerhebung" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kostenfestsetzung: Rechtsgrundlage für die Gebührenerhebung</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="gebuehr" minOccurs="0" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Gebühr aus der Rechtsgrundlage für die Gebührenerhebung</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="artDerAuslagen" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kostenfestsetzung: Art der Auslagen</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="hoehederAuslagen" minOccurs="0" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Kostenfestsetzung: Höhe der Auslagen</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="gesamtbetrag" minOccurs="0" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Gesamtbetrag der Kostenfestsetzung</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="bankverbindungKostenfestsetzung" minOccurs="0" type="xfd:Bankverbindung">
+        <xs:annotation>
+          <xs:documentation>Mit diesem Element können die in Deutschland üblichen Bankverbindungsdaten angegeben werden.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NameNatuerlichePerson">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="titel" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="anrede" minOccurs="0" maxOccurs="unbounded" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="namenssuffix" minOccurs="0" maxOccurs="unbounded" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vorname" minOccurs="0" type="xfd:AllgemeinerName">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="familienname" minOccurs="0" type="xfd:AllgemeinerName">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="geburtsname" minOccurs="0" type="xfd:AllgemeinerName">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NameOrganisation">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kurzbezeichnung" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NatuerlichePerson">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente
+
+Mensch als Einzelwesen,der um seines Menschseins willen von der Rechtsordnung ohne weitere Voraussetzung als Subjekt von Rechten und Pflichten anerkannt wird.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" minOccurs="0" type="xfd:Identifikator">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nameNatuerlichePerson" minOccurs="0" type="xfd:NameNatuerlichePerson">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="geschlecht" minOccurs="0" maxOccurs="unbounded" type="xfd:Geschlecht">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="geburt" minOccurs="0" type="xfd:Geburt">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="staatsangehoerigkeit" minOccurs="0" maxOccurs="unbounded" type="xfd:Staatsangehoerigkeit">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="anschrift" minOccurs="0" maxOccurs="unbounded" type="xfd:Anschrift">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kommunikation" minOccurs="0" maxOccurs="unbounded" type="xfd:Kommunikation">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ausweisdokument" minOccurs="0" maxOccurs="unbounded" type="xfd:Ausweisdokument">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="identifikationsnummer" minOccurs="0" maxOccurs="unbounded" type="xfd:Identifikation">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Organisation">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente
+
+Es wurde bewusst vermieden von einer juristischen Person zu sprechen da eine Organisation generischer ist und alle Formen von Personengruppen, die durch eine natürliche Person vertreten werden, abdeckt. Eine Organisation kann eine juristische Person, eine Behörde oder eine beliebige andere Form (Verein etc.) sein.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" minOccurs="0" type="xfd:Identifikator">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="rechtsform" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="branche" minOccurs="0" maxOccurs="unbounded" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="zweck" minOccurs="0" maxOccurs="unbounded" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="anschrift" minOccurs="0" maxOccurs="unbounded" type="xfd:Anschrift">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="name" minOccurs="0" type="xfd:NameOrganisation">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="identifikation" minOccurs="0" maxOccurs="unbounded" type="xfd:Identifikation">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="existenzzeitraum" minOccurs="0" type="xfd:Zeitraum">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kommunikation" minOccurs="0" maxOccurs="unbounded" type="xfd:Kommunikation">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="registrierung" minOccurs="0" maxOccurs="unbounded" type="xfd:Registrierung">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrtDatum">
+    <xs:annotation>
+      <xs:documentation>Ort und Datum</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ort" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Ort</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="datum" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Datum</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Registrierung">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" minOccurs="0" type="xfd:Identifikator">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="registertyp" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="gueltigkeit" minOccurs="0" type="xfd:Zeitraum">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="registrierendeBehoerde" minOccurs="0" type="xfd:Behoerde">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Sachbearbeiter">
+    <xs:annotation>
+      <xs:documentation>Beamter, der ein bestimmtes Sachgebiet bearbeitet</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ortdatum" minOccurs="0" type="xfd:OrtDatum">
+        <xs:annotation>
+          <xs:documentation>Ort und Datum</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="angabenZuSachbearbeiter" minOccurs="0" type="xfd:NatuerlichePerson">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente
+
+Mensch als Einzelwesen,der um seines Menschseins willen von der Rechtsordnung ohne weitere Voraussetzung als Subjekt von Rechten und Pflichten anerkannt wird.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Staat">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="staat" type="xfd:Code.Staat">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Staatsangehoerigkeit">
+    <xs:sequence>
+      <xs:element name="staatsangehoerigkeit" minOccurs="0" maxOccurs="unbounded" type="xfd:Code.Staatsangehoerigkeit">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Transport">
+    <xs:annotation>
+      <xs:documentation>Enthält transportrelevante, zusätzliche (Meta-) Informationen, die nicht Teil des eigentlichen Datensatzes sind. Diese Klasse ist beim Transport der Daten ohne xFall verpflichtend.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="namensraum" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Name des generierenden, erstellenden Systems. Der Namensraum definiert, in welchem Kontext die Datenstruktur Gültigkeit hat. Damit kann z.B. eine länderspzifische Ableitung gebildet werden, sofern die Datenstruktur Landesrecht berührt. Konzeptionell kann damit sogar bis auf die Gemeindeebene heruntergebrochen werden, sofern das im Einzelfall nötig ist. Ein Beispiel dafür ist die Abfallentsorgung, bei der es in verschiedenen Gemeinden unterschiedliche Containergrößen gibt, die der Bürger zur Müllentsorgung wählen kann.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="erstelltUm" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Erstellungszeitpunkt, Zeitstempel.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="erstelltVon" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Name erstellenden Systems.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Verifikation">
+    <xs:annotation>
+      <xs:documentation>Bestätigung der Echtheit der Daten durch Bereitstellung eines Nachweises z.B. NPA = neuer Personalausweis</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="verifikation" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Durch welches Dokument wurde der Nachweis der Echtheit der Daten nachgewiesen. z.B. NPA = neuer Personalausweis</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="zeitpunkt" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Zeitangabe der Prüfung der Echtheit.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="attribut" maxOccurs="unbounded" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Hier wird abgelegt welches Attribut im Datensatz verifiziert wurde.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="gueltigkeit" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Gültigkeit des vorgelegten Dokuments z.B. NPA</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="XFallDatensatz" abstract="true">
+    <xs:annotation>
+      <xs:documentation>Basisklasse für Nachrichten. Enthält grundlegende Metainformationen zur Nachricht.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" minOccurs="0" type="xfd:Identifikator">
+        <xs:annotation>
+          <xs:documentation>Identifikation zur Herstellung eines eindeutigen Bezuges.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="transport" minOccurs="0" type="xfd:Transport">
+        <xs:annotation>
+          <xs:documentation>Enthält transportrelevante, zusätzliche (Meta-) Informationen, die nicht Teil des eigentlichen Datensatzes sind. Diese Klasse ist beim Transport der Daten ohne xFall verpflichtend.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="beteiligter" minOccurs="0" maxOccurs="unbounded" type="xfd:Beteiligter">
+        <xs:annotation>
+          <xs:documentation>Das Element "Beteiligter" benennt eine am Verfahren beteiligte Partei. Dies kann derzeit eine natürliche Person oder eine Organisation sein.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="produktbezeichnung" type="xoev-dt:String.Latin" use="optional">
+      <xs:annotation>
+        <xs:documentation>Bezeichnung des Produkts, welche die xFallDaten-Schnittstelle implementiert.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="produkthersteller" type="xoev-dt:String.Latin" use="optional">
+      <xs:annotation>
+        <xs:documentation>Name des Produktherstellers. Hersteller des Produkts, welche die xFallDaten-Schnittstelle implementiert. Die Produktattribute sind wichtig fürs Debugging.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="produktversion" type="xoev-dt:String.Latin" use="optional">
+      <xs:annotation>
+        <xs:documentation>Versionsnummer des Produkts, welches xFallDaten implementiert.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="xFallDatenVersion" type="xoev-dt:String.Latin" use="required">
+      <xs:annotation>
+        <xs:documentation>Versionsnummer der verwendeten XFallDaten-Version, z.B. "1.0"</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="Zeitraum">
+    <xs:annotation>
+      <xs:documentation>Kernkomponente</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="beginn" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ende" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="zusatz" minOccurs="0" type="xoev-dt:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Kernkomponente</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

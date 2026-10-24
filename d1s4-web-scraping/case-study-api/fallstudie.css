@@ -1,0 +1,22 @@
+/* Stil der Fallstudien-Dokumente: angelehnt an die Kursfolien (Metropolis / simons-touch.css) */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Fira+Mono&display=swap');
+
+body { font-family: 'Fira Sans', sans-serif; font-size: 17px; line-height: 1.55; color: #1A292C; }
+h1.title { font-family: 'Fira Sans', sans-serif; font-weight: 700; color: #1A292C; font-size: 2.1em; margin-bottom: 0.1em; }
+h3.subtitle { font-weight: 300; color: #555; margin-top: 0; }
+h4.author, h4.date { font-weight: 400; color: #777; font-size: 1em; }
+h1, h2, h3 { font-family: 'Fira Sans', sans-serif; color: #1A292C; }
+h1 { font-weight: 700; border-bottom: 2px solid #1D375B; padding-bottom: 0.2em; margin-top: 1.8em; }
+h2 { font-weight: 500; color: #1D375B; margin-top: 1.4em; }
+a, a:visited { color: #C2001A; }
+a:hover { color: #1D375B; }
+pre, code { font-family: 'Fira Mono', Menlo, monospace; font-size: 0.86em; }
+pre { border: none; border-left: 4px solid #1D375B; background: #f6f7f8; border-radius: 0; }
+pre.r { background: #f2f2f2; }
+.tocify .tocify-item a, .list-group-item { font-family: 'Fira Sans', sans-serif; color: #1A292C; }
+.tocify .tocify-item.active a, .list-group-item.active { background: #1D375B; border-color: #1D375B; color: #fff; }
+.merke { border-left: 4px solid #C2001A; background: #fbf3f4; padding: 10px 16px; margin: 18px 0; }
+img { max-width: 100%; border: 1px solid #ddd; }
+.bildunterschrift { color: #777; font-size: 0.85em; margin-top: 6px; margin-bottom: 26px; line-height: 1.4; }
+p > img { margin-bottom: 0; display: block; }
+blockquote { border-left: 4px solid #EB811B; color: #444; font-size: 1em; }
