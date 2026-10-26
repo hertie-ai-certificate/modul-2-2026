@@ -255,7 +255,7 @@ name: spreadsheets
 1. **Eine Quelle der Wahrheit**: Eine Datei an einem Ort, nicht per Mail; Änderungen nur dort.
 2. **Trennung von Erfassung und Auswertung**: Rohdaten-Tabelle plus separate Auswertungsdateien.
 3. **Geteilte Tabelle mit Rechten** (SharePoint, Nextcloud, Google Sheets): gleichzeitiges Arbeiten, Änderungshistorie.
-4. **Datenbank mit Eingabemaske**: Wenn Regeln, Mehrbenutzerzugriff und Verknüpfungen nötig sind. Mehr dazu in Session 9.
+4. **Datenbank mit Eingabemaske**: Wenn Regeln, Mehrbenutzerzugriff und Verknüpfungen nötig sind.
 ]
 
 .pull-right-small[
@@ -612,7 +612,7 @@ exclude: true
 1. **Wo liegen unsere Daten?** <br> Welche Fachverfahren nutzen wir, welche Daten stecken darin, und wer betreibt sie: unser eigenes Rechenzentrum, ein kommunaler IT-Dienstleister, der Hersteller oder ein Cloud-Anbieter?
 2. **Kommen wir an unsere Daten heran?** <br> Können wir sie vollständig und in einem offenen Format (z. B. CSV, XML) herausholen, auch ohne den Hersteller zu fragen? Gibt es eine dokumentierte Schnittstelle? Und steht das so im Vertrag? Wer das erst beim Anbieterwechsel klärt, zahlt doppelt.
 3. **Können wir die Daten auswerten, ohne den laufenden Betrieb zu stören?** <br> Das System, in dem die Sachbearbeitung täglich arbeitet, ist nicht zum Auswerten da. Gibt es eine Kopie der Daten für Analysen und Berichte, und wer darf darauf zugreifen?
-4. **Was passt die Datenbank selbst auf?** <br> Welche Fehler verhindert sie automatisch (Pflichtfelder, feste Auswahllisten, keine doppelten Einträge), und welche werden nur in Schulungen angesprochen? Wer darf was sehen und ändern, und wird das protokolliert?
+4. **Worauf passt die Datenbank selbst auf?** <br> Welche Fehler verhindert sie automatisch (Pflichtfelder, feste Auswahllisten, keine doppelten Einträge), und welche werden nur in Schulungen angesprochen? Wer darf was sehen und ändern, und wird das protokolliert?
 
 ️✎ Datenbank-Kompetenz auf Leitungsebene heißt nicht, SQL-Abfragen zu schreiben, sondern zu wissen, **wo die Daten liegen, wem sie gehören und wer sie herausbekommt**. Alles andere lässt sich beauftragen.
 ]

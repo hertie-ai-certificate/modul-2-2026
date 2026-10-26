@@ -1,9 +1,11 @@
 id,kategorie,dringlichkeit,tonfall,begruendung
-A01,Straßen und Verkehr,hoch,dankbar,"Mängelmelder meldet Schlagloch in der Lindenstraße 14 mit Personenschaden und fordert dringend Ausbesserung, um weitere Unfälle zu verhindern. Der Vorfall wurde bereits vom Rettungsdienst behandelt."
-A02,Grünflächen und Spielplätze,hoch,sachlich,"Defekte Spielgeräte (gerissene Schaukelkette) und gefährliche Zustände (Glasscherben im Sandkasten) stellen eine unmittelbare Gefahr für die Kinder dar. Die Schaukel ist zwar abgesperrt, wird aber trotzdem genutzt. Das Schreiben erfordert eine schnelle Bearbeitung durch das Grünflächenamt."
-A03,Abfall und Sauberkeit,mittel,verärgert,"Nicht abgeholte Papiertonnen im Bergweg 20-26, gemäß Abfuhrkalender fällig. Tonnen stehen seit dem 8. September am Straßenrand."
-A04,Straßen und Verkehr,hoch,sachlich,Mangel an einer Straßenlaterne und potentielles Risiko für ältere Personen aufgrund von Dunkelheit. Hinweis auf zwei betroffene Laternen.
-A05,Lärm,hoch,verärgert,"Lärmbelästigung durch Gaststätte, mehrere Beschwerden erfolglos, Polizeieinsatz erforderlich"
-A06,Straßen und Verkehr,hoch,sachlich,Fehlendes Verkehrszeichen (Stoppschild) stellt eine unmittelbare Gefahrensituation dar. Wiederholte Anregung für einen Zebrastreifen deutet auf eine bestehende Problematik.
-A07,Abfall und Sauberkeit,hoch,sachlich,"Mängelmelder bezüglich illegaler Ablagerung von Bauschutt und Gefahrstoffen, Beeinträchtigung der öffentlichen Sicherheit (Kinder gehen zur Schule), Geruchsbelästigung."
-A08,Beleuchtung,niedrig,dankbar,"Dank und Anregung zur Verbesserung der Webseiteninformationen betreffend die Öffnungszeiten. Enthält keine Mängelanzeige im klassischen Sinne. (Unsicher: 'Bürgerservice / Mängelmelder' im Adressfeld deutet auf eine Mängelmelde-Funktion hin, was hier aber nicht zutrifft.)"
+A01,Straßen und Verkehr,hoch,sachlich,Das Schreiben beschreibt ein Schlagloch in der Fahrbahn und einen daraus resultierenden Unfall. Dies fällt eindeutig unter den Themenbereich 'Straßen und Verkehr'.
+A02,Grünflächen und Spielplätze,hoch,sachlich,"Das Schreiben betrifft einen Spielplatz (Schaukel, Sandkasten) und liegt somit eindeutig innerhalb des Themenbereichs 'Grünflächen und Spielplätze'."
+A03,Abfall und Sauberkeit,mittel,dankbar,"Das Schreiben bezieht sich auf die nicht erfolgte Leerung von Papiertonnen, was direkt unter den Themenbereich 'Abfall und Sauberkeit' fällt."
+A04,Beleuchtung,hoch,sachlich,"Das Schreiben thematisiert eine defekte Straßenlaterne und mangelnde Beleuchtung eines Gehweges, was eindeutig dem Themenbereich 'Beleuchtung' zuzuordnen ist. Es werden konkrete Mängel an öffentlicher Beleuchtung beschrieben."
+A05,Lärm,mittel,dankbar,"Das Schreiben beschreibt Ruhestörung durch eine Gaststätte, was direkt unter den Themenbereich 'Lärm' fällt."
+A06,Straßen und Verkehr,mittel,verärgert,"Das Schreiben betrifft das Fehlen eines Stoppschilds und den Wunsch nach einem Zebrastreifen, beides Aspekte des Straßen- und Verkehrsangebots."
+A07,Abfall und Sauberkeit,hoch,sachlich,"Das Schreiben beschreibt das illegale Abladen von Müll (Bauschutt, Farbeimer, Pammebollwolle) und Verschmutzung, was eindeutig dem Themenbereich 'Abfall und Sauberkeit' zuzuordnen ist."
+A08,Sonstiges,niedrig,dankbar,Das Schreiben enthält Lob für Mitarbeiterinnen der Verwaltung und eine Anregung bezüglich der Webseiten-Informationen. Diese Punkte fallen unter 
+A09,Abfall und Sauberkeit,hoch,sachlich,"Das Schreiben thematisiert einen überfüllten Restmüllcontainer, wildes Müllablagen und Rattenbefall, was eindeutig dem Themenbereich 'Abfall und Sauberkeit' zuzuordnen ist."
+A10,Grünflächen und Spielplätze,mittel,sachlich,"Das Schreiben bezieht sich auf Wurzeln von Ahornbaumen und beschädigte Gehwegplatten, was eindeutig in den Bereich Grünflächen und Spielplätze fällt. Die Erwähnung eines Sturzes deutet auf einen möglichen Sicherheitsmangel hin."

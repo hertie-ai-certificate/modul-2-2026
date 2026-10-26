@@ -1,5 +1,5 @@
 id,datei,kategorie,dringlichkeit,tonfall,gold_kategorie,gold_dringlichkeit,text_bereinigt,ocr_qualitaet,unsichere_stellen,absender,absender_adresse,datum_iso,betroffener_ort,zusammenfassung,gewuenschte_massnahme,telefon,begruendung
-A01,A01_anliegen.png,Straßen und Verkehr,hoch,dankbar,Straßen und Verkehr,hoch,"Renate Vogel - Lindenstraße 14, 31234 Musterstadt
+A01,A01_anliegen.png,Straßen und Verkehr,hoch,sachlich,Straßen und Verkehr,hoch,"Renate Vogel - Lindenstraße 14, 31234 Musterstadt
 Stadt Musterstadt
 Bürgerservice / Mängelmelder
 Rathausplatz 1
@@ -13,7 +13,7 @@ versorgt werden. Ich bitte dringend um Ausbesserung, bevor weitere
 Unfälle passieren.
 Mit freundlichen Grüßen
 Renate Vogel
-Eingang: 18.09.2026 Az. BS-2026-4704",gut,keine,Renate Vogel,NA,2026-09-03,"Lindenstraße 14, Musterstadt","Schlagloch verursacht Unfall, dringende Ausbesserung erforderlich",Ausbesserung des Schlaglochs,unbekannt (nicht genannt im Text),"Mängelmelder meldet Schlagloch in der Lindenstraße 14 mit Personenschaden und fordert dringend Ausbesserung, um weitere Unfälle zu verhindern. Der Vorfall wurde bereits vom Rettungsdienst behandelt."
+Eingang: 18.09.2026 Az. BS-2026-4704",gut,keine,"Renate Vogel, Lindenstraße 14, 31234 Musterstadt",NA,2026-09-03,"Lindenstraße 14, Musterstadt",Schlagloch vor Haus (ca. 40 cm breit) – Verletzung eines Radfahrers – Bitte um Ausbesserung,Ausbesserung des Schlaglochs,Unbekannt (nicht im Text enthalten) - *unsicher*,Das Schreiben beschreibt ein Schlagloch in der Fahrbahn und einen daraus resultierenden Unfall. Dies fällt eindeutig unter den Themenbereich 'Straßen und Verkehr'.
 A02,A02_anliegen.jpg,Grünflächen und Spielplätze,hoch,sachlich,Grünflächen und Spielplätze,mittel,"Fam. Yılmaz, Am Stadtpark 3, Musterstadt
 Stadt Musterstadt
 Bürgerservice / Mängelmelder
@@ -28,15 +28,15 @@ Könnten Sie das bitte reparieren? Der Sandkasten müsste auch mal
 wieder gereinigt werden, da liegen Glasscherben.
 viele Grüße
 Familie Yilmaz
-Eingang: 18.09.2026 Az. BS-2026-3341",mittel,"- ""groben"" könnte auch ""großen"" sein (Kontextabhängig).
-- ""viele grübe"" ist vermutlich ein OCR-Fehler und wurde als ""viele Grüße"" korrigiert.  Dies ist die wahrscheinlichste Korrektur, aber nicht sicher.","Fam. Yılmaz, Am Stadtpark 3, Musterstadt",NA,2026-09-07,Spielplatz im Stadtpark (beim Teich),Gerissene Kette an Schaukel und Glasscherben im Sandkasten,Reparatur der Schaukel und Reinigung des Sandkastens,unbekannt,"Defekte Spielgeräte (gerissene Schaukelkette) und gefährliche Zustände (Glasscherben im Sandkasten) stellen eine unmittelbare Gefahr für die Kinder dar. Die Schaukel ist zwar abgesperrt, wird aber trotzdem genutzt. Das Schreiben erfordert eine schnelle Bearbeitung durch das Grünflächenamt."
-A03,A03_anliegen.pdf,Abfall und Sauberkeit,mittel,verärgert,Abfall und Sauberkeit,niedrig,"Dr. Hartmut Krüger
+Eingang: 18.09.2026 Az. BS-2026-3341.",mittel,"- 'groben' könnte auch 'großen' sein (Kontextabhängig).
+- 'viele grübe' sollte 'viele Grüße' heißen (ist offensichtlich ein OCR-Fehler).","Fam. Yılmaz, Am Stadtpark 3, Musterstadt",NA,2026-09-07,Spielplatz im Stadtpark (beim Teich),"Schaukelkette gerissen, Schaukel abgesperrt, Sandkasten mit Glasscherben.","Reparatur der Schaukel, Reinigung des Sandkastens.",unbekannt (*keine Angabe im Text*),"Das Schreiben betrifft einen Spielplatz (Schaukel, Sandkasten) und liegt somit eindeutig innerhalb des Themenbereichs 'Grünflächen und Spielplätze'."
+A03,A03_anliegen.pdf,Abfall und Sauberkeit,mittel,dankbar,Abfall und Sauberkeit,niedrig,"Dr. Hartmut Krüger
 Bereweg 22
 31234 Musterstadt
 
 Stadt Musterstadt
 Bürgerservice / Mängelmelder
-Rathausplatz |
+Rathausplatz
 31234 Musterstadt
 
 Musterstadt, 2026-09-09
@@ -52,8 +52,8 @@ Termin mit.
 Hochachtungsvoll
 Dr. Hartmut Krüger
 
-Eingang: 18.09.2026 Az. BS-2026-4628",gut,NA,"Dr. Hartmut Krüger, Bereweg 22, 31234 Musterstadt",NA,2026-09-09,Musterstadt,Beschwerde über nicht abgeholte Papiertonnen im Bergweg 20-26,Nachholen der Abfuhr oder Mitteilung eines neuen Termins,"nicht vorhanden, **unsicher**","Nicht abgeholte Papiertonnen im Bergweg 20-26, gemäß Abfuhrkalender fällig. Tonnen stehen seit dem 8. September am Straßenrand."
-A04,A04_anliegen.png,Straßen und Verkehr,hoch,sachlich,Beleuchtung,mittel,"SS. Oswald, Mühlenweg 7
+Eingang: 18.09.2026 Az. BS-2026-4628",gut,NA,"Dr. Hartmut Krüger, Bereweg 22, 31234 Musterstadt",NA,2026-09-09,"Bergweg 20-26, 31234 Musterstadt",Nicht abgeholte Papiertonnen (blaue Tonnen) am Bergweg 20-26. Laut Abfuhrkalender hätten sie am 8. September geleert werden sollen. Sie stehen seitdem am Straßenrand.,Nachholen der Abfuhr oder Mitteilung eines neuen Termins.,"unbekannt (nicht im Text enthalten, **unsicher** ob vorhanden.)","Das Schreiben bezieht sich auf die nicht erfolgte Leerung von Papiertonnen, was direkt unter den Themenbereich 'Abfall und Sauberkeit' fällt."
+A04,A04_anliegen.png,Beleuchtung,hoch,sachlich,Beleuchtung,mittel,"SS. Oswald, Mühlenweg 7
 Stadt Musterstadt
 Bürgerservice / Mängelmelder
 Rathausplatz 1
@@ -61,13 +61,13 @@ Rathausplatz 1
 Musterstadt, 11.09.2026
 Guten Tag,
 die Straßenlaterne vor dem Haus Mühlenweg 7 ist seit mindestens zwei
- Wochen dunkel, die Laterne gegenüber flackert. Der Gehweg ist abends
- stockfinster, und viele ältere Leute wohnen hier. Bitte um Reparatur.
- Danke und Gruß
- Sabine Oswald
+Wochen dunkel, die Laterne gegenüber flackert. Der Gehweg ist abends
+stockfinster, und viele ältere Leute wohnen hier. Bitte um Reparatur.
+Danke und Gruß
+Sabine Oswald
 Tel. 0171 2345678
-Eingang: 18.09.2026 Az. BS-2026-2646",gut,Keine erkennbaren unsicheren Stellen. Der Text ist gut lesbar.,Sabine Oswald,NA,2026-09-11,"Mühlenweg 7, Musterstadt",Mängelmelder bezüglich einer defekten Straßenlaterne (dunkel) und einer flackernden Straßenlaterne. Dunkle Gehwegbeleuchtung wird als gefährlich für ältere Menschen beschrieben.,Reparatur der Straßenlaternen,"0171 2345678 (von der Absenderin angegeben),  (unsicher: könnte auch eine Kontaktnummer für Rückfragen sein)",Mangel an einer Straßenlaterne und potentielles Risiko für ältere Personen aufgrund von Dunkelheit. Hinweis auf zwei betroffene Laternen.
-A05,A05_anliegen.jpg,Lärm,hoch,verärgert,Lärm,hoch,"Jonas Petersen - Hafenstraße 41 : 31234 Musterstadt
+Eingang: 18.09.2026 Az. BS-2026-2646",gut,NA,"Sabine Oswald, Mühlenweg 7, 31234 Musterstadt",NA,NA,"Mühlenweg 7, Musterstadt","Defekte Straßenlaterne (dunkel) und flackernde Straßenlaterne, Probleme mit der Beleuchtung des Gehweges.",Reparatur der Straßenlaternen,"0171 2345678 (von Frau Oswald angegeben). (Unsicher: Handelt es sich um eine Privatnummer oder eine öffentliche Dienstnummer?)”,  ","Das Schreiben thematisiert eine defekte Straßenlaterne und mangelnde Beleuchtung eines Gehweges, was eindeutig dem Themenbereich 'Beleuchtung' zuzuordnen ist. Es werden konkrete Mängel an öffentlicher Beleuchtung beschrieben."
+A05,A05_anliegen.jpg,Lärm,mittel,dankbar,Lärm,hoch,"Jonas Petersen - Hafenstraße 41, 31234 Musterstadt
 
 Stadt Musterstadt
 Bürgerservice / Mängelmelder
@@ -87,27 +87,28 @@ gerufen.
 Mit freundlichen Grüßen
 Jonas Petersen
 
-Eingang: 18.09.2026 Az. BS-2026-8275",gut,NA,Jonas Petersen,NA,12.09.2026,"Hafenstraße 41, 31234 Musterstadt",Lärmbelästigung durch Gaststätte 'Zum Anker',Eingreifen des Ordnungsamtes,"Unbekannt/nicht angegeben,","Lärmbelästigung durch Gaststätte, mehrere Beschwerden erfolglos, Polizeieinsatz erforderlich"
-A06,A06_anliegen.png,Straßen und Verkehr,hoch,sachlich,Straßen und Verkehr,mittel,"G.u. W. Brandt -
+Eingang: 18.09.2026 Az. BS-2026-8275",gut,keine,Jonas Petersen,NA,2026-09-12,"Hafenstraße 41, 31234 Musterstadt",Lärmbelästigung durch Gaststätte Zum Anker an Freitagen und Samstagen bis 2 Uhr nachts. Mehrfache Bitten an den Betreiber erfolglos. Anrufung der Polizei am letzten Samstag um 1:40 Uhr.,Eingreifen des Ordnungsamtes,Unbekannt (nicht im Text erwähnt).,"Das Schreiben beschreibt Ruhestörung durch eine Gaststätte, was direkt unter den Themenbereich 'Lärm' fällt."
+A06,A06_anliegen.png,Straßen und Verkehr,mittel,verärgert,Straßen und Verkehr,mittel,"G.u. W. Brandt -
 Feldstraße 2a |
-31234 Musterstadt
-
-Stadt Musterstadt
-Bürgerservice / Mängelmelder
-Rathausplatz 1
-31234 Musterstadt
-
-Musterstadt, 14.09.2026
-Sehr geehrte Damen und Herren.
-
-An der Kreuzung Feldstraße/Bahnhofstraße fehlt seit dem Sturm vom 10. September das Stoppschild. Es liegt umgeknickt im Gebüsch. Autofahrer fahren jetzt einfach durch. Außerdem wäre dort ein Zebrastreifen für die Schulkinder sinnvoll, das haben wir schon 2024 angeregt.
-
-Freundliche Grüße
-Gisela und Werner Brandt
-
-Eingang: 18.09.2026 Az. B5-2026-1163",mittel,"- Das Datum '14.09.26' wurde zu '14.09.2026' korrigiert. Es ist *unsicher*, ob 2026 gemeint war oder ein anderes Jahr. Die Verwendung von '26' kann je nach Kontext auch für 1926 stehen.
-- Das Datum 'I0. September' wurde zu '10. September' korrigiert. Das 'I' wurde als '1' interpretiert.
-- 'G.u.' wurde beibehalten, da die Bedeutung ohne Kontext nicht klar ist. Es könnte eine Abkürzung sein (z.B.","G.u. W. Brandt, Feldstraße 2a, 31234 Musterstadt",NA,2026-09-14,"Kreuzung Feldstraße/Bahnhofstraße, Musterstadt",Mangelnde Stoppschild nach Sturm und Anregung für Zebrastreifen,"Erneuerung Stoppschild, Anlegen Zebrastreifen",Nicht angegeben (unsicher: evtl. über Rückverfolgung der Adresse ermittelbar?) - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher* - *unsicher*,Fehlendes Verkehrszeichen (Stoppschild) stellt eine unmittelbare Gefahrensituation dar. Wiederholte Anregung für einen Zebrastreifen deutet auf eine bestehende Problematik.
+31234 Musterstadt j j
+Stadt Musterstadt .
+Bürgerservice / Mängelmelder ö
+. Rathausplatz 1 |
+31234 Musterstadt j .
+. Musterstadt, 14.09.2026
+Sehr geehrte Damen und Herren. i
+An der Kreuzung Feldstraße/Bahnhofstraße fehlt seit dem Sturm vom 10. j .
+September das Stoppschild. Es liegt umgeknickt im Gebüsch. Autofahrer .
+fahren jetzt einfach durch. Außerdem wäre dort ein Zebrastreifen für .
+ die Schulkinder sinnvoll, das haben wir schon 2024 angeregt. .
+Freundliche Grüße u
+\ Gisela und Werner Brandt
+ . . Eingang: 18.09.2026 Az. B5-2026-1163",mittel,"- 'G.u.' könnte eine Abkürzung sein, Bedeutung unklar.
+- 'j j' und weitere 'j .' am Zeilenende sind vermutlich OCR-Fehler und stellen wahrscheinlich keine relevanten Informationen dar. Möglicherweise sind es überflüssige Punktierungen.
+- 'ö' beim Bürger Service, wahrscheinlich ein OCR Fehler und sollte 'o' sein.
+- 'i' nach den Anreden ist wahrscheinlich ein OCR-Fehler.
+- '10.' - Das Datum könnte auch nur '10' sein. 
+- '2026' im Eingang könnte ein Tippfehler sein, da das Datum des Schreibens '14.09.2026' lautet. Es könnte sich auch um einen Fehler in der Protokollierung handeln.","G.u. W. Brandt, Feldstraße 2a, 31234 Musterstadt",NA,2026-09-14,"Kreuzung Feldstraße/Bahnhofstraße, Musterstadt",Meldung eines fehlenden Stoppschilds (umgeknickt im Gebüsch) und Anregung zur Einrichtung eines Zebrastreifens. Die Anregung für einen Zebrastreifen wurde bereits 2024 geäußert.,"Wiederherstellung des Stoppschilds, Einrichtung eines Zebrastreifens","Unbekannt, da nicht angegeben. (Unsicher, da kein Kontaktdatum im Brief vorhanden.)","Das Schreiben betrifft das Fehlen eines Stoppschilds und den Wunsch nach einem Zebrastreifen, beides Aspekte des Straßen- und Verkehrsangebots."
 A07,A07_anliegen.jpg,Abfall und Sauberkeit,hoch,sachlich,Abfall und Sauberkeit,hoch,"Mai Nguyen, Rosenallee 12
 Stadt Musterstadt
 Bürgerservice / Mängelmelder
@@ -115,14 +116,15 @@ Rathausplatz 1
 31234 Musterstadt
 Musterstadt, 15.09.2026
 Hallo,
+
 an der Ecke Rosenallee/Parkweg hat jemand nachts einen ganzen Anhänger
-voll Bauschutt, alte Farbeimer und Pamwolle abgeladen. Es stinkt nach
+voll Bauschutt, alte Farbeimer und Pammebollwolle abgeladen. Es stinkt nach
 Chemie, und Kinder laufen dort zur Schule. Bitte schnell abholen. Ich
 habe Fotos gemacht und kann sie schicken.
+
 Mai Nguyen
-Eingang: 18.09.2026 Az. BS-2026-6295
-",gut,Keine,"Mai Nguyen, Rosenallee 12, 31234 Musterstadt",NA,2026-09-15,"Ecke Rosenallee/Parkweg, Musterstadt","Meldung von illegal entsorgtem Bauschutt, Farbeimern und Pamwolle mit unangenehmem chemischen Geruch in der Nähe einer Schule. Antrag auf schnelle Abholung.",Abholung des Bauschutts,"unbekannt, keine Angabe im Text vorhanden","Mängelmelder bezüglich illegaler Ablagerung von Bauschutt und Gefahrstoffen, Beeinträchtigung der öffentlichen Sicherheit (Kinder gehen zur Schule), Geruchsbelästigung."
-A08,A08_anliegen.pdf,Beleuchtung,niedrig,dankbar,Sonstiges,niedrig,"Peter Lindgvist - Kirchplatz 1 - 31234 Musterstadt
+Eingang: 18.09.2026 Az. BS-2026-6295",gut,"- 'Pämmevolle' wurde als 'Pammebollwolle' korrigiert. Hier könnte ein Tippfehler vorliegen, die genaue Bezeichnung ist unklar.","Mai Nguyen, Rosenallee 12, 31234 Musterstadt",NA,2026-09-15,"Ecke Rosenallee/Parkweg, Musterstadt","Meldung über illegale Ablagerung von Bauschutt, Farbeimern und Pammebollwolle, verbunden mit Geruchsbelästigung und möglicher Gefährdung von Schülern. Der Absender bietet Fotos als Beweismittel an.",Schnelle Abholung des Bauschutts,"Unbekannt - (nicht im Text enthalten, kann aber bei Frau Nguyen erfragt werden).","Das Schreiben beschreibt das illegale Abladen von Müll (Bauschutt, Farbeimer, Pammebollwolle) und Verschmutzung, was eindeutig dem Themenbereich 'Abfall und Sauberkeit' zuzuordnen ist."
+A08,A08_anliegen.pdf,Sonstiges,niedrig,dankbar,Sonstiges,niedrig,"Peter Lindgvist - Kirchplatz 1 - 31234 Musterstadt
 Stadt Musterstadt
 Bürgerservice / Mängelmelder
 Rathausplatz 1
@@ -137,5 +139,31 @@ Offnungszeiten am Donnerstagabend sollten besser auf der Webseite zu
 finden sein.
 Mit besten Grüßen
 Peter Lindgvist
-Eingang: 18.09.2026 Az. BS-2026-1388
-",gut,Keine,Peter Lindgvist,NA,2026-09-16,Musterstadt,Dank und Anregung bezüglich der Webseite (Offnungszeiten Donnerstagabend).,Verbesserung der Darstellung der Öffnungszeiten auf der Webseite,unbekannt,"Dank und Anregung zur Verbesserung der Webseiteninformationen betreffend die Öffnungszeiten. Enthält keine Mängelanzeige im klassischen Sinne. (Unsicher: 'Bürgerservice / Mängelmelder' im Adressfeld deutet auf eine Mängelmelde-Funktion hin, was hier aber nicht zutrifft.)"
+Eingang: 18.09.2026 Az. BS-2026-1388",gut,Keine,Peter Lindgvist,NA,2026-09-16,Musterstadt,Dank für freundliche und schnelle Hilfe bei der Ummeldung des Wohnsitzes sowie Anregung zur Verbesserung der Information über die Öffnungszeiten auf der Webseite,Verbesserung der Information über die Öffnungszeiten auf der Webseite,unbekannt,Das Schreiben enthält Lob für Mitarbeiterinnen der Verwaltung und eine Anregung bezüglich der Webseiten-Informationen. Diese Punkte fallen unter 
+A09,A09_anliegen.png,Abfall und Sauberkeit,hoch,sachlich,Abfall und Sauberkeit,hoch,"Bürgerservice / Mängelmelder
+EOS nu ea wills Dean
+BR23M Husemestadt
+0. em ee nr
+na gs Bee nen
+„Mustersrädt 37.09.2026
+geehrte Damen und Herren.
+
+Restmüllcontainer seit über einer Woche über. Daneben stapelt ein
+uns näcke, und wir haben mehrfach Ratten gesehen, auch tagsüber, unsere N
+Mitglieder-tranen star MAR den tunen en wanna ine ai
+
+Sein Blenden Container: umgehend und prüfen Sie, ob ein zweiter Container
+aufgestellt werden kann.
+
+Mit freundlichen Grüßen.
+
+(Festliche Sommer.)",schlecht,-,"EOS nu ea wills Dean, BR23M Husemestadt",NA,"unsicher (vermutlich 37.09.2026, scheint aber ein Fehler zu sein)",Musterstadt,Meldung einer überfüllten Restmüllcontainer und Rattenbefall. Bitte um umgehende Entleerung und Prüfung der Aufstellung eines zweiten Containers.,Umgehende Entleerung des Containers und Prüfung der Aufstellung eines zweiten Containers,NA,"Das Schreiben thematisiert einen überfüllten Restmüllcontainer, wildes Müllablagen und Rattenbefall, was eindeutig dem Themenbereich 'Abfall und Sauberkeit' zuzuordnen ist."
+A10,A10_anliegen.jpg,Grünflächen und Spielplätze,mittel,sachlich,Straßen und Verkehr,mittel,"Musterstadt, 18.09.2026
+
+Sehr geehrte Damen und Herren,
+
+Es sind Wurzeln der alten Ahornbaume im Anornweg hochgehoben und haben die Gehwegplatten beschädigt. Am ... (unleserlich) ist eine Nachbarin gestürzt. Bitte Lassen Sie den... (unleserlich)
+
+Ernang, 18.09.2026, BZ. 85-2026, 7339
+
+(Unleserliche Zeichenfolge)",schlecht,"Diverse Stellen aufgrund von OCR-Fehlern und Unleserlichkeit. Die fehlenden Informationen wurden mit '(unleserlich)' gekennzeichnet. Es ist schwierig, den genauen Inhalt zu rekonstruieren.","Ernang, 18.09.2026, BZ. 85-2026, 7339",NA,2026-09-18,Anornweg,Beschädigung von Gehwegplatten durch Wurzeln alter Ahornbaume. Ein Sturz einer Nachbarin wurde am ... (unleserlich) vermerkt. *(Weitere Details im Text unleserlich)*,unleserlich,NA,"Das Schreiben bezieht sich auf Wurzeln von Ahornbaumen und beschädigte Gehwegplatten, was eindeutig in den Bereich Grünflächen und Spielplätze fällt. Die Erwähnung eines Sturzes deutet auf einen möglichen Sicherheitsmangel hin."

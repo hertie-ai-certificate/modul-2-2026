@@ -32,12 +32,14 @@ source("R/pipeline.R")   # lädt die Pakete und die Funktionen der Pipeline
 
 # Schritt 1: Die Scans ansehen
 
-Vor dem Code kommt der Blick in den Ordner. Acht erfundene Schreiben an die Stadt Musterstadt, erzeugt mit `erzeuge_rohdaten.R`: verschiedene Schriften (auch eine „Handschrift“), Formate (PNG, JPG, PDF), schief gescannt, verrauscht.
+Vor dem Code kommt der Blick in den Ordner. Zehn erfundene Schreiben an die Stadt Musterstadt, erzeugt mit `erzeuge_rohdaten.R`: verschiedene Schriften (auch eine „Handschrift“), Formate (PNG, JPG, PDF), schief gescannt, verrauscht. Zwei davon sind absichtlich in schlechter Qualität: ein Fax und ein Handyfoto.
 
-```{r scan-beispiel, out.width="48%", echo=FALSE}
-als_bild("daten/01_rohdaten/A02_anliegen.jpg") |> image_resize("700x")
+```{r scan-beispiel, out.width="32%", echo=FALSE, fig.show="hold"}
+als_bild("daten/01_rohdaten/A02_anliegen.jpg") |> image_resize("600x")
+als_bild("daten/01_rohdaten/A09_anliegen.png") |> image_resize("600x")
+als_bild("daten/01_rohdaten/A10_anliegen.jpg") |> image_resize("600x")
 ```
-<div class="bildunterschrift">Dokument A02: ein Brief als JPG, leicht gedreht, mit Rauschen. So sehen eingescannte Schreiben in der Praxis aus.</div>
+<div class="bildunterschrift">Von links: A02, ein gescannter Brief (leicht gedreht, verrauscht); A09, ein Fax (grob aufgelöst, Übertragungsstreifen); A10, ein Handyfoto (schief, unscharf, ungleichmäßig belichtet).</div>
 
 Dazu ein **Manifest** `dokumente.csv`: eine Zeile pro Dokument mit Dateiname und den Angaben, die wir am Ende als richtig ansehen (Goldstandard).
 
@@ -65,7 +67,7 @@ tibble(variante = c("ohne Vorverarbeitung", "mit Vorverarbeitung"),
   knitr::kable(digits = 2)
 ```
 
-Jetzt alle acht Dokumente. `schritt_ocr()` schreibt pro Dokument eine Textdatei und eine Sammeltabelle nach `daten/02_ocr/`. Liegt die Tabelle schon vor, wird sie geladen statt neu berechnet.
+Jetzt alle zehn Dokumente. `schritt_ocr()` schreibt pro Dokument eine Textdatei und eine Sammeltabelle nach `daten/02_ocr/`. Liegt die Tabelle schon vor, wird sie geladen statt neu berechnet.
 
 ```{r ocr-alle}
 ocr <- schritt_ocr(manifest)
@@ -77,13 +79,19 @@ ocr |>
   knitr::kable(digits = 2)
 ```
 
-Die Trefferquote sagt, wie viele Wörter des Originals im OCR-Text wiedergefunden werden. Sie sagt nicht, ob Zahlen stimmen. So sieht das schwächste Ergebnis aus, die „Handschrift“:
+Die Trefferquote sagt, wie viele Wörter des Originals im OCR-Text wiedergefunden werden. Die gescannten Briefe liegen über 90 %, das Fax bei der Hälfte, das Handyfoto darunter. So sieht das Ergebnis für das Foto aus:
 
 ```{r ocr-fehlerbeispiel}
-cat(ocr$ocr_text[ocr$id == "A07"])
+cat(ocr$ocr_text[ocr$id == "A10"])
 ```
 
-<div class="merke">**Merke:** OCR liefert Text, keine Daten. Aus „Rosenallee 18“ wird „Rosenallee 1g“, ein Datum wie „14.09.26“ muss jemand deuten. Das ist die Arbeit für den nächsten Schritt.</div>
+Die Trefferquote sagt aber nicht, ob Zahlen stimmen. Beim gut lesbaren Dokument A07 steht im Scan „Rosenallee 18“, im OCR-Text „Rosenallee 12“: eine Hausnummer, die richtig aussieht und falsch ist. Aus „Dämmwolle“ wurde „Pämmwolle“, aus „Lindqvist“ „Lindgvist“.
+
+```{r ocr-rosenallee}
+str_extract(ocr$ocr_text[ocr$id == "A07"], "Rosenallee \\d+")
+```
+
+<div class="merke">**Merke:** OCR liefert Text, keine Daten. Ein unlesbarer Scan fällt auf; eine falsch gelesene Hausnummer nicht. Beides muss der nächste Schritt abfangen.</div>
 
 # Schritt 3: Bereinigen und strukturieren
 
@@ -127,7 +135,9 @@ strukturiert |>
 strukturiert |> filter(unsichere_stellen != "") |> select(id, unsichere_stellen) |> knitr::kable()
 ```
 
-<div class="merke">**Merke:** Ein Sprachmodell korrigiert plausibel, nicht unbedingt richtig. Aus „Rosenallee 1g“ hat das lokale Modell „Rosenallee 12“ gemacht: eine saubere Hausnummer, nur die falsche (im Scan steht 18). Das Modell hat den Scan nie gesehen, es rät aus dem Text. Solche Felder gehören in die Nachprüfung, nicht ungeprüft in die Datenbank.</div>
+Drei Beobachtungen. Erstens: „Rosenallee 12“ steht unverändert in der Adresse. Das Modell kann die Hausnummer nicht korrigieren, es hat den Scan nie gesehen, und 12 ist genauso plausibel wie 18. Zweitens: Aus „Pämmwolle“ hat das Modell keine Dämmwolle gemacht, sondern ein neues Fantasiewort, und das immerhin als unsicher markiert. Drittens: Bei Fax und Foto (`ocr_qualitaet` „schlecht“) füllt das Modell die Felder trotzdem, mit Bruchstücken aus dem Zeichensalat als Absender. Die Markierung „schlecht“ ist deshalb das wichtigste Feld: Solche Fälle gehören komplett zur Nachprüfung.
+
+<div class="merke">**Merke:** Ein Sprachmodell korrigiert plausibel, nicht unbedingt richtig, und es füllt Felder auch dann, wenn der Text nichts hergibt. Was es als unsicher oder schlecht markiert, muss ein Mensch prüfen. Was es nicht markiert, kann trotzdem falsch sein.</div>
 
 # Schritt 4: Klassifizieren
 
@@ -137,6 +147,8 @@ Die Zuordnung zu einem Themenbereich ist eine Klassifikationsaufgabe. Früher br
 klassifiziert <- schritt_klassifizieren(strukturiert, chat)
 klassifiziert |> knitr::kable()
 ```
+
+Die Kategorien stehen mit einer kurzen Erklärung im Prompt (siehe `anweisung_klassifikation` in `R/pipeline.R`). Das ist kein Schmuck: Mit der bloßen Liste im Antwortschema hat dasselbe lokale Modell in einem ersten Versuch Straßenlaternen dem Straßenverkehr und Bauschutt der Beleuchtung zugeordnet. Die Beschreibung der Aufgabe ist Teil des Daten-Inputs.
 
 # Das Ergebnis
 
@@ -161,7 +173,9 @@ final |>
   knitr::kable(digits = 2)
 ```
 
-<div class="merke">**Merke:** Mit acht Dokumenten ist das keine Evaluation, sondern ein Rauchtest. Für den Ernstfall braucht es ein paar hundert von Hand kodierte Fälle aus dem eigenen Haus. Was in Musterstadt „hoch dringlich“ ist, entscheidet nicht das Modell.</div>
+Die Themenbereiche stimmen bis auf einen Fall: Die Baumwurzeln, die den Gehweg anheben (A10), ordnet das Modell den Grünflächen zu, unser Goldstandard dem Straßenbau. Beides ist vertretbar. Bei der Dringlichkeit liegt das Modell öfter daneben, meist eine Stufe höher als wir.
+
+<div class="merke">**Merke:** Mit zehn Dokumenten ist das keine Evaluation, sondern ein Rauchtest. Für den Ernstfall braucht es ein paar hundert von Hand kodierte Fälle aus dem eigenen Haus, und eine Verständigung darüber, was „hoch dringlich“ in Musterstadt heißt. Wie man das sauber misst, zeigt die [Übung zur Validierung](../uebung-klassifikation/uebung-klassifikation.html).</div>
 
 # Die Ablage
 

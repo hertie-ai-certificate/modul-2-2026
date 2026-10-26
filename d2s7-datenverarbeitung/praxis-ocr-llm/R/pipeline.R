@@ -155,6 +155,18 @@ typ_struktur <- type_object(
 kategorien <- c("Straßen und Verkehr", "Grünflächen und Spielplätze", "Abfall und Sauberkeit",
                 "Beleuchtung", "Lärm", "Sonstiges")
 
+# Die Kategorien stehen ausdrücklich im Prompt, mit kurzer Erklärung. Nur die Liste im
+# Antwortschema reicht nicht: Lokale Modelle greifen dann auffällig oft daneben.
+anweisung_klassifikation <- paste0(
+  "Ordne dieses Schreiben genau einem Themenbereich zu. Erlaubte Themenbereiche:\n",
+  "- Straßen und Verkehr: Fahrbahn, Gehweg, Schilder, Ampeln, Parken, Tempo\n",
+  "- Grünflächen und Spielplätze: Bäume, Hecken, Parks, Spielgeräte\n",
+  "- Abfall und Sauberkeit: Tonnen, Müll, Container, Verschmutzung\n",
+  "- Beleuchtung: Straßenlaternen und andere öffentliche Beleuchtung\n",
+  "- Lärm: Ruhestörung durch Gaststätten, Baustellen, Anlagen, Personen\n",
+  "- Sonstiges: Lob, Beschwerden über die Verwaltung selbst, Anträge, Formulare, alles andere\n",
+  "Gib den Themenbereich wörtlich so an, wie er in der Liste steht.")
+
 typ_klassifikation <- type_object(
   "Einordnung eines Bürgerschreibens",
   kategorie     = type_enum(kategorien, "Zuständiger Themenbereich"),
@@ -183,7 +195,7 @@ schritt_strukturieren <- function(ocr_df, chat, ziel = "daten/03_strukturiert", 
 schritt_klassifizieren <- function(strukturiert_df, chat, ziel = "daten/04_klassifikation", force = FALSE) {
   message("Schritt 3: Klassifizieren (LLM)")
   lade_oder_berechne(file.path(ziel, "anliegen_klassifiziert.csv"), force = force, berechne = function() {
-    klassen <- llm_batch(chat, "Ordne dieses Schreiben ein.", strukturiert_df$text_bereinigt, typ_klassifikation)
+    klassen <- llm_batch(chat, anweisung_klassifikation, strukturiert_df$text_bereinigt, typ_klassifikation)
     bind_cols(strukturiert_df |> select(id), klassen)
   })
 }

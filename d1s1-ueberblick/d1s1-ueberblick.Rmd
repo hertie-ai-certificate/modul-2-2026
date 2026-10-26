@@ -115,9 +115,7 @@ name: welcome
 
 `r fa('address-book')` Euer Name
 
-`r fa('envelope')` Eure Behörde und Rolle
-
-`r fa('graduation-cap')` Was erhofft Ihr Euch vom Modul? Maximal 3 Wörter!
+`r fa('envelope')` Eure Behörde und Rolle - maximal 3 Sätze!
 ]
 
 .pull-right[
@@ -133,49 +131,49 @@ name: welcome
 # Onboarding-Befragung
 
 <div align="center">
-<img src="../pics/onboarding-2026-ki-1-techstack.png" width=1000>
+<img src="../pics/ki-1-techstack.png" width=1000>
 </div>
 
 ---
 # Onboarding-Befragung
 
 <div align="center">
-<img src="../pics/onboarding-2026-ki-2-erfahrungen.png" height=500>
+<img src="../pics/ki-2-erfahrungen.png" height=500>
 </div>
 
 ---
 # Onboarding-Befragung
 
 <div align="center">
-<img src="../pics/onboarding-2026-ki-3-usecases.png" height=480>
+<img src="../pics/ki-3-usecases.png" height=480>
 </div>
 
 ---
 # Onboarding-Befragung
 
 <div align="center">
-<img src="../pics/onboarding-2026-ki-4-ki-tools-privat.png" height=500>
+<img src="../pics/ki-4-ki-tools-privat.png" height=500>
 </div>
 
 ---
 # Onboarding-Befragung
 
 <div align="center">
-<img src="../pics/onboarding-2026-ki-5-ki-tools-beruflich.png" height=500>
+<img src="../pics/ki-5-ki-tools-beruflich.png" height=500>
 </div>
 
 ---
 # Onboarding-Befragung
 
 <div align="center">
-<img src="../pics/onboarding-2026-ki-6-ki-tools-vergleich.png" height=480>
+<img src="../pics/ki-6-ki-tools-vergleich.png" height=480>
 </div>
 
 ---
 # Onboarding-Befragung
 
 <div align="center">
-<img src="../pics/onboarding-2026-ki-8a-assoziationen-begriffe.png" height=540>
+<img src="../pics/ki-8a-assoziationen-begriffe.png" height=540>
 </div>
 
 
@@ -183,7 +181,7 @@ name: welcome
 # Onboarding-Befragung
 
 <div align="center">
-<img src="../pics/onboarding-2026-ki-7-quiz.png" height=480>
+<img src="../pics/ki-7-quiz.png" height=480>
 </div>
 
 
@@ -198,6 +196,7 @@ name: welcome
 - Ich bin kein Experte für Eure Behörde oder Eure spezifischen Themen. **Bringt Euer Fachwissen und Eure Erfahrung ein.** Sie bilden die Grundlage für eine fundierte, evidenzbasierte Diskussion über Data Science im öffentlichen Sektor.  
 
 - Bitte nutzt die Gelegenheit, **jederzeit Fragen zu stellen**. Es gibt keine schlechten Fragen – jede trägt zur gemeinsamen Diskussion bei.  
+
 ]
 
 .pull-right-small-center[
@@ -206,6 +205,7 @@ name: welcome
 <img src="../pics/stupid-questions.jpg" height=400>
 </div>
 ]
+
 
 ---
 # Kursmaterialien
@@ -473,41 +473,38 @@ name: whatisdatascience
 ---
 # Keine KI ohne Daten
 
-.pull-left-wide2[
-### 1. Der Engpass sind die Daten, nicht die Modelle
+.pull-left[
+## Der Engpass sind die Daten, nicht die Modelle
 
 - Modelle gibt es inzwischen von der Stange: Sprachmodelle, Klassifikatoren, Prognoseverfahren.
 - Was es nicht von der Stange gibt: **die Daten Eures Hauses**. Ob eine Anwendung funktioniert, entscheidet sich an Verfügbarkeit, Qualität und Rechtsgrundlage der Daten.
 - **80/20-Faustregel aus der Praxis**: Der Großteil der Arbeit in Data-Science-Projekten entfällt auf Beschaffen, Bereinigen und Strukturieren von Daten, nicht das Modellieren.
+]
 
-### 2. Die Verwaltung sitzt auf einem Datenschatz
+.pull-right[
+## Die Verwaltung sitzt auf einem Datenschatz
 
 - Register, Fachverfahren, Akten, Statistiken: Daten entstehen überall, meist als **Nebenprodukt** von Verwaltungshandeln.
 - Häufig fragmentiert, nicht maschinenlesbar, ohne Metadaten, in Silos. Die [Datenstrategie der Bundesregierung (2023)](https://www.bundesregierung.de/breg-de/themen/digitalisierung/datenstrategie-2023-2222572) nennt das als zentrale Hürde.
-]
-
-.pull-right-small2[
-### 3. Datenkompetenz ist Führungskompetenz
-
-- Ihr entscheidet über Beschaffung, Freigabe, Datenstrategie, Teamaufbau, und bewertet die Versprechen von Anbietern.
-- Der [AI Act](https://eur-lex.europa.eu/eli/reg/2024/1689/oj) verlangt für Hochrisiko-Systeme explizit Daten-Governance (Art. 10). Wer die Datenbasis nicht beurteilen kann, kann KI-Systeme nicht verantworten.
 ]
 
 
 ---
 # Was das für Euch bedeutet
 
-.pull-left[
-### Typische Entscheidungen, die Datenkompetenz brauchen
+.pull-left-wide2[
+## Typische Entscheidungen, die Datenkompetenz brauchen
 
 - **Beschaffung**: Ein Anbieter verspricht 95% Genauigkeit. Mit welchen Daten wurde das gemessen – und mit welchen wird es bei uns laufen?
 - **Vorlagen und Berichte**: Ist die Statistik auf Seite 3 belastbar? Was sagt das Dashboard wirklich?
 - **Prüfung und Aufsicht**: Woran erkennt man ein problematisches Datenprodukt, bevor es Schaden anrichtet?
 - **Freigabe und Austausch**: Welche Daten dürfen und sollten wir wie öffnen, teilen, verknüpfen, speichern?
 - **Organisation**: Was braucht eine Daten-Einheit, damit sie nach dem Pilot nicht einschläft?
+
+️✎ Datenkompetenz ist Führungskompetenz! Wer die Datenbasis beurteilen kann, kann KI-Systeme besser verantworten.
 ]
 
-.pull-right[
+.pull-right-small2[
 <br>
 <div align="center">
 <img src="../pics/data-based-reasoning.jpeg" width=330>
@@ -603,7 +600,7 @@ name: science
 
 - Den **Verbraucherpreisindex** erstellt das [Statistische Bundesamt (Destatis)](https://www.destatis.de/DE/Themen/Wirtschaft/Preise/Verbraucherpreisindex/_inhalt.html) mit den Statistischen Landesämtern: Preiserheber notieren monatlich mehrere hunderttausend Preise in Geschäften.
 - Grundlage sind [Preisstatistikgesetz](https://www.gesetze-im-internet.de/preisstatg/) und EU-HVPI-Verordnung. Destatis gehört zum Geschäftsbereich des Innenministeriums, ist fachlich aber unabhängig ([§ 1 BStatG](https://www.gesetze-im-internet.de/bstatg_1987/__1.html)).
-- Online-Anteil im Warenkorb: 5% (Basisjahr 2005), über 10% (Basisjahr 2015); seit der Basis 2020 nicht mehr separat ausgewiesen. Rund **10.000 Produkte** wurden monatlich im Internet erhoben – lange von Hand, zu einem festen Zeitpunkt.
+- Online-Anteil im Warenkorb: 5% (Basisjahr 2005), über 10% (Basisjahr 2015); seit der Basis 2020 nicht mehr separat ausgewiesen. Rund **10.000 Produkte** wurden monatlich im Internet erhoben – lange von Hand.
 - Seit 2018 automatisiert Destatis das mit einem **generischen Web-Scraping-Programm**, u.a. für Mietwagen, Medikamente, Fernbus- und Bahnreisen. Stand 2026: Web Scraping ergänzt „zunehmend die manuelle Erhebung“, dazu Transaktionsdaten für Pauschalreisen und Flüge ([Qualitätsbericht VPI, April 2026](https://www.destatis.de/DE/Methoden/Qualitaet/Qualitaetsberichte/Preise/verbraucherpreis.pdf?__blob=publicationFile)).
 ]
 ]

@@ -1,0 +1,385 @@
+---
+title: "Übung: Klassifikation validieren und verbessern"
+subtitle: "Precision, Recall und die Frage, woran es liegt, wenn das Modell danebenliegt"
+author: "Simon Munzert, Hertie School"
+date: "Modul 2, Session 7"
+output:
+  html_document:
+    css: fallstudie.css
+    toc: true
+    toc_float: true
+    toc_depth: 1
+    code_download: true
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, fig.align = "center", cache = FALSE)
+options(width = 100)
+```
+
+# Die Aufgabe
+
+Der Bürgerservice von Musterstadt bekommt Schreiben zu Schlaglöchern, Laternen, Lärm und Müll. Jedes muss zum richtigen Fachamt. In der [Fallstudie zu OCR und Sprachmodellen](../praxis-ocr-llm/praxis-2-ocr-llm.html) hat das ein Sprachmodell für acht Schreiben erledigt. Acht Fälle sagen aber nichts darüber, ob so ein Verfahren im Dauerbetrieb taugt. Dafür braucht es **Validierung**: viele Fälle, von Menschen eingeordnet, und ein ehrlicher Vergleich.
+
+Wir arbeiten mit 560 erfundenen Schreiben (`erzeuge_daten.R`), jedes mit einem Themenbereich als **Goldstandard** und einer Dringlichkeit. Ein Teil der Schreiben liegt bewusst zwischen zwei Bereichen. Wer vorher selbst ein paar Schreiben einordnen möchte: [Interaktive Aufgabe auf der Kurswebseite](https://simonmunzert.com/zertifikat-daten/klassifikation.html). Dort merkt man schnell, dass die Zuordnung nicht immer eindeutig ist. Und was für Menschen schwer ist, ist für Modelle nicht leichter.
+
+**Was Ihr braucht:** R mit `tidyverse`, `tidytext`, `rsample`, `glmnet`, `yardstick`. Der Abschnitt zum Sprachmodell braucht zusätzlich `ellmer` und ein lokal laufendes [Ollama](https://ollama.com); ohne beides wird er übersprungen und zeigt gespeicherte Ergebnisse.
+
+```{r pakete}
+library(tidyverse)
+library(tidytext)    # Texte in Wörter zerlegen
+library(rsample)     # Trainings- und Testdaten trennen
+library(glmnet)      # ein einfaches, schnelles Klassifikationsmodell
+library(yardstick)   # Precision, Recall und Co.
+library(Matrix)
+
+kategorien <- c("Straßen und Verkehr", "Grünflächen und Spielplätze", "Abfall und Sauberkeit",
+                "Beleuchtung", "Lärm", "Sonstiges")
+daten <- read_csv("daten/buergerschreiben.csv", show_col_types = FALSE) |>
+  mutate(kategorie = factor(kategorie, levels = kategorien))
+```
+
+# Schritt 1: Die Daten ansehen
+
+```{r beispiel}
+cat(daten$text[1])
+```
+
+```{r verteilung}
+count(daten, kategorie, mehrdeutig) |>
+  pivot_wider(names_from = mehrdeutig, values_from = n, names_prefix = "mehrdeutig_") |>
+  mutate(gesamt = mehrdeutig_FALSE + mehrdeutig_TRUE, anteil = round(gesamt / sum(gesamt), 2)) |>
+  knitr::kable()
+```
+
+Zwei Dinge fallen auf. Erstens sind die Klassen **ungleich verteilt**: „Straßen und Verkehr“ kommt fast viermal so oft vor wie „Sonstiges“. Zweitens ist jedes achte Schreiben **mehrdeutig**: Baumwurzeln heben den Gehweg an (Straßen oder Grünflächen?), Glasscherben im Sandkasten (Spielplatz oder Sauberkeit?). Der Goldstandard ist in diesen Fällen eine Entscheidung, keine Wahrheit.
+
+```{r mehrdeutig-beispiel}
+daten |> filter(mehrdeutig) |> slice(1) |> pull(text) |> cat()
+daten |> filter(mehrdeutig) |> slice(1) |> select(kategorie, alternative) |> knitr::kable()
+```
+
+<div class="merke">**Merke:** Bevor man misst, wie gut ein Modell ist, lohnt der Blick darauf, wie eindeutig die Aufgabe überhaupt ist. Wo sich zwei Sachbearbeitende nicht einig wären, kann auch ein Modell nicht „richtig“ liegen.</div>
+
+# Schritt 2: Trainings- und Testdaten trennen
+
+Ein Modell, das an denselben Schreiben geprüft wird, aus denen es gelernt hat, sieht immer gut aus. Deshalb legen wir ein Fünftel der Daten beiseite, bevor irgendetwas trainiert wird. `strata` sorgt dafür, dass die seltenen Klassen in beiden Teilen vertreten sind.
+
+```{r split}
+set.seed(2026)
+aufteilung <- initial_split(daten, prop = 0.8, strata = kategorie)
+train <- training(aufteilung)
+test  <- testing(aufteilung)
+c(training = nrow(train), test = nrow(test))
+```
+
+# Schritt 3: Ein einfaches Modell
+
+Wir zählen, welche Wörter in einem Schreiben vorkommen, und lassen eine regularisierte logistische Regression lernen, welche Wörter für welchen Bereich sprechen („Laterne“ für Beleuchtung, „Tonne“ für Abfall). Das ist bewusst kein Sprachmodell: Es ist in Sekunden trainiert, und man kann hineinschauen.
+
+```{r modell-funktionen}
+tokenisiere <- function(df) {
+  df |> select(id, text) |> unnest_tokens(wort, text) |> filter(!str_detect(wort, "^[0-9]+$"))
+}
+
+# Dokument-Wort-Matrix mit festem Vokabular (damit Test- und Trainingsdaten dieselben Spalten haben)
+baue_matrix <- function(df, vokabular) {
+  tok <- tokenisiere(df) |> filter(wort %in% vokabular) |> count(id, wort)
+  m <- cast_sparse(tok, id, wort, n)
+  fehlt_w <- setdiff(vokabular, colnames(m))
+  if (length(fehlt_w)) m <- cbind(m, Matrix(0, nrow(m), length(fehlt_w), sparse = TRUE, dimnames = list(rownames(m), fehlt_w)))
+  fehlt_id <- setdiff(df$id, rownames(m))
+  if (length(fehlt_id)) m <- rbind(m, Matrix(0, length(fehlt_id), ncol(m), sparse = TRUE, dimnames = list(fehlt_id, colnames(m))))
+  m[df$id, vokabular, drop = FALSE]
+}
+
+trainiere <- function(train, min_haeufigkeit = 3) {
+  vokabular <- tokenisiere(train) |> count(wort) |> filter(n >= min_haeufigkeit) |> pull(wort)
+  X <- baue_matrix(train, vokabular)
+  # Folds geschichtet nach Klasse, damit auch seltene Klassen in jedem Fold vorkommen
+  foldid <- as.integer(ave(seq_len(nrow(train)), train$kategorie, FUN = \(i) sample(rep(1:5, length.out = length(i)))))
+  fit <- cv.glmnet(X, train$kategorie, family = "multinomial", alpha = 0, foldid = foldid)
+  list(fit = fit, vokabular = vokabular)
+}
+
+vorhersage <- function(modell, df) {
+  X <- baue_matrix(df, modell$vokabular)
+  p <- predict(modell$fit, X, s = "lambda.min", type = "response")[, , 1]
+  df |> mutate(vorhersage = factor(colnames(p)[max.col(p)], levels = kategorien),
+               sicherheit = apply(p, 1, max))
+}
+```
+
+```{r modell-trainieren}
+modell <- trainiere(train)
+length(modell$vokabular)   # so viele Wörter kennt das Modell
+ergebnis <- vorhersage(modell, test)
+```
+
+Welche Wörter sprechen für „Beleuchtung“? Die größten Koeffizienten verraten es:
+
+```{r koeffizienten}
+koef <- coef(modell$fit, s = "lambda.min")$Beleuchtung
+tibble(wort = rownames(koef), gewicht = as.numeric(koef)) |>
+  filter(wort != "(Intercept)") |> slice_max(gewicht, n = 8) |> knitr::kable(digits = 2)
+```
+
+# Schritt 4: Bewerten mit Precision und Recall
+
+Die **Konfusionsmatrix** zeigt, was das Modell aus jedem echten Bereich gemacht hat (Zeilen: Vorhersage, Spalten: Goldstandard).
+
+```{r konfusion}
+conf_mat(ergebnis, truth = kategorie, estimate = vorhersage)
+```
+
+```{r kennzahlen-funktionen}
+# Kennzahlen je Klasse: Precision = Anteil richtiger unter den Vorhersagen dieser Klasse,
+# Recall = Anteil gefundener unter den echten Fällen dieser Klasse, F1 = harmonisches Mittel
+je_klasse <- function(df) {
+  map_dfr(kategorien, function(k) {
+    tp <- sum(df$vorhersage == k & df$kategorie == k)
+    tibble(kategorie = k, n = sum(df$kategorie == k),
+           precision = tp / max(sum(df$vorhersage == k), 1),
+           recall    = tp / max(sum(df$kategorie == k), 1)) |>
+      mutate(f1 = if_else(precision + recall > 0, 2 * precision * recall / (precision + recall), 0))
+  })
+}
+gesamt <- function(df) tibble(accuracy = mean(df$vorhersage == df$kategorie),
+                              f1_makro = mean(je_klasse(df)$f1))
+```
+
+```{r kennzahlen}
+gesamt(ergebnis) |> knitr::kable(digits = 3)
+je_klasse(ergebnis) |> knitr::kable(digits = 2)
+```
+
+Lesebeispiel: Von allen Schreiben, die das Modell „Sonstiges“ nennt, ist der Precision-Anteil tatsächlich „Sonstiges“. Von allen echten „Sonstiges“-Schreiben findet es den Recall-Anteil. Die Gesamttrefferquote (Accuracy) ist hoch, weil die großen Klassen gut laufen. Die kleine Klasse trägt wenig zur Accuracy bei, und genau dort ist das Modell am schwächsten.
+
+Wo liegen die Fehler? An zwei Stellen: bei der kleinen Klasse „Sonstiges“, für die das Modell wenig Beispiele hatte, und bei den mehrdeutigen Schreiben:
+
+```{r fehler-mehrdeutig}
+ergebnis |>
+  mutate(richtig = vorhersage == kategorie,
+         vertretbar = richtig | (!is.na(alternative) & vorhersage == alternative)) |>
+  group_by(mehrdeutig) |>
+  summarize(n = n(), trefferquote = mean(richtig), vertretbar = mean(vertretbar)) |>
+  knitr::kable(digits = 2)
+```
+
+Zählt man bei den mehrdeutigen Schreiben die „Alternative“ als ebenfalls richtig, verschwinden ihre Fehler vollständig. Die Frage, wie gut das Modell ist, hängt also auch davon ab, wie streng der Goldstandard ist.
+
+<div class="merke">**Merke:** Accuracy allein täuscht bei ungleichen Klassen. Precision und Recall je Klasse zeigen, *wo* es hakt. Und ein Blick auf die Fehlerfälle zeigt, *warum*: Oft ist nicht das Modell schlecht, sondern die Aufgabe unscharf.</div>
+
+# Schritt 5: Der Daten-Input entscheidet
+
+Dasselbe Modell, andere Daten. Drei Experimente zeigen, wie stark die Leistung vom Input abhängt.
+
+## OCR-Fehler im Text
+
+In der Praxis kommen die Texte aus Scans. Wir simulieren OCR-Fehler, indem wir einen Teil der Buchstaben durch typische Verwechsler ersetzen (e→c, l→1, o→0, ä→a …).
+
+```{r verrauschen}
+verrausche <- function(text, rate) {
+  ersatz <- c(e = "c", l = "1", o = "0", i = "l", u = "v", n = "h", "ä" = "a", "ö" = "o", "ü" = "u", "ß" = "B", s = "5", t = "f")
+  map_chr(text, function(t) {
+    z <- str_split(t, "")[[1]]
+    treffer <- which(z %in% names(ersatz) & runif(length(z)) < rate)
+    z[treffer] <- ersatz[z[treffer]]
+    paste(z, collapse = "")
+  })
+}
+set.seed(1)
+cat(verrausche(test$text[1], 0.15))
+```
+
+```{r ocr-experiment}
+set.seed(1)
+ocr_experiment <- map_dfr(c(0, 0.05, 0.10, 0.20, 0.30), function(rate) {
+  test_verrauscht <- test |> mutate(text = verrausche(text, rate))
+  vorhersage(modell, test_verrauscht) |> gesamt() |> mutate(fehlerrate = rate, .before = 1)
+})
+knitr::kable(ocr_experiment, digits = 3)
+```
+
+Mit jedem zehnten falschen Buchstaben bricht die Trefferquote spürbar ein. Das Modell hat „Laterne“ gelernt, nicht „Latcrnc“. Darum lohnt sich die OCR-Vorverarbeitung aus der Fallstudie, und darum kann es sich lohnen, das Modell auch mit verrauschten Texten zu trainieren.
+
+## Falsche Labels im Training
+
+Jetzt sind die Texte sauber, aber ein Teil der Trainingslabels ist falsch, etwa weil beim Kodieren geschlampt wurde oder mehrere Personen unterschiedlich kodiert haben.
+
+```{r label-experiment}
+set.seed(2)
+label_experiment <- map_dfr(c(0, 0.10, 0.20, 0.30, 0.40), function(rate) {
+  train_verrauscht <- train |>
+    mutate(kategorie = if_else(runif(n()) < rate,
+                               factor(map_chr(kategorie, ~ sample(setdiff(kategorien, .x), 1)), levels = kategorien),
+                               kategorie))
+  vorhersage(trainiere(train_verrauscht), test) |> gesamt() |> mutate(anteil_falsche_labels = rate, .before = 1)
+})
+knitr::kable(label_experiment, digits = 3)
+```
+
+Das Modell ist gegen einzelne falsche Labels erstaunlich robust. Werden es viele, lernt es den Fehler mit. Wichtiger als dieser Durchschnitt ist aber: Wenn die falschen Labels nicht zufällig sind, sondern systematisch (eine Person ordnet Spielplatzmüll immer der Sauberkeit zu), übernimmt das Modell genau diese Regel.
+
+## Zu wenige Beispiele
+
+```{r lernkurve}
+set.seed(3)
+# geschichtet ziehen, damit auch bei kleinen Stichproben jede Klasse vertreten ist
+lernkurve <- map_dfr(c(60, 100, 160, 240, 320, nrow(train)), function(n) {
+  teil <- train |> group_by(kategorie) |> slice_sample(prop = n / nrow(train)) |> ungroup()
+  vorhersage(trainiere(teil), test) |> gesamt() |> mutate(trainingsfaelle = n, .before = 1)
+})
+knitr::kable(lernkurve, digits = 3)
+```
+
+```{r lernkurve-plot, fig.width=7, fig.height=3.8, dev="ragg_png", dpi=120}
+ggplot(lernkurve, aes(trainingsfaelle, accuracy)) +
+  geom_line(colour = "#1D375B", linewidth = 1) + geom_point(colour = "#C2001A", size = 2.5) +
+  scale_y_continuous(labels = scales::percent, limits = c(0.4, 1)) +
+  labs(x = "Anzahl Trainingsfälle", y = "Trefferquote im Test", title = "Lernkurve: Mehr Beispiele, bessere Vorhersage") +
+  theme_minimal(base_family = "Fira Sans", base_size = 13) +
+  theme(plot.title = element_text(face = "bold"), panel.grid.minor = element_blank())
+```
+
+Mit 60 Beispielen rät das Modell fast; ab ein paar hundert flacht die Kurve ab. Die Kurve sagt auch, ob mehr Daten noch helfen würden: Ist sie flach, liegt der Engpass woanders.
+
+<div class="merke">**Merke:** „Das Modell ist zu 85 % genau“ ist keine Eigenschaft des Modells. Es ist eine Eigenschaft von Modell *und* Daten: Textqualität, Labelqualität, Menge und Verteilung. Ändert sich der Input, gilt die Zahl nicht mehr.</div>
+
+# Schritt 6: Validierung, die hält
+
+## Ein Split ist eine Stichprobe
+
+Unsere Trefferquote stammt aus **einem** zufälligen Test-Set mit gut hundert Schreiben. Ein anderer Zufall, eine andere Zahl:
+
+```{r splits-wiederholen}
+set.seed(4)
+wiederholungen <- map_dbl(1:10, function(i) {
+  s <- initial_split(daten, prop = 0.8, strata = kategorie)
+  vorhersage(trainiere(training(s)), testing(s)) |> gesamt() |> pull(accuracy)
+})
+round(range(wiederholungen), 3)
+```
+
+Zwischen bestem und schlechtestem Split liegen mehrere Prozentpunkte. Wer zwei Verfahren vergleicht, die sich um zwei Punkte unterscheiden, vergleicht womöglich nur Zufall.
+
+## Kreuzvalidierung
+
+Die **k-fache Kreuzvalidierung** teilt die Daten in k Teile, trainiert k-mal auf k−1 Teilen und testet auf dem übrigen. Jedes Schreiben wird genau einmal getestet, und man bekommt eine Schätzung mit Streuung statt einer einzelnen Zahl.
+
+```{r kreuzvalidierung}
+set.seed(5)
+folds <- vfold_cv(daten, v = 5, strata = kategorie)
+cv <- map_dfr(folds$splits, function(s) {
+  vorhersage(trainiere(analysis(s)), assessment(s)) |> gesamt()
+}, .id = "fold")
+knitr::kable(cv, digits = 3)
+cv |> summarize(mittel = mean(accuracy), streuung = sd(accuracy)) |> knitr::kable(digits = 3)
+```
+
+## Datenlecks
+
+Unsere Schreiben entstehen aus Bausteinen; viele Formulierungen tauchen in Training und Test fast identisch auf. Das Modell lernt dadurch leichter, als es bei echten Schreiben wäre, und die Zahlen oben sind eher zu optimistisch. In der Praxis passiert dasselbe, wenn Vorlagen, Serienbriefe oder Dubletten in beide Hälften geraten, oder wenn die Testdaten aus derselben Woche stammen wie die Trainingsdaten und im Winter dann andere Anliegen kommen. Eine saubere Validierung prüft an Daten, die das Modell im Betrieb wirklich sehen würde: aus einem späteren Zeitraum, aus einem anderen Stadtteil, ohne Dubletten.
+
+<div class="merke">**Merke:** Eine einzelne Trefferquote ist eine Stichprobe. Kreuzvalidierung gibt eine Spanne. Und beides ist nur so viel wert, wie die Testdaten dem Betrieb ähneln.</div>
+
+# Schritt 7: Besser werden
+
+Was hilft, wenn die Zahlen nicht reichen? Nicht zuerst ein größeres Modell.
+
+## Unsichere Fälle an Menschen geben
+
+Das Modell liefert zu jeder Vorhersage eine Wahrscheinlichkeit. Übernimmt man nur die sicheren Fälle automatisch und legt den Rest einem Menschen vor, steigt die Precision der automatischen Zuordnung. Der Preis ist weniger Automatisierung:
+
+```{r schwelle}
+map_dfr(c(0, 0.5, 0.6, 0.7, 0.8, 0.9), function(s) {
+  auto <- ergebnis |> filter(sicherheit >= s)
+  tibble(schwelle = s, anteil_automatisch = nrow(auto) / nrow(ergebnis),
+         trefferquote_automatisch = mean(auto$vorhersage == auto$kategorie))
+}) |> knitr::kable(digits = 2)
+```
+
+Diese Tabelle ist die eigentliche Entscheidungsgrundlage für eine Behörde: Wie viel Handarbeit ist uns welche Fehlerquote wert?
+
+## Den Goldstandard schärfen
+
+Ein Teil der Fehler lag bei den mehrdeutigen Schreiben. Zwei Wege: Entweder die Kodierregeln so präzisieren, dass die Zuordnung eindeutig wird („Schäden am Gehweg gehören immer zu Straßen, egal was die Ursache ist“), oder eine Klasse „Mehrere Bereiche“ einführen, die zur Nachprüfung geht. Beides ist Arbeit an den Daten, nicht am Modell.
+
+## Mehr und bessere Daten
+
+Die Lernkurve zeigt, ob mehr Beispiele helfen. Noch mehr bringt es oft, die **seltenen Klassen** gezielt nachzukodieren: Für „Sonstiges“ hatte das Modell nur rund 30 Trainingsfälle.
+
+## Ein anderes Modell: Sprachmodell ohne Training
+
+Ein Sprachmodell braucht keine Trainingsdaten, nur die Liste der Kategorien. Wie schlägt es sich auf denselben Testfällen? Der Vergleich läuft mit einem lokalen Modell über Ollama und wird zwischengespeichert (`daten/llm_vergleich.csv`).
+
+```{r llm-vorbereiten}
+llm_datei <- "daten/llm_vergleich.csv"
+ollama_da <- tryCatch({ httr2::request("http://localhost:11434") |> httr2::req_timeout(2) |> httr2::req_perform(); TRUE },
+                      error = function(e) FALSE)
+llm_laeuft <- ollama_da || file.exists(llm_datei)
+```
+
+```{r llm-vergleich, eval=llm_laeuft}
+library(ellmer)
+set.seed(6)
+stichprobe <- ergebnis |> slice_sample(n = 40)
+
+if (file.exists(llm_datei)) {
+  llm <- read_csv(llm_datei, show_col_types = FALSE)
+} else {
+  modelle <- httr2::request("http://localhost:11434/api/tags") |> httr2::req_perform() |> httr2::resp_body_json() |>
+    pluck("models") |> map_chr("name")
+  chat <- chat_ollama(model = modelle[1], echo = "none",
+                      system_prompt = "Du ordnest Bürgerschreiben an eine Stadtverwaltung dem zuständigen Themenbereich zu.")
+  typ <- type_object(kategorie = type_enum(kategorien, "Zuständiger Themenbereich"))
+  # Die Kategorien stehen mit kurzer Erklärung im Prompt; nur die Liste im Antwortschema reicht lokalen Modellen nicht
+  anweisung <- paste0("Ordne dieses Schreiben genau einem Themenbereich zu. Erlaubte Themenbereiche:\n",
+    "- Straßen und Verkehr: Fahrbahn, Gehweg, Schilder, Ampeln, Parken, Tempo\n",
+    "- Grünflächen und Spielplätze: Bäume, Hecken, Parks, Spielgeräte\n",
+    "- Abfall und Sauberkeit: Tonnen, Müll, Container, Verschmutzung\n",
+    "- Beleuchtung: Straßenlaternen und andere öffentliche Beleuchtung\n",
+    "- Lärm: Ruhestörung durch Gaststätten, Baustellen, Anlagen, Personen\n",
+    "- Sonstiges: Lob, Beschwerden über die Verwaltung selbst, Anträge, Formulare, alles andere\n",
+    "Gib den Themenbereich wörtlich so an, wie er in der Liste steht.\n\n--- SCHREIBEN ---\n")
+  antworten <- parallel_chat_structured(chat, map(stichprobe$text, ~ paste0(anweisung, .x)), type = typ, max_active = 1)
+  llm <- stichprobe |> select(id) |> mutate(llm = as_tibble(antworten)$kategorie)
+  write_csv(llm, llm_datei)
+}
+
+vergleich <- stichprobe |> inner_join(llm, by = "id") |>
+  mutate(llm = factor(llm, levels = kategorien))
+tibble(verfahren = c("Wortzähl-Modell (trainiert)", "Sprachmodell (ohne Training)"),
+       trefferquote = c(mean(vergleich$vorhersage == vergleich$kategorie), mean(vergleich$llm == vergleich$kategorie)),
+       vertretbar = c(mean(vergleich$vorhersage == vergleich$kategorie | (!is.na(vergleich$alternative) & vergleich$vorhersage == vergleich$alternative)),
+                      mean(vergleich$llm == vergleich$kategorie | (!is.na(vergleich$alternative) & vergleich$llm == vergleich$alternative)))) |>
+  knitr::kable(digits = 2)
+```
+
+Das Sprachmodell kommt ohne eine einzige kodierte Vorlage in die Nähe des trainierten Modells, und auch seine Fehler liegen vor allem bei den Schreiben, die zwischen zwei Bereichen liegen, und bei „Sonstiges“. Eine Lehre nebenbei: Ohne die Erklärungen zu den Kategorien im Prompt (nur mit der Liste im Antwortschema) lag dasselbe lokale Modell in einem ersten Versuch bei 70 % und ordnete Straßenlaternen reihenweise dem Straßenverkehr zu. Auch beim Sprachmodell ist die Beschreibung der Aufgabe Teil des Daten-Inputs.
+
+# Was wir mitnehmen
+
+- **Erst die Aufgabe prüfen, dann das Modell.** Wo Menschen uneins sind, gibt es kein „richtig“, das ein Modell treffen könnte.
+- **Precision und Recall je Klasse**, nicht nur Accuracy. Die seltenen Klassen sind oft die wichtigen.
+- **Die Zahl gehört zu den Daten.** OCR-Fehler, falsche Labels, zu wenige Beispiele: Jedes davon verschiebt das Ergebnis, ohne dass sich am Modell etwas ändert.
+- **Validieren wie im Betrieb.** Kreuzvalidierung statt eines Splits; Testdaten, die dem echten Einsatz ähneln; Dubletten raus.
+- **Verbessern heißt meist: an den Daten arbeiten.** Kodierregeln schärfen, seltene Klassen nachkodieren, unsichere Fälle an Menschen geben.
+
+**Zum Weiterspielen:** Trainiert das Modell mit verrauschten Texten (`verrausche(train$text, 0.1)`) und testet es auf verrauschten Texten. Wird es robuster? Oder ändert die Kodierregel: Weist alle mehrdeutigen Schreiben ihrer Alternative zu und schaut, ob die Fehler wandern oder verschwinden.
+
+```{r aufgabe-web, include=FALSE}
+# Exportiert zwölf Testfälle samt Modellvorhersage für die interaktive Aufgabe auf der Kurswebseite
+set.seed(42)
+# Mischung: zwei Fälle, in denen das Modell danebenliegt, vier mehrdeutige, der Rest eindeutig
+fehler <- ergebnis |> filter(vorhersage != kategorie) |> slice_head(n = 2)
+mehrd  <- ergebnis |> filter(mehrdeutig, !id %in% fehler$id) |> distinct(kategorie, .keep_all = TRUE) |> slice_head(n = 4)
+eind   <- ergebnis |> filter(!mehrdeutig, vorhersage == kategorie, !id %in% fehler$id) |>
+  group_by(kategorie) |> slice_sample(n = 2) |> ungroup() |> slice_sample(n = 12 - nrow(fehler) - nrow(mehrd))
+auswahl <- bind_rows(fehler, mehrd, eind) |> slice_sample(prop = 1) |>
+  transmute(id, text, gold = as.character(kategorie), alternative, mehrdeutig, dringlichkeit,
+            modell = as.character(vorhersage), sicherheit = round(sicherheit, 2))
+jsonlite::write_json(list(kategorien = kategorien, dringlichkeiten = c("hoch", "mittel", "niedrig"), faelle = auswahl),
+                     "daten/aufgabe-web.json", auto_unbox = TRUE, pretty = TRUE, na = "null")
+```

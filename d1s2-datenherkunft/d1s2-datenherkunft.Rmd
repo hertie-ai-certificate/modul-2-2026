@@ -534,9 +534,6 @@ name: datasources
 </tbody>
 </table>
 
-️✎ Die Quellen sind in der Tabelle verlinkt. Sprachmodell-Trainingsdaten sind seit 2023 Geschäftsgeheimnis; alle Angaben dazu stammen aus früheren Veröffentlichungen, Lizenzverträgen und Recherchen.
-
-
 ---
 # Womit werden KI-Systeme gefüttert?
 

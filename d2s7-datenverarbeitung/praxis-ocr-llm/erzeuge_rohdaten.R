@@ -1,14 +1,17 @@
-# Erzeugt die Rohdaten für die Praxis-Session: acht erfundene Bürgeranliegen
+# Erzeugt die Rohdaten für die Praxis-Session: zehn erfundene Bürgeranliegen
 # an eine Stadtverwaltung, als "Scans" (PNG/JPG/PDF) mit Störungen, dazu ein
 # Manifest (dokumente.csv) mit den Goldstandard-Angaben für die Auswertung.
 #
 # Muss nur einmal laufen; die Ergebnisse liegen in daten/01_rohdaten/.
+# Vorhandene Scans werden nicht überschrieben (nur_neue <- TRUE), damit die
+# Ergebnisse der Pipeline reproduzierbar bleiben.
 # Alle Personen, Adressen und Vorgänge sind erfunden.
 
 library(tidyverse)
 library(magick)
 
 set.seed(2026)
+nur_neue <- TRUE
 ziel <- "daten/01_rohdaten"
 dir.create(ziel, showWarnings = FALSE, recursive = TRUE)
 
@@ -39,21 +42,30 @@ anliegen <- tribble(
   "Hallo,\n\nan der Ecke Rosenallee/Parkweg hat jemand nachts einen ganzen Anhänger voll Bauschutt, alte Farbeimer und Dämmwolle abgeladen. Es stinkt nach Chemie, und Kinder laufen dort zur Schule. Bitte schnell abholen. Ich habe Fotos gemacht und kann sie schicken.\n\nMai Nguyen",
   "A08", "Peter Lindqvist", "Kirchplatz 1, 31234 Musterstadt", "16.09.2026", "Rathaus, Bürgerbüro",
   "Sonstiges", "niedrig",
-  "Sehr geehrte Frau Bürgermeisterin,\n\nich möchte mich ausdrücklich bei den Mitarbeiterinnen des Bürgerbüros bedanken. Bei der Ummeldung meines Wohnsitzes am 15. September wurde mir sehr freundlich und schnell geholfen, obwohl ich meine Unterlagen nicht vollständig hatte. Eine Anregung hätte ich dennoch: Die Öffnungszeiten am Donnerstagabend sollten besser auf der Webseite zu finden sein.\n\nMit besten Grüßen\nPeter Lindqvist"
+  "Sehr geehrte Frau Bürgermeisterin,\n\nich möchte mich ausdrücklich bei den Mitarbeiterinnen des Bürgerbüros bedanken. Bei der Ummeldung meines Wohnsitzes am 15. September wurde mir sehr freundlich und schnell geholfen, obwohl ich meine Unterlagen nicht vollständig hatte. Eine Anregung hätte ich dennoch: Die Öffnungszeiten am Donnerstagabend sollten besser auf der Webseite zu finden sein.\n\nMit besten Grüßen\nPeter Lindqvist",
+  # Zwei Dokumente in schlechter Scanqualität: ein Fax und ein Handyfoto
+  "A09", "Kleingartenverein Sonnenhügel e.V.", "Gartenweg 50, 31234 Musterstadt", "17.09.2026", "Glascontainerplatz Gartenweg / Birkenstraße",
+  "Abfall und Sauberkeit", "hoch",
+  "Sehr geehrte Damen und Herren,\n\nam Glascontainerplatz Gartenweg/Birkenstraße quillt der Restmüllcontainer seit über einer Woche über. Daneben stapeln sich Säcke, und wir haben mehrfach Ratten gesehen, auch tagsüber. Unsere Mitglieder trauen sich mit den Kindern kaum noch vorbei. Bitte leeren Sie den Container umgehend und prüfen Sie, ob ein zweiter Container aufgestellt werden kann.\n\nMit freundlichen Grüßen\nfür den Vorstand\nHeike Sommer",
+  "A10", "Ingrid Baumann", "Ahornweg 9, 31234 Musterstadt", "18.9.2026", "Gehweg Ahornweg zwischen Hausnummer 5 und 11",
+  "Straßen und Verkehr", "mittel",
+  "Guten Tag,\n\ndie Wurzeln der alten Ahornbäume im Ahornweg heben die Gehwegplatten zwischen den Hausnummern 5 und 11 inzwischen um mehrere Zentimeter an. Mit meinem Rollator komme ich dort kaum noch durch, und meine Nachbarin ist letzte Woche gestürzt. Bitte lassen Sie den Gehweg richten. Die Bäume sollen natürlich stehen bleiben.\n\nFreundliche Grüße\nIngrid Baumann"
 )
 
 # Layout-Varianten: Schrift, Größe, Störung, Dateiformat ---------------------
 
 layouts <- tribble(
-  ~id,  ~font,            ~size, ~kopf,                                        ~rotation, ~noise, ~format,
-  "A01", "Helvetica",      30,    "Renate Vogel · Lindenstraße 14 · 31234 Musterstadt",  0.8,  "gaussian", "png",
-  "A02", "Bradley Hand",   36,    "Fam. Yilmaz, Am Stadtpark 3, Musterstadt",            -1.5, "impulse",  "jpg",
-  "A03", "Times",          30,    "Dr. Hartmut Krüger\nBergweg 22\n31234 Musterstadt",    0.3,  "gaussian", "pdf",
-  "A04", "Courier",        28,    "S. Oswald, Mühlenweg 7",                              -0.6, "multiplicative", "png",
-  "A05", "Helvetica",      30,    "Jonas Petersen · Hafenstraße 41 · 31234 Musterstadt", 1.2,  "gaussian", "jpg",
-  "A06", "Times",          32,    "G. u. W. Brandt\nFeldstraße 2a\n31234 Musterstadt",    -0.4, "impulse",  "png",
-  "A07", "Bradley Hand",   34,    "Mai Nguyen, Rosenallee 18",                           2.0,  "gaussian", "jpg",
-  "A08", "Georgia",        30,    "Peter Lindqvist · Kirchplatz 1 · 31234 Musterstadt",   0.0,  "gaussian", "pdf"
+  ~id,  ~font,            ~size, ~kopf,                                        ~rotation, ~noise, ~format,  ~qualitaet,
+  "A01", "Helvetica",      30,    "Renate Vogel · Lindenstraße 14 · 31234 Musterstadt",  0.8,  "gaussian", "png", "normal",
+  "A02", "Bradley Hand",   36,    "Fam. Yilmaz, Am Stadtpark 3, Musterstadt",            -1.5, "impulse",  "jpg", "normal",
+  "A03", "Times",          30,    "Dr. Hartmut Krüger\nBergweg 22\n31234 Musterstadt",    0.3,  "gaussian", "pdf", "normal",
+  "A04", "Courier",        28,    "S. Oswald, Mühlenweg 7",                              -0.6, "multiplicative", "png", "normal",
+  "A05", "Helvetica",      30,    "Jonas Petersen · Hafenstraße 41 · 31234 Musterstadt", 1.2,  "gaussian", "jpg", "normal",
+  "A06", "Times",          32,    "G. u. W. Brandt\nFeldstraße 2a\n31234 Musterstadt",    -0.4, "impulse",  "png", "normal",
+  "A07", "Bradley Hand",   34,    "Mai Nguyen, Rosenallee 18",                           2.0,  "gaussian", "jpg", "normal",
+  "A08", "Georgia",        30,    "Peter Lindqvist · Kirchplatz 1 · 31234 Musterstadt",   0.0,  "gaussian", "pdf", "normal",
+  "A09", "Courier",        28,    "Kleingartenverein Sonnenhuegel e.V. - Gartenweg 50",   0.5,  "impulse",  "png", "fax",
+  "A10", "Bradley Hand",   36,    "Ingrid Baumann, Ahornweg 9",                          3.5,  "poisson",  "jpg", "foto"
 )
 
 umbrechen <- function(text, breite) {
@@ -76,7 +88,22 @@ erzeuge_scan <- function(zeile, layout) {
   img <- image_rotate(img, layout$rotation) |> image_crop("1654x2339+30+40")
   img <- image_noise(img, layout$noise) |> image_blur(0, 0.6) |> image_modulate(brightness = 97)
   img <- image_quantize(img, 64, colorspace = "gray")
+  # Zwei Stufen schlechter: Fax (grobe Auflösung, harte Kontraste, Streifen) und
+  # Handyfoto (schief, unscharf, ungleichmäßig belichtet)
+  if (layout$qualitaet == "fax") {
+    img <- img |> image_resize("55%") |> image_resize("1624x2299!") |>
+      image_threshold("white", "60%") |> image_threshold("black", "40%") |> image_noise("impulse")
+    img <- image_draw(img)
+    abline(h = seq(80, 2299, by = 230), col = "white", lwd = 10)   # Übertragungsstreifen
+    dev.off()
+  }
+  if (layout$qualitaet == "foto") {
+    schatten <- image_blank(1624, 2299, "white") |> image_fx("p*(0.80+0.20*i/w)")   # links dunkel, rechts hell
+    img <- image_composite(img, schatten, operator = "multiply") |>
+      image_blur(0, 0.8) |> image_modulate(brightness = 95) |> image_noise("gaussian")
+  }
   datei <- file.path(ziel, paste0(zeile$id, "_anliegen.", layout$format))
+  if (nur_neue && file.exists(datei)) return(datei)
   image_write(img, datei, format = layout$format, density = 200)
   datei
 }

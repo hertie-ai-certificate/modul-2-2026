@@ -1,0 +1,3361 @@
+id,text,kategorie,alternative,mehrdeutig,dringlichkeit
+B001,"Hallo zusammen,
+
+Seit drei Wochen fehlt an der Kreuzung Bahnhofstraße 19 das Stoppschild. Es wird von Woche zu Woche schlimmer. Bitte stellen Sie das Schild wieder auf.
+
+Freundliche Grüße
+S. Lehmann",Straßen und Verkehr,NA,FALSE,mittel
+B002,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit gestern beginnt die Baustelle in der Parkallee 20 jeden Morgen um 6 Uhr mit Presslufthammer. Das sollte zeitnah behoben werden. Bitte prüfen Sie die erlaubten Arbeitszeiten.
+
+Danke und Gruß
+M. Vogel",Lärm,NA,FALSE,mittel
+B003,"Liebe Stadtverwaltung,
+
+Seit etwa einer Woche brennt die Straßenbeleuchtung in der Marktstraße 46 auch tagsüber. Wir haben mehrfach Ratten gesehen, auch tagsüber. Bitte prüfen Sie die Zeitschaltung.
+
+Viele Grüße
+L. Lindqvist",Beleuchtung,NA,FALSE,hoch
+B004,"Hallo,
+
+Seit drei Wochen ist der Gullydeckel in der Hafenstraße 36 lose und klappert bei jedem Auto. Vielen Dank für Ihre Arbeit. Bitte befestigen Sie den Deckel.
+
+Danke und Gruß
+M. Becker",Straßen und Verkehr,NA,FALSE,niedrig
+B005,"Hallo zusammen,
+
+Schon länger wachsen die Sträucher an der Einmündung Wiesenstraße 41 so weit in die Straße, dass man nichts sieht. Bitte schneiden Sie die Sträucher zurück.
+
+Hochachtungsvoll
+H. Haddad",Grünflächen und Spielplätze,Straßen und Verkehr,TRUE,mittel
+B006,"Hallo zusammen,
+
+Seit dem Wochenende dröhnt die Lüftungsanlage des Supermarkts in der Bergstraße 22 die ganze Nacht. Bitte messen Sie den Lärm.
+
+Beste Grüße
+C. Öztürk",Lärm,NA,FALSE,mittel
+B007,"Guten Tag,
+
+Seit etwa einer Woche wird in der Hauptstraße 26 viel zu schnell gefahren, obwohl Tempo 30 gilt. Ich wollte das nur einmal angemerkt haben. Bitte prüfen Sie Geschwindigkeitskontrollen oder eine Schwelle.
+
+Mit besten Grüßen
+F. Hartmann",Straßen und Verkehr,NA,FALSE,niedrig
+B008,"Sehr geehrte Damen und Herren,
+
+Seit dem letzten Sturm ist das Beet am Kreisverkehr Kirchgasse 2 völlig verwildert. Das sollte zeitnah behoben werden. Bitte pflegen Sie das Beet.
+
+Freundliche Grüße
+L. Becker",Grünflächen und Spielplätze,NA,FALSE,mittel
+B009,"Sehr geehrte Damen und Herren,
+
+Seit drei Wochen ist der Gullydeckel in der Hauptstraße 47 lose und klappert bei jedem Auto. Vielen Dank für Ihre Arbeit. Bitte befestigen Sie den Deckel.
+
+Viele Grüße
+S. Fischer",Straßen und Verkehr,NA,FALSE,niedrig
+B010,"Hallo,
+
+Seit Monaten ist der Lichtmast in der Brunnenstraße 45 verrostet und hat ein offenes Kabelfach. Bitte sichern Sie den Mast.
+
+Danke und Gruß
+L. Rossi",Beleuchtung,NA,FALSE,niedrig
+B011,"Sehr geehrte Damen und Herren,
+
+Seit drei Wochen hat jemand in der Hauptstraße 37 Bauschutt und alte Farbeimer abgeladen. Meine Nachbarin ist letzte Woche deswegen gestürzt. Bitte lassen Sie den Müll abholen.
+
+Freundliche Grüße
+E. Sommer",Abfall und Sauberkeit,NA,FALSE,hoch
+B012,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit gestern ist die Straßenlaterne vor dem Haus Kastanienallee 8 dunkel. Viele ältere Leute wohnen hier. Bitte reparieren Sie die Laterne.
+
+Mit freundlichen Grüßen
+E. Kowalski",Beleuchtung,NA,FALSE,mittel
+B013,"Guten Tag,
+
+Seit etwa einer Woche ist die Hecke am Spielplatz Hauptstraße 60 so hoch, dass man die Kinder nicht mehr sieht. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte schneiden Sie die Hecke zurück.
+
+Danke und Gruß
+J. Baumann",Grünflächen und Spielplätze,NA,FALSE,mittel
+B014,"Sehr geehrte Damen und Herren,
+
+Schon länger sind die Mülltonnen im Hinterhof Ahornallee 17 voller Maden und stinken. Vielleicht lässt sich das bei Gelegenheit erledigen. Bitte reinigen Sie die Tonnen oder tauschen Sie sie.
+
+Beste Grüße
+L. Brandt",Abfall und Sauberkeit,NA,FALSE,niedrig
+B015,"Hallo,
+
+Seit Anfang des Monats beginnt die Baustelle in der Hafenstraße 10 jeden Morgen um 6 Uhr mit Presslufthammer. Viele ältere Leute wohnen hier. Bitte prüfen Sie die erlaubten Arbeitszeiten.
+
+Viele Grüße
+A. Hartmann",Lärm,NA,FALSE,mittel
+B016,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit etwa einer Woche ist der Aufzug im Rathaus seit zwei Wochen außer Betrieb. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte lassen Sie ihn reparieren.
+
+Beste Grüße
+E. Rossi",Sonstiges,NA,FALSE,mittel
+B017,"Hallo zusammen,
+
+Seit etwa einer Woche ist der Hundekotbeutelspender in der Bergstraße 13 seit Wochen leer. Bitte füllen Sie den Spender nach.
+
+Hochachtungsvoll
+B. Brandt",Abfall und Sauberkeit,NA,FALSE,mittel
+B018,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit Monaten läuft in der Gaststätte Ahornallee 9 an den Wochenenden bis nach 2 Uhr laute Musik. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte schreiten Sie ein.
+
+Mit besten Grüßen
+J. Oswald",Lärm,NA,FALSE,hoch
+B019,"Hallo zusammen,
+
+Seit drei Wochen fehlt auf dem Spielplatz Bergstraße 51 der Sand im Sandkasten. Viele ältere Leute wohnen hier. Bitte füllen Sie Sand nach.
+
+Freundliche Grüße
+D. Öztürk",Grünflächen und Spielplätze,NA,FALSE,mittel
+B020,"Guten Tag,
+
+Seit dem Wochenende sind die Bänke im Park Ringstraße 1 morsch und wackeln. Das ist eine echte Gefahr, es muss sofort etwas passieren. Bitte tauschen Sie die Bänke aus.
+
+Mit freundlichen Grüßen
+L. Weber",Grünflächen und Spielplätze,NA,FALSE,hoch
+B021,"Hallo zusammen,
+
+Seit Anfang des Monats ist der Bordstein in der Hafenstraße 28 am Übergang nicht abgesenkt. Meine Nachbarin ist letzte Woche deswegen gestürzt. Bitte senken Sie den Bordstein für Rollstühle und Kinderwagen ab.
+
+Freundliche Grüße
+J. Weber",Straßen und Verkehr,NA,FALSE,hoch
+B022,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit etwa einer Woche wurde der Rasen im Park an der Lindenstraße 6 seit Wochen nicht gemäht. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte mähen Sie die Wiese.
+
+Viele Grüße
+A. Fischer",Grünflächen und Spielplätze,NA,FALSE,mittel
+B023,"Liebe Stadtverwaltung,
+
+Seit etwa einer Woche parken Lieferwagen in der Feldstraße 56 regelmäßig auf dem Radweg. Das ist eine echte Gefahr, es muss sofort etwas passieren. Bitte kontrollieren Sie das Halteverbot.
+
+Hochachtungsvoll
+S. Vogel",Straßen und Verkehr,NA,FALSE,hoch
+B024,"Sehr geehrte Damen und Herren,
+
+Seit drei Wochen sind die Mülltonnen im Hinterhof Mühlengasse 42 voller Maden und stinken. Meine Nachbarin ist letzte Woche deswegen gestürzt. Bitte reinigen Sie die Tonnen oder tauschen Sie sie.
+
+Viele Grüße
+C. Petersen",Abfall und Sauberkeit,NA,FALSE,hoch
+B025,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit dem letzten Sturm ist das Beet am Kreisverkehr Marktstraße 29 völlig verwildert. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte pflegen Sie das Beet.
+
+Danke und Gruß
+A. Baumann",Grünflächen und Spielplätze,NA,FALSE,mittel
+B026,"Hallo,
+
+Seit etwa einer Woche ist der Bordstein in der Mühlengasse 58 am Übergang nicht abgesenkt. Bitte senken Sie den Bordstein für Rollstühle und Kinderwagen ab.
+
+Mit besten Grüßen
+A. Krüger",Straßen und Verkehr,NA,FALSE,mittel
+B027,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit dem Wochenende fehlt auf dem Spielplatz Parkallee 31 der Sand im Sandkasten. Vielen Dank für Ihre Arbeit. Bitte füllen Sie Sand nach.
+
+Danke und Gruß
+K. Baumann",Grünflächen und Spielplätze,NA,FALSE,niedrig
+B028,"Guten Tag,
+
+Seit etwa einer Woche ist die Wippe am Spielplatz Brunnenstraße 31 abgebaut und nicht ersetzt worden. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Wann kommt ein neues Gerät?
+
+Mit besten Grüßen
+D. Haddad",Grünflächen und Spielplätze,NA,FALSE,mittel
+B029,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit gestern fahren Motorräder nachts mit Vollgas durch die Schulstraße 32. Bitte prüfen Sie eine Lärmkontrolle.
+
+Danke und Gruß
+A. Yilmaz",Lärm,NA,FALSE,mittel
+B030,"Hallo zusammen,
+
+Seit dem letzten Sturm ist das Beet am Kreisverkehr Kirchgasse 5 völlig verwildert. Es wird von Woche zu Woche schlimmer. Bitte pflegen Sie das Beet.
+
+Viele Grüße
+K. Brandt",Grünflächen und Spielplätze,NA,FALSE,mittel
+B031,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit etwa einer Woche ist die Wippe am Spielplatz Brunnenstraße 51 abgebaut und nicht ersetzt worden. Vielen Dank für Ihre Arbeit. Wann kommt ein neues Gerät?
+
+Mit besten Grüßen
+D. Nguyen",Grünflächen und Spielplätze,NA,FALSE,niedrig
+B032,"Hallo zusammen,
+
+Seit etwa einer Woche stehen in der Bahnhofstraße 20 seit Tagen Sperrmüllreste auf dem Gehweg. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte veranlassen Sie die Abholung.
+
+Danke und Gruß
+C. Baumann",Abfall und Sauberkeit,NA,FALSE,hoch
+B033,"Hallo zusammen,
+
+Seit Anfang des Monats bläst der Laubbläser des Hausmeisters in der Ahornallee 30 sonntags um 8 Uhr. Bitte weisen Sie auf die Ruhezeiten hin.
+
+Danke und Gruß
+N. Krüger",Lärm,NA,FALSE,mittel
+B034,"Hallo zusammen,
+
+Schon länger hängt ein abgebrochener Ast über dem Weg in der Grünanlage Gartenstraße 34. Das sollte zeitnah behoben werden. Bitte entfernen Sie den Ast.
+
+Danke und Gruß
+A. Lehmann",Grünflächen und Spielplätze,NA,FALSE,mittel
+B035,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit dem Wochenende wird in der Mühlengasse 12 viel zu schnell gefahren, obwohl Tempo 30 gilt. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte prüfen Sie Geschwindigkeitskontrollen oder eine Schwelle.
+
+Beste Grüße
+L. Rossi",Straßen und Verkehr,NA,FALSE,mittel
+B036,"Liebe Stadtverwaltung,
+
+Seit gestern fehlt auf dem Spielplatz Bergstraße 44 der Sand im Sandkasten. Ich habe bereits zweimal die Polizei gerufen. Bitte füllen Sie Sand nach.
+
+Mit freundlichen Grüßen
+M. Baumann",Grünflächen und Spielplätze,NA,FALSE,hoch
+B037,"Liebe Stadtverwaltung,
+
+Seit Monaten ist die Rutsche auf dem Spielplatz Bergstraße 6 gerissen und hat scharfe Kanten. Es wird von Woche zu Woche schlimmer. Bitte sperren und reparieren Sie die Rutsche.
+
+Hochachtungsvoll
+B. Sommer",Grünflächen und Spielplätze,NA,FALSE,mittel
+B038,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit Monaten ist die Fahrbahnmarkierung in der Marktstraße 49 kaum noch zu erkennen. Das sollte zeitnah behoben werden. Bitte erneuern Sie die Markierung.
+
+Viele Grüße
+K. Rossi",Straßen und Verkehr,NA,FALSE,mittel
+B039,"Hallo zusammen,
+
+Seit gestern ist die Brücke über den Mühlbach in der Lindenstraße 31 für Fußgänger gesperrt, ohne Umleitung. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte weisen Sie eine Umleitung aus.
+
+Hochachtungsvoll
+B. Lehmann",Straßen und Verkehr,NA,FALSE,hoch
+B040,"Hallo zusammen,
+
+Seit drei Wochen ist der Bordstein in der Marktstraße 42 am Übergang nicht abgesenkt. Es wird von Woche zu Woche schlimmer. Bitte senken Sie den Bordstein für Rollstühle und Kinderwagen ab.
+
+Freundliche Grüße
+L. Kowalski",Straßen und Verkehr,NA,FALSE,mittel
+B041,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit gestern brennt die Straßenbeleuchtung in der Hauptstraße 60 auch tagsüber. Ich habe bereits zweimal die Polizei gerufen. Bitte prüfen Sie die Zeitschaltung.
+
+Danke und Gruß
+C. Lehmann",Beleuchtung,NA,FALSE,hoch
+B042,"Sehr geehrte Damen und Herren,
+
+Seit dem letzten Sturm wird in der Parkallee 5 viel zu schnell gefahren, obwohl Tempo 30 gilt. Das ist eine echte Gefahr, es muss sofort etwas passieren. Bitte prüfen Sie Geschwindigkeitskontrollen oder eine Schwelle.
+
+Beste Grüße
+J. Yilmaz",Straßen und Verkehr,NA,FALSE,hoch
+B043,"Liebe Stadtverwaltung,
+
+Seit dem Wochenende sind die Bänke im Park Brunnenstraße 9 morsch und wackeln. Es wird von Woche zu Woche schlimmer. Bitte tauschen Sie die Bänke aus.
+
+Mit besten Grüßen
+H. Petersen",Grünflächen und Spielplätze,NA,FALSE,mittel
+B044,"Hallo zusammen,
+
+Seit dem Wochenende ist die Rutsche auf dem Spielplatz Ahornallee 53 gerissen und hat scharfe Kanten. Bitte sperren und reparieren Sie die Rutsche.
+
+Mit besten Grüßen
+C. Vogel",Grünflächen und Spielplätze,NA,FALSE,mittel
+B045,"Hallo,
+
+Seit drei Wochen parken Lieferwagen in der Schulstraße 51 regelmäßig auf dem Radweg. Ich habe große Sorge, dass bald etwas Schlimmes passiert. Bitte kontrollieren Sie das Halteverbot.
+
+Mit besten Grüßen
+J. Öztürk",Straßen und Verkehr,NA,FALSE,hoch
+B046,"Liebe Stadtverwaltung,
+
+Schon länger ist der Baum vor dem Haus Hauptstraße 18 nach dem Sturm angebrochen. Vielen Dank für Ihre Arbeit. Bitte prüfen Sie den Baum auf Standsicherheit.
+
+Beste Grüße
+T. Krüger",Grünflächen und Spielplätze,NA,FALSE,niedrig
+B047,"Guten Tag,
+
+Seit Anfang des Monats ist der Aufzug im Rathaus seit zwei Wochen außer Betrieb. Vielleicht lässt sich das bei Gelegenheit erledigen. Bitte lassen Sie ihn reparieren.
+
+Freundliche Grüße
+H. Weber",Sonstiges,NA,FALSE,niedrig
+B048,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit Monaten ist in der Wiesenstraße 7 ein tiefes Schlagloch, das immer größer wird. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte bessern Sie die Fahrbahn aus.
+
+Danke und Gruß
+T. Schäfer",Straßen und Verkehr,NA,FALSE,hoch
+B049,"Hallo zusammen,
+
+Seit Monaten wachsen die Sträucher an der Einmündung Lindenstraße 17 so weit in die Straße, dass man nichts sieht. Ich wollte das nur einmal angemerkt haben. Bitte schneiden Sie die Sträucher zurück.
+
+Mit freundlichen Grüßen
+B. Vogel",Grünflächen und Spielplätze,Straßen und Verkehr,TRUE,niedrig
+B050,"Liebe Stadtverwaltung,
+
+Seit dem Wochenende ist die Wippe am Spielplatz Feldstraße 55 abgebaut und nicht ersetzt worden. Ich wollte das nur einmal angemerkt haben. Wann kommt ein neues Gerät?
+
+Mit besten Grüßen
+R. Schäfer",Grünflächen und Spielplätze,NA,FALSE,niedrig
+B051,"Hallo,
+
+Seit dem Wochenende ist der Gehweg in der Schulstraße 37 voller Laub und rutschig. Viele ältere Leute wohnen hier. Bitte lassen Sie den Gehweg kehren.
+
+Hochachtungsvoll
+A. Yilmaz",Abfall und Sauberkeit,Straßen und Verkehr,TRUE,mittel
+B052,"Liebe Stadtverwaltung,
+
+Seit dem letzten Sturm stehen in der Wiesenstraße 57 seit Tagen Sperrmüllreste auf dem Gehweg. Das sollte zeitnah behoben werden. Bitte veranlassen Sie die Abholung.
+
+Mit besten Grüßen
+A. Schäfer",Abfall und Sauberkeit,NA,FALSE,mittel
+B053,"Guten Tag,
+
+Seit gestern flackert die Laterne in der Kirchgasse 19 die ganze Nacht. Ich wollte das nur einmal angemerkt haben. Bitte tauschen Sie das Leuchtmittel.
+
+Freundliche Grüße
+R. Lindqvist",Beleuchtung,NA,FALSE,niedrig
+B054,"Sehr geehrte Damen und Herren,
+
+Seit Anfang des Monats ist die Brücke über den Mühlbach in der Birkenstraße 2 für Fußgänger gesperrt, ohne Umleitung. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte weisen Sie eine Umleitung aus.
+
+Viele Grüße
+M. Weber",Straßen und Verkehr,NA,FALSE,mittel
+B055,"Liebe Stadtverwaltung,
+
+Möchte ich mich bei den Mitarbeiterinnen des Bürgerbüros Hauptstraße 56 bedanken. Das ist nur ein Hinweis, kein Notfall. Bitte geben Sie das Lob weiter.
+
+Freundliche Grüße
+B. Nguyen",Sonstiges,NA,FALSE,niedrig
+B056,"Guten Tag,
+
+Seit etwa einer Woche ist das Beet am Kreisverkehr Hauptstraße 45 völlig verwildert. Ich habe große Sorge, dass bald etwas Schlimmes passiert. Bitte pflegen Sie das Beet.
+
+Freundliche Grüße
+E. Schäfer",Grünflächen und Spielplätze,NA,FALSE,hoch
+B057,"Liebe Stadtverwaltung,
+
+Schon länger läuft in der Gaststätte Wiesenstraße 37 an den Wochenenden bis nach 2 Uhr laute Musik. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte schreiten Sie ein.
+
+Mit besten Grüßen
+N. Yilmaz",Lärm,NA,FALSE,hoch
+B058,"Hallo,
+
+Seit drei Wochen ist die Straßenlaterne vor dem Haus Marktstraße 40 dunkel. Das ist nur ein Hinweis, kein Notfall. Bitte reparieren Sie die Laterne.
+
+Mit freundlichen Grüßen
+N. Rossi",Beleuchtung,NA,FALSE,niedrig
+B059,"Hallo zusammen,
+
+Seit dem Wochenende liegen am Glascontainer Talstraße 25 Flaschen und Scherben herum. Meine Nachbarin ist letzte Woche deswegen gestürzt. Bitte reinigen Sie den Containerplatz.
+
+Viele Grüße
+P. Sommer",Abfall und Sauberkeit,NA,FALSE,hoch
+B060,"Hallo,
+
+Seit dem letzten Sturm läuft in der Gaststätte Gartenstraße 51 an den Wochenenden bis nach 2 Uhr laute Musik. Ich habe bereits zweimal die Polizei gerufen. Bitte schreiten Sie ein.
+
+Mit freundlichen Grüßen
+A. Nguyen",Lärm,NA,FALSE,hoch
+B061,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit gestern stehen in der Marktstraße 9 seit Tagen Sperrmüllreste auf dem Gehweg. Das sollte zeitnah behoben werden. Bitte veranlassen Sie die Abholung.
+
+Viele Grüße
+D. Becker",Abfall und Sauberkeit,NA,FALSE,mittel
+B062,"Sehr geehrtes Team vom Bürgerservice,
+
+Schon länger ist in der Feldstraße 13 ein tiefes Schlagloch, das immer größer wird. Bitte bessern Sie die Fahrbahn aus.
+
+Mit freundlichen Grüßen
+H. Haddad",Straßen und Verkehr,NA,FALSE,mittel
+B063,"Hallo,
+
+Seit dem Wochenende fehlt an der Kreuzung Wiesenstraße 9 das Stoppschild. Meine Nachbarin ist letzte Woche deswegen gestürzt. Bitte stellen Sie das Schild wieder auf.
+
+Beste Grüße
+L. Lindqvist",Straßen und Verkehr,NA,FALSE,hoch
+B064,"Liebe Stadtverwaltung,
+
+Seit dem letzten Sturm hält sich die Kneipe in der Rosenallee 5 nicht an die Sperrzeit. Es wird von Woche zu Woche schlimmer. Bitte kontrollieren Sie die Sperrzeit.
+
+Danke und Gruß
+D. Brandt",Lärm,NA,FALSE,mittel
+B065,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit Anfang des Monats ist in der Hafenstraße 8 ein tiefes Schlagloch, das immer größer wird. Das sollte zeitnah behoben werden. Bitte bessern Sie die Fahrbahn aus.
+
+Freundliche Grüße
+A. Kowalski",Straßen und Verkehr,NA,FALSE,mittel
+B066,"Sehr geehrte Damen und Herren,
+
+Seit dem Wochenende ist die Fahrbahnmarkierung in der Ringstraße 51 kaum noch zu erkennen. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte erneuern Sie die Markierung.
+
+Viele Grüße
+B. Schäfer",Straßen und Verkehr,NA,FALSE,mittel
+B067,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit Anfang des Monats fahren Motorräder nachts mit Vollgas durch die Ringstraße 44. Bitte prüfen Sie eine Lärmkontrolle.
+
+Mit freundlichen Grüßen
+E. Öztürk",Lärm,NA,FALSE,mittel
+B068,"Hallo,
+
+Schon länger ist der Bordstein in der Bahnhofstraße 37 am Übergang nicht abgesenkt. Meine Nachbarin ist letzte Woche deswegen gestürzt. Bitte senken Sie den Bordstein für Rollstühle und Kinderwagen ab.
+
+Mit besten Grüßen
+F. Weber",Straßen und Verkehr,NA,FALSE,hoch
+B069,"Hallo zusammen,
+
+Seit dem letzten Sturm ist in der Ahornallee 42 ein tiefes Schlagloch, das immer größer wird. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte bessern Sie die Fahrbahn aus.
+
+Freundliche Grüße
+F. Lindqvist",Straßen und Verkehr,NA,FALSE,mittel
+B070,"Liebe Stadtverwaltung,
+
+Seit Monaten ist der Hundekotbeutelspender in der Birkenstraße 48 seit Wochen leer. Ich wollte das nur einmal angemerkt haben. Bitte füllen Sie den Spender nach.
+
+Mit besten Grüßen
+H. Kowalski",Abfall und Sauberkeit,NA,FALSE,niedrig
+B071,"Guten Tag,
+
+Seit dem letzten Sturm ist der Baum vor dem Haus Lindenstraße 20 nach dem Sturm angebrochen. Bitte prüfen Sie den Baum auf Standsicherheit.
+
+Danke und Gruß
+B. Becker",Grünflächen und Spielplätze,NA,FALSE,mittel
+B072,"Hallo zusammen,
+
+Schon länger ist in der Marktstraße 1 ein tiefes Schlagloch, das immer größer wird. Meine Nachbarin ist letzte Woche deswegen gestürzt. Bitte bessern Sie die Fahrbahn aus.
+
+Danke und Gruß
+T. Hartmann",Straßen und Verkehr,NA,FALSE,hoch
+B073,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit etwa einer Woche wurden in der Kirchgasse 44 nach dem Fest die Straßen nicht gereinigt. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte schicken Sie die Straßenreinigung.
+
+Mit besten Grüßen
+H. Oswald",Abfall und Sauberkeit,NA,FALSE,mittel
+B074,"Guten Tag,
+
+Seit gestern ist der Gullydeckel in der Feldstraße 3 lose und klappert bei jedem Auto. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte befestigen Sie den Deckel.
+
+Mit besten Grüßen
+P. Kowalski",Straßen und Verkehr,NA,FALSE,mittel
+B075,"Sehr geehrte Damen und Herren,
+
+Seit etwa einer Woche wird auf dem Bolzplatz Feldstraße 58 bis Mitternacht Fußball gespielt und gegrölt. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte setzen Sie Nutzungszeiten durch.
+
+Mit freundlichen Grüßen
+H. Nguyen",Lärm,Grünflächen und Spielplätze,TRUE,hoch
+B076,"Hallo zusammen,
+
+Schon länger ist die Brücke über den Mühlbach in der Wiesenstraße 4 für Fußgänger gesperrt, ohne Umleitung. Bitte weisen Sie eine Umleitung aus.
+
+Mit besten Grüßen
+B. Oswald",Straßen und Verkehr,NA,FALSE,niedrig
+B077,"Liebe Stadtverwaltung,
+
+Seit Monaten ist die Straßenlaterne vor dem Haus Brunnenstraße 5 dunkel. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte reparieren Sie die Laterne.
+
+Hochachtungsvoll
+E. Rossi",Beleuchtung,NA,FALSE,mittel
+B078,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit dem Wochenende läuft in der Gaststätte Schulstraße 19 an den Wochenenden bis nach 2 Uhr laute Musik. Hier laufen jeden Morgen Schulkinder vorbei. Bitte schreiten Sie ein.
+
+Viele Grüße
+C. Rossi",Lärm,NA,FALSE,hoch
+B079,"Guten Tag,
+
+Seit dem letzten Sturm ist die Wippe am Spielplatz Schulstraße 27 abgebaut und nicht ersetzt worden. Es wird von Woche zu Woche schlimmer. Wann kommt ein neues Gerät?
+
+Beste Grüße
+F. Rossi",Grünflächen und Spielplätze,NA,FALSE,mittel
+B080,"Liebe Stadtverwaltung,
+
+Seit drei Wochen sind die Mülltonnen im Hinterhof Parkallee 41 voller Maden und stinken. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte reinigen Sie die Tonnen oder tauschen Sie sie.
+
+Hochachtungsvoll
+F. Haddad",Abfall und Sauberkeit,NA,FALSE,mittel
+B081,"Hallo zusammen,
+
+Seit Monaten fehlt an der Kreuzung Feldstraße 32 das Stoppschild. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte stellen Sie das Schild wieder auf.
+
+Viele Grüße
+D. Rossi",Straßen und Verkehr,NA,FALSE,mittel
+B082,"Liebe Stadtverwaltung,
+
+Schon länger ist die Telefonhotline des Bürgeramts nie erreichbar. Viele ältere Leute wohnen hier. Bitte verbessern Sie die Erreichbarkeit.
+
+Mit besten Grüßen
+D. Yilmaz",Sonstiges,NA,FALSE,mittel
+B083,"Liebe Stadtverwaltung,
+
+Seit Monaten dröhnt die Lüftungsanlage des Supermarkts in der Wiesenstraße 6 die ganze Nacht. Hier laufen jeden Morgen Schulkinder vorbei. Bitte messen Sie den Lärm.
+
+Mit freundlichen Grüßen
+A. Rossi",Lärm,NA,FALSE,hoch
+B084,"Sehr geehrte Damen und Herren,
+
+Seit etwa einer Woche sind die Mülltonnen im Hinterhof Rosenallee 24 voller Maden und stinken. Bitte reinigen Sie die Tonnen oder tauschen Sie sie.
+
+Beste Grüße
+D. Baumann",Abfall und Sauberkeit,NA,FALSE,niedrig
+B085,"Hallo,
+
+Schon länger ist die Hecke am Spielplatz Brunnenstraße 3 so hoch, dass man die Kinder nicht mehr sieht. Es wird von Woche zu Woche schlimmer. Bitte schneiden Sie die Hecke zurück.
+
+Viele Grüße
+L. Weber",Grünflächen und Spielplätze,NA,FALSE,mittel
+B086,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit dem Wochenende fehlt an der Kreuzung Kastanienallee 58 das Stoppschild. Bitte stellen Sie das Schild wieder auf.
+
+Mit freundlichen Grüßen
+M. Schäfer",Straßen und Verkehr,NA,FALSE,niedrig
+B087,"Sehr geehrte Damen und Herren,
+
+Seit Monaten wurde der Rasen im Park an der Feldstraße 25 seit Wochen nicht gemäht. Ich habe große Sorge, dass bald etwas Schlimmes passiert. Bitte mähen Sie die Wiese.
+
+Beste Grüße
+M. Lindqvist",Grünflächen und Spielplätze,NA,FALSE,hoch
+B088,"Hallo,
+
+Seit dem Wochenende beginnt die Baustelle in der Ahornallee 16 jeden Morgen um 6 Uhr mit Presslufthammer. Ich habe bereits zweimal die Polizei gerufen. Bitte prüfen Sie die erlaubten Arbeitszeiten.
+
+Beste Grüße
+P. Rossi",Lärm,NA,FALSE,hoch
+B089,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit gestern sind die Mülltonnen im Hinterhof Parkallee 50 voller Maden und stinken. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte reinigen Sie die Tonnen oder tauschen Sie sie.
+
+Beste Grüße
+N. Krüger",Abfall und Sauberkeit,NA,FALSE,mittel
+B090,"Liebe Stadtverwaltung,
+
+Seit drei Wochen ist das Beet am Kreisverkehr Ahornallee 56 völlig verwildert. Ich wollte das nur einmal angemerkt haben. Bitte pflegen Sie das Beet.
+
+Freundliche Grüße
+K. Nguyen",Grünflächen und Spielplätze,NA,FALSE,niedrig
+B091,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit gestern ist der Hundekotbeutelspender in der Feldstraße 55 seit Wochen leer. Es wird von Woche zu Woche schlimmer. Bitte füllen Sie den Spender nach.
+
+Viele Grüße
+L. Weber",Abfall und Sauberkeit,NA,FALSE,mittel
+B092,"Guten Tag,
+
+Seit etwa einer Woche leuchtet die neue LED-Laterne in der Parkallee 11 direkt in unser Schlafzimmer. Es wird von Woche zu Woche schlimmer. Bitte richten Sie die Leuchte anders aus.
+
+Mit besten Grüßen
+L. Vogel",Beleuchtung,NA,FALSE,mittel
+B093,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit etwa einer Woche ist die Straßenlaterne vor dem Haus Hauptstraße 44 dunkel. Das sollte zeitnah behoben werden. Bitte reparieren Sie die Laterne.
+
+Freundliche Grüße
+N. Oswald",Beleuchtung,NA,FALSE,mittel
+B094,"Guten Tag,
+
+Seit Anfang des Monats flackert die Laterne in der Kastanienallee 6 die ganze Nacht. Das sollte zeitnah behoben werden. Bitte tauschen Sie das Leuchtmittel.
+
+Hochachtungsvoll
+L. Kowalski",Beleuchtung,NA,FALSE,mittel
+B095,"Hallo,
+
+Seit gestern ist der Zebrastreifen in der Mühlengasse 37 nachts unbeleuchtet und kaum zu sehen. Meine Nachbarin ist letzte Woche deswegen gestürzt. Bitte beleuchten Sie den Übergang.
+
+Beste Grüße
+A. Oswald",Straßen und Verkehr,Beleuchtung,TRUE,hoch
+B096,"Sehr geehrte Damen und Herren,
+
+Seit drei Wochen wurde die blaue Tonne in der Feldstraße 9 nicht geleert. Das sollte zeitnah behoben werden. Bitte holen Sie die Abfuhr nach.
+
+Freundliche Grüße
+L. Fischer",Abfall und Sauberkeit,NA,FALSE,mittel
+B097,"Hallo,
+
+Seit drei Wochen ist das Beet am Kreisverkehr Bergstraße 60 völlig verwildert. Bitte pflegen Sie das Beet.
+
+Mit besten Grüßen
+M. Weber",Grünflächen und Spielplätze,NA,FALSE,mittel
+B098,"Guten Tag,
+
+Schon länger leuchtet die neue LED-Laterne in der Parkallee 35 direkt in unser Schlafzimmer. Viele ältere Leute wohnen hier. Bitte richten Sie die Leuchte anders aus.
+
+Hochachtungsvoll
+A. Schäfer",Beleuchtung,NA,FALSE,mittel
+B099,"Guten Tag,
+
+Seit gestern fehlt an der Kreuzung Ringstraße 10 das Stoppschild. Ich habe bereits zweimal die Polizei gerufen. Bitte stellen Sie das Schild wieder auf.
+
+Viele Grüße
+K. Weber",Straßen und Verkehr,NA,FALSE,hoch
+B100,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit dem letzten Sturm ist das Beet am Kreisverkehr Bahnhofstraße 32 völlig verwildert. Es wird von Woche zu Woche schlimmer. Bitte pflegen Sie das Beet.
+
+Danke und Gruß
+R. Rossi",Grünflächen und Spielplätze,NA,FALSE,mittel
+B101,"Liebe Stadtverwaltung,
+
+Seit etwa einer Woche ist der Gullydeckel in der Parkallee 2 lose und klappert bei jedem Auto. Es eilt nicht, aber irgendwann sollte sich jemand kümmern. Bitte befestigen Sie den Deckel.
+
+Mit besten Grüßen
+R. Oswald",Straßen und Verkehr,NA,FALSE,niedrig
+B102,"Hallo,
+
+Schon länger sind die Bänke im Park Brunnenstraße 54 morsch und wackeln. Vielen Dank für Ihre Arbeit. Bitte tauschen Sie die Bänke aus.
+
+Beste Grüße
+C. Vogel",Grünflächen und Spielplätze,NA,FALSE,niedrig
+B103,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit dem letzten Sturm brennt die Straßenbeleuchtung in der Talstraße 23 auch tagsüber. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte prüfen Sie die Zeitschaltung.
+
+Hochachtungsvoll
+A. Lindqvist",Beleuchtung,NA,FALSE,mittel
+B104,"Sehr geehrte Damen und Herren,
+
+Seit dem Wochenende beginnt die Baustelle in der Mühlengasse 55 jeden Morgen um 6 Uhr mit Presslufthammer. Wir haben mehrfach Ratten gesehen, auch tagsüber. Bitte prüfen Sie die erlaubten Arbeitszeiten.
+
+Viele Grüße
+D. Kowalski",Lärm,NA,FALSE,hoch
+B105,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit gestern wird in der Talstraße 27 viel zu schnell gefahren, obwohl Tempo 30 gilt. Ich habe große Sorge, dass bald etwas Schlimmes passiert. Bitte prüfen Sie Geschwindigkeitskontrollen oder eine Schwelle.
+
+Freundliche Grüße
+L. Sommer",Straßen und Verkehr,NA,FALSE,hoch
+B106,"Sehr geehrte Damen und Herren,
+
+Seit Monaten ist der Bordstein in der Feldstraße 28 am Übergang nicht abgesenkt. Ich habe große Sorge, dass bald etwas Schlimmes passiert. Bitte senken Sie den Bordstein für Rollstühle und Kinderwagen ab.
+
+Hochachtungsvoll
+K. Sommer",Straßen und Verkehr,NA,FALSE,hoch
+B107,"Hallo,
+
+Seit gestern sind die Mülltonnen im Hinterhof Brunnenstraße 11 voller Maden und stinken. Das sollte zeitnah behoben werden. Bitte reinigen Sie die Tonnen oder tauschen Sie sie.
+
+Beste Grüße
+E. Brandt",Abfall und Sauberkeit,NA,FALSE,mittel
+B108,"Guten Tag,
+
+Seit dem Wochenende steht das Verkehrsschild in der Rosenallee 53 schief und verdeckt die Sicht. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte richten Sie das Schild.
+
+Mit besten Grüßen
+R. Lindqvist",Straßen und Verkehr,NA,FALSE,mittel
+B109,"Sehr geehrte Damen und Herren,
+
+Schon länger stehen in der Marktstraße 27 seit Tagen Sperrmüllreste auf dem Gehweg. Wir haben mehrfach Ratten gesehen, auch tagsüber. Bitte veranlassen Sie die Abholung.
+
+Viele Grüße
+K. Sommer",Abfall und Sauberkeit,NA,FALSE,hoch
+B110,"Liebe Stadtverwaltung,
+
+Seit Anfang des Monats parken Lieferwagen in der Bergstraße 56 regelmäßig auf dem Radweg. Ich wollte das nur einmal angemerkt haben. Bitte kontrollieren Sie das Halteverbot.
+
+Viele Grüße
+L. Becker",Straßen und Verkehr,NA,FALSE,niedrig
+B111,"Liebe Stadtverwaltung,
+
+Seit Monaten ist die Ampel an der Kirchgasse 25 ausgefallen und blinkt nur noch gelb. Ich habe bereits zweimal die Polizei gerufen. Bitte lassen Sie die Ampel reparieren.
+
+Hochachtungsvoll
+H. Krüger",Straßen und Verkehr,NA,FALSE,hoch
+B112,"Guten Tag,
+
+Seit Anfang des Monats ist die Ampel an der Marktstraße 25 ausgefallen und blinkt nur noch gelb. Es eilt nicht, aber irgendwann sollte sich jemand kümmern. Bitte lassen Sie die Ampel reparieren.
+
+Hochachtungsvoll
+E. Hartmann",Straßen und Verkehr,NA,FALSE,niedrig
+B113,"Hallo zusammen,
+
+Habe ich seit sechs Wochen keine Antwort auf meinen Antrag auf Wohngeld. Das ist nur ein Hinweis, kein Notfall. Bitte teilen Sie mir den Bearbeitungsstand mit.
+
+Freundliche Grüße
+R. Schäfer",Sonstiges,NA,FALSE,niedrig
+B114,"Guten Tag,
+
+Seit dem Wochenende sind die Mülltonnen im Hinterhof Lindenstraße 35 voller Maden und stinken. Das sollte zeitnah behoben werden. Bitte reinigen Sie die Tonnen oder tauschen Sie sie.
+
+Danke und Gruß
+C. Hartmann",Abfall und Sauberkeit,NA,FALSE,mittel
+B115,"Hallo,
+
+Seit dem letzten Sturm ist in der Kastanienallee 29 ein tiefes Schlagloch, das immer größer wird. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte bessern Sie die Fahrbahn aus.
+
+Viele Grüße
+B. Petersen",Straßen und Verkehr,NA,FALSE,mittel
+B116,"Liebe Stadtverwaltung,
+
+Schon länger ist die Hecke am Spielplatz Bergstraße 32 so hoch, dass man die Kinder nicht mehr sieht. Wir haben mehrfach Ratten gesehen, auch tagsüber. Bitte schneiden Sie die Hecke zurück.
+
+Mit besten Grüßen
+E. Lehmann",Grünflächen und Spielplätze,NA,FALSE,hoch
+B117,"Hallo,
+
+Seit etwa einer Woche liegt im Park an der Kirchgasse 47 überall Müll vom Wochenende, die Körbe sind voll. Vielen Dank für Ihre Arbeit. Bitte stellen Sie mehr Abfallkörbe auf.
+
+Hochachtungsvoll
+R. Oswald",Abfall und Sauberkeit,Grünflächen und Spielplätze,TRUE,niedrig
+B118,"Hallo zusammen,
+
+Seit etwa einer Woche brennt die Straßenbeleuchtung in der Schulstraße 50 auch tagsüber. Ich wollte das nur einmal angemerkt haben. Bitte prüfen Sie die Zeitschaltung.
+
+Beste Grüße
+E. Becker",Beleuchtung,NA,FALSE,niedrig
+B119,"Sehr geehrte Frau Bürgermeisterin,
+
+Schon länger geht die Beleuchtung am Fußweg Brunnenstraße 11 erst eine Stunde nach Einbruch der Dunkelheit an. Bitte stellen Sie den Dämmerungsschalter neu ein.
+
+Viele Grüße
+C. Vogel",Beleuchtung,NA,FALSE,niedrig
+B120,"Liebe Stadtverwaltung,
+
+Seit etwa einer Woche ist der Bordstein in der Schulstraße 33 am Übergang nicht abgesenkt. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte senken Sie den Bordstein für Rollstühle und Kinderwagen ab.
+
+Viele Grüße
+C. Vogel",Straßen und Verkehr,NA,FALSE,mittel
+B121,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit Anfang des Monats ist die Unterführung an der Birkenstraße 38 abends stockdunkel. Das ist nur ein Hinweis, kein Notfall. Bitte installieren Sie Beleuchtung.
+
+Mit freundlichen Grüßen
+T. Yilmaz",Beleuchtung,NA,FALSE,niedrig
+B122,"Liebe Stadtverwaltung,
+
+Seit drei Wochen ist der Gullydeckel in der Hafenstraße 20 lose und klappert bei jedem Auto. Meine Nachbarin ist letzte Woche deswegen gestürzt. Bitte befestigen Sie den Deckel.
+
+Mit freundlichen Grüßen
+N. Kowalski",Straßen und Verkehr,NA,FALSE,hoch
+B123,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit dem Wochenende wurde der Rasen im Park an der Hauptstraße 14 seit Wochen nicht gemäht. Bitte mähen Sie die Wiese.
+
+Viele Grüße
+N. Lehmann",Grünflächen und Spielplätze,NA,FALSE,mittel
+B124,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit dem letzten Sturm wurde der Rasen im Park an der Kirchgasse 43 seit Wochen nicht gemäht. Hier laufen jeden Morgen Schulkinder vorbei. Bitte mähen Sie die Wiese.
+
+Mit besten Grüßen
+P. Krüger",Grünflächen und Spielplätze,NA,FALSE,hoch
+B125,"Liebe Stadtverwaltung,
+
+Seit Monaten wurde mein Hinweis auf dem Mängelmelder nach drei Wochen noch nicht beantwortet. Ich wollte das nur einmal angemerkt haben. Bitte geben Sie eine Rückmeldung.
+
+Viele Grüße
+R. Kowalski",Sonstiges,NA,FALSE,niedrig
+B126,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit Monaten ist die Brücke über den Mühlbach in der Kirchgasse 15 für Fußgänger gesperrt, ohne Umleitung. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte weisen Sie eine Umleitung aus.
+
+Hochachtungsvoll
+E. Becker",Straßen und Verkehr,NA,FALSE,mittel
+B127,"Sehr geehrte Damen und Herren,
+
+Seit dem Wochenende ist der Abfuhrkalender für die Rosenallee 5 online falsch. Ich wollte das nur einmal angemerkt haben. Bitte korrigieren Sie die Termine.
+
+Danke und Gruß
+A. Oswald",Abfall und Sauberkeit,NA,FALSE,niedrig
+B128,"Hallo zusammen,
+
+Schon länger hängt ein abgebrochener Ast über dem Weg in der Grünanlage Birkenstraße 16. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte entfernen Sie den Ast.
+
+Viele Grüße
+H. Öztürk",Grünflächen und Spielplätze,NA,FALSE,mittel
+B129,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit dem Wochenende sind die Mülltonnen im Hinterhof Gartenstraße 28 voller Maden und stinken. Viele ältere Leute wohnen hier. Bitte reinigen Sie die Tonnen oder tauschen Sie sie.
+
+Beste Grüße
+K. Brandt",Abfall und Sauberkeit,NA,FALSE,mittel
+B130,"Liebe Stadtverwaltung,
+
+Seit dem Wochenende stehen in der Schulstraße 45 seit Tagen Sperrmüllreste auf dem Gehweg. Ich habe bereits zweimal die Polizei gerufen. Bitte veranlassen Sie die Abholung.
+
+Viele Grüße
+J. Weber",Abfall und Sauberkeit,NA,FALSE,hoch
+B131,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit drei Wochen flackert die Laterne in der Kirchgasse 43 die ganze Nacht. Viele ältere Leute wohnen hier. Bitte tauschen Sie das Leuchtmittel.
+
+Freundliche Grüße
+T. Brandt",Beleuchtung,NA,FALSE,mittel
+B132,"Hallo,
+
+Seit dem Wochenende steht das Verkehrsschild in der Gartenstraße 1 schief und verdeckt die Sicht. Vielleicht lässt sich das bei Gelegenheit erledigen. Bitte richten Sie das Schild.
+
+Hochachtungsvoll
+C. Rossi",Straßen und Verkehr,NA,FALSE,niedrig
+B133,"Liebe Stadtverwaltung,
+
+Seit drei Wochen ist der Bordstein in der Feldstraße 8 am Übergang nicht abgesenkt. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte senken Sie den Bordstein für Rollstühle und Kinderwagen ab.
+
+Mit besten Grüßen
+R. Haddad",Straßen und Verkehr,NA,FALSE,mittel
+B134,"Guten Tag,
+
+Seit etwa einer Woche sind die Mülltonnen im Hinterhof Kastanienallee 41 voller Maden und stinken. Hier laufen jeden Morgen Schulkinder vorbei. Bitte reinigen Sie die Tonnen oder tauschen Sie sie.
+
+Mit besten Grüßen
+M. Hartmann",Abfall und Sauberkeit,NA,FALSE,hoch
+B135,"Hallo,
+
+Seit gestern ist der Gullydeckel in der Hafenstraße 31 lose und klappert bei jedem Auto. Viele ältere Leute wohnen hier. Bitte befestigen Sie den Deckel.
+
+Viele Grüße
+D. Rossi",Straßen und Verkehr,NA,FALSE,mittel
+B136,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit dem letzten Sturm brennt die Straßenbeleuchtung in der Mozartstraße 10 auch tagsüber. Es wird von Woche zu Woche schlimmer. Bitte prüfen Sie die Zeitschaltung.
+
+Viele Grüße
+L. Kowalski",Beleuchtung,NA,FALSE,mittel
+B137,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit dem Wochenende ist die Telefonhotline des Bürgeramts nie erreichbar. Es eilt nicht, aber irgendwann sollte sich jemand kümmern. Bitte verbessern Sie die Erreichbarkeit.
+
+Mit freundlichen Grüßen
+M. Fischer",Sonstiges,NA,FALSE,niedrig
+B138,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit Monaten läuft in der Gaststätte Brunnenstraße 2 an den Wochenenden bis nach 2 Uhr laute Musik. Viele ältere Leute wohnen hier. Bitte schreiten Sie ein.
+
+Hochachtungsvoll
+N. Baumann",Lärm,NA,FALSE,mittel
+B139,"Sehr geehrte Frau Bürgermeisterin,
+
+Schon länger fehlt an der Kreuzung Talstraße 41 das Stoppschild. Wir haben mehrfach Ratten gesehen, auch tagsüber. Bitte stellen Sie das Schild wieder auf.
+
+Mit besten Grüßen
+N. Yilmaz",Straßen und Verkehr,NA,FALSE,hoch
+B140,"Hallo,
+
+Schon länger ist die Hecke am Spielplatz Parkallee 54 so hoch, dass man die Kinder nicht mehr sieht. Wir haben mehrfach Ratten gesehen, auch tagsüber. Bitte schneiden Sie die Hecke zurück.
+
+Viele Grüße
+D. Oswald",Grünflächen und Spielplätze,NA,FALSE,hoch
+B141,"Guten Tag,
+
+Seit Anfang des Monats sind die Mülltonnen im Hinterhof Feldstraße 34 voller Maden und stinken. Viele ältere Leute wohnen hier. Bitte reinigen Sie die Tonnen oder tauschen Sie sie.
+
+Danke und Gruß
+L. Nguyen",Abfall und Sauberkeit,NA,FALSE,mittel
+B142,"Sehr geehrte Damen und Herren,
+
+Seit Monaten ist das Beet am Kreisverkehr Kastanienallee 36 völlig verwildert. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte pflegen Sie das Beet.
+
+Viele Grüße
+A. Hartmann",Grünflächen und Spielplätze,NA,FALSE,hoch
+B143,"Hallo,
+
+Seit dem letzten Sturm ist die Brücke über den Mühlbach in der Ahornallee 34 für Fußgänger gesperrt, ohne Umleitung. Vielleicht lässt sich das bei Gelegenheit erledigen. Bitte weisen Sie eine Umleitung aus.
+
+Viele Grüße
+R. Vogel",Straßen und Verkehr,NA,FALSE,niedrig
+B144,"Liebe Stadtverwaltung,
+
+Seit Anfang des Monats steht das Verkehrsschild in der Wiesenstraße 12 schief und verdeckt die Sicht. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte richten Sie das Schild.
+
+Mit besten Grüßen
+F. Yilmaz",Straßen und Verkehr,NA,FALSE,mittel
+B145,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit drei Wochen schreit der Hund im Nachbargarten Ahornallee 7 stundenlang, auch nachts. Das ist nur ein Hinweis, kein Notfall. Bitte sprechen Sie mit den Haltern.
+
+Mit freundlichen Grüßen
+J. Kowalski",Lärm,NA,FALSE,niedrig
+B146,"Guten Tag,
+
+Seit dem letzten Sturm liegen am Glascontainer Birkenstraße 17 Flaschen und Scherben herum. Hier laufen jeden Morgen Schulkinder vorbei. Bitte reinigen Sie den Containerplatz.
+
+Hochachtungsvoll
+F. Nguyen",Abfall und Sauberkeit,NA,FALSE,hoch
+B147,"Liebe Stadtverwaltung,
+
+Habe ich seit sechs Wochen keine Antwort auf meinen Antrag auf Wohngeld. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte teilen Sie mir den Bearbeitungsstand mit.
+
+Danke und Gruß
+E. Petersen",Sonstiges,NA,FALSE,mittel
+B148,"Hallo zusammen,
+
+Seit etwa einer Woche sind die Mülltonnen im Hinterhof Hauptstraße 54 voller Maden und stinken. Vielen Dank für Ihre Arbeit. Bitte reinigen Sie die Tonnen oder tauschen Sie sie.
+
+Beste Grüße
+T. Nguyen",Abfall und Sauberkeit,NA,FALSE,niedrig
+B149,"Liebe Stadtverwaltung,
+
+Seit Anfang des Monats ist die Straßenlaterne vor dem Haus Wiesenstraße 19 dunkel. Bitte reparieren Sie die Laterne.
+
+Mit besten Grüßen
+B. Baumann",Beleuchtung,NA,FALSE,mittel
+B150,"Hallo zusammen,
+
+Seit Anfang des Monats wurde die blaue Tonne in der Marktstraße 49 nicht geleert. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte holen Sie die Abfuhr nach.
+
+Viele Grüße
+N. Öztürk",Abfall und Sauberkeit,NA,FALSE,hoch
+B151,"Hallo zusammen,
+
+Seit dem Wochenende wurden in der Kirchgasse 5 nach dem Fest die Straßen nicht gereinigt. Hier laufen jeden Morgen Schulkinder vorbei. Bitte schicken Sie die Straßenreinigung.
+
+Freundliche Grüße
+K. Baumann",Abfall und Sauberkeit,NA,FALSE,hoch
+B152,"Sehr geehrte Frau Bürgermeisterin,
+
+Schon länger wurde der Rasen im Park an der Parkallee 33 seit Wochen nicht gemäht. Viele ältere Leute wohnen hier. Bitte mähen Sie die Wiese.
+
+Beste Grüße
+C. Lehmann",Grünflächen und Spielplätze,NA,FALSE,mittel
+B153,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit Monaten ist das Beet am Kreisverkehr Brunnenstraße 5 völlig verwildert. Vielleicht lässt sich das bei Gelegenheit erledigen. Bitte pflegen Sie das Beet.
+
+Danke und Gruß
+F. Lindqvist",Grünflächen und Spielplätze,NA,FALSE,niedrig
+B154,"Guten Tag,
+
+Schon länger ist der Bordstein in der Talstraße 27 am Übergang nicht abgesenkt. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte senken Sie den Bordstein für Rollstühle und Kinderwagen ab.
+
+Mit besten Grüßen
+A. Weber",Straßen und Verkehr,NA,FALSE,mittel
+B155,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit drei Wochen sind in der Mozartstraße 23 gleich drei Laternen hintereinander ausgefallen. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte stellen Sie die Beleuchtung wieder her.
+
+Beste Grüße
+T. Nguyen",Beleuchtung,NA,FALSE,hoch
+B156,"Sehr geehrte Damen und Herren,
+
+Seit dem Wochenende dröhnt die Lüftungsanlage des Supermarkts in der Gartenstraße 16 die ganze Nacht. Hier laufen jeden Morgen Schulkinder vorbei. Bitte messen Sie den Lärm.
+
+Beste Grüße
+N. Yilmaz",Lärm,NA,FALSE,hoch
+B157,"Liebe Stadtverwaltung,
+
+Seit Anfang des Monats parken Lieferwagen in der Gartenstraße 23 regelmäßig auf dem Radweg. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte kontrollieren Sie das Halteverbot.
+
+Freundliche Grüße
+K. Öztürk",Straßen und Verkehr,NA,FALSE,mittel
+B158,"Hallo zusammen,
+
+Seit drei Wochen leuchtet die neue LED-Laterne in der Wiesenstraße 17 direkt in unser Schlafzimmer. Hier laufen jeden Morgen Schulkinder vorbei. Bitte richten Sie die Leuchte anders aus.
+
+Danke und Gruß
+K. Vogel",Beleuchtung,NA,FALSE,hoch
+B159,"Hallo zusammen,
+
+Seit dem letzten Sturm wurde die blaue Tonne in der Bergstraße 44 nicht geleert. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte holen Sie die Abfuhr nach.
+
+Hochachtungsvoll
+P. Yilmaz",Abfall und Sauberkeit,NA,FALSE,mittel
+B160,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit dem letzten Sturm ist die Rutsche auf dem Spielplatz Kastanienallee 23 gerissen und hat scharfe Kanten. Wir haben mehrfach Ratten gesehen, auch tagsüber. Bitte sperren und reparieren Sie die Rutsche.
+
+Danke und Gruß
+J. Krüger",Grünflächen und Spielplätze,NA,FALSE,hoch
+B161,"Sehr geehrte Damen und Herren,
+
+Seit dem letzten Sturm hält sich die Kneipe in der Talstraße 3 nicht an die Sperrzeit. Das ist eine echte Gefahr, es muss sofort etwas passieren. Bitte kontrollieren Sie die Sperrzeit.
+
+Viele Grüße
+S. Haddad",Lärm,NA,FALSE,hoch
+B162,"Sehr geehrte Damen und Herren,
+
+Schon länger ist in der Gartenstraße 56 ein tiefes Schlagloch, das immer größer wird. Bitte bessern Sie die Fahrbahn aus.
+
+Freundliche Grüße
+E. Baumann",Straßen und Verkehr,NA,FALSE,mittel
+B163,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit gestern ist die Rutsche auf dem Spielplatz Schulstraße 34 gerissen und hat scharfe Kanten. Es wird von Woche zu Woche schlimmer. Bitte sperren und reparieren Sie die Rutsche.
+
+Mit besten Grüßen
+E. Nguyen",Grünflächen und Spielplätze,NA,FALSE,mittel
+B164,"Liebe Stadtverwaltung,
+
+Seit drei Wochen ist die Rutsche auf dem Spielplatz Rosenallee 24 gerissen und hat scharfe Kanten. Meine Nachbarin ist letzte Woche deswegen gestürzt. Bitte sperren und reparieren Sie die Rutsche.
+
+Viele Grüße
+M. Nguyen",Grünflächen und Spielplätze,NA,FALSE,hoch
+B165,"Liebe Stadtverwaltung,
+
+Schon länger liegen am Glascontainer Marktstraße 58 Flaschen und Scherben herum. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte reinigen Sie den Containerplatz.
+
+Freundliche Grüße
+B. Haddad",Abfall und Sauberkeit,NA,FALSE,mittel
+B166,"Hallo,
+
+Habe ich seit sechs Wochen keine Antwort auf meinen Antrag auf Wohngeld. Viele ältere Leute wohnen hier. Bitte teilen Sie mir den Bearbeitungsstand mit.
+
+Viele Grüße
+E. Fischer",Sonstiges,NA,FALSE,mittel
+B167,"Hallo,
+
+Seit dem Wochenende ist der Gullydeckel in der Schulstraße 15 lose und klappert bei jedem Auto. Das ist eine echte Gefahr, es muss sofort etwas passieren. Bitte befestigen Sie den Deckel.
+
+Hochachtungsvoll
+H. Oswald",Straßen und Verkehr,NA,FALSE,hoch
+B168,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit Monaten fehlt an der Kreuzung Hauptstraße 10 das Stoppschild. Das ist nur ein Hinweis, kein Notfall. Bitte stellen Sie das Schild wieder auf.
+
+Mit freundlichen Grüßen
+F. Sommer",Straßen und Verkehr,NA,FALSE,niedrig
+B169,"Sehr geehrte Frau Bürgermeisterin,
+
+Frage ich, ob für das Straßenfest in der Bergstraße 39 eine Sperrung beantragt werden muss. Bitte teilen Sie mir mit, welches Formular ich brauche.
+
+Freundliche Grüße
+B. Lehmann",Sonstiges,Straßen und Verkehr,TRUE,niedrig
+B170,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit dem letzten Sturm quillt der Papierkorb an der Bushaltestelle Lindenstraße 2 über. Das ist nur ein Hinweis, kein Notfall. Bitte leeren Sie den Papierkorb öfter.
+
+Mit besten Grüßen
+S. Weber",Abfall und Sauberkeit,NA,FALSE,niedrig
+B171,"Hallo zusammen,
+
+Schon länger ist der Aufzug im Rathaus seit zwei Wochen außer Betrieb. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte lassen Sie ihn reparieren.
+
+Viele Grüße
+C. Sommer",Sonstiges,NA,FALSE,mittel
+B172,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit gestern parken Lieferwagen in der Lindenstraße 5 regelmäßig auf dem Radweg. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte kontrollieren Sie das Halteverbot.
+
+Mit freundlichen Grüßen
+N. Weber",Straßen und Verkehr,NA,FALSE,hoch
+B173,"Sehr geehrte Damen und Herren,
+
+Seit Anfang des Monats wird auf dem Bolzplatz Parkallee 29 bis Mitternacht Fußball gespielt und gegrölt. Wir haben mehrfach Ratten gesehen, auch tagsüber. Bitte setzen Sie Nutzungszeiten durch.
+
+Freundliche Grüße
+H. Yilmaz",Lärm,Grünflächen und Spielplätze,TRUE,hoch
+B174,"Liebe Stadtverwaltung,
+
+Schon länger stehen in der Parkallee 42 seit Tagen Sperrmüllreste auf dem Gehweg. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte veranlassen Sie die Abholung.
+
+Mit freundlichen Grüßen
+L. Petersen",Abfall und Sauberkeit,NA,FALSE,hoch
+B175,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit etwa einer Woche hängt ein abgebrochener Ast über dem Weg in der Grünanlage Birkenstraße 55. Meine Nachbarin ist letzte Woche deswegen gestürzt. Bitte entfernen Sie den Ast.
+
+Beste Grüße
+F. Lindqvist",Grünflächen und Spielplätze,NA,FALSE,hoch
+B176,"Sehr geehrte Frau Bürgermeisterin,
+
+Schon länger wurde die blaue Tonne in der Birkenstraße 35 nicht geleert. Vielleicht lässt sich das bei Gelegenheit erledigen. Bitte holen Sie die Abfuhr nach.
+
+Mit freundlichen Grüßen
+M. Sommer",Abfall und Sauberkeit,NA,FALSE,niedrig
+B177,"Hallo zusammen,
+
+Schon länger ist der Baum vor dem Haus Hauptstraße 58 nach dem Sturm angebrochen. Bitte prüfen Sie den Baum auf Standsicherheit.
+
+Mit besten Grüßen
+T. Hartmann",Grünflächen und Spielplätze,NA,FALSE,mittel
+B178,"Hallo zusammen,
+
+Seit dem Wochenende brennt die Straßenbeleuchtung in der Kirchgasse 46 auch tagsüber. Hier laufen jeden Morgen Schulkinder vorbei. Bitte prüfen Sie die Zeitschaltung.
+
+Viele Grüße
+C. Kowalski",Beleuchtung,NA,FALSE,hoch
+B179,"Liebe Stadtverwaltung,
+
+Seit dem letzten Sturm ist die Fahrbahnmarkierung in der Hauptstraße 38 kaum noch zu erkennen. Es eilt nicht, aber irgendwann sollte sich jemand kümmern. Bitte erneuern Sie die Markierung.
+
+Danke und Gruß
+E. Brandt",Straßen und Verkehr,NA,FALSE,niedrig
+B180,"Guten Tag,
+
+Seit Anfang des Monats fehlt an der Kreuzung Schulstraße 16 das Stoppschild. Hier laufen jeden Morgen Schulkinder vorbei. Bitte stellen Sie das Schild wieder auf.
+
+Viele Grüße
+J. Oswald",Straßen und Verkehr,NA,FALSE,hoch
+B181,"Liebe Stadtverwaltung,
+
+Seit gestern brennt die Straßenbeleuchtung in der Gartenstraße 28 auch tagsüber. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte prüfen Sie die Zeitschaltung.
+
+Danke und Gruß
+E. Weber",Beleuchtung,NA,FALSE,mittel
+B182,"Sehr geehrte Damen und Herren,
+
+Seit Anfang des Monats ist am Spielplatz Brunnenstraße 45 die Kette der Schaukel gerissen. Das sollte zeitnah behoben werden. Bitte reparieren Sie die Schaukel.
+
+Beste Grüße
+J. Hartmann",Grünflächen und Spielplätze,NA,FALSE,mittel
+B183,"Sehr geehrte Damen und Herren,
+
+Seit dem letzten Sturm ist die Ampel an der Ahornallee 41 ausgefallen und blinkt nur noch gelb. Meine Nachbarin ist letzte Woche deswegen gestürzt. Bitte lassen Sie die Ampel reparieren.
+
+Hochachtungsvoll
+T. Baumann",Straßen und Verkehr,NA,FALSE,hoch
+B184,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit gestern ist die Hecke am Spielplatz Feldstraße 43 so hoch, dass man die Kinder nicht mehr sieht. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte schneiden Sie die Hecke zurück.
+
+Beste Grüße
+H. Hartmann",Grünflächen und Spielplätze,NA,FALSE,mittel
+B185,"Guten Tag,
+
+Seit gestern ist der Bordstein in der Feldstraße 24 am Übergang nicht abgesenkt. Es eilt nicht, aber irgendwann sollte sich jemand kümmern. Bitte senken Sie den Bordstein für Rollstühle und Kinderwagen ab.
+
+Mit besten Grüßen
+D. Hartmann",Straßen und Verkehr,NA,FALSE,niedrig
+B186,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit Anfang des Monats ist der Hundekotbeutelspender in der Talstraße 10 seit Wochen leer. Das ist nur ein Hinweis, kein Notfall. Bitte füllen Sie den Spender nach.
+
+Beste Grüße
+R. Becker",Abfall und Sauberkeit,NA,FALSE,niedrig
+B187,"Liebe Stadtverwaltung,
+
+Seit drei Wochen ist die Wippe am Spielplatz Lindenstraße 10 abgebaut und nicht ersetzt worden. Wann kommt ein neues Gerät?
+
+Mit besten Grüßen
+L. Petersen",Grünflächen und Spielplätze,NA,FALSE,mittel
+B188,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit dem Wochenende sind die Bänke im Park Kastanienallee 14 morsch und wackeln. Bitte tauschen Sie die Bänke aus.
+
+Danke und Gruß
+J. Krüger",Grünflächen und Spielplätze,NA,FALSE,mittel
+B189,"Liebe Stadtverwaltung,
+
+Seit Anfang des Monats ist die Hecke am Spielplatz Ringstraße 19 so hoch, dass man die Kinder nicht mehr sieht. Vielen Dank für Ihre Arbeit. Bitte schneiden Sie die Hecke zurück.
+
+Hochachtungsvoll
+A. Petersen",Grünflächen und Spielplätze,NA,FALSE,niedrig
+B190,"Sehr geehrte Damen und Herren,
+
+Seit Monaten wurde die blaue Tonne in der Mozartstraße 36 nicht geleert. Vielen Dank für Ihre Arbeit. Bitte holen Sie die Abfuhr nach.
+
+Danke und Gruß
+F. Brandt",Abfall und Sauberkeit,NA,FALSE,niedrig
+B191,"Hallo zusammen,
+
+Schon länger fahren Motorräder nachts mit Vollgas durch die Lindenstraße 38. Viele ältere Leute wohnen hier. Bitte prüfen Sie eine Lärmkontrolle.
+
+Mit freundlichen Grüßen
+H. Weber",Lärm,NA,FALSE,mittel
+B192,"Guten Tag,
+
+Seit Monaten läuft in der Gaststätte Gartenstraße 22 an den Wochenenden bis nach 2 Uhr laute Musik. Bitte schreiten Sie ein.
+
+Hochachtungsvoll
+T. Hartmann",Lärm,NA,FALSE,niedrig
+B193,"Guten Tag,
+
+Seit Anfang des Monats leuchtet die neue LED-Laterne in der Brunnenstraße 43 direkt in unser Schlafzimmer. Vielen Dank für Ihre Arbeit. Bitte richten Sie die Leuchte anders aus.
+
+Mit freundlichen Grüßen
+T. Vogel",Beleuchtung,NA,FALSE,niedrig
+B194,"Liebe Stadtverwaltung,
+
+Seit dem Wochenende liegt in der Gartenstraße 37 ein alter Kühlschrank am Straßenrand. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte entsorgen Sie das Gerät.
+
+Mit freundlichen Grüßen
+C. Schäfer",Abfall und Sauberkeit,NA,FALSE,hoch
+B195,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit Anfang des Monats ist der Bordstein in der Kastanienallee 13 am Übergang nicht abgesenkt. Das sollte zeitnah behoben werden. Bitte senken Sie den Bordstein für Rollstühle und Kinderwagen ab.
+
+Freundliche Grüße
+L. Fischer",Straßen und Verkehr,NA,FALSE,mittel
+B196,"Hallo,
+
+Seit etwa einer Woche ist in der Rosenallee 17 ein tiefes Schlagloch, das immer größer wird. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte bessern Sie die Fahrbahn aus.
+
+Beste Grüße
+F. Fischer",Straßen und Verkehr,NA,FALSE,mittel
+B197,"Guten Tag,
+
+Schon länger sind die Bänke im Park Wiesenstraße 28 morsch und wackeln. Meine Nachbarin ist letzte Woche deswegen gestürzt. Bitte tauschen Sie die Bänke aus.
+
+Freundliche Grüße
+J. Rossi",Grünflächen und Spielplätze,NA,FALSE,hoch
+B198,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit Anfang des Monats ist der Baum vor dem Haus Mozartstraße 50 nach dem Sturm angebrochen. Es eilt nicht, aber irgendwann sollte sich jemand kümmern. Bitte prüfen Sie den Baum auf Standsicherheit.
+
+Beste Grüße
+J. Hartmann",Grünflächen und Spielplätze,NA,FALSE,niedrig
+B199,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit dem letzten Sturm liegen im Sandkasten des Spielplatzes Rosenallee 57 Glasscherben und Zigarettenkippen. Hier laufen jeden Morgen Schulkinder vorbei. Bitte reinigen Sie den Sandkasten.
+
+Freundliche Grüße
+D. Becker",Grünflächen und Spielplätze,Abfall und Sauberkeit,TRUE,hoch
+B200,"Guten Tag,
+
+Seit dem Wochenende wurde der Rasen im Park an der Bergstraße 54 seit Wochen nicht gemäht. Hier laufen jeden Morgen Schulkinder vorbei. Bitte mähen Sie die Wiese.
+
+Danke und Gruß
+F. Krüger",Grünflächen und Spielplätze,NA,FALSE,hoch
+B201,"Sehr geehrtes Team vom Bürgerservice,
+
+Schon länger ist der Gehweg in der Bergstraße 3 voller Laub und rutschig. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte lassen Sie den Gehweg kehren.
+
+Mit freundlichen Grüßen
+E. Schäfer",Abfall und Sauberkeit,Straßen und Verkehr,TRUE,hoch
+B202,"Hallo,
+
+Seit dem letzten Sturm ist das Glockenläuten der Kirche am Marktstraße 23 um 6 Uhr morgens für die Nachbarschaft sehr laut. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte vermitteln Sie ein Gespräch mit der Gemeinde.
+
+Mit besten Grüßen
+D. Fischer",Lärm,Sonstiges,TRUE,mittel
+B203,"Hallo,
+
+Seit dem letzten Sturm steht das Verkehrsschild in der Hauptstraße 37 schief und verdeckt die Sicht. Hier laufen jeden Morgen Schulkinder vorbei. Bitte richten Sie das Schild.
+
+Beste Grüße
+J. Hartmann",Straßen und Verkehr,NA,FALSE,hoch
+B204,"Liebe Stadtverwaltung,
+
+Schon länger beginnt die Baustelle in der Bahnhofstraße 18 jeden Morgen um 6 Uhr mit Presslufthammer. Ich habe bereits zweimal die Polizei gerufen. Bitte prüfen Sie die erlaubten Arbeitszeiten.
+
+Beste Grüße
+B. Rossi",Lärm,NA,FALSE,hoch
+B205,"Hallo,
+
+Seit Monaten ist die Rutsche auf dem Spielplatz Lindenstraße 2 gerissen und hat scharfe Kanten. Das ist eine echte Gefahr, es muss sofort etwas passieren. Bitte sperren und reparieren Sie die Rutsche.
+
+Viele Grüße
+L. Lindqvist",Grünflächen und Spielplätze,NA,FALSE,hoch
+B206,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit etwa einer Woche dröhnt die Lüftungsanlage des Supermarkts in der Kastanienallee 11 die ganze Nacht. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte messen Sie den Lärm.
+
+Beste Grüße
+F. Petersen",Lärm,NA,FALSE,mittel
+B207,"Hallo,
+
+Seit etwa einer Woche fehlt an der Kreuzung Feldstraße 4 das Stoppschild. Es wird von Woche zu Woche schlimmer. Bitte stellen Sie das Schild wieder auf.
+
+Hochachtungsvoll
+P. Becker",Straßen und Verkehr,NA,FALSE,mittel
+B208,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit drei Wochen hängt ein abgebrochener Ast über dem Weg in der Grünanlage Parkallee 12. Viele ältere Leute wohnen hier. Bitte entfernen Sie den Ast.
+
+Danke und Gruß
+H. Oswald",Grünflächen und Spielplätze,NA,FALSE,mittel
+B209,"Liebe Stadtverwaltung,
+
+Seit etwa einer Woche liegt in der Wiesenstraße 7 ein alter Kühlschrank am Straßenrand. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte entsorgen Sie das Gerät.
+
+Danke und Gruß
+R. Sommer",Abfall und Sauberkeit,NA,FALSE,hoch
+B210,"Sehr geehrte Damen und Herren,
+
+Seit dem Wochenende ist der Zebrastreifen in der Rosenallee 4 nachts unbeleuchtet und kaum zu sehen. Das ist eine echte Gefahr, es muss sofort etwas passieren. Bitte beleuchten Sie den Übergang.
+
+Mit besten Grüßen
+L. Petersen",Straßen und Verkehr,Beleuchtung,TRUE,hoch
+B211,"Liebe Stadtverwaltung,
+
+Seit drei Wochen parken Lieferwagen in der Birkenstraße 47 regelmäßig auf dem Radweg. Ich habe bereits zweimal die Polizei gerufen. Bitte kontrollieren Sie das Halteverbot.
+
+Mit freundlichen Grüßen
+P. Lindqvist",Straßen und Verkehr,NA,FALSE,hoch
+B212,"Sehr geehrte Damen und Herren,
+
+Seit dem Wochenende wurden in der Brunnenstraße 22 nach dem Fest die Straßen nicht gereinigt. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte schicken Sie die Straßenreinigung.
+
+Viele Grüße
+S. Petersen",Abfall und Sauberkeit,NA,FALSE,mittel
+B213,"Sehr geehrte Damen und Herren,
+
+Schon länger ist der Hundekotbeutelspender in der Wiesenstraße 23 seit Wochen leer. Es wird von Woche zu Woche schlimmer. Bitte füllen Sie den Spender nach.
+
+Beste Grüße
+J. Vogel",Abfall und Sauberkeit,NA,FALSE,mittel
+B214,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit gestern feiern Jugendliche nachts auf dem Parkplatz Ahornallee 52 mit lauter Musik aus Autos. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte sorgen Sie für nächtliche Kontrollen.
+
+Mit freundlichen Grüßen
+S. Lehmann",Lärm,NA,FALSE,mittel
+B215,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit etwa einer Woche wurde die blaue Tonne in der Ringstraße 3 nicht geleert. Ich habe große Sorge, dass bald etwas Schlimmes passiert. Bitte holen Sie die Abfuhr nach.
+
+Viele Grüße
+F. Krüger",Abfall und Sauberkeit,NA,FALSE,hoch
+B216,"Hallo,
+
+Seit drei Wochen fehlt auf dem Spielplatz Schulstraße 31 der Sand im Sandkasten. Viele ältere Leute wohnen hier. Bitte füllen Sie Sand nach.
+
+Mit besten Grüßen
+R. Kowalski",Grünflächen und Spielplätze,NA,FALSE,mittel
+B217,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit Monaten sind in der Talstraße 17 gleich drei Laternen hintereinander ausgefallen. Bitte stellen Sie die Beleuchtung wieder her.
+
+Beste Grüße
+R. Öztürk",Beleuchtung,NA,FALSE,mittel
+B218,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit Monaten hält sich die Kneipe in der Talstraße 22 nicht an die Sperrzeit. Das ist eine echte Gefahr, es muss sofort etwas passieren. Bitte kontrollieren Sie die Sperrzeit.
+
+Danke und Gruß
+A. Baumann",Lärm,NA,FALSE,hoch
+B219,"Liebe Stadtverwaltung,
+
+Seit dem Wochenende liegt im Park an der Bergstraße 3 überall Müll vom Wochenende, die Körbe sind voll. Ich habe bereits zweimal die Polizei gerufen. Bitte stellen Sie mehr Abfallkörbe auf.
+
+Viele Grüße
+L. Yilmaz",Abfall und Sauberkeit,Grünflächen und Spielplätze,TRUE,hoch
+B220,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit Monaten flackert die Laterne in der Kirchgasse 33 die ganze Nacht. Meine Nachbarin ist letzte Woche deswegen gestürzt. Bitte tauschen Sie das Leuchtmittel.
+
+Viele Grüße
+N. Nguyen",Beleuchtung,NA,FALSE,hoch
+B221,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit Anfang des Monats ist der Bordstein in der Kastanienallee 43 am Übergang nicht abgesenkt. Es eilt nicht, aber irgendwann sollte sich jemand kümmern. Bitte senken Sie den Bordstein für Rollstühle und Kinderwagen ab.
+
+Hochachtungsvoll
+L. Lindqvist",Straßen und Verkehr,NA,FALSE,niedrig
+B222,"Hallo zusammen,
+
+Seit etwa einer Woche brennt die Straßenbeleuchtung in der Lindenstraße 45 auch tagsüber. Viele ältere Leute wohnen hier. Bitte prüfen Sie die Zeitschaltung.
+
+Mit freundlichen Grüßen
+A. Petersen",Beleuchtung,NA,FALSE,mittel
+B223,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit dem Wochenende quillt der Papierkorb an der Bushaltestelle Kirchgasse 17 über. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte leeren Sie den Papierkorb öfter.
+
+Viele Grüße
+S. Haddad",Abfall und Sauberkeit,NA,FALSE,mittel
+B224,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit dem Wochenende ist der Gullydeckel in der Schulstraße 36 lose und klappert bei jedem Auto. Ich wollte das nur einmal angemerkt haben. Bitte befestigen Sie den Deckel.
+
+Danke und Gruß
+K. Öztürk",Straßen und Verkehr,NA,FALSE,niedrig
+B225,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit Monaten liegt in der Bergstraße 22 ein alter Kühlschrank am Straßenrand. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte entsorgen Sie das Gerät.
+
+Hochachtungsvoll
+P. Krüger",Abfall und Sauberkeit,NA,FALSE,mittel
+B226,"Sehr geehrte Damen und Herren,
+
+Seit dem Wochenende heben die Wurzeln der alten Bäume in der Talstraße 43 die Gehwegplatten an. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte richten Sie den Gehweg, ohne die Bäume zu fällen.
+
+Mit freundlichen Grüßen
+F. Weber",Straßen und Verkehr,Grünflächen und Spielplätze,TRUE,mittel
+B227,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit dem letzten Sturm ist die Straßenlaterne vor dem Haus Hauptstraße 7 dunkel. Es wird von Woche zu Woche schlimmer. Bitte reparieren Sie die Laterne.
+
+Hochachtungsvoll
+N. Hartmann",Beleuchtung,NA,FALSE,mittel
+B228,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit etwa einer Woche bläst der Laubbläser des Hausmeisters in der Bergstraße 35 sonntags um 8 Uhr. Hier laufen jeden Morgen Schulkinder vorbei. Bitte weisen Sie auf die Ruhezeiten hin.
+
+Danke und Gruß
+F. Oswald",Lärm,NA,FALSE,hoch
+B229,"Liebe Stadtverwaltung,
+
+Schon länger ist am Spielplatz Wiesenstraße 6 die Kette der Schaukel gerissen. Viele ältere Leute wohnen hier. Bitte reparieren Sie die Schaukel.
+
+Beste Grüße
+T. Sommer",Grünflächen und Spielplätze,NA,FALSE,mittel
+B230,"Liebe Stadtverwaltung,
+
+Seit gestern hält sich die Kneipe in der Parkallee 21 nicht an die Sperrzeit. Es wird von Woche zu Woche schlimmer. Bitte kontrollieren Sie die Sperrzeit.
+
+Mit besten Grüßen
+A. Oswald",Lärm,NA,FALSE,mittel
+B231,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit Monaten parken Lieferwagen in der Bergstraße 25 regelmäßig auf dem Radweg. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte kontrollieren Sie das Halteverbot.
+
+Danke und Gruß
+B. Lindqvist",Straßen und Verkehr,NA,FALSE,mittel
+B232,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit Anfang des Monats sind die Öffnungszeiten des Bürgerbüros auf der Webseite falsch angegeben. Ich wollte das nur einmal angemerkt haben. Bitte aktualisieren Sie die Webseite.
+
+Hochachtungsvoll
+B. Nguyen",Sonstiges,NA,FALSE,niedrig
+B233,"Guten Tag,
+
+Schon länger liegt in der Mühlengasse 14 ein alter Kühlschrank am Straßenrand. Bitte entsorgen Sie das Gerät.
+
+Beste Grüße
+F. Vogel",Abfall und Sauberkeit,NA,FALSE,mittel
+B234,"Hallo,
+
+Seit Anfang des Monats sind die Mülltonnen im Hinterhof Birkenstraße 15 voller Maden und stinken. Es eilt nicht, aber irgendwann sollte sich jemand kümmern. Bitte reinigen Sie die Tonnen oder tauschen Sie sie.
+
+Hochachtungsvoll
+R. Nguyen",Abfall und Sauberkeit,NA,FALSE,niedrig
+B235,"Hallo zusammen,
+
+Schon länger fahren Motorräder nachts mit Vollgas durch die Feldstraße 19. Viele ältere Leute wohnen hier. Bitte prüfen Sie eine Lärmkontrolle.
+
+Viele Grüße
+F. Vogel",Lärm,NA,FALSE,mittel
+B236,"Liebe Stadtverwaltung,
+
+Seit Monaten brennt die Straßenbeleuchtung in der Mozartstraße 23 auch tagsüber. Bitte prüfen Sie die Zeitschaltung.
+
+Freundliche Grüße
+A. Nguyen",Beleuchtung,NA,FALSE,niedrig
+B237,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit gestern ist die Brücke über den Mühlbach in der Feldstraße 4 für Fußgänger gesperrt, ohne Umleitung. Wir haben mehrfach Ratten gesehen, auch tagsüber. Bitte weisen Sie eine Umleitung aus.
+
+Danke und Gruß
+N. Baumann",Straßen und Verkehr,NA,FALSE,hoch
+B238,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit dem letzten Sturm sind die Öffnungszeiten des Bürgerbüros auf der Webseite falsch angegeben. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte aktualisieren Sie die Webseite.
+
+Danke und Gruß
+P. Rossi",Sonstiges,NA,FALSE,mittel
+B239,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit dem letzten Sturm beginnt die Baustelle in der Mozartstraße 11 jeden Morgen um 6 Uhr mit Presslufthammer. Das sollte zeitnah behoben werden. Bitte prüfen Sie die erlaubten Arbeitszeiten.
+
+Mit besten Grüßen
+H. Lehmann",Lärm,NA,FALSE,mittel
+B240,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit dem letzten Sturm ist die Hecke am Spielplatz Wiesenstraße 35 so hoch, dass man die Kinder nicht mehr sieht. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte schneiden Sie die Hecke zurück.
+
+Mit freundlichen Grüßen
+R. Weber",Grünflächen und Spielplätze,NA,FALSE,mittel
+B241,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit dem Wochenende wurde mein Hinweis auf dem Mängelmelder nach drei Wochen noch nicht beantwortet. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte geben Sie eine Rückmeldung.
+
+Danke und Gruß
+S. Petersen",Sonstiges,NA,FALSE,mittel
+B242,"Guten Tag,
+
+Seit Monaten brennt die Straßenbeleuchtung in der Bahnhofstraße 6 auch tagsüber. Ich habe bereits zweimal die Polizei gerufen. Bitte prüfen Sie die Zeitschaltung.
+
+Mit besten Grüßen
+H. Haddad",Beleuchtung,NA,FALSE,hoch
+B243,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit drei Wochen leuchtet die neue LED-Laterne in der Birkenstraße 6 direkt in unser Schlafzimmer. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte richten Sie die Leuchte anders aus.
+
+Freundliche Grüße
+S. Haddad",Beleuchtung,NA,FALSE,mittel
+B244,"Guten Tag,
+
+Seit etwa einer Woche wurden in der Talstraße 23 nach dem Fest die Straßen nicht gereinigt. Viele ältere Leute wohnen hier. Bitte schicken Sie die Straßenreinigung.
+
+Freundliche Grüße
+L. Weber",Abfall und Sauberkeit,NA,FALSE,mittel
+B245,"Guten Tag,
+
+Seit gestern hat jemand in der Bahnhofstraße 56 Bauschutt und alte Farbeimer abgeladen. Meine Nachbarin ist letzte Woche deswegen gestürzt. Bitte lassen Sie den Müll abholen.
+
+Mit besten Grüßen
+R. Schäfer",Abfall und Sauberkeit,NA,FALSE,hoch
+B246,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit gestern flackert die Laterne in der Rosenallee 51 die ganze Nacht. Es wird von Woche zu Woche schlimmer. Bitte tauschen Sie das Leuchtmittel.
+
+Freundliche Grüße
+B. Schäfer",Beleuchtung,NA,FALSE,mittel
+B247,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit dem letzten Sturm schreit der Hund im Nachbargarten Bergstraße 44 stundenlang, auch nachts. Das sollte zeitnah behoben werden. Bitte sprechen Sie mit den Haltern.
+
+Mit besten Grüßen
+A. Sommer",Lärm,NA,FALSE,mittel
+B248,"Hallo,
+
+Seit drei Wochen hält sich die Kneipe in der Mühlengasse 22 nicht an die Sperrzeit. Es eilt nicht, aber irgendwann sollte sich jemand kümmern. Bitte kontrollieren Sie die Sperrzeit.
+
+Freundliche Grüße
+D. Weber",Lärm,NA,FALSE,niedrig
+B249,"Hallo,
+
+Seit Anfang des Monats brennt die Straßenbeleuchtung in der Birkenstraße 43 auch tagsüber. Das ist eine echte Gefahr, es muss sofort etwas passieren. Bitte prüfen Sie die Zeitschaltung.
+
+Viele Grüße
+N. Oswald",Beleuchtung,NA,FALSE,hoch
+B250,"Guten Tag,
+
+Seit dem Wochenende liegt im Park an der Talstraße 51 überall Müll vom Wochenende, die Körbe sind voll. Vielen Dank für Ihre Arbeit. Bitte stellen Sie mehr Abfallkörbe auf.
+
+Hochachtungsvoll
+J. Sommer",Abfall und Sauberkeit,Grünflächen und Spielplätze,TRUE,niedrig
+B251,"Liebe Stadtverwaltung,
+
+Möchte ich mich bei den Mitarbeiterinnen des Bürgerbüros Hafenstraße 17 bedanken. Vielen Dank für Ihre Arbeit. Bitte geben Sie das Lob weiter.
+
+Beste Grüße
+N. Öztürk",Sonstiges,NA,FALSE,niedrig
+B252,"Liebe Stadtverwaltung,
+
+Seit Monaten steht das Verkehrsschild in der Ringstraße 24 schief und verdeckt die Sicht. Es eilt nicht, aber irgendwann sollte sich jemand kümmern. Bitte richten Sie das Schild.
+
+Hochachtungsvoll
+F. Nguyen",Straßen und Verkehr,NA,FALSE,niedrig
+B253,"Sehr geehrte Frau Bürgermeisterin,
+
+Schon länger wurde der Rasen im Park an der Hauptstraße 19 seit Wochen nicht gemäht. Das ist eine echte Gefahr, es muss sofort etwas passieren. Bitte mähen Sie die Wiese.
+
+Beste Grüße
+K. Hartmann",Grünflächen und Spielplätze,NA,FALSE,hoch
+B254,"Sehr geehrte Damen und Herren,
+
+Seit Monaten wurden in der Mühlengasse 53 nach dem Fest die Straßen nicht gereinigt. Meine Nachbarin ist letzte Woche deswegen gestürzt. Bitte schicken Sie die Straßenreinigung.
+
+Mit freundlichen Grüßen
+K. Becker",Abfall und Sauberkeit,NA,FALSE,hoch
+B255,"Hallo zusammen,
+
+Seit gestern ist die Rutsche auf dem Spielplatz Parkallee 48 gerissen und hat scharfe Kanten. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte sperren und reparieren Sie die Rutsche.
+
+Mit besten Grüßen
+D. Yilmaz",Grünflächen und Spielplätze,NA,FALSE,mittel
+B256,"Guten Tag,
+
+Seit gestern sind die Mülltonnen im Hinterhof Marktstraße 29 voller Maden und stinken. Ich wollte das nur einmal angemerkt haben. Bitte reinigen Sie die Tonnen oder tauschen Sie sie.
+
+Danke und Gruß
+D. Haddad",Abfall und Sauberkeit,NA,FALSE,niedrig
+B257,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit Anfang des Monats heben die Wurzeln der alten Bäume in der Feldstraße 20 die Gehwegplatten an. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte richten Sie den Gehweg, ohne die Bäume zu fällen.
+
+Hochachtungsvoll
+L. Petersen",Straßen und Verkehr,Grünflächen und Spielplätze,TRUE,mittel
+B258,"Sehr geehrte Damen und Herren,
+
+Seit Anfang des Monats ist der Gehweg in der Bahnhofstraße 24 voller Laub und rutschig. Wir haben mehrfach Ratten gesehen, auch tagsüber. Bitte lassen Sie den Gehweg kehren.
+
+Danke und Gruß
+C. Yilmaz",Abfall und Sauberkeit,Straßen und Verkehr,TRUE,hoch
+B259,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit Anfang des Monats ist der Bordstein in der Hafenstraße 12 am Übergang nicht abgesenkt. Ich habe große Sorge, dass bald etwas Schlimmes passiert. Bitte senken Sie den Bordstein für Rollstühle und Kinderwagen ab.
+
+Mit freundlichen Grüßen
+A. Vogel",Straßen und Verkehr,NA,FALSE,hoch
+B260,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit gestern ist die Hecke am Spielplatz Birkenstraße 40 so hoch, dass man die Kinder nicht mehr sieht. Viele ältere Leute wohnen hier. Bitte schneiden Sie die Hecke zurück.
+
+Freundliche Grüße
+B. Lehmann",Grünflächen und Spielplätze,NA,FALSE,mittel
+B261,"Guten Tag,
+
+Seit drei Wochen ist der Bordstein in der Kirchgasse 36 am Übergang nicht abgesenkt. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte senken Sie den Bordstein für Rollstühle und Kinderwagen ab.
+
+Danke und Gruß
+C. Schäfer",Straßen und Verkehr,NA,FALSE,mittel
+B262,"Liebe Stadtverwaltung,
+
+Seit Anfang des Monats fehlt auf dem Spielplatz Mühlengasse 43 der Sand im Sandkasten. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte füllen Sie Sand nach.
+
+Beste Grüße
+L. Schäfer",Grünflächen und Spielplätze,NA,FALSE,mittel
+B263,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit Monaten quillt der Papierkorb an der Bushaltestelle Hafenstraße 15 über. Bitte leeren Sie den Papierkorb öfter.
+
+Mit freundlichen Grüßen
+L. Sommer",Abfall und Sauberkeit,NA,FALSE,mittel
+B264,"Hallo zusammen,
+
+Seit dem Wochenende sind die Bänke im Park Mozartstraße 24 morsch und wackeln. Es wird von Woche zu Woche schlimmer. Bitte tauschen Sie die Bänke aus.
+
+Viele Grüße
+D. Lehmann",Grünflächen und Spielplätze,NA,FALSE,mittel
+B265,"Hallo,
+
+Schon länger flackert die Laterne in der Feldstraße 37 die ganze Nacht. Das ist eine echte Gefahr, es muss sofort etwas passieren. Bitte tauschen Sie das Leuchtmittel.
+
+Mit besten Grüßen
+K. Haddad",Beleuchtung,NA,FALSE,hoch
+B266,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit Anfang des Monats steht das Verkehrsschild in der Brunnenstraße 32 schief und verdeckt die Sicht. Hier laufen jeden Morgen Schulkinder vorbei. Bitte richten Sie das Schild.
+
+Viele Grüße
+H. Weber",Straßen und Verkehr,NA,FALSE,hoch
+B267,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit Anfang des Monats wachsen die Sträucher an der Einmündung Parkallee 1 so weit in die Straße, dass man nichts sieht. Es wird von Woche zu Woche schlimmer. Bitte schneiden Sie die Sträucher zurück.
+
+Freundliche Grüße
+L. Brandt",Grünflächen und Spielplätze,Straßen und Verkehr,TRUE,mittel
+B268,"Hallo zusammen,
+
+Seit Anfang des Monats liegen im Sandkasten des Spielplatzes Ahornallee 31 Glasscherben und Zigarettenkippen. Es wird von Woche zu Woche schlimmer. Bitte reinigen Sie den Sandkasten.
+
+Hochachtungsvoll
+M. Kowalski",Grünflächen und Spielplätze,Abfall und Sauberkeit,TRUE,mittel
+B269,"Hallo,
+
+Seit Monaten fahren Motorräder nachts mit Vollgas durch die Brunnenstraße 40. Bitte prüfen Sie eine Lärmkontrolle.
+
+Viele Grüße
+B. Fischer",Lärm,NA,FALSE,mittel
+B270,"Hallo zusammen,
+
+Seit drei Wochen fehlt an der Kreuzung Rosenallee 44 das Stoppschild. Es eilt nicht, aber irgendwann sollte sich jemand kümmern. Bitte stellen Sie das Schild wieder auf.
+
+Hochachtungsvoll
+P. Becker",Straßen und Verkehr,NA,FALSE,niedrig
+B271,"Guten Tag,
+
+Seit drei Wochen hat jemand in der Birkenstraße 30 Bauschutt und alte Farbeimer abgeladen. Ich habe große Sorge, dass bald etwas Schlimmes passiert. Bitte lassen Sie den Müll abholen.
+
+Mit besten Grüßen
+L. Schäfer",Abfall und Sauberkeit,NA,FALSE,hoch
+B272,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit Monaten wird in der Hafenstraße 33 viel zu schnell gefahren, obwohl Tempo 30 gilt. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte prüfen Sie Geschwindigkeitskontrollen oder eine Schwelle.
+
+Mit besten Grüßen
+N. Haddad",Straßen und Verkehr,NA,FALSE,mittel
+B273,"Sehr geehrte Frau Bürgermeisterin,
+
+Schon länger ist der Zebrastreifen in der Mozartstraße 11 nachts unbeleuchtet und kaum zu sehen. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte beleuchten Sie den Übergang.
+
+Hochachtungsvoll
+J. Rossi",Straßen und Verkehr,Beleuchtung,TRUE,hoch
+B274,"Guten Tag,
+
+Seit dem Wochenende hat jemand in der Birkenstraße 57 Bauschutt und alte Farbeimer abgeladen. Vielen Dank für Ihre Arbeit. Bitte lassen Sie den Müll abholen.
+
+Viele Grüße
+P. Lehmann",Abfall und Sauberkeit,NA,FALSE,niedrig
+B275,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit drei Wochen ist die Brücke über den Mühlbach in der Ringstraße 24 für Fußgänger gesperrt, ohne Umleitung. Bitte weisen Sie eine Umleitung aus.
+
+Danke und Gruß
+D. Becker",Straßen und Verkehr,NA,FALSE,mittel
+B276,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit dem letzten Sturm ist der Bordstein in der Schulstraße 30 am Übergang nicht abgesenkt. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte senken Sie den Bordstein für Rollstühle und Kinderwagen ab.
+
+Viele Grüße
+D. Krüger",Straßen und Verkehr,NA,FALSE,hoch
+B277,"Sehr geehrtes Team vom Bürgerservice,
+
+Schon länger liegen am Glascontainer Hauptstraße 5 Flaschen und Scherben herum. Das ist nur ein Hinweis, kein Notfall. Bitte reinigen Sie den Containerplatz.
+
+Beste Grüße
+E. Baumann",Abfall und Sauberkeit,NA,FALSE,niedrig
+B278,"Guten Tag,
+
+Seit drei Wochen sind die Mülltonnen im Hinterhof Brunnenstraße 48 voller Maden und stinken. Ich habe bereits zweimal die Polizei gerufen. Bitte reinigen Sie die Tonnen oder tauschen Sie sie.
+
+Beste Grüße
+C. Weber",Abfall und Sauberkeit,NA,FALSE,hoch
+B279,"Hallo zusammen,
+
+Seit etwa einer Woche liegt im Park an der Mühlengasse 23 überall Müll vom Wochenende, die Körbe sind voll. Hier laufen jeden Morgen Schulkinder vorbei. Bitte stellen Sie mehr Abfallkörbe auf.
+
+Danke und Gruß
+P. Lehmann",Abfall und Sauberkeit,Grünflächen und Spielplätze,TRUE,hoch
+B280,"Hallo zusammen,
+
+Seit drei Wochen ist der Abfuhrkalender für die Kastanienallee 12 online falsch. Das sollte zeitnah behoben werden. Bitte korrigieren Sie die Termine.
+
+Freundliche Grüße
+K. Petersen",Abfall und Sauberkeit,NA,FALSE,mittel
+B281,"Hallo zusammen,
+
+Seit dem Wochenende funktioniert das Online-Formular für die Ummeldung nicht. Vielen Dank für Ihre Arbeit. Bitte beheben Sie den Fehler.
+
+Hochachtungsvoll
+P. Petersen",Sonstiges,NA,FALSE,niedrig
+B282,"Hallo,
+
+Seit drei Wochen ist die Ampel an der Wiesenstraße 44 ausgefallen und blinkt nur noch gelb. Vielen Dank für Ihre Arbeit. Bitte lassen Sie die Ampel reparieren.
+
+Mit freundlichen Grüßen
+D. Fischer",Straßen und Verkehr,NA,FALSE,niedrig
+B283,"Sehr geehrte Damen und Herren,
+
+Seit dem letzten Sturm hängt ein abgebrochener Ast über dem Weg in der Grünanlage Gartenstraße 58. Vielen Dank für Ihre Arbeit. Bitte entfernen Sie den Ast.
+
+Hochachtungsvoll
+P. Hartmann",Grünflächen und Spielplätze,NA,FALSE,niedrig
+B284,"Guten Tag,
+
+Schon länger ist die Brücke über den Mühlbach in der Bahnhofstraße 34 für Fußgänger gesperrt, ohne Umleitung. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte weisen Sie eine Umleitung aus.
+
+Danke und Gruß
+T. Lehmann",Straßen und Verkehr,NA,FALSE,mittel
+B285,"Guten Tag,
+
+Seit etwa einer Woche liegen im Sandkasten des Spielplatzes Kastanienallee 3 Glasscherben und Zigarettenkippen. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte reinigen Sie den Sandkasten.
+
+Mit besten Grüßen
+H. Öztürk",Grünflächen und Spielplätze,Abfall und Sauberkeit,TRUE,mittel
+B286,"Liebe Stadtverwaltung,
+
+Seit Monaten ist der Bordstein in der Feldstraße 1 am Übergang nicht abgesenkt. Es eilt nicht, aber irgendwann sollte sich jemand kümmern. Bitte senken Sie den Bordstein für Rollstühle und Kinderwagen ab.
+
+Freundliche Grüße
+E. Schäfer",Straßen und Verkehr,NA,FALSE,niedrig
+B287,"Sehr geehrte Frau Bürgermeisterin,
+
+Schon länger ist die Brücke über den Mühlbach in der Mozartstraße 50 für Fußgänger gesperrt, ohne Umleitung. Wir haben mehrfach Ratten gesehen, auch tagsüber. Bitte weisen Sie eine Umleitung aus.
+
+Hochachtungsvoll
+A. Haddad",Straßen und Verkehr,NA,FALSE,hoch
+B288,"Sehr geehrte Damen und Herren,
+
+Seit Anfang des Monats ist die Straßenlaterne vor dem Haus Birkenstraße 21 dunkel. Bitte reparieren Sie die Laterne.
+
+Hochachtungsvoll
+B. Fischer",Beleuchtung,NA,FALSE,niedrig
+B289,"Hallo zusammen,
+
+Seit etwa einer Woche liegen am Glascontainer Feldstraße 7 Flaschen und Scherben herum. Vielleicht lässt sich das bei Gelegenheit erledigen. Bitte reinigen Sie den Containerplatz.
+
+Mit freundlichen Grüßen
+K. Nguyen",Abfall und Sauberkeit,NA,FALSE,niedrig
+B290,"Liebe Stadtverwaltung,
+
+Seit drei Wochen brennt die Straßenbeleuchtung in der Mozartstraße 39 auch tagsüber. Viele ältere Leute wohnen hier. Bitte prüfen Sie die Zeitschaltung.
+
+Danke und Gruß
+H. Becker",Beleuchtung,NA,FALSE,mittel
+B291,"Guten Tag,
+
+Seit etwa einer Woche fahren Motorräder nachts mit Vollgas durch die Kastanienallee 22. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte prüfen Sie eine Lärmkontrolle.
+
+Hochachtungsvoll
+F. Kowalski",Lärm,NA,FALSE,mittel
+B292,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit Monaten parken Lieferwagen in der Mühlengasse 34 regelmäßig auf dem Radweg. Hier laufen jeden Morgen Schulkinder vorbei. Bitte kontrollieren Sie das Halteverbot.
+
+Mit freundlichen Grüßen
+D. Kowalski",Straßen und Verkehr,NA,FALSE,hoch
+B293,"Hallo,
+
+Seit dem Wochenende wurde die blaue Tonne in der Brunnenstraße 58 nicht geleert. Vielleicht lässt sich das bei Gelegenheit erledigen. Bitte holen Sie die Abfuhr nach.
+
+Mit freundlichen Grüßen
+S. Haddad",Abfall und Sauberkeit,NA,FALSE,niedrig
+B294,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit dem letzten Sturm ist die Wippe am Spielplatz Gartenstraße 52 abgebaut und nicht ersetzt worden. Meine Nachbarin ist letzte Woche deswegen gestürzt. Wann kommt ein neues Gerät?
+
+Freundliche Grüße
+H. Lehmann",Grünflächen und Spielplätze,NA,FALSE,hoch
+B295,"Sehr geehrte Damen und Herren,
+
+Seit gestern ist die Laterne am Spielplatz Talstraße 60 kaputt, abends ist es dort stockdunkel. Das sollte zeitnah behoben werden. Bitte reparieren Sie die Laterne.
+
+Viele Grüße
+R. Fischer",Beleuchtung,Grünflächen und Spielplätze,TRUE,mittel
+B296,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit gestern ist die Unterführung an der Hafenstraße 28 abends stockdunkel. Ich habe bereits zweimal die Polizei gerufen. Bitte installieren Sie Beleuchtung.
+
+Mit freundlichen Grüßen
+B. Baumann",Beleuchtung,NA,FALSE,hoch
+B297,"Guten Tag,
+
+Seit Anfang des Monats wurde mein Hinweis auf dem Mängelmelder nach drei Wochen noch nicht beantwortet. Bitte geben Sie eine Rückmeldung.
+
+Beste Grüße
+A. Rossi",Sonstiges,NA,FALSE,niedrig
+B298,"Sehr geehrte Damen und Herren,
+
+Seit etwa einer Woche ist der Gullydeckel in der Mozartstraße 50 lose und klappert bei jedem Auto. Bitte befestigen Sie den Deckel.
+
+Hochachtungsvoll
+E. Krüger",Straßen und Verkehr,NA,FALSE,mittel
+B299,"Guten Tag,
+
+Seit Monaten leuchtet die neue LED-Laterne in der Kirchgasse 3 direkt in unser Schlafzimmer. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte richten Sie die Leuchte anders aus.
+
+Danke und Gruß
+H. Hartmann",Beleuchtung,NA,FALSE,mittel
+B300,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit Monaten wurden in der Mozartstraße 46 nach dem Fest die Straßen nicht gereinigt. Vielen Dank für Ihre Arbeit. Bitte schicken Sie die Straßenreinigung.
+
+Mit freundlichen Grüßen
+P. Lehmann",Abfall und Sauberkeit,NA,FALSE,niedrig
+B301,"Hallo,
+
+Seit dem Wochenende läuft in der Gaststätte Feldstraße 46 an den Wochenenden bis nach 2 Uhr laute Musik. Bitte schreiten Sie ein.
+
+Viele Grüße
+L. Becker",Lärm,NA,FALSE,mittel
+B302,"Hallo zusammen,
+
+Seit Anfang des Monats schreit der Hund im Nachbargarten Bahnhofstraße 37 stundenlang, auch nachts. Viele ältere Leute wohnen hier. Bitte sprechen Sie mit den Haltern.
+
+Mit freundlichen Grüßen
+S. Kowalski",Lärm,NA,FALSE,mittel
+B303,"Guten Tag,
+
+Seit dem Wochenende sind die Öffnungszeiten des Bürgerbüros auf der Webseite falsch angegeben. Vielleicht lässt sich das bei Gelegenheit erledigen. Bitte aktualisieren Sie die Webseite.
+
+Mit besten Grüßen
+A. Nguyen",Sonstiges,NA,FALSE,niedrig
+B304,"Sehr geehrte Damen und Herren,
+
+Seit Anfang des Monats ist der Bordstein in der Hafenstraße 45 am Übergang nicht abgesenkt. Viele ältere Leute wohnen hier. Bitte senken Sie den Bordstein für Rollstühle und Kinderwagen ab.
+
+Mit besten Grüßen
+K. Brandt",Straßen und Verkehr,NA,FALSE,mittel
+B305,"Hallo,
+
+Seit etwa einer Woche schreit der Hund im Nachbargarten Brunnenstraße 35 stundenlang, auch nachts. Ich wollte das nur einmal angemerkt haben. Bitte sprechen Sie mit den Haltern.
+
+Danke und Gruß
+J. Oswald",Lärm,NA,FALSE,niedrig
+B306,"Guten Tag,
+
+Seit etwa einer Woche wird auf dem Bolzplatz Kirchgasse 9 bis Mitternacht Fußball gespielt und gegrölt. Bitte setzen Sie Nutzungszeiten durch.
+
+Hochachtungsvoll
+D. Becker",Lärm,Grünflächen und Spielplätze,TRUE,niedrig
+B307,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit dem letzten Sturm parken Lieferwagen in der Parkallee 32 regelmäßig auf dem Radweg. Viele ältere Leute wohnen hier. Bitte kontrollieren Sie das Halteverbot.
+
+Mit besten Grüßen
+M. Krüger",Straßen und Verkehr,NA,FALSE,mittel
+B308,"Liebe Stadtverwaltung,
+
+Seit etwa einer Woche läuft in der Gaststätte Bahnhofstraße 1 an den Wochenenden bis nach 2 Uhr laute Musik. Viele ältere Leute wohnen hier. Bitte schreiten Sie ein.
+
+Beste Grüße
+A. Öztürk",Lärm,NA,FALSE,mittel
+B309,"Sehr geehrte Frau Bürgermeisterin,
+
+Schon länger ist der Verkehrslärm in der Marktstraße 41 seit der Umleitung unerträglich. Bitte prüfen Sie Tempo 30 oder eine andere Umleitung.
+
+Hochachtungsvoll
+K. Baumann",Lärm,Straßen und Verkehr,TRUE,niedrig
+B310,"Hallo zusammen,
+
+Seit dem Wochenende ist die Wippe am Spielplatz Wiesenstraße 2 abgebaut und nicht ersetzt worden. Wir haben mehrfach Ratten gesehen, auch tagsüber. Wann kommt ein neues Gerät?
+
+Freundliche Grüße
+J. Haddad",Grünflächen und Spielplätze,NA,FALSE,hoch
+B311,"Liebe Stadtverwaltung,
+
+Seit Anfang des Monats ist das Beet am Kreisverkehr Mühlengasse 38 völlig verwildert. Bitte pflegen Sie das Beet.
+
+Danke und Gruß
+J. Öztürk",Grünflächen und Spielplätze,NA,FALSE,mittel
+B312,"Liebe Stadtverwaltung,
+
+Seit etwa einer Woche wurde der Rasen im Park an der Mozartstraße 41 seit Wochen nicht gemäht. Bitte mähen Sie die Wiese.
+
+Beste Grüße
+S. Haddad",Grünflächen und Spielplätze,NA,FALSE,niedrig
+B313,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit Anfang des Monats ist die Brücke über den Mühlbach in der Bergstraße 35 für Fußgänger gesperrt, ohne Umleitung. Ich habe bereits zweimal die Polizei gerufen. Bitte weisen Sie eine Umleitung aus.
+
+Beste Grüße
+S. Rossi",Straßen und Verkehr,NA,FALSE,hoch
+B314,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit etwa einer Woche hat jemand in der Mühlengasse 18 Bauschutt und alte Farbeimer abgeladen. Ich wollte das nur einmal angemerkt haben. Bitte lassen Sie den Müll abholen.
+
+Freundliche Grüße
+N. Nguyen",Abfall und Sauberkeit,NA,FALSE,niedrig
+B315,"Guten Tag,
+
+Schon länger liegen am Glascontainer Talstraße 6 Flaschen und Scherben herum. Das ist eine echte Gefahr, es muss sofort etwas passieren. Bitte reinigen Sie den Containerplatz.
+
+Beste Grüße
+N. Krüger",Abfall und Sauberkeit,NA,FALSE,hoch
+B316,"Hallo zusammen,
+
+Seit etwa einer Woche liegt in der Kirchgasse 50 ein alter Kühlschrank am Straßenrand. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte entsorgen Sie das Gerät.
+
+Hochachtungsvoll
+J. Yilmaz",Abfall und Sauberkeit,NA,FALSE,mittel
+B317,"Hallo,
+
+Seit dem letzten Sturm hat jemand in der Kastanienallee 15 Bauschutt und alte Farbeimer abgeladen. Es wird von Woche zu Woche schlimmer. Bitte lassen Sie den Müll abholen.
+
+Freundliche Grüße
+R. Rossi",Abfall und Sauberkeit,NA,FALSE,mittel
+B318,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit dem Wochenende ist der Gullydeckel in der Wiesenstraße 60 lose und klappert bei jedem Auto. Es wird von Woche zu Woche schlimmer. Bitte befestigen Sie den Deckel.
+
+Danke und Gruß
+A. Fischer",Straßen und Verkehr,NA,FALSE,mittel
+B319,"Hallo zusammen,
+
+Seit dem Wochenende liegt in der Birkenstraße 14 ein alter Kühlschrank am Straßenrand. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte entsorgen Sie das Gerät.
+
+Mit freundlichen Grüßen
+J. Sommer",Abfall und Sauberkeit,NA,FALSE,mittel
+B320,"Liebe Stadtverwaltung,
+
+Seit Monaten liegen am Glascontainer Schulstraße 22 Flaschen und Scherben herum. Bitte reinigen Sie den Containerplatz.
+
+Beste Grüße
+F. Brandt",Abfall und Sauberkeit,NA,FALSE,mittel
+B321,"Guten Tag,
+
+Seit dem Wochenende wachsen die Sträucher an der Einmündung Schulstraße 55 so weit in die Straße, dass man nichts sieht. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte schneiden Sie die Sträucher zurück.
+
+Viele Grüße
+L. Lehmann",Grünflächen und Spielplätze,Straßen und Verkehr,TRUE,hoch
+B322,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit drei Wochen geht die Beleuchtung am Fußweg Parkallee 32 erst eine Stunde nach Einbruch der Dunkelheit an. Bitte stellen Sie den Dämmerungsschalter neu ein.
+
+Mit besten Grüßen
+N. Krüger",Beleuchtung,NA,FALSE,niedrig
+B323,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit Anfang des Monats ist der Baum vor dem Haus Birkenstraße 17 nach dem Sturm angebrochen. Bitte prüfen Sie den Baum auf Standsicherheit.
+
+Viele Grüße
+F. Baumann",Grünflächen und Spielplätze,NA,FALSE,mittel
+B324,"Liebe Stadtverwaltung,
+
+Seit drei Wochen ist der Gullydeckel in der Mühlengasse 44 lose und klappert bei jedem Auto. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte befestigen Sie den Deckel.
+
+Viele Grüße
+C. Nguyen",Straßen und Verkehr,NA,FALSE,mittel
+B325,"Liebe Stadtverwaltung,
+
+Seit etwa einer Woche sind die Mülltonnen im Hinterhof Mühlengasse 1 voller Maden und stinken. Ich habe große Sorge, dass bald etwas Schlimmes passiert. Bitte reinigen Sie die Tonnen oder tauschen Sie sie.
+
+Freundliche Grüße
+K. Öztürk",Abfall und Sauberkeit,NA,FALSE,hoch
+B326,"Liebe Stadtverwaltung,
+
+Seit dem Wochenende liegen im Sandkasten des Spielplatzes Parkallee 30 Glasscherben und Zigarettenkippen. Vielen Dank für Ihre Arbeit. Bitte reinigen Sie den Sandkasten.
+
+Danke und Gruß
+M. Krüger",Grünflächen und Spielplätze,Abfall und Sauberkeit,TRUE,niedrig
+B327,"Hallo,
+
+Seit Monaten ist die Rutsche auf dem Spielplatz Kastanienallee 48 gerissen und hat scharfe Kanten. Das ist eine echte Gefahr, es muss sofort etwas passieren. Bitte sperren und reparieren Sie die Rutsche.
+
+Danke und Gruß
+C. Becker",Grünflächen und Spielplätze,NA,FALSE,hoch
+B328,"Liebe Stadtverwaltung,
+
+Seit drei Wochen ist in der Hafenstraße 50 ein tiefes Schlagloch, das immer größer wird. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte bessern Sie die Fahrbahn aus.
+
+Danke und Gruß
+J. Lehmann",Straßen und Verkehr,NA,FALSE,hoch
+B329,"Hallo zusammen,
+
+Seit dem letzten Sturm dröhnt die Lüftungsanlage des Supermarkts in der Brunnenstraße 29 die ganze Nacht. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte messen Sie den Lärm.
+
+Mit besten Grüßen
+E. Becker",Lärm,NA,FALSE,mittel
+B330,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit Monaten liegt im Park an der Wiesenstraße 59 überall Müll vom Wochenende, die Körbe sind voll. Bitte stellen Sie mehr Abfallkörbe auf.
+
+Viele Grüße
+L. Vogel",Abfall und Sauberkeit,Grünflächen und Spielplätze,TRUE,mittel
+B331,"Guten Tag,
+
+Schon länger leuchtet die neue LED-Laterne in der Brunnenstraße 22 direkt in unser Schlafzimmer. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte richten Sie die Leuchte anders aus.
+
+Danke und Gruß
+A. Oswald",Beleuchtung,NA,FALSE,mittel
+B332,"Sehr geehrte Damen und Herren,
+
+Seit Anfang des Monats ist der Zebrastreifen in der Bahnhofstraße 23 nachts unbeleuchtet und kaum zu sehen. Das ist eine echte Gefahr, es muss sofort etwas passieren. Bitte beleuchten Sie den Übergang.
+
+Mit freundlichen Grüßen
+E. Sommer",Straßen und Verkehr,Beleuchtung,TRUE,hoch
+B333,"Liebe Stadtverwaltung,
+
+Schon länger liegt in der Lindenstraße 54 ein alter Kühlschrank am Straßenrand. Viele ältere Leute wohnen hier. Bitte entsorgen Sie das Gerät.
+
+Viele Grüße
+N. Petersen",Abfall und Sauberkeit,NA,FALSE,mittel
+B334,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit Anfang des Monats ist der Gehweg in der Schulstraße 59 voller Laub und rutschig. Ich habe große Sorge, dass bald etwas Schlimmes passiert. Bitte lassen Sie den Gehweg kehren.
+
+Mit freundlichen Grüßen
+N. Kowalski",Abfall und Sauberkeit,Straßen und Verkehr,TRUE,hoch
+B335,"Sehr geehrtes Team vom Bürgerservice,
+
+Schon länger ist die Weihnachtsbeleuchtung in der Mühlengasse 48 schon im Februar noch an. Das ist nur ein Hinweis, kein Notfall. Bitte schalten Sie sie ab.
+
+Danke und Gruß
+H. Fischer",Beleuchtung,Sonstiges,TRUE,niedrig
+B336,"Hallo,
+
+Seit Monaten brennt die Straßenbeleuchtung in der Bergstraße 54 auch tagsüber. Hier laufen jeden Morgen Schulkinder vorbei. Bitte prüfen Sie die Zeitschaltung.
+
+Danke und Gruß
+J. Weber",Beleuchtung,NA,FALSE,hoch
+B337,"Liebe Stadtverwaltung,
+
+Schon länger fehlt an der Kreuzung Bahnhofstraße 46 das Stoppschild. Bitte stellen Sie das Schild wieder auf.
+
+Hochachtungsvoll
+K. Haddad",Straßen und Verkehr,NA,FALSE,niedrig
+B338,"Guten Tag,
+
+Seit dem Wochenende ist der Gullydeckel in der Bahnhofstraße 25 lose und klappert bei jedem Auto. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte befestigen Sie den Deckel.
+
+Beste Grüße
+N. Schäfer",Straßen und Verkehr,NA,FALSE,mittel
+B339,"Hallo,
+
+Seit etwa einer Woche steht das Verkehrsschild in der Birkenstraße 33 schief und verdeckt die Sicht. Hier laufen jeden Morgen Schulkinder vorbei. Bitte richten Sie das Schild.
+
+Danke und Gruß
+E. Petersen",Straßen und Verkehr,NA,FALSE,hoch
+B340,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit drei Wochen heben die Wurzeln der alten Bäume in der Parkallee 49 die Gehwegplatten an. Bitte richten Sie den Gehweg, ohne die Bäume zu fällen.
+
+Mit freundlichen Grüßen
+P. Kowalski",Straßen und Verkehr,Grünflächen und Spielplätze,TRUE,niedrig
+B341,"Hallo,
+
+Seit drei Wochen ist die Brücke über den Mühlbach in der Wiesenstraße 5 für Fußgänger gesperrt, ohne Umleitung. Hier laufen jeden Morgen Schulkinder vorbei. Bitte weisen Sie eine Umleitung aus.
+
+Freundliche Grüße
+E. Öztürk",Straßen und Verkehr,NA,FALSE,hoch
+B342,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit drei Wochen wurde mein Hinweis auf dem Mängelmelder nach drei Wochen noch nicht beantwortet. Das ist nur ein Hinweis, kein Notfall. Bitte geben Sie eine Rückmeldung.
+
+Freundliche Grüße
+E. Lindqvist",Sonstiges,NA,FALSE,niedrig
+B343,"Guten Tag,
+
+Seit Monaten ist der Gullydeckel in der Talstraße 18 lose und klappert bei jedem Auto. Es wird von Woche zu Woche schlimmer. Bitte befestigen Sie den Deckel.
+
+Freundliche Grüße
+M. Sommer",Straßen und Verkehr,NA,FALSE,mittel
+B344,"Guten Tag,
+
+Schon länger ist der Zebrastreifen in der Gartenstraße 6 nachts unbeleuchtet und kaum zu sehen. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte beleuchten Sie den Übergang.
+
+Beste Grüße
+C. Nguyen",Straßen und Verkehr,Beleuchtung,TRUE,mittel
+B345,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit gestern ist der Aufzug im Rathaus seit zwei Wochen außer Betrieb. Ich wollte das nur einmal angemerkt haben. Bitte lassen Sie ihn reparieren.
+
+Mit freundlichen Grüßen
+A. Hartmann",Sonstiges,NA,FALSE,niedrig
+B346,"Hallo zusammen,
+
+Seit drei Wochen liegt in der Schulstraße 18 ein alter Kühlschrank am Straßenrand. Vielen Dank für Ihre Arbeit. Bitte entsorgen Sie das Gerät.
+
+Freundliche Grüße
+H. Vogel",Abfall und Sauberkeit,NA,FALSE,niedrig
+B347,"Hallo zusammen,
+
+Seit dem letzten Sturm ist die Straßenlaterne vor dem Haus Brunnenstraße 46 dunkel. Meine Nachbarin ist letzte Woche deswegen gestürzt. Bitte reparieren Sie die Laterne.
+
+Freundliche Grüße
+B. Vogel",Beleuchtung,NA,FALSE,hoch
+B348,"Guten Tag,
+
+Seit Monaten ist die Unterführung an der Hauptstraße 57 abends stockdunkel. Bitte installieren Sie Beleuchtung.
+
+Danke und Gruß
+R. Hartmann",Beleuchtung,NA,FALSE,niedrig
+B349,"Guten Tag,
+
+Seit dem Wochenende ist der Gullydeckel in der Bahnhofstraße 20 lose und klappert bei jedem Auto. Wir haben mehrfach Ratten gesehen, auch tagsüber. Bitte befestigen Sie den Deckel.
+
+Viele Grüße
+H. Petersen",Straßen und Verkehr,NA,FALSE,hoch
+B350,"Sehr geehrtes Team vom Bürgerservice,
+
+Schon länger ist der Lichtmast in der Schulstraße 28 verrostet und hat ein offenes Kabelfach. Ich habe bereits zweimal die Polizei gerufen. Bitte sichern Sie den Mast.
+
+Mit besten Grüßen
+R. Vogel",Beleuchtung,NA,FALSE,hoch
+B351,"Liebe Stadtverwaltung,
+
+Seit dem Wochenende liegen am Glascontainer Gartenstraße 13 Flaschen und Scherben herum. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte reinigen Sie den Containerplatz.
+
+Mit freundlichen Grüßen
+J. Vogel",Abfall und Sauberkeit,NA,FALSE,mittel
+B352,"Sehr geehrte Damen und Herren,
+
+Schon länger wurde die blaue Tonne in der Hauptstraße 28 nicht geleert. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte holen Sie die Abfuhr nach.
+
+Freundliche Grüße
+L. Brandt",Abfall und Sauberkeit,NA,FALSE,mittel
+B353,"Hallo,
+
+Seit Monaten wurden in der Kastanienallee 11 nach dem Fest die Straßen nicht gereinigt. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte schicken Sie die Straßenreinigung.
+
+Mit freundlichen Grüßen
+J. Haddad",Abfall und Sauberkeit,NA,FALSE,mittel
+B354,"Guten Tag,
+
+Seit dem Wochenende ist der Zebrastreifen in der Feldstraße 21 nachts unbeleuchtet und kaum zu sehen. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte beleuchten Sie den Übergang.
+
+Hochachtungsvoll
+K. Schäfer",Straßen und Verkehr,Beleuchtung,TRUE,hoch
+B355,"Hallo zusammen,
+
+Seit Anfang des Monats heben die Wurzeln der alten Bäume in der Hauptstraße 14 die Gehwegplatten an. Bitte richten Sie den Gehweg, ohne die Bäume zu fällen.
+
+Mit freundlichen Grüßen
+M. Nguyen",Straßen und Verkehr,Grünflächen und Spielplätze,TRUE,niedrig
+B356,"Sehr geehrtes Team vom Bürgerservice,
+
+Schon länger ist die Unterführung an der Mühlengasse 36 abends stockdunkel. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte installieren Sie Beleuchtung.
+
+Hochachtungsvoll
+T. Baumann",Beleuchtung,NA,FALSE,mittel
+B357,"Guten Tag,
+
+Schon länger liegen am Glascontainer Talstraße 7 Flaschen und Scherben herum. Viele ältere Leute wohnen hier. Bitte reinigen Sie den Containerplatz.
+
+Viele Grüße
+D. Schäfer",Abfall und Sauberkeit,NA,FALSE,mittel
+B358,"Hallo zusammen,
+
+Seit Anfang des Monats liegt im Park an der Feldstraße 23 überall Müll vom Wochenende, die Körbe sind voll. Das ist nur ein Hinweis, kein Notfall. Bitte stellen Sie mehr Abfallkörbe auf.
+
+Freundliche Grüße
+M. Brandt",Abfall und Sauberkeit,Grünflächen und Spielplätze,TRUE,niedrig
+B359,"Hallo,
+
+Seit Anfang des Monats ist die Wippe am Spielplatz Ringstraße 3 abgebaut und nicht ersetzt worden. Gestern ist dort jemand gestürzt und musste versorgt werden. Wann kommt ein neues Gerät?
+
+Hochachtungsvoll
+S. Weber",Grünflächen und Spielplätze,NA,FALSE,hoch
+B360,"Sehr geehrte Damen und Herren,
+
+Seit dem letzten Sturm ist der Verkehrslärm in der Ringstraße 32 seit der Umleitung unerträglich. Bitte prüfen Sie Tempo 30 oder eine andere Umleitung.
+
+Mit besten Grüßen
+N. Becker",Lärm,Straßen und Verkehr,TRUE,mittel
+B361,"Sehr geehrte Frau Bürgermeisterin,
+
+Schon länger sind in der Ahornallee 47 gleich drei Laternen hintereinander ausgefallen. Es wird von Woche zu Woche schlimmer. Bitte stellen Sie die Beleuchtung wieder her.
+
+Mit freundlichen Grüßen
+E. Nguyen",Beleuchtung,NA,FALSE,mittel
+B362,"Hallo zusammen,
+
+Seit dem letzten Sturm ist die Laterne am Spielplatz Ahornallee 16 kaputt, abends ist es dort stockdunkel. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte reparieren Sie die Laterne.
+
+Viele Grüße
+J. Yilmaz",Beleuchtung,Grünflächen und Spielplätze,TRUE,hoch
+B363,"Guten Tag,
+
+Seit dem letzten Sturm funktioniert das Online-Formular für die Ummeldung nicht. Ich wollte das nur einmal angemerkt haben. Bitte beheben Sie den Fehler.
+
+Freundliche Grüße
+D. Baumann",Sonstiges,NA,FALSE,niedrig
+B364,"Sehr geehrtes Team vom Bürgerservice,
+
+Habe ich seit sechs Wochen keine Antwort auf meinen Antrag auf Wohngeld. Es eilt nicht, aber irgendwann sollte sich jemand kümmern. Bitte teilen Sie mir den Bearbeitungsstand mit.
+
+Hochachtungsvoll
+A. Baumann",Sonstiges,NA,FALSE,niedrig
+B365,"Liebe Stadtverwaltung,
+
+Seit dem letzten Sturm ist das Beet am Kreisverkehr Gartenstraße 51 völlig verwildert. Viele ältere Leute wohnen hier. Bitte pflegen Sie das Beet.
+
+Viele Grüße
+J. Rossi",Grünflächen und Spielplätze,NA,FALSE,mittel
+B366,"Hallo,
+
+Seit dem letzten Sturm läuft in der Gaststätte Wiesenstraße 2 an den Wochenenden bis nach 2 Uhr laute Musik. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte schreiten Sie ein.
+
+Freundliche Grüße
+F. Kowalski",Lärm,NA,FALSE,hoch
+B367,"Hallo zusammen,
+
+Seit Anfang des Monats ist der Aufzug im Rathaus seit zwei Wochen außer Betrieb. Bitte lassen Sie ihn reparieren.
+
+Mit besten Grüßen
+K. Petersen",Sonstiges,NA,FALSE,niedrig
+B368,"Sehr geehrte Damen und Herren,
+
+Seit gestern steht das Verkehrsschild in der Ahornallee 60 schief und verdeckt die Sicht. Das ist eine echte Gefahr, es muss sofort etwas passieren. Bitte richten Sie das Schild.
+
+Mit besten Grüßen
+F. Haddad",Straßen und Verkehr,NA,FALSE,hoch
+B369,"Hallo,
+
+Schon länger ist der Bordstein in der Lindenstraße 48 am Übergang nicht abgesenkt. Es eilt nicht, aber irgendwann sollte sich jemand kümmern. Bitte senken Sie den Bordstein für Rollstühle und Kinderwagen ab.
+
+Mit besten Grüßen
+B. Nguyen",Straßen und Verkehr,NA,FALSE,niedrig
+B370,"Sehr geehrte Frau Bürgermeisterin,
+
+Schon länger ist der Hundekotbeutelspender in der Bahnhofstraße 27 seit Wochen leer. Das ist eine echte Gefahr, es muss sofort etwas passieren. Bitte füllen Sie den Spender nach.
+
+Hochachtungsvoll
+F. Nguyen",Abfall und Sauberkeit,NA,FALSE,hoch
+B371,"Liebe Stadtverwaltung,
+
+Seit Monaten beginnt die Baustelle in der Birkenstraße 9 jeden Morgen um 6 Uhr mit Presslufthammer. Das sollte zeitnah behoben werden. Bitte prüfen Sie die erlaubten Arbeitszeiten.
+
+Viele Grüße
+E. Petersen",Lärm,NA,FALSE,mittel
+B372,"Liebe Stadtverwaltung,
+
+Seit etwa einer Woche hat jemand in der Marktstraße 14 Bauschutt und alte Farbeimer abgeladen. Ich habe große Sorge, dass bald etwas Schlimmes passiert. Bitte lassen Sie den Müll abholen.
+
+Mit besten Grüßen
+D. Lehmann",Abfall und Sauberkeit,NA,FALSE,hoch
+B373,"Guten Tag,
+
+Frage ich, ob für das Straßenfest in der Marktstraße 42 eine Sperrung beantragt werden muss. Bitte teilen Sie mir mit, welches Formular ich brauche.
+
+Mit freundlichen Grüßen
+C. Baumann",Sonstiges,Straßen und Verkehr,TRUE,mittel
+B374,"Sehr geehrte Damen und Herren,
+
+Seit dem letzten Sturm stehen in der Rosenallee 13 seit Tagen Sperrmüllreste auf dem Gehweg. Vielen Dank für Ihre Arbeit. Bitte veranlassen Sie die Abholung.
+
+Freundliche Grüße
+P. Sommer",Abfall und Sauberkeit,NA,FALSE,niedrig
+B375,"Sehr geehrte Damen und Herren,
+
+Seit drei Wochen ist die Unterführung an der Brunnenstraße 57 abends stockdunkel. Das sollte zeitnah behoben werden. Bitte installieren Sie Beleuchtung.
+
+Viele Grüße
+H. Kowalski",Beleuchtung,NA,FALSE,mittel
+B376,"Hallo,
+
+Seit gestern quillt der Papierkorb an der Bushaltestelle Marktstraße 3 über. Meine Nachbarin ist letzte Woche deswegen gestürzt. Bitte leeren Sie den Papierkorb öfter.
+
+Mit besten Grüßen
+B. Weber",Abfall und Sauberkeit,NA,FALSE,hoch
+B377,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit Monaten ist der Zebrastreifen in der Kastanienallee 31 nachts unbeleuchtet und kaum zu sehen. Das ist nur ein Hinweis, kein Notfall. Bitte beleuchten Sie den Übergang.
+
+Mit freundlichen Grüßen
+T. Haddad",Straßen und Verkehr,Beleuchtung,TRUE,niedrig
+B378,"Liebe Stadtverwaltung,
+
+Schon länger wurde der Rasen im Park an der Rosenallee 2 seit Wochen nicht gemäht. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte mähen Sie die Wiese.
+
+Viele Grüße
+D. Yilmaz",Grünflächen und Spielplätze,NA,FALSE,mittel
+B379,"Liebe Stadtverwaltung,
+
+Seit drei Wochen parken Lieferwagen in der Wiesenstraße 35 regelmäßig auf dem Radweg. Viele ältere Leute wohnen hier. Bitte kontrollieren Sie das Halteverbot.
+
+Viele Grüße
+T. Fischer",Straßen und Verkehr,NA,FALSE,mittel
+B380,"Guten Tag,
+
+Schon länger wurde die blaue Tonne in der Schulstraße 6 nicht geleert. Es wird von Woche zu Woche schlimmer. Bitte holen Sie die Abfuhr nach.
+
+Beste Grüße
+F. Öztürk",Abfall und Sauberkeit,NA,FALSE,mittel
+B381,"Hallo,
+
+Seit Anfang des Monats ist die Fahrbahnmarkierung in der Mühlengasse 12 kaum noch zu erkennen. Bitte erneuern Sie die Markierung.
+
+Mit freundlichen Grüßen
+M. Rossi",Straßen und Verkehr,NA,FALSE,mittel
+B382,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit drei Wochen ist die Wippe am Spielplatz Ahornallee 10 abgebaut und nicht ersetzt worden. Vielen Dank für Ihre Arbeit. Wann kommt ein neues Gerät?
+
+Mit freundlichen Grüßen
+T. Fischer",Grünflächen und Spielplätze,NA,FALSE,niedrig
+B383,"Hallo zusammen,
+
+Seit drei Wochen ist die Brücke über den Mühlbach in der Bahnhofstraße 30 für Fußgänger gesperrt, ohne Umleitung. Bitte weisen Sie eine Umleitung aus.
+
+Viele Grüße
+T. Brandt",Straßen und Verkehr,NA,FALSE,mittel
+B384,"Liebe Stadtverwaltung,
+
+Seit gestern ist in der Birkenstraße 5 ein tiefes Schlagloch, das immer größer wird. Viele ältere Leute wohnen hier. Bitte bessern Sie die Fahrbahn aus.
+
+Danke und Gruß
+C. Petersen",Straßen und Verkehr,NA,FALSE,mittel
+B385,"Sehr geehrte Damen und Herren,
+
+Seit Monaten ist die Ampel an der Hauptstraße 46 ausgefallen und blinkt nur noch gelb. Wir haben mehrfach Ratten gesehen, auch tagsüber. Bitte lassen Sie die Ampel reparieren.
+
+Beste Grüße
+R. Becker",Straßen und Verkehr,NA,FALSE,hoch
+B386,"Guten Tag,
+
+Seit Anfang des Monats flackert die Laterne in der Kirchgasse 51 die ganze Nacht. Bitte tauschen Sie das Leuchtmittel.
+
+Mit freundlichen Grüßen
+M. Lehmann",Beleuchtung,NA,FALSE,mittel
+B387,"Hallo zusammen,
+
+Seit Anfang des Monats geht die Beleuchtung am Fußweg Kastanienallee 55 erst eine Stunde nach Einbruch der Dunkelheit an. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte stellen Sie den Dämmerungsschalter neu ein.
+
+Mit besten Grüßen
+D. Lindqvist",Beleuchtung,NA,FALSE,mittel
+B388,"Hallo,
+
+Seit gestern wurden in der Hauptstraße 48 nach dem Fest die Straßen nicht gereinigt. Das sollte zeitnah behoben werden. Bitte schicken Sie die Straßenreinigung.
+
+Mit besten Grüßen
+R. Sommer",Abfall und Sauberkeit,NA,FALSE,mittel
+B389,"Guten Tag,
+
+Seit Monaten feiern Jugendliche nachts auf dem Parkplatz Mozartstraße 20 mit lauter Musik aus Autos. Ich wollte das nur einmal angemerkt haben. Bitte sorgen Sie für nächtliche Kontrollen.
+
+Beste Grüße
+T. Vogel",Lärm,NA,FALSE,niedrig
+B390,"Hallo,
+
+Seit drei Wochen hält sich die Kneipe in der Birkenstraße 48 nicht an die Sperrzeit. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte kontrollieren Sie die Sperrzeit.
+
+Mit freundlichen Grüßen
+B. Rossi",Lärm,NA,FALSE,mittel
+B391,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit etwa einer Woche ist der Baum vor dem Haus Ringstraße 38 nach dem Sturm angebrochen. Das sollte zeitnah behoben werden. Bitte prüfen Sie den Baum auf Standsicherheit.
+
+Danke und Gruß
+C. Hartmann",Grünflächen und Spielplätze,NA,FALSE,mittel
+B392,"Sehr geehrte Damen und Herren,
+
+Seit drei Wochen hat jemand in der Wiesenstraße 13 Bauschutt und alte Farbeimer abgeladen. Vielen Dank für Ihre Arbeit. Bitte lassen Sie den Müll abholen.
+
+Danke und Gruß
+T. Becker",Abfall und Sauberkeit,NA,FALSE,niedrig
+B393,"Sehr geehrte Damen und Herren,
+
+Seit gestern wurden in der Bergstraße 47 nach dem Fest die Straßen nicht gereinigt. Bitte schicken Sie die Straßenreinigung.
+
+Beste Grüße
+E. Becker",Abfall und Sauberkeit,NA,FALSE,mittel
+B394,"Liebe Stadtverwaltung,
+
+Frage ich, ob für das Straßenfest in der Feldstraße 33 eine Sperrung beantragt werden muss. Vielleicht lässt sich das bei Gelegenheit erledigen. Bitte teilen Sie mir mit, welches Formular ich brauche.
+
+Mit besten Grüßen
+D. Lindqvist",Sonstiges,Straßen und Verkehr,TRUE,niedrig
+B395,"Liebe Stadtverwaltung,
+
+Seit gestern ist das Glockenläuten der Kirche am Ahornallee 60 um 6 Uhr morgens für die Nachbarschaft sehr laut. Es eilt nicht, aber irgendwann sollte sich jemand kümmern. Bitte vermitteln Sie ein Gespräch mit der Gemeinde.
+
+Mit freundlichen Grüßen
+J. Hartmann",Lärm,Sonstiges,TRUE,niedrig
+B396,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit dem Wochenende ist der Hundekotbeutelspender in der Parkallee 5 seit Wochen leer. Das sollte zeitnah behoben werden. Bitte füllen Sie den Spender nach.
+
+Hochachtungsvoll
+H. Becker",Abfall und Sauberkeit,NA,FALSE,mittel
+B397,"Sehr geehrte Damen und Herren,
+
+Seit gestern wurde die blaue Tonne in der Gartenstraße 14 nicht geleert. Vielleicht lässt sich das bei Gelegenheit erledigen. Bitte holen Sie die Abfuhr nach.
+
+Beste Grüße
+M. Schäfer",Abfall und Sauberkeit,NA,FALSE,niedrig
+B398,"Sehr geehrte Damen und Herren,
+
+Seit gestern ist die Brücke über den Mühlbach in der Kastanienallee 14 für Fußgänger gesperrt, ohne Umleitung. Ich habe große Sorge, dass bald etwas Schlimmes passiert. Bitte weisen Sie eine Umleitung aus.
+
+Mit freundlichen Grüßen
+J. Brandt",Straßen und Verkehr,NA,FALSE,hoch
+B399,"Liebe Stadtverwaltung,
+
+Schon länger ist die Rutsche auf dem Spielplatz Wiesenstraße 10 gerissen und hat scharfe Kanten. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte sperren und reparieren Sie die Rutsche.
+
+Freundliche Grüße
+T. Krüger",Grünflächen und Spielplätze,NA,FALSE,mittel
+B400,"Hallo zusammen,
+
+Seit drei Wochen heben die Wurzeln der alten Bäume in der Bergstraße 18 die Gehwegplatten an. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte richten Sie den Gehweg, ohne die Bäume zu fällen.
+
+Mit freundlichen Grüßen
+J. Yilmaz",Straßen und Verkehr,Grünflächen und Spielplätze,TRUE,hoch
+B401,"Hallo zusammen,
+
+Schon länger wird in der Rosenallee 54 viel zu schnell gefahren, obwohl Tempo 30 gilt. Wir haben mehrfach Ratten gesehen, auch tagsüber. Bitte prüfen Sie Geschwindigkeitskontrollen oder eine Schwelle.
+
+Danke und Gruß
+F. Weber",Straßen und Verkehr,NA,FALSE,hoch
+B402,"Guten Tag,
+
+Seit dem letzten Sturm schreit der Hund im Nachbargarten Marktstraße 39 stundenlang, auch nachts. Vielleicht lässt sich das bei Gelegenheit erledigen. Bitte sprechen Sie mit den Haltern.
+
+Viele Grüße
+F. Schäfer",Lärm,NA,FALSE,niedrig
+B403,"Liebe Stadtverwaltung,
+
+Seit Monaten ist die Laterne am Spielplatz Ahornallee 55 kaputt, abends ist es dort stockdunkel. Es wird von Woche zu Woche schlimmer. Bitte reparieren Sie die Laterne.
+
+Viele Grüße
+L. Kowalski",Beleuchtung,Grünflächen und Spielplätze,TRUE,mittel
+B404,"Sehr geehrte Damen und Herren,
+
+Schon länger hängt ein abgebrochener Ast über dem Weg in der Grünanlage Feldstraße 36. Viele ältere Leute wohnen hier. Bitte entfernen Sie den Ast.
+
+Beste Grüße
+S. Öztürk",Grünflächen und Spielplätze,NA,FALSE,mittel
+B405,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit dem Wochenende ist die Brücke über den Mühlbach in der Bahnhofstraße 45 für Fußgänger gesperrt, ohne Umleitung. Vielleicht lässt sich das bei Gelegenheit erledigen. Bitte weisen Sie eine Umleitung aus.
+
+Freundliche Grüße
+C. Nguyen",Straßen und Verkehr,NA,FALSE,niedrig
+B406,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit dem Wochenende ist die Straßenlaterne vor dem Haus Lindenstraße 37 dunkel. Ich habe bereits zweimal die Polizei gerufen. Bitte reparieren Sie die Laterne.
+
+Hochachtungsvoll
+H. Lindqvist",Beleuchtung,NA,FALSE,hoch
+B407,"Sehr geehrte Damen und Herren,
+
+Seit dem Wochenende ist der Aufzug im Rathaus seit zwei Wochen außer Betrieb. Vielleicht lässt sich das bei Gelegenheit erledigen. Bitte lassen Sie ihn reparieren.
+
+Freundliche Grüße
+T. Hartmann",Sonstiges,NA,FALSE,niedrig
+B408,"Sehr geehrte Damen und Herren,
+
+Schon länger ist der Gehweg in der Rosenallee 20 voller Laub und rutschig. Wir haben mehrfach Ratten gesehen, auch tagsüber. Bitte lassen Sie den Gehweg kehren.
+
+Viele Grüße
+C. Yilmaz",Abfall und Sauberkeit,Straßen und Verkehr,TRUE,hoch
+B409,"Sehr geehrte Damen und Herren,
+
+Seit Monaten wurden in der Bahnhofstraße 33 nach dem Fest die Straßen nicht gereinigt. Das sollte zeitnah behoben werden. Bitte schicken Sie die Straßenreinigung.
+
+Freundliche Grüße
+S. Weber",Abfall und Sauberkeit,NA,FALSE,mittel
+B410,"Sehr geehrte Damen und Herren,
+
+Seit dem letzten Sturm heben die Wurzeln der alten Bäume in der Parkallee 57 die Gehwegplatten an. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte richten Sie den Gehweg, ohne die Bäume zu fällen.
+
+Mit freundlichen Grüßen
+T. Haddad",Straßen und Verkehr,Grünflächen und Spielplätze,TRUE,mittel
+B411,"Hallo zusammen,
+
+Seit Anfang des Monats hat jemand in der Birkenstraße 15 Bauschutt und alte Farbeimer abgeladen. Es eilt nicht, aber irgendwann sollte sich jemand kümmern. Bitte lassen Sie den Müll abholen.
+
+Hochachtungsvoll
+P. Yilmaz",Abfall und Sauberkeit,NA,FALSE,niedrig
+B412,"Guten Tag,
+
+Seit drei Wochen liegt im Park an der Wiesenstraße 39 überall Müll vom Wochenende, die Körbe sind voll. Ich habe große Sorge, dass bald etwas Schlimmes passiert. Bitte stellen Sie mehr Abfallkörbe auf.
+
+Mit freundlichen Grüßen
+N. Yilmaz",Abfall und Sauberkeit,Grünflächen und Spielplätze,TRUE,hoch
+B413,"Liebe Stadtverwaltung,
+
+Seit Monaten wurde die blaue Tonne in der Hafenstraße 13 nicht geleert. Es wird von Woche zu Woche schlimmer. Bitte holen Sie die Abfuhr nach.
+
+Mit freundlichen Grüßen
+C. Petersen",Abfall und Sauberkeit,NA,FALSE,mittel
+B414,"Liebe Stadtverwaltung,
+
+Schon länger flackert die Laterne in der Hafenstraße 3 die ganze Nacht. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte tauschen Sie das Leuchtmittel.
+
+Danke und Gruß
+F. Kowalski",Beleuchtung,NA,FALSE,mittel
+B415,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit gestern ist der Aufzug im Rathaus seit zwei Wochen außer Betrieb. Vielleicht lässt sich das bei Gelegenheit erledigen. Bitte lassen Sie ihn reparieren.
+
+Mit freundlichen Grüßen
+A. Oswald",Sonstiges,NA,FALSE,niedrig
+B416,"Hallo zusammen,
+
+Seit drei Wochen fehlt an der Kreuzung Lindenstraße 49 das Stoppschild. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte stellen Sie das Schild wieder auf.
+
+Beste Grüße
+M. Oswald",Straßen und Verkehr,NA,FALSE,hoch
+B417,"Liebe Stadtverwaltung,
+
+Seit dem Wochenende ist die Weihnachtsbeleuchtung in der Rosenallee 60 schon im Februar noch an. Vielleicht lässt sich das bei Gelegenheit erledigen. Bitte schalten Sie sie ab.
+
+Freundliche Grüße
+J. Baumann",Beleuchtung,Sonstiges,TRUE,niedrig
+B418,"Sehr geehrte Damen und Herren,
+
+Schon länger heben die Wurzeln der alten Bäume in der Feldstraße 55 die Gehwegplatten an. Ich wollte das nur einmal angemerkt haben. Bitte richten Sie den Gehweg, ohne die Bäume zu fällen.
+
+Beste Grüße
+P. Haddad",Straßen und Verkehr,Grünflächen und Spielplätze,TRUE,niedrig
+B419,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit dem Wochenende fahren Motorräder nachts mit Vollgas durch die Kastanienallee 6. Es wird von Woche zu Woche schlimmer. Bitte prüfen Sie eine Lärmkontrolle.
+
+Mit besten Grüßen
+P. Weber",Lärm,NA,FALSE,mittel
+B420,"Liebe Stadtverwaltung,
+
+Seit gestern sind die Bänke im Park Hauptstraße 51 morsch und wackeln. Das sollte zeitnah behoben werden. Bitte tauschen Sie die Bänke aus.
+
+Beste Grüße
+N. Lehmann",Grünflächen und Spielplätze,NA,FALSE,mittel
+B421,"Hallo,
+
+Seit drei Wochen fahren Motorräder nachts mit Vollgas durch die Parkallee 1. Es wird von Woche zu Woche schlimmer. Bitte prüfen Sie eine Lärmkontrolle.
+
+Mit freundlichen Grüßen
+N. Lindqvist",Lärm,NA,FALSE,mittel
+B422,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit etwa einer Woche sind die Bänke im Park Talstraße 34 morsch und wackeln. Hier laufen jeden Morgen Schulkinder vorbei. Bitte tauschen Sie die Bänke aus.
+
+Hochachtungsvoll
+N. Yilmaz",Grünflächen und Spielplätze,NA,FALSE,hoch
+B423,"Sehr geehrte Damen und Herren,
+
+Seit gestern parken Lieferwagen in der Ringstraße 32 regelmäßig auf dem Radweg. Meine Nachbarin ist letzte Woche deswegen gestürzt. Bitte kontrollieren Sie das Halteverbot.
+
+Freundliche Grüße
+N. Baumann",Straßen und Verkehr,NA,FALSE,hoch
+B424,"Liebe Stadtverwaltung,
+
+Seit Anfang des Monats quillt der Papierkorb an der Bushaltestelle Bergstraße 41 über. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte leeren Sie den Papierkorb öfter.
+
+Viele Grüße
+T. Hartmann",Abfall und Sauberkeit,NA,FALSE,hoch
+B425,"Hallo,
+
+Seit gestern fehlt im Stadtteil Kirchgasse 47 ein Briefkasten, seit der alte abgebaut wurde. Vielleicht lässt sich das bei Gelegenheit erledigen. Bitte setzen Sie sich für einen neuen Briefkasten ein.
+
+Mit freundlichen Grüßen
+A. Vogel",Sonstiges,NA,FALSE,niedrig
+B426,"Liebe Stadtverwaltung,
+
+Seit gestern feiern Jugendliche nachts auf dem Parkplatz Marktstraße 1 mit lauter Musik aus Autos. Viele ältere Leute wohnen hier. Bitte sorgen Sie für nächtliche Kontrollen.
+
+Danke und Gruß
+B. Brandt",Lärm,NA,FALSE,mittel
+B427,"Guten Tag,
+
+Seit dem letzten Sturm ist der Baum vor dem Haus Ringstraße 38 nach dem Sturm angebrochen. Hier laufen jeden Morgen Schulkinder vorbei. Bitte prüfen Sie den Baum auf Standsicherheit.
+
+Mit besten Grüßen
+C. Schäfer",Grünflächen und Spielplätze,NA,FALSE,hoch
+B428,"Hallo,
+
+Seit dem letzten Sturm ist die Hecke am Spielplatz Talstraße 51 so hoch, dass man die Kinder nicht mehr sieht. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte schneiden Sie die Hecke zurück.
+
+Viele Grüße
+D. Krüger",Grünflächen und Spielplätze,NA,FALSE,mittel
+B429,"Liebe Stadtverwaltung,
+
+Seit etwa einer Woche brennt die Straßenbeleuchtung in der Ringstraße 15 auch tagsüber. Vielen Dank für Ihre Arbeit. Bitte prüfen Sie die Zeitschaltung.
+
+Freundliche Grüße
+P. Oswald",Beleuchtung,NA,FALSE,niedrig
+B430,"Hallo zusammen,
+
+Seit etwa einer Woche ist der Gullydeckel in der Marktstraße 17 lose und klappert bei jedem Auto. Vielleicht lässt sich das bei Gelegenheit erledigen. Bitte befestigen Sie den Deckel.
+
+Freundliche Grüße
+H. Oswald",Straßen und Verkehr,NA,FALSE,niedrig
+B431,"Liebe Stadtverwaltung,
+
+Seit gestern ist der Abfuhrkalender für die Wiesenstraße 41 online falsch. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte korrigieren Sie die Termine.
+
+Danke und Gruß
+M. Lindqvist",Abfall und Sauberkeit,NA,FALSE,mittel
+B432,"Guten Tag,
+
+Seit dem Wochenende ist die Ampel an der Feldstraße 29 ausgefallen und blinkt nur noch gelb. Wir haben mehrfach Ratten gesehen, auch tagsüber. Bitte lassen Sie die Ampel reparieren.
+
+Hochachtungsvoll
+E. Brandt",Straßen und Verkehr,NA,FALSE,hoch
+B433,"Sehr geehrtes Team vom Bürgerservice,
+
+Schon länger quillt der Papierkorb an der Bushaltestelle Birkenstraße 47 über. Viele ältere Leute wohnen hier. Bitte leeren Sie den Papierkorb öfter.
+
+Viele Grüße
+L. Yilmaz",Abfall und Sauberkeit,NA,FALSE,mittel
+B434,"Hallo,
+
+Seit drei Wochen funktioniert das Online-Formular für die Ummeldung nicht. Bitte beheben Sie den Fehler.
+
+Danke und Gruß
+R. Rossi",Sonstiges,NA,FALSE,mittel
+B435,"Hallo zusammen,
+
+Seit gestern ist die Hecke am Spielplatz Ringstraße 18 so hoch, dass man die Kinder nicht mehr sieht. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte schneiden Sie die Hecke zurück.
+
+Hochachtungsvoll
+K. Becker",Grünflächen und Spielplätze,NA,FALSE,mittel
+B436,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit Anfang des Monats läuft in der Gaststätte Parkallee 13 an den Wochenenden bis nach 2 Uhr laute Musik. Das sollte zeitnah behoben werden. Bitte schreiten Sie ein.
+
+Danke und Gruß
+M. Nguyen",Lärm,NA,FALSE,mittel
+B437,"Hallo,
+
+Seit gestern ist der Aufzug im Rathaus seit zwei Wochen außer Betrieb. Das ist nur ein Hinweis, kein Notfall. Bitte lassen Sie ihn reparieren.
+
+Freundliche Grüße
+S. Sommer",Sonstiges,NA,FALSE,niedrig
+B438,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit dem Wochenende wurden in der Rosenallee 50 nach dem Fest die Straßen nicht gereinigt. Vielen Dank für Ihre Arbeit. Bitte schicken Sie die Straßenreinigung.
+
+Viele Grüße
+J. Rossi",Abfall und Sauberkeit,NA,FALSE,niedrig
+B439,"Sehr geehrte Damen und Herren,
+
+Seit gestern steht das Verkehrsschild in der Marktstraße 22 schief und verdeckt die Sicht. Es wird von Woche zu Woche schlimmer. Bitte richten Sie das Schild.
+
+Beste Grüße
+M. Hartmann",Straßen und Verkehr,NA,FALSE,mittel
+B440,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit dem letzten Sturm fahren Motorräder nachts mit Vollgas durch die Birkenstraße 38. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte prüfen Sie eine Lärmkontrolle.
+
+Freundliche Grüße
+T. Baumann",Lärm,NA,FALSE,mittel
+B441,"Hallo,
+
+Seit dem Wochenende ist der Bordstein in der Talstraße 21 am Übergang nicht abgesenkt. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte senken Sie den Bordstein für Rollstühle und Kinderwagen ab.
+
+Freundliche Grüße
+B. Sommer",Straßen und Verkehr,NA,FALSE,mittel
+B442,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit Monaten ist der Lichtmast in der Marktstraße 52 verrostet und hat ein offenes Kabelfach. Hier laufen jeden Morgen Schulkinder vorbei. Bitte sichern Sie den Mast.
+
+Viele Grüße
+H. Schäfer",Beleuchtung,NA,FALSE,hoch
+B443,"Guten Tag,
+
+Seit gestern läuft in der Gaststätte Hauptstraße 32 an den Wochenenden bis nach 2 Uhr laute Musik. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte schreiten Sie ein.
+
+Freundliche Grüße
+H. Becker",Lärm,NA,FALSE,mittel
+B444,"Sehr geehrte Damen und Herren,
+
+Seit dem Wochenende steht das Verkehrsschild in der Ringstraße 57 schief und verdeckt die Sicht. Es wird von Woche zu Woche schlimmer. Bitte richten Sie das Schild.
+
+Mit freundlichen Grüßen
+D. Vogel",Straßen und Verkehr,NA,FALSE,mittel
+B445,"Hallo,
+
+Seit Anfang des Monats ist die Weihnachtsbeleuchtung in der Kirchgasse 24 schon im Februar noch an. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte schalten Sie sie ab.
+
+Viele Grüße
+S. Öztürk",Beleuchtung,Sonstiges,TRUE,mittel
+B446,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit Anfang des Monats ist die Straßenlaterne vor dem Haus Ringstraße 3 dunkel. Das sollte zeitnah behoben werden. Bitte reparieren Sie die Laterne.
+
+Freundliche Grüße
+H. Vogel",Beleuchtung,NA,FALSE,mittel
+B447,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit Monaten ist die Fahrbahnmarkierung in der Hauptstraße 29 kaum noch zu erkennen. Viele ältere Leute wohnen hier. Bitte erneuern Sie die Markierung.
+
+Mit freundlichen Grüßen
+F. Yilmaz",Straßen und Verkehr,NA,FALSE,mittel
+B448,"Hallo zusammen,
+
+Seit drei Wochen funktioniert das Online-Formular für die Ummeldung nicht. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte beheben Sie den Fehler.
+
+Hochachtungsvoll
+C. Baumann",Sonstiges,NA,FALSE,mittel
+B449,"Guten Tag,
+
+Seit Anfang des Monats steht das Verkehrsschild in der Marktstraße 26 schief und verdeckt die Sicht. Es wird von Woche zu Woche schlimmer. Bitte richten Sie das Schild.
+
+Beste Grüße
+C. Brandt",Straßen und Verkehr,NA,FALSE,mittel
+B450,"Liebe Stadtverwaltung,
+
+Schon länger ist die Rutsche auf dem Spielplatz Parkallee 29 gerissen und hat scharfe Kanten. Bitte sperren und reparieren Sie die Rutsche.
+
+Freundliche Grüße
+L. Becker",Grünflächen und Spielplätze,NA,FALSE,mittel
+B451,"Liebe Stadtverwaltung,
+
+Seit etwa einer Woche liegt im Park an der Kastanienallee 33 überall Müll vom Wochenende, die Körbe sind voll. Wir haben mehrfach Ratten gesehen, auch tagsüber. Bitte stellen Sie mehr Abfallkörbe auf.
+
+Mit besten Grüßen
+C. Yilmaz",Abfall und Sauberkeit,Grünflächen und Spielplätze,TRUE,hoch
+B452,"Sehr geehrte Damen und Herren,
+
+Seit drei Wochen wachsen die Sträucher an der Einmündung Lindenstraße 52 so weit in die Straße, dass man nichts sieht. Es wird von Woche zu Woche schlimmer. Bitte schneiden Sie die Sträucher zurück.
+
+Mit freundlichen Grüßen
+H. Vogel",Grünflächen und Spielplätze,Straßen und Verkehr,TRUE,mittel
+B453,"Liebe Stadtverwaltung,
+
+Seit drei Wochen fahren Motorräder nachts mit Vollgas durch die Brunnenstraße 46. Es wird von Woche zu Woche schlimmer. Bitte prüfen Sie eine Lärmkontrolle.
+
+Beste Grüße
+R. Fischer",Lärm,NA,FALSE,mittel
+B454,"Guten Tag,
+
+Seit gestern ist die Brücke über den Mühlbach in der Feldstraße 52 für Fußgänger gesperrt, ohne Umleitung. Bitte weisen Sie eine Umleitung aus.
+
+Beste Grüße
+R. Nguyen",Straßen und Verkehr,NA,FALSE,niedrig
+B455,"Guten Tag,
+
+Seit dem Wochenende dröhnt die Lüftungsanlage des Supermarkts in der Feldstraße 28 die ganze Nacht. Das sollte zeitnah behoben werden. Bitte messen Sie den Lärm.
+
+Beste Grüße
+S. Öztürk",Lärm,NA,FALSE,mittel
+B456,"Hallo,
+
+Seit Anfang des Monats wird in der Kirchgasse 36 viel zu schnell gefahren, obwohl Tempo 30 gilt. Viele ältere Leute wohnen hier. Bitte prüfen Sie Geschwindigkeitskontrollen oder eine Schwelle.
+
+Danke und Gruß
+C. Lehmann",Straßen und Verkehr,NA,FALSE,mittel
+B457,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit gestern ist die Laterne am Spielplatz Rosenallee 31 kaputt, abends ist es dort stockdunkel. Viele ältere Leute wohnen hier. Bitte reparieren Sie die Laterne.
+
+Danke und Gruß
+M. Krüger",Beleuchtung,Grünflächen und Spielplätze,TRUE,mittel
+B458,"Sehr geehrte Damen und Herren,
+
+Seit Anfang des Monats ist die Ampel an der Ahornallee 53 ausgefallen und blinkt nur noch gelb. Viele ältere Leute wohnen hier. Bitte lassen Sie die Ampel reparieren.
+
+Freundliche Grüße
+C. Brandt",Straßen und Verkehr,NA,FALSE,mittel
+B459,"Sehr geehrte Damen und Herren,
+
+Seit dem letzten Sturm sind die Bänke im Park Bahnhofstraße 1 morsch und wackeln. Das ist nur ein Hinweis, kein Notfall. Bitte tauschen Sie die Bänke aus.
+
+Hochachtungsvoll
+J. Lindqvist",Grünflächen und Spielplätze,NA,FALSE,niedrig
+B460,"Hallo,
+
+Seit Anfang des Monats ist der Zebrastreifen in der Ahornallee 5 nachts unbeleuchtet und kaum zu sehen. Das sollte zeitnah behoben werden. Bitte beleuchten Sie den Übergang.
+
+Viele Grüße
+A. Lindqvist",Straßen und Verkehr,Beleuchtung,TRUE,mittel
+B461,"Sehr geehrte Damen und Herren,
+
+Seit etwa einer Woche brennt die Straßenbeleuchtung in der Ahornallee 58 auch tagsüber. Bitte prüfen Sie die Zeitschaltung.
+
+Mit freundlichen Grüßen
+S. Weber",Beleuchtung,NA,FALSE,niedrig
+B462,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit gestern ist der Bordstein in der Ahornallee 52 am Übergang nicht abgesenkt. Ich habe große Sorge, dass bald etwas Schlimmes passiert. Bitte senken Sie den Bordstein für Rollstühle und Kinderwagen ab.
+
+Hochachtungsvoll
+T. Baumann",Straßen und Verkehr,NA,FALSE,hoch
+B463,"Guten Tag,
+
+Seit Monaten hält sich die Kneipe in der Wiesenstraße 16 nicht an die Sperrzeit. Meine Nachbarin ist letzte Woche deswegen gestürzt. Bitte kontrollieren Sie die Sperrzeit.
+
+Viele Grüße
+T. Yilmaz",Lärm,NA,FALSE,hoch
+B464,"Hallo zusammen,
+
+Seit drei Wochen ist der Verkehrslärm in der Mozartstraße 2 seit der Umleitung unerträglich. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte prüfen Sie Tempo 30 oder eine andere Umleitung.
+
+Viele Grüße
+K. Petersen",Lärm,Straßen und Verkehr,TRUE,mittel
+B465,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit drei Wochen ist der Bordstein in der Birkenstraße 59 am Übergang nicht abgesenkt. Es eilt nicht, aber irgendwann sollte sich jemand kümmern. Bitte senken Sie den Bordstein für Rollstühle und Kinderwagen ab.
+
+Hochachtungsvoll
+F. Becker",Straßen und Verkehr,NA,FALSE,niedrig
+B466,"Sehr geehrte Frau Bürgermeisterin,
+
+Habe ich seit sechs Wochen keine Antwort auf meinen Antrag auf Wohngeld. Ich habe bereits zweimal die Polizei gerufen. Bitte teilen Sie mir den Bearbeitungsstand mit.
+
+Freundliche Grüße
+B. Haddad",Sonstiges,NA,FALSE,hoch
+B467,"Sehr geehrte Damen und Herren,
+
+Schon länger stehen in der Bergstraße 5 seit Tagen Sperrmüllreste auf dem Gehweg. Ich wollte das nur einmal angemerkt haben. Bitte veranlassen Sie die Abholung.
+
+Danke und Gruß
+D. Vogel",Abfall und Sauberkeit,NA,FALSE,niedrig
+B468,"Liebe Stadtverwaltung,
+
+Seit Monaten ist das Beet am Kreisverkehr Mühlengasse 59 völlig verwildert. Viele ältere Leute wohnen hier. Bitte pflegen Sie das Beet.
+
+Freundliche Grüße
+A. Lindqvist",Grünflächen und Spielplätze,NA,FALSE,mittel
+B469,"Liebe Stadtverwaltung,
+
+Schon länger ist der Gullydeckel in der Schulstraße 39 lose und klappert bei jedem Auto. Viele ältere Leute wohnen hier. Bitte befestigen Sie den Deckel.
+
+Mit freundlichen Grüßen
+R. Oswald",Straßen und Verkehr,NA,FALSE,mittel
+B470,"Hallo zusammen,
+
+Seit dem letzten Sturm ist die Fahrbahnmarkierung in der Feldstraße 27 kaum noch zu erkennen. Das ist nur ein Hinweis, kein Notfall. Bitte erneuern Sie die Markierung.
+
+Mit besten Grüßen
+B. Weber",Straßen und Verkehr,NA,FALSE,niedrig
+B471,"Sehr geehrtes Team vom Bürgerservice,
+
+Schon länger ist der Bordstein in der Parkallee 53 am Übergang nicht abgesenkt. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte senken Sie den Bordstein für Rollstühle und Kinderwagen ab.
+
+Viele Grüße
+M. Krüger",Straßen und Verkehr,NA,FALSE,mittel
+B472,"Hallo zusammen,
+
+Seit Anfang des Monats ist die Weihnachtsbeleuchtung in der Mozartstraße 10 schon im Februar noch an. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte schalten Sie sie ab.
+
+Freundliche Grüße
+J. Lindqvist",Beleuchtung,Sonstiges,TRUE,mittel
+B473,"Hallo,
+
+Seit gestern schreit der Hund im Nachbargarten Feldstraße 14 stundenlang, auch nachts. Das sollte zeitnah behoben werden. Bitte sprechen Sie mit den Haltern.
+
+Freundliche Grüße
+R. Oswald",Lärm,NA,FALSE,mittel
+B474,"Liebe Stadtverwaltung,
+
+Seit dem Wochenende bläst der Laubbläser des Hausmeisters in der Mühlengasse 46 sonntags um 8 Uhr. Wir haben mehrfach Ratten gesehen, auch tagsüber. Bitte weisen Sie auf die Ruhezeiten hin.
+
+Mit besten Grüßen
+E. Becker",Lärm,NA,FALSE,hoch
+B475,"Hallo zusammen,
+
+Seit etwa einer Woche wachsen die Sträucher an der Einmündung Bahnhofstraße 49 so weit in die Straße, dass man nichts sieht. Ich habe bereits zweimal die Polizei gerufen. Bitte schneiden Sie die Sträucher zurück.
+
+Mit besten Grüßen
+D. Kowalski",Grünflächen und Spielplätze,Straßen und Verkehr,TRUE,hoch
+B476,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit dem letzten Sturm feiern Jugendliche nachts auf dem Parkplatz Mühlengasse 14 mit lauter Musik aus Autos. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte sorgen Sie für nächtliche Kontrollen.
+
+Beste Grüße
+M. Fischer",Lärm,NA,FALSE,mittel
+B477,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit dem letzten Sturm ist der Gehweg in der Marktstraße 16 voller Laub und rutschig. Vielen Dank für Ihre Arbeit. Bitte lassen Sie den Gehweg kehren.
+
+Beste Grüße
+N. Weber",Abfall und Sauberkeit,Straßen und Verkehr,TRUE,niedrig
+B478,"Sehr geehrte Frau Bürgermeisterin,
+
+Schon länger ist die Wippe am Spielplatz Hauptstraße 20 abgebaut und nicht ersetzt worden. Das ist eine echte Gefahr, es muss sofort etwas passieren. Wann kommt ein neues Gerät?
+
+Beste Grüße
+K. Yilmaz",Grünflächen und Spielplätze,NA,FALSE,hoch
+B479,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit drei Wochen flackert die Laterne in der Schulstraße 41 die ganze Nacht. Vielen Dank für Ihre Arbeit. Bitte tauschen Sie das Leuchtmittel.
+
+Beste Grüße
+S. Petersen",Beleuchtung,NA,FALSE,niedrig
+B480,"Guten Tag,
+
+Seit gestern wurden in der Lindenstraße 27 nach dem Fest die Straßen nicht gereinigt. Vielen Dank für Ihre Arbeit. Bitte schicken Sie die Straßenreinigung.
+
+Mit freundlichen Grüßen
+E. Lindqvist",Abfall und Sauberkeit,NA,FALSE,niedrig
+B481,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit dem letzten Sturm fehlt auf dem Spielplatz Rosenallee 44 der Sand im Sandkasten. Wir haben mehrfach Ratten gesehen, auch tagsüber. Bitte füllen Sie Sand nach.
+
+Mit besten Grüßen
+J. Hartmann",Grünflächen und Spielplätze,NA,FALSE,hoch
+B482,"Sehr geehrtes Team vom Bürgerservice,
+
+Möchte ich mich bei den Mitarbeiterinnen des Bürgerbüros Ringstraße 57 bedanken. Ich wollte das nur einmal angemerkt haben. Bitte geben Sie das Lob weiter.
+
+Beste Grüße
+T. Rossi",Sonstiges,NA,FALSE,niedrig
+B483,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit dem letzten Sturm sind die Mülltonnen im Hinterhof Gartenstraße 47 voller Maden und stinken. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte reinigen Sie die Tonnen oder tauschen Sie sie.
+
+Danke und Gruß
+P. Haddad",Abfall und Sauberkeit,NA,FALSE,mittel
+B484,"Guten Tag,
+
+Seit etwa einer Woche schreit der Hund im Nachbargarten Mozartstraße 23 stundenlang, auch nachts. Es eilt nicht, aber irgendwann sollte sich jemand kümmern. Bitte sprechen Sie mit den Haltern.
+
+Mit freundlichen Grüßen
+S. Oswald",Lärm,NA,FALSE,niedrig
+B485,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit Anfang des Monats wachsen die Sträucher an der Einmündung Feldstraße 39 so weit in die Straße, dass man nichts sieht. Es wird von Woche zu Woche schlimmer. Bitte schneiden Sie die Sträucher zurück.
+
+Freundliche Grüße
+L. Yilmaz",Grünflächen und Spielplätze,Straßen und Verkehr,TRUE,mittel
+B486,"Hallo zusammen,
+
+Seit etwa einer Woche ist der Bordstein in der Wiesenstraße 50 am Übergang nicht abgesenkt. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte senken Sie den Bordstein für Rollstühle und Kinderwagen ab.
+
+Viele Grüße
+B. Vogel",Straßen und Verkehr,NA,FALSE,hoch
+B487,"Guten Tag,
+
+Seit Monaten hält sich die Kneipe in der Feldstraße 22 nicht an die Sperrzeit. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte kontrollieren Sie die Sperrzeit.
+
+Beste Grüße
+J. Schäfer",Lärm,NA,FALSE,mittel
+B488,"Sehr geehrte Damen und Herren,
+
+Seit Monaten stehen in der Ringstraße 24 seit Tagen Sperrmüllreste auf dem Gehweg. Meine Nachbarin ist letzte Woche deswegen gestürzt. Bitte veranlassen Sie die Abholung.
+
+Mit freundlichen Grüßen
+F. Becker",Abfall und Sauberkeit,NA,FALSE,hoch
+B489,"Sehr geehrtes Team vom Bürgerservice,
+
+Möchte ich mich bei den Mitarbeiterinnen des Bürgerbüros Wiesenstraße 19 bedanken. Das ist nur ein Hinweis, kein Notfall. Bitte geben Sie das Lob weiter.
+
+Mit freundlichen Grüßen
+N. Nguyen",Sonstiges,NA,FALSE,niedrig
+B490,"Liebe Stadtverwaltung,
+
+Seit drei Wochen wird in der Ringstraße 35 viel zu schnell gefahren, obwohl Tempo 30 gilt. Viele ältere Leute wohnen hier. Bitte prüfen Sie Geschwindigkeitskontrollen oder eine Schwelle.
+
+Viele Grüße
+C. Haddad",Straßen und Verkehr,NA,FALSE,mittel
+B491,"Sehr geehrte Damen und Herren,
+
+Seit dem Wochenende schreit der Hund im Nachbargarten Mozartstraße 3 stundenlang, auch nachts. Ich wollte das nur einmal angemerkt haben. Bitte sprechen Sie mit den Haltern.
+
+Danke und Gruß
+M. Becker",Lärm,NA,FALSE,niedrig
+B492,"Liebe Stadtverwaltung,
+
+Seit dem letzten Sturm ist der Bordstein in der Bergstraße 18 am Übergang nicht abgesenkt. Ich habe große Sorge, dass bald etwas Schlimmes passiert. Bitte senken Sie den Bordstein für Rollstühle und Kinderwagen ab.
+
+Mit freundlichen Grüßen
+B. Vogel",Straßen und Verkehr,NA,FALSE,hoch
+B493,"Sehr geehrte Damen und Herren,
+
+Seit etwa einer Woche fehlt an der Kreuzung Hauptstraße 1 das Stoppschild. Es wird von Woche zu Woche schlimmer. Bitte stellen Sie das Schild wieder auf.
+
+Danke und Gruß
+L. Sommer",Straßen und Verkehr,NA,FALSE,mittel
+B494,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit Anfang des Monats ist der Lichtmast in der Ringstraße 44 verrostet und hat ein offenes Kabelfach. Das sollte zeitnah behoben werden. Bitte sichern Sie den Mast.
+
+Danke und Gruß
+R. Becker",Beleuchtung,NA,FALSE,mittel
+B495,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit etwa einer Woche ist der Baum vor dem Haus Birkenstraße 51 nach dem Sturm angebrochen. Meine Nachbarin ist letzte Woche deswegen gestürzt. Bitte prüfen Sie den Baum auf Standsicherheit.
+
+Hochachtungsvoll
+F. Oswald",Grünflächen und Spielplätze,NA,FALSE,hoch
+B496,"Sehr geehrte Frau Bürgermeisterin,
+
+Frage ich, ob für das Straßenfest in der Ringstraße 22 eine Sperrung beantragt werden muss. Das ist nur ein Hinweis, kein Notfall. Bitte teilen Sie mir mit, welches Formular ich brauche.
+
+Beste Grüße
+T. Haddad",Sonstiges,Straßen und Verkehr,TRUE,niedrig
+B497,"Hallo,
+
+Seit etwa einer Woche wachsen die Sträucher an der Einmündung Parkallee 53 so weit in die Straße, dass man nichts sieht. Bitte schneiden Sie die Sträucher zurück.
+
+Beste Grüße
+F. Öztürk",Grünflächen und Spielplätze,Straßen und Verkehr,TRUE,mittel
+B498,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit dem Wochenende hängt ein abgebrochener Ast über dem Weg in der Grünanlage Rosenallee 12. Viele ältere Leute wohnen hier. Bitte entfernen Sie den Ast.
+
+Viele Grüße
+L. Rossi",Grünflächen und Spielplätze,NA,FALSE,mittel
+B499,"Liebe Stadtverwaltung,
+
+Seit dem letzten Sturm geht die Beleuchtung am Fußweg Mozartstraße 4 erst eine Stunde nach Einbruch der Dunkelheit an. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte stellen Sie den Dämmerungsschalter neu ein.
+
+Viele Grüße
+D. Fischer",Beleuchtung,NA,FALSE,mittel
+B500,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit dem Wochenende wurden in der Birkenstraße 35 nach dem Fest die Straßen nicht gereinigt. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte schicken Sie die Straßenreinigung.
+
+Danke und Gruß
+C. Lindqvist",Abfall und Sauberkeit,NA,FALSE,mittel
+B501,"Hallo,
+
+Seit drei Wochen beginnt die Baustelle in der Talstraße 54 jeden Morgen um 6 Uhr mit Presslufthammer. Hier laufen jeden Morgen Schulkinder vorbei. Bitte prüfen Sie die erlaubten Arbeitszeiten.
+
+Hochachtungsvoll
+H. Haddad",Lärm,NA,FALSE,hoch
+B502,"Hallo,
+
+Seit dem letzten Sturm wurde der Rasen im Park an der Rosenallee 2 seit Wochen nicht gemäht. Das sollte zeitnah behoben werden. Bitte mähen Sie die Wiese.
+
+Mit besten Grüßen
+R. Weber",Grünflächen und Spielplätze,NA,FALSE,mittel
+B503,"Liebe Stadtverwaltung,
+
+Seit dem Wochenende fehlt an der Kreuzung Birkenstraße 42 das Stoppschild. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte stellen Sie das Schild wieder auf.
+
+Hochachtungsvoll
+H. Nguyen",Straßen und Verkehr,NA,FALSE,mittel
+B504,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit dem Wochenende quillt der Papierkorb an der Bushaltestelle Gartenstraße 44 über. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte leeren Sie den Papierkorb öfter.
+
+Mit besten Grüßen
+M. Lindqvist",Abfall und Sauberkeit,NA,FALSE,mittel
+B505,"Hallo zusammen,
+
+Seit gestern liegt in der Birkenstraße 45 ein alter Kühlschrank am Straßenrand. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte entsorgen Sie das Gerät.
+
+Danke und Gruß
+F. Hartmann",Abfall und Sauberkeit,NA,FALSE,mittel
+B506,"Liebe Stadtverwaltung,
+
+Seit Monaten wurde der Rasen im Park an der Gartenstraße 13 seit Wochen nicht gemäht. Bitte mähen Sie die Wiese.
+
+Mit freundlichen Grüßen
+A. Hartmann",Grünflächen und Spielplätze,NA,FALSE,niedrig
+B507,"Guten Tag,
+
+Seit dem Wochenende liegen am Glascontainer Talstraße 30 Flaschen und Scherben herum. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte reinigen Sie den Containerplatz.
+
+Mit besten Grüßen
+T. Lehmann",Abfall und Sauberkeit,NA,FALSE,mittel
+B508,"Hallo zusammen,
+
+Schon länger liegen am Glascontainer Bergstraße 38 Flaschen und Scherben herum. Bitte reinigen Sie den Containerplatz.
+
+Mit besten Grüßen
+S. Öztürk",Abfall und Sauberkeit,NA,FALSE,mittel
+B509,"Liebe Stadtverwaltung,
+
+Seit Monaten ist am Spielplatz Gartenstraße 18 die Kette der Schaukel gerissen. Viele ältere Leute wohnen hier. Bitte reparieren Sie die Schaukel.
+
+Hochachtungsvoll
+A. Fischer",Grünflächen und Spielplätze,NA,FALSE,mittel
+B510,"Guten Tag,
+
+Schon länger funktioniert das Online-Formular für die Ummeldung nicht. Ich wollte das nur einmal angemerkt haben. Bitte beheben Sie den Fehler.
+
+Viele Grüße
+S. Haddad",Sonstiges,NA,FALSE,niedrig
+B511,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit drei Wochen stehen in der Marktstraße 49 seit Tagen Sperrmüllreste auf dem Gehweg. Wir haben mehrfach Ratten gesehen, auch tagsüber. Bitte veranlassen Sie die Abholung.
+
+Danke und Gruß
+B. Weber",Abfall und Sauberkeit,NA,FALSE,hoch
+B512,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit Monaten geht die Beleuchtung am Fußweg Marktstraße 43 erst eine Stunde nach Einbruch der Dunkelheit an. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte stellen Sie den Dämmerungsschalter neu ein.
+
+Beste Grüße
+F. Nguyen",Beleuchtung,NA,FALSE,mittel
+B513,"Hallo,
+
+Seit etwa einer Woche ist der Baum vor dem Haus Schulstraße 59 nach dem Sturm angebrochen. Bitte prüfen Sie den Baum auf Standsicherheit.
+
+Freundliche Grüße
+F. Oswald",Grünflächen und Spielplätze,NA,FALSE,mittel
+B514,"Sehr geehrte Damen und Herren,
+
+Seit dem Wochenende ist die Brücke über den Mühlbach in der Hauptstraße 24 für Fußgänger gesperrt, ohne Umleitung. Es eilt nicht, aber irgendwann sollte sich jemand kümmern. Bitte weisen Sie eine Umleitung aus.
+
+Viele Grüße
+T. Oswald",Straßen und Verkehr,NA,FALSE,niedrig
+B515,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit Monaten hat jemand in der Ringstraße 24 Bauschutt und alte Farbeimer abgeladen. Viele ältere Leute wohnen hier. Bitte lassen Sie den Müll abholen.
+
+Beste Grüße
+E. Haddad",Abfall und Sauberkeit,NA,FALSE,mittel
+B516,"Liebe Stadtverwaltung,
+
+Schon länger bläst der Laubbläser des Hausmeisters in der Hafenstraße 47 sonntags um 8 Uhr. Hier laufen jeden Morgen Schulkinder vorbei. Bitte weisen Sie auf die Ruhezeiten hin.
+
+Beste Grüße
+B. Baumann",Lärm,NA,FALSE,hoch
+B517,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit etwa einer Woche geht die Beleuchtung am Fußweg Hauptstraße 58 erst eine Stunde nach Einbruch der Dunkelheit an. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte stellen Sie den Dämmerungsschalter neu ein.
+
+Hochachtungsvoll
+A. Yilmaz",Beleuchtung,NA,FALSE,mittel
+B518,"Sehr geehrte Damen und Herren,
+
+Seit Anfang des Monats wurde die blaue Tonne in der Brunnenstraße 14 nicht geleert. Das sollte zeitnah behoben werden. Bitte holen Sie die Abfuhr nach.
+
+Danke und Gruß
+B. Becker",Abfall und Sauberkeit,NA,FALSE,mittel
+B519,"Hallo zusammen,
+
+Seit dem letzten Sturm ist die Brücke über den Mühlbach in der Bahnhofstraße 47 für Fußgänger gesperrt, ohne Umleitung. Es wird von Woche zu Woche schlimmer. Bitte weisen Sie eine Umleitung aus.
+
+Hochachtungsvoll
+F. Brandt",Straßen und Verkehr,NA,FALSE,mittel
+B520,"Guten Tag,
+
+Seit gestern wurde die blaue Tonne in der Wiesenstraße 54 nicht geleert. Vielen Dank für Ihre Arbeit. Bitte holen Sie die Abfuhr nach.
+
+Freundliche Grüße
+J. Becker",Abfall und Sauberkeit,NA,FALSE,niedrig
+B521,"Hallo,
+
+Seit dem Wochenende wird in der Lindenstraße 21 viel zu schnell gefahren, obwohl Tempo 30 gilt. Viele ältere Leute wohnen hier. Bitte prüfen Sie Geschwindigkeitskontrollen oder eine Schwelle.
+
+Hochachtungsvoll
+P. Oswald",Straßen und Verkehr,NA,FALSE,mittel
+B522,"Hallo zusammen,
+
+Seit etwa einer Woche stehen in der Gartenstraße 4 seit Tagen Sperrmüllreste auf dem Gehweg. Das sollte zeitnah behoben werden. Bitte veranlassen Sie die Abholung.
+
+Beste Grüße
+C. Öztürk",Abfall und Sauberkeit,NA,FALSE,mittel
+B523,"Hallo zusammen,
+
+Seit Anfang des Monats ist der Verkehrslärm in der Wiesenstraße 28 seit der Umleitung unerträglich. Es wird von Woche zu Woche schlimmer. Bitte prüfen Sie Tempo 30 oder eine andere Umleitung.
+
+Mit freundlichen Grüßen
+A. Oswald",Lärm,Straßen und Verkehr,TRUE,mittel
+B524,"Liebe Stadtverwaltung,
+
+Seit Anfang des Monats schreit der Hund im Nachbargarten Mühlengasse 54 stundenlang, auch nachts. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte sprechen Sie mit den Haltern.
+
+Freundliche Grüße
+N. Vogel",Lärm,NA,FALSE,mittel
+B525,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit dem letzten Sturm flackert die Laterne in der Gartenstraße 9 die ganze Nacht. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte tauschen Sie das Leuchtmittel.
+
+Viele Grüße
+F. Fischer",Beleuchtung,NA,FALSE,mittel
+B526,"Sehr geehrte Damen und Herren,
+
+Seit Anfang des Monats ist am Spielplatz Parkallee 47 die Kette der Schaukel gerissen. Ich habe bereits zweimal die Polizei gerufen. Bitte reparieren Sie die Schaukel.
+
+Mit besten Grüßen
+F. Nguyen",Grünflächen und Spielplätze,NA,FALSE,hoch
+B527,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit Anfang des Monats ist der Zebrastreifen in der Bergstraße 1 nachts unbeleuchtet und kaum zu sehen. Das ist nur ein Hinweis, kein Notfall. Bitte beleuchten Sie den Übergang.
+
+Beste Grüße
+J. Schäfer",Straßen und Verkehr,Beleuchtung,TRUE,niedrig
+B528,"Sehr geehrte Damen und Herren,
+
+Seit dem letzten Sturm wird in der Birkenstraße 7 viel zu schnell gefahren, obwohl Tempo 30 gilt. Das sollte zeitnah behoben werden. Bitte prüfen Sie Geschwindigkeitskontrollen oder eine Schwelle.
+
+Danke und Gruß
+F. Haddad",Straßen und Verkehr,NA,FALSE,mittel
+B529,"Hallo zusammen,
+
+Seit dem letzten Sturm ist am Spielplatz Bergstraße 29 die Kette der Schaukel gerissen. Das ist eine echte Gefahr, es muss sofort etwas passieren. Bitte reparieren Sie die Schaukel.
+
+Hochachtungsvoll
+N. Öztürk",Grünflächen und Spielplätze,NA,FALSE,hoch
+B530,"Guten Tag,
+
+Seit dem letzten Sturm ist die Hecke am Spielplatz Kastanienallee 35 so hoch, dass man die Kinder nicht mehr sieht. Viele ältere Leute wohnen hier. Bitte schneiden Sie die Hecke zurück.
+
+Viele Grüße
+T. Becker",Grünflächen und Spielplätze,NA,FALSE,mittel
+B531,"Hallo,
+
+Seit gestern liegt in der Feldstraße 20 ein alter Kühlschrank am Straßenrand. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte entsorgen Sie das Gerät.
+
+Mit freundlichen Grüßen
+A. Fischer",Abfall und Sauberkeit,NA,FALSE,mittel
+B532,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit dem letzten Sturm ist die Telefonhotline des Bürgeramts nie erreichbar. Bitte verbessern Sie die Erreichbarkeit.
+
+Danke und Gruß
+R. Weber",Sonstiges,NA,FALSE,mittel
+B533,"Liebe Stadtverwaltung,
+
+Seit etwa einer Woche läuft in der Gaststätte Mozartstraße 11 an den Wochenenden bis nach 2 Uhr laute Musik. Vielen Dank für Ihre Arbeit. Bitte schreiten Sie ein.
+
+Hochachtungsvoll
+E. Vogel",Lärm,NA,FALSE,niedrig
+B534,"Hallo zusammen,
+
+Seit Anfang des Monats heben die Wurzeln der alten Bäume in der Schulstraße 22 die Gehwegplatten an. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte richten Sie den Gehweg, ohne die Bäume zu fällen.
+
+Danke und Gruß
+A. Krüger",Straßen und Verkehr,Grünflächen und Spielplätze,TRUE,hoch
+B535,"Sehr geehrte Damen und Herren,
+
+Seit gestern läuft in der Gaststätte Bergstraße 41 an den Wochenenden bis nach 2 Uhr laute Musik. Hier laufen jeden Morgen Schulkinder vorbei. Bitte schreiten Sie ein.
+
+Mit freundlichen Grüßen
+S. Weber",Lärm,NA,FALSE,hoch
+B536,"Sehr geehrte Damen und Herren,
+
+Seit gestern quillt der Papierkorb an der Bushaltestelle Marktstraße 3 über. Das ist nur ein Hinweis, kein Notfall. Bitte leeren Sie den Papierkorb öfter.
+
+Danke und Gruß
+D. Haddad",Abfall und Sauberkeit,NA,FALSE,niedrig
+B537,"Sehr geehrte Damen und Herren,
+
+Seit Monaten sind die Bänke im Park Mozartstraße 25 morsch und wackeln. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte tauschen Sie die Bänke aus.
+
+Freundliche Grüße
+S. Rossi",Grünflächen und Spielplätze,NA,FALSE,hoch
+B538,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit etwa einer Woche wurden in der Mozartstraße 44 nach dem Fest die Straßen nicht gereinigt. Viele ältere Leute wohnen hier. Bitte schicken Sie die Straßenreinigung.
+
+Beste Grüße
+D. Baumann",Abfall und Sauberkeit,NA,FALSE,mittel
+B539,"Hallo,
+
+Seit Monaten wachsen die Sträucher an der Einmündung Bergstraße 8 so weit in die Straße, dass man nichts sieht. Viele ältere Leute wohnen hier. Bitte schneiden Sie die Sträucher zurück.
+
+Beste Grüße
+E. Vogel",Grünflächen und Spielplätze,Straßen und Verkehr,TRUE,mittel
+B540,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit Monaten bläst der Laubbläser des Hausmeisters in der Bergstraße 10 sonntags um 8 Uhr. Das sollte zeitnah behoben werden. Bitte weisen Sie auf die Ruhezeiten hin.
+
+Hochachtungsvoll
+B. Nguyen",Lärm,NA,FALSE,mittel
+B541,"Guten Tag,
+
+Seit dem letzten Sturm ist am Spielplatz Rosenallee 25 die Kette der Schaukel gerissen. Viele ältere Leute wohnen hier. Bitte reparieren Sie die Schaukel.
+
+Beste Grüße
+J. Rossi",Grünflächen und Spielplätze,NA,FALSE,mittel
+B542,"Guten Tag,
+
+Seit drei Wochen ist die Fahrbahnmarkierung in der Wiesenstraße 57 kaum noch zu erkennen. Ich habe bereits zweimal die Polizei gerufen. Bitte erneuern Sie die Markierung.
+
+Freundliche Grüße
+E. Kowalski",Straßen und Verkehr,NA,FALSE,hoch
+B543,"Guten Tag,
+
+Schon länger läuft in der Gaststätte Lindenstraße 12 an den Wochenenden bis nach 2 Uhr laute Musik. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte schreiten Sie ein.
+
+Beste Grüße
+S. Nguyen",Lärm,NA,FALSE,mittel
+B544,"Sehr geehrtes Team vom Bürgerservice,
+
+Seit Monaten fehlt an der Kreuzung Kirchgasse 10 das Stoppschild. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte stellen Sie das Schild wieder auf.
+
+Viele Grüße
+F. Oswald",Straßen und Verkehr,NA,FALSE,mittel
+B545,"Hallo,
+
+Seit Anfang des Monats liegen am Glascontainer Brunnenstraße 44 Flaschen und Scherben herum. Hier laufen jeden Morgen Schulkinder vorbei. Bitte reinigen Sie den Containerplatz.
+
+Danke und Gruß
+P. Oswald",Abfall und Sauberkeit,NA,FALSE,hoch
+B546,"Hallo,
+
+Seit drei Wochen ist der Bordstein in der Mozartstraße 33 am Übergang nicht abgesenkt. Bitte senken Sie den Bordstein für Rollstühle und Kinderwagen ab.
+
+Freundliche Grüße
+F. Lehmann",Straßen und Verkehr,NA,FALSE,mittel
+B547,"Hallo zusammen,
+
+Schon länger ist die Telefonhotline des Bürgeramts nie erreichbar. Gestern ist dort jemand gestürzt und musste versorgt werden. Bitte verbessern Sie die Erreichbarkeit.
+
+Danke und Gruß
+F. Hartmann",Sonstiges,NA,FALSE,hoch
+B548,"Sehr geehrte Damen und Herren,
+
+Seit etwa einer Woche fehlt an der Kreuzung Rosenallee 31 das Stoppschild. Bitte stellen Sie das Schild wieder auf.
+
+Hochachtungsvoll
+L. Baumann",Straßen und Verkehr,NA,FALSE,niedrig
+B549,"Liebe Stadtverwaltung,
+
+Seit Anfang des Monats liegen am Glascontainer Ahornallee 2 Flaschen und Scherben herum. Das sollte zeitnah behoben werden. Bitte reinigen Sie den Containerplatz.
+
+Danke und Gruß
+K. Becker",Abfall und Sauberkeit,NA,FALSE,mittel
+B550,"Hallo,
+
+Schon länger fahren Motorräder nachts mit Vollgas durch die Talstraße 37. Vielen Dank für Ihre Arbeit. Bitte prüfen Sie eine Lärmkontrolle.
+
+Freundliche Grüße
+C. Becker",Lärm,NA,FALSE,niedrig
+B551,"Hallo,
+
+Seit Anfang des Monats fahren Motorräder nachts mit Vollgas durch die Bahnhofstraße 54. Ich habe große Sorge, dass bald etwas Schlimmes passiert. Bitte prüfen Sie eine Lärmkontrolle.
+
+Mit besten Grüßen
+P. Öztürk",Lärm,NA,FALSE,hoch
+B552,"Sehr geehrte Frau Bürgermeisterin,
+
+Frage ich, ob für das Straßenfest in der Schulstraße 57 eine Sperrung beantragt werden muss. Vielleicht lässt sich das bei Gelegenheit erledigen. Bitte teilen Sie mir mit, welches Formular ich brauche.
+
+Hochachtungsvoll
+B. Vogel",Sonstiges,Straßen und Verkehr,TRUE,niedrig
+B553,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit dem Wochenende wurde mein Hinweis auf dem Mängelmelder nach drei Wochen noch nicht beantwortet. Viele ältere Leute wohnen hier. Bitte geben Sie eine Rückmeldung.
+
+Danke und Gruß
+S. Öztürk",Sonstiges,NA,FALSE,mittel
+B554,"Liebe Stadtverwaltung,
+
+Seit Anfang des Monats quillt der Papierkorb an der Bushaltestelle Bahnhofstraße 5 über. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte leeren Sie den Papierkorb öfter.
+
+Danke und Gruß
+S. Yilmaz",Abfall und Sauberkeit,NA,FALSE,mittel
+B555,"Guten Tag,
+
+Seit Anfang des Monats ist die Fahrbahnmarkierung in der Mühlengasse 50 kaum noch zu erkennen. Bitte erneuern Sie die Markierung.
+
+Hochachtungsvoll
+L. Baumann",Straßen und Verkehr,NA,FALSE,mittel
+B556,"Hallo,
+
+Schon länger ist die Fahrbahnmarkierung in der Wiesenstraße 41 kaum noch zu erkennen. Es wäre gut, wenn sich das in den nächsten Tagen jemand ansieht. Bitte erneuern Sie die Markierung.
+
+Danke und Gruß
+S. Sommer",Straßen und Verkehr,NA,FALSE,mittel
+B557,"Sehr geehrte Damen und Herren,
+
+Seit etwa einer Woche heben die Wurzeln der alten Bäume in der Gartenstraße 29 die Gehwegplatten an. Das ist eine echte Gefahr, es muss sofort etwas passieren. Bitte richten Sie den Gehweg, ohne die Bäume zu fällen.
+
+Freundliche Grüße
+S. Petersen",Straßen und Verkehr,Grünflächen und Spielplätze,TRUE,hoch
+B558,"Liebe Stadtverwaltung,
+
+Seit Anfang des Monats sind in der Hauptstraße 53 gleich drei Laternen hintereinander ausgefallen. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte stellen Sie die Beleuchtung wieder her.
+
+Beste Grüße
+H. Weber",Beleuchtung,NA,FALSE,mittel
+B559,"Guten Tag,
+
+Seit etwa einer Woche steht das Verkehrsschild in der Lindenstraße 55 schief und verdeckt die Sicht. Ich habe das schon einmal gemeldet, bisher ohne Reaktion. Bitte richten Sie das Schild.
+
+Mit freundlichen Grüßen
+M. Petersen",Straßen und Verkehr,NA,FALSE,mittel
+B560,"Sehr geehrte Frau Bürgermeisterin,
+
+Seit dem letzten Sturm flackert die Laterne in der Marktstraße 14 die ganze Nacht. Bitte tauschen Sie das Leuchtmittel.
+
+Beste Grüße
+F. Petersen",Beleuchtung,NA,FALSE,mittel
