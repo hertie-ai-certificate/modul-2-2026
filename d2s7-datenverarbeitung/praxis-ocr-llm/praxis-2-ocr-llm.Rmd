@@ -56,7 +56,7 @@ Tesseract ist eine frei verfügbare Texterkennung (Optical Character Recognition
 
 Vorher wird das Bild in Graustufen umgewandelt, von Flecken befreit und in Schwarz-Weiß gebracht. Bei verrauschten Scans macht das den Unterschied:
 
-```{r ocr-vergleich, cache=TRUE}
+```{r ocr-vergleich}
 ohne <- ocr_dokument("daten/01_rohdaten/A02_anliegen.jpg", vorverarbeitung = FALSE)
 mit  <- ocr_dokument("daten/01_rohdaten/A02_anliegen.jpg", vorverarbeitung = TRUE)
 original <- read_csv("daten/01_rohdaten/originaltexte.csv", show_col_types = FALSE)
@@ -85,17 +85,22 @@ Die Trefferquote sagt, wie viele Wörter des Originals im OCR-Text wiedergefunde
 cat(ocr$ocr_text[ocr$id == "A10"])
 ```
 
-Die Trefferquote sagt aber nicht, ob Zahlen stimmen. Beim gut lesbaren Dokument A07 steht im Scan „Rosenallee 18“, im OCR-Text „Rosenallee 12“: eine Hausnummer, die richtig aussieht und falsch ist. Aus „Dämmwolle“ wurde „Pämmwolle“, aus „Lindqvist“ „Lindgvist“.
+Die Trefferquote sagt aber nicht, ob der gefundene Text stimmt. Auch in den gut lesbaren Dokumenten stecken Fehler, die keine Trefferquote anzeigt. Drei Zeilen aus den OCR-Texten von A07 und A08, daneben das, was im Scan steht:
 
-```{r ocr-rosenallee}
-str_extract(ocr$ocr_text[ocr$id == "A07"], "Rosenallee \\d+")
+```{r ocr-stille-fehler}
+zeilen <- function(id, muster) ocr$ocr_text[ocr$id == id] |> str_split("\\n") |> pluck(1) |> str_subset(muster) |> head(1)
+tibble(ocr_text = c(zeilen("A07", "Rosenallee \\d"), zeilen("A07", "wolle"), zeilen("A08", "Lind")),
+       im_scan  = c("Mai Nguyen, Rosenallee 18", "… alte Farbeimer und Dämmwolle abgeladen …", "Peter Lindqvist · Kirchplatz 1 · 31234 Musterstadt")) |>
+  knitr::kable()
 ```
 
-<div class="merke">**Merke:** OCR liefert Text, keine Daten. Ein unlesbarer Scan fällt auf; eine falsch gelesene Hausnummer nicht. Beides muss der nächste Schritt abfangen.</div>
+Aus „Rosenallee 18“ wird „Rosenallee 12“: eine Hausnummer, die richtig aussieht und falsch ist. „Pämmwolle“ und „Lindgvist“ fallen wenigstens auf.
+
+<div class="merke">**Merke:** OCR liefert Text; Daten werden daraus erst im nächsten Schritt. Ein unlesbarer Scan fällt sofort auf, eine falsch gelesene Hausnummer bleibt unbemerkt. Beides muss die Pipeline abfangen.</div>
 
 # Schritt 3: Bereinigen und strukturieren
 
-Man kann einem Sprachmodell den OCR-Text geben und sagen: „Mach mir daraus eine Tabelle.“ Das funktioniert, aber jedes Mal etwas anders: mal JSON, mal eine Aufzählung, mal fehlt ein Feld. Für ein Protokoll reicht das, für eine Datenbank nicht.
+Man kann einem Sprachmodell den OCR-Text geben und sagen: „Mach mir daraus eine Tabelle.“ Das funktioniert, aber jedes Mal etwas anders: mal JSON, mal eine Aufzählung, mal fehlt ein Feld. Für ein Protokoll reicht das. Eine Datenbank braucht jedes Mal dieselben Felder.
 
 Die Lösung ist eine **feste Antwortstruktur**: Wir geben dem Modell die Felder und ihre Typen vor, und es muss genau diese liefern. In `R/pipeline.R` ist das so definiert:
 
@@ -112,7 +117,7 @@ typ_struktur <- type_object(
 
 Jede Feldbeschreibung ist Teil des Prompts. Je präziser sie ist („Format JJJJ-MM-TT“, „leer, wenn nicht erkennbar“), desto weniger Nacharbeit.
 
-Das Paket `ellmer` bietet für alle gängigen Anbieter dieselbe Schnittstelle. Der Anbieter ist eine Einstellung, ein Schlüssel käme aus der Umgebung, nie aus dem Code.
+Das Paket `ellmer` bietet für alle gängigen Anbieter dieselbe Schnittstelle. Der Anbieter ist eine Einstellung; ein Schlüssel käme aus der Umgebungsvariable und bleibt aus dem Code heraus.
 
 ```{r llm-setup}
 ANBIETER <- "ollama"   # lokal; oder "anthropic", "openai", "gemini" mit Schlüssel
@@ -132,12 +137,16 @@ strukturiert |>
 ```
 
 ```{r llm-unsicher, eval=exists("strukturiert")}
-strukturiert |> filter(unsichere_stellen != "") |> select(id, unsichere_stellen) |> knitr::kable()
+strukturiert |>
+  filter(!is.na(unsichere_stellen), !str_to_lower(str_trim(unsichere_stellen)) %in% c("", "-", "keine")) |>
+  mutate(unsichere_stellen = unsichere_stellen |> str_replace_all("\\s*\\n\\s*", " ") |> str_trunc(160)) |>
+  select(id, ocr_qualitaet, unsichere_stellen) |>
+  knitr::kable()
 ```
 
-Drei Beobachtungen. Erstens: „Rosenallee 12“ steht unverändert in der Adresse. Das Modell kann die Hausnummer nicht korrigieren, es hat den Scan nie gesehen, und 12 ist genauso plausibel wie 18. Zweitens: Aus „Pämmwolle“ hat das Modell keine Dämmwolle gemacht, sondern ein neues Fantasiewort, und das immerhin als unsicher markiert. Drittens: Bei Fax und Foto (`ocr_qualitaet` „schlecht“) füllt das Modell die Felder trotzdem, mit Bruchstücken aus dem Zeichensalat als Absender. Die Markierung „schlecht“ ist deshalb das wichtigste Feld: Solche Fälle gehören komplett zur Nachprüfung.
+Vier Beobachtungen. Erstens: „Rosenallee 12“ steht unverändert in der Adresse von A07, und „Lindgvist“ bleibt „Lindgvist“ (A08). Das Modell kann beides nicht korrigieren, es hat den Scan nie gesehen, und 12 ist genauso plausibel wie 18. Zweitens: Aus „Pämmwolle“ (A07) hat das Modell keine Dämmwolle gemacht, sondern ein neues Fantasiewort; das steht in der Zusammenfassung und wird immerhin als unsicher markiert. Drittens: Bei A04 fehlt das Datum (`datum_iso` leer), obwohl es im OCR-Text steht. Viertens: Bei Fax und Foto (A09, A10, `ocr_qualitaet` „schlecht“) füllt das Modell die Felder trotzdem, mit Bruchstücken aus dem Zeichensalat als Absender und mit einem Datum, das es selbst als unsicher bezeichnet. Die Markierung „schlecht“ ist deshalb das wichtigste Feld: Solche Fälle gehören komplett zur Nachprüfung.
 
-<div class="merke">**Merke:** Ein Sprachmodell korrigiert plausibel, nicht unbedingt richtig, und es füllt Felder auch dann, wenn der Text nichts hergibt. Was es als unsicher oder schlecht markiert, muss ein Mensch prüfen. Was es nicht markiert, kann trotzdem falsch sein.</div>
+<div class="merke">**Merke:** Ein Sprachmodell korrigiert plausibel; ob richtig, weiß es selbst nur zum Teil. Und es füllt Felder auch dann, wenn der Text nichts hergibt. Was es als unsicher oder schlecht markiert, muss ein Mensch prüfen. Was es nicht markiert, kann trotzdem falsch sein.</div>
 
 # Schritt 4: Klassifizieren
 
@@ -148,7 +157,7 @@ klassifiziert <- schritt_klassifizieren(strukturiert, chat)
 klassifiziert |> knitr::kable()
 ```
 
-Die Kategorien stehen mit einer kurzen Erklärung im Prompt (siehe `anweisung_klassifikation` in `R/pipeline.R`). Das ist kein Schmuck: Mit der bloßen Liste im Antwortschema hat dasselbe lokale Modell in einem ersten Versuch Straßenlaternen dem Straßenverkehr und Bauschutt der Beleuchtung zugeordnet. Die Beschreibung der Aufgabe ist Teil des Daten-Inputs.
+Die Kategorien stehen mit einer kurzen Erklärung im Prompt (siehe `anweisung_klassifikation` in `R/pipeline.R`). Das hat einen messbaren Grund: Mit der bloßen Liste im Antwortschema hat dasselbe lokale Modell in einem ersten Versuch Straßenlaternen dem Straßenverkehr und Bauschutt der Beleuchtung zugeordnet. Die Beschreibung der Aufgabe gehört zum Daten-Input.
 
 # Das Ergebnis
 
@@ -175,7 +184,7 @@ final |>
 
 Die Themenbereiche stimmen bis auf einen Fall: Die Baumwurzeln, die den Gehweg anheben (A10), ordnet das Modell den Grünflächen zu, unser Goldstandard dem Straßenbau. Beides ist vertretbar. Bei der Dringlichkeit liegt das Modell öfter daneben, meist eine Stufe höher als wir.
 
-<div class="merke">**Merke:** Mit zehn Dokumenten ist das keine Evaluation, sondern ein Rauchtest. Für den Ernstfall braucht es ein paar hundert von Hand kodierte Fälle aus dem eigenen Haus, und eine Verständigung darüber, was „hoch dringlich“ in Musterstadt heißt. Wie man das sauber misst, zeigt die [Übung zur Validierung](../uebung-klassifikation/uebung-klassifikation.html).</div>
+<div class="merke">**Merke:** Zehn Dokumente sind ein Rauchtest; eine Evaluation fängt bei ein paar hundert an. Für den Ernstfall braucht es von Hand kodierte Fälle aus dem eigenen Haus und eine Verständigung darüber, was „hoch dringlich“ in Musterstadt heißt. Wie man das sauber misst, zeigt die [Übung zur Validierung](../uebung-klassifikation/uebung-klassifikation.html).</div>
 
 # Die Ablage
 
@@ -202,8 +211,8 @@ praxis-ocr-llm/
 
 - **Rohdaten werden nie verändert.** Alles, was die Pipeline erzeugt, liegt woanders, ein nummerierter Ordner pro Schritt.
 - **Jeder Schritt ist für sich wiederholbar.** Ändert sich der Prompt in Schritt 4, muss die OCR nicht neu laufen.
-- **Struktur vorgeben statt hoffen.** Feste Felder und erlaubte Werte machen aus Modellantworten Daten.
+- **Struktur vorgeben.** Feste Felder und erlaubte Werte machen aus Modellantworten Daten.
 - **Prüfen gegen einen Goldstandard.** Ohne von Hand kodierte Fälle weiß niemand, ob die Pipeline gut genug ist.
-- **CSV, nicht Excel.** Textdateien, die jedes Programm lesen kann, auch in zehn Jahren.
+- **CSV statt Excel.** Textdateien, die jedes Programm lesen kann, auch in zehn Jahren.
 
 **Zum Weiterspielen:** Ändert die Beschreibung von `dringlichkeit` in `R/pipeline.R` und lasst Schritt 4 mit `force = TRUE` neu laufen. Legt ein eigenes, datenschutzrechtlich unkritisches Dokument in `daten/01_rohdaten/`, ergänzt es im Manifest und schickt es durch die Pipeline. Oder tauscht den Anbieter: Liefern zwei Modelle dieselbe Klassifikation?

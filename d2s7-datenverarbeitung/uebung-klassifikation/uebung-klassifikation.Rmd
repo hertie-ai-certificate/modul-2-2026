@@ -20,7 +20,7 @@ options(width = 100)
 
 # Die Aufgabe
 
-Der Bürgerservice von Musterstadt bekommt Schreiben zu Schlaglöchern, Laternen, Lärm und Müll. Jedes muss zum richtigen Fachamt. In der [Fallstudie zu OCR und Sprachmodellen](../praxis-ocr-llm/praxis-2-ocr-llm.html) hat das ein Sprachmodell für acht Schreiben erledigt. Acht Fälle sagen aber nichts darüber, ob so ein Verfahren im Dauerbetrieb taugt. Dafür braucht es **Validierung**: viele Fälle, von Menschen eingeordnet, und ein ehrlicher Vergleich.
+Der Bürgerservice von Musterstadt bekommt Schreiben zu Schlaglöchern, Laternen, Lärm und Müll. Jedes muss zum richtigen Fachamt. In der [Fallstudie zu OCR und Sprachmodellen](../praxis-ocr-llm/praxis-2-ocr-llm.html) hat das ein Sprachmodell für zehn Schreiben erledigt. Zehn Fälle sagen aber nichts darüber, ob so ein Verfahren im Dauerbetrieb taugt. Dafür braucht es **Validierung**: viele Fälle, von Menschen eingeordnet, und ein ehrlicher Vergleich.
 
 Wir arbeiten mit 560 erfundenen Schreiben (`erzeuge_daten.R`), jedes mit einem Themenbereich als **Goldstandard** und einer Dringlichkeit. Ein Teil der Schreiben liegt bewusst zwischen zwei Bereichen. Wer vorher selbst ein paar Schreiben einordnen möchte: [Interaktive Aufgabe auf der Kurswebseite](https://simonmunzert.com/zertifikat-daten/klassifikation.html). Dort merkt man schnell, dass die Zuordnung nicht immer eindeutig ist. Und was für Menschen schwer ist, ist für Modelle nicht leichter.
 
@@ -53,7 +53,7 @@ count(daten, kategorie, mehrdeutig) |>
   knitr::kable()
 ```
 
-Zwei Dinge fallen auf. Erstens sind die Klassen **ungleich verteilt**: „Straßen und Verkehr“ kommt fast viermal so oft vor wie „Sonstiges“. Zweitens ist jedes achte Schreiben **mehrdeutig**: Baumwurzeln heben den Gehweg an (Straßen oder Grünflächen?), Glasscherben im Sandkasten (Spielplatz oder Sauberkeit?). Der Goldstandard ist in diesen Fällen eine Entscheidung, keine Wahrheit.
+Zwei Dinge fallen auf. Erstens sind die Klassen **ungleich verteilt**: „Straßen und Verkehr“ kommt fast viermal so oft vor wie „Sonstiges“. Zweitens ist jedes achte Schreiben **mehrdeutig**: Baumwurzeln heben den Gehweg an (Straßen oder Grünflächen?), Glasscherben im Sandkasten (Spielplatz oder Sauberkeit?). Der Goldstandard ist in diesen Fällen eine Entscheidung, die man auch anders hätte treffen können.
 
 ```{r mehrdeutig-beispiel}
 daten |> filter(mehrdeutig) |> slice(1) |> pull(text) |> cat()
@@ -76,7 +76,7 @@ c(training = nrow(train), test = nrow(test))
 
 # Schritt 3: Ein einfaches Modell
 
-Wir zählen, welche Wörter in einem Schreiben vorkommen, und lassen eine regularisierte logistische Regression lernen, welche Wörter für welchen Bereich sprechen („Laterne“ für Beleuchtung, „Tonne“ für Abfall). Das ist bewusst kein Sprachmodell: Es ist in Sekunden trainiert, und man kann hineinschauen.
+Wir zählen, welche Wörter in einem Schreiben vorkommen, und lassen eine regularisierte logistische Regression lernen, welche Wörter für welchen Bereich sprechen („Leuchtmittel“ für Beleuchtung, „Tonne“ für Abfall). Wir nehmen bewusst ein so einfaches Verfahren: Es ist in Sekunden trainiert, und man kann hineinschauen.
 
 ```{r modell-funktionen}
 tokenisiere <- function(df) {
@@ -169,7 +169,7 @@ ergebnis |>
 
 Zählt man bei den mehrdeutigen Schreiben die „Alternative“ als ebenfalls richtig, verschwinden ihre Fehler vollständig. Die Frage, wie gut das Modell ist, hängt also auch davon ab, wie streng der Goldstandard ist.
 
-<div class="merke">**Merke:** Accuracy allein täuscht bei ungleichen Klassen. Precision und Recall je Klasse zeigen, *wo* es hakt. Und ein Blick auf die Fehlerfälle zeigt, *warum*: Oft ist nicht das Modell schlecht, sondern die Aufgabe unscharf.</div>
+<div class="merke">**Merke:** Accuracy allein täuscht bei ungleichen Klassen. Precision und Recall je Klasse zeigen, *wo* es hakt. Und ein Blick auf die Fehlerfälle zeigt, *warum*: Oft liegt es an der unscharfen Aufgabe, bevor es am Modell liegt.</div>
 
 # Schritt 5: Der Daten-Input entscheidet
 
@@ -202,7 +202,7 @@ ocr_experiment <- map_dfr(c(0, 0.05, 0.10, 0.20, 0.30), function(rate) {
 knitr::kable(ocr_experiment, digits = 3)
 ```
 
-Mit jedem zehnten falschen Buchstaben bricht die Trefferquote spürbar ein. Das Modell hat „Laterne“ gelernt, nicht „Latcrnc“. Darum lohnt sich die OCR-Vorverarbeitung aus der Fallstudie, und darum kann es sich lohnen, das Modell auch mit verrauschten Texten zu trainieren.
+Mit jedem zehnten falschen Buchstaben bricht die Trefferquote spürbar ein. Das Modell kennt das Wort „Laterne“; mit „Latcrnc“ kann es nichts anfangen. Darum lohnt sich die OCR-Vorverarbeitung aus der Fallstudie, und darum kann es sich lohnen, das Modell auch mit verrauschten Texten zu trainieren.
 
 ## Falsche Labels im Training
 
@@ -220,7 +220,7 @@ label_experiment <- map_dfr(c(0, 0.10, 0.20, 0.30, 0.40), function(rate) {
 knitr::kable(label_experiment, digits = 3)
 ```
 
-Das Modell ist gegen einzelne falsche Labels erstaunlich robust. Werden es viele, lernt es den Fehler mit. Wichtiger als dieser Durchschnitt ist aber: Wenn die falschen Labels nicht zufällig sind, sondern systematisch (eine Person ordnet Spielplatzmüll immer der Sauberkeit zu), übernimmt das Modell genau diese Regel.
+Das Modell ist gegen einzelne falsche Labels erstaunlich robust. Werden es viele, lernt es den Fehler mit. Wichtiger als dieser Durchschnitt ist aber: Sind die falschen Labels systematisch (eine Person ordnet Spielplatzmüll immer der Sauberkeit zu), übernimmt das Modell genau diese Regel.
 
 ## Zu wenige Beispiele
 
@@ -243,9 +243,9 @@ ggplot(lernkurve, aes(trainingsfaelle, accuracy)) +
   theme(plot.title = element_text(face = "bold"), panel.grid.minor = element_blank())
 ```
 
-Mit 60 Beispielen rät das Modell fast; ab ein paar hundert flacht die Kurve ab. Die Kurve sagt auch, ob mehr Daten noch helfen würden: Ist sie flach, liegt der Engpass woanders.
+Mit 60 Beispielen liegt das Modell bei knapp der Hälfte, kaum besser als die Regel „immer die häufigste Klasse“; ab ein paar hundert flacht die Kurve ab. Die Kurve sagt auch, ob mehr Daten noch helfen würden: Ist sie flach, liegt der Engpass woanders.
 
-<div class="merke">**Merke:** „Das Modell ist zu 85 % genau“ ist keine Eigenschaft des Modells. Es ist eine Eigenschaft von Modell *und* Daten: Textqualität, Labelqualität, Menge und Verteilung. Ändert sich der Input, gilt die Zahl nicht mehr.</div>
+<div class="merke">**Merke:** „Das Modell ist zu 85 % genau“ beschreibt immer das Zusammenspiel von Modell *und* Daten: Textqualität, Labelqualität, Menge und Verteilung. Ändert sich der Input, gilt die Zahl nicht mehr.</div>
 
 # Schritt 6: Validierung, die hält
 
@@ -286,7 +286,7 @@ Unsere Schreiben entstehen aus Bausteinen; viele Formulierungen tauchen in Train
 
 # Schritt 7: Besser werden
 
-Was hilft, wenn die Zahlen nicht reichen? Nicht zuerst ein größeres Modell.
+Was hilft, wenn die Zahlen zu schwach sind? Ein größeres Modell steht auf dieser Liste ganz unten.
 
 ## Unsichere Fälle an Menschen geben
 
@@ -304,7 +304,7 @@ Diese Tabelle ist die eigentliche Entscheidungsgrundlage für eine Behörde: Wie
 
 ## Den Goldstandard schärfen
 
-Ein Teil der Fehler lag bei den mehrdeutigen Schreiben. Zwei Wege: Entweder die Kodierregeln so präzisieren, dass die Zuordnung eindeutig wird („Schäden am Gehweg gehören immer zu Straßen, egal was die Ursache ist“), oder eine Klasse „Mehrere Bereiche“ einführen, die zur Nachprüfung geht. Beides ist Arbeit an den Daten, nicht am Modell.
+Ein Teil der Fehler lag bei den mehrdeutigen Schreiben. Zwei Wege: Entweder die Kodierregeln so präzisieren, dass die Zuordnung eindeutig wird („Schäden am Gehweg gehören immer zu Straßen, egal was die Ursache ist“), oder eine Klasse „Mehrere Bereiche“ einführen, die zur Nachprüfung geht. Beides ist Arbeit an den Daten; das Modell bleibt, wie es ist.
 
 ## Mehr und bessere Daten
 
@@ -312,7 +312,7 @@ Die Lernkurve zeigt, ob mehr Beispiele helfen. Noch mehr bringt es oft, die **se
 
 ## Ein anderes Modell: Sprachmodell ohne Training
 
-Ein Sprachmodell braucht keine Trainingsdaten, nur die Liste der Kategorien. Wie schlägt es sich auf denselben Testfällen? Der Vergleich läuft mit einem lokalen Modell über Ollama und wird zwischengespeichert (`daten/llm_vergleich.csv`).
+Ein Sprachmodell kommt ohne Trainingsdaten aus; es braucht lediglich die Liste der Kategorien. Wie schlägt es sich auf denselben Testfällen? Der Vergleich läuft mit einem lokalen Modell über Ollama und wird zwischengespeichert (`daten/llm_vergleich.csv`).
 
 ```{r llm-vorbereiten}
 llm_datei <- "daten/llm_vergleich.csv"
@@ -357,12 +357,12 @@ tibble(verfahren = c("Wortzähl-Modell (trainiert)", "Sprachmodell (ohne Trainin
   knitr::kable(digits = 2)
 ```
 
-Das Sprachmodell kommt ohne eine einzige kodierte Vorlage in die Nähe des trainierten Modells, und auch seine Fehler liegen vor allem bei den Schreiben, die zwischen zwei Bereichen liegen, und bei „Sonstiges“. Eine Lehre nebenbei: Ohne die Erklärungen zu den Kategorien im Prompt (nur mit der Liste im Antwortschema) lag dasselbe lokale Modell in einem ersten Versuch bei 70 % und ordnete Straßenlaternen reihenweise dem Straßenverkehr zu. Auch beim Sprachmodell ist die Beschreibung der Aufgabe Teil des Daten-Inputs.
+Das Sprachmodell kommt ohne eine einzige kodierte Vorlage in die Nähe des trainierten Modells, und auch seine Fehler liegen vor allem bei den Schreiben, die zwischen zwei Bereichen liegen. Eine Lehre nebenbei: Ohne die Erklärungen zu den Kategorien im Prompt (nur mit der Liste im Antwortschema) lag dasselbe lokale Modell in einem ersten Versuch bei 70 % und ordnete Straßenlaternen reihenweise dem Straßenverkehr zu. Auch beim Sprachmodell gehört die Beschreibung der Aufgabe zum Daten-Input.
 
 # Was wir mitnehmen
 
 - **Erst die Aufgabe prüfen, dann das Modell.** Wo Menschen uneins sind, gibt es kein „richtig“, das ein Modell treffen könnte.
-- **Precision und Recall je Klasse**, nicht nur Accuracy. Die seltenen Klassen sind oft die wichtigen.
+- **Precision und Recall je Klasse** ergänzen die Accuracy. Die seltenen Klassen sind oft die wichtigen.
 - **Die Zahl gehört zu den Daten.** OCR-Fehler, falsche Labels, zu wenige Beispiele: Jedes davon verschiebt das Ergebnis, ohne dass sich am Modell etwas ändert.
 - **Validieren wie im Betrieb.** Kreuzvalidierung statt eines Splits; Testdaten, die dem echten Einsatz ähneln; Dubletten raus.
 - **Verbessern heißt meist: an den Daten arbeiten.** Kodierregeln schärfen, seltene Klassen nachkodieren, unsichere Fälle an Menschen geben.

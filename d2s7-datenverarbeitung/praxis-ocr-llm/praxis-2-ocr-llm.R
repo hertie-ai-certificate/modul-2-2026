@@ -30,7 +30,7 @@ message("Dokumente im Eingang: ", nrow(manifest))
 
 # Schritt 1: OCR ---------------------------------------------------------------------
 
-ocr <- schritt_ocr(manifest, force = NEU)
+ocr <- schritt_ocr(manifest, force = TRUE)
 
 # Zwischenblick: Wie gut war die Texterkennung?
 originale <- read_csv("daten/01_rohdaten/originaltexte.csv", show_col_types = FALSE)
