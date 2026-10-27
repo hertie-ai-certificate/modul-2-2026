@@ -1006,63 +1006,6 @@ name: dashboards
 ]
 
 
----
-# Das Problem mit Dashboards
-
-.pull-left[
-## Gestalterische Herausforderungen
-
-- **Sie sagen zu wenig**. Der Verlust von Informationen durch Reduktion auf wenige KPIs ist [fatal](https://stephanieevergreen.com/problem-with-dashboards/) für eine gute Entscheidungsfindung.
-- **Sie sagen zu viel** (irrelevante Dinge).
-- Dashboards scheitern oft nicht an der Technologie, sondern an der Kommunikation (zurückzuführen auf schlechtes Design): 
-- "Dashboards sind nicht zur Show gedacht. Keine noch so niedliche technische Raffinesse kann eine klare Kommunikation ersetzen." [Stephen Few](http://blogs.ischool.berkeley.edu/i247s12/files/2012/01/Dashboard-Design-Overview-Presentation.pdf), [Perceptual Edge](https://perceptualedge.com)
-- Es gelten **alle Regeln für gute/schlechte Visualisierung**. [Hier](https://stephanieevergreen.com/dashboard-conversation/) eine schöne Fallstudie zur Verbesserung der Gestaltung eines Dashboards.
-]
-
---
-
-.pull-right[
-## Analytische Herausforderungen
-
-- Dashboards entsprechen dem Wunsch, auf der Grundlage einiger weniger ausgewählter Metriken gute Entscheidungen treffen zu können.
-- **Realität wird stark vereinfacht.**
-- Alle Herausforderungen, die sich analytischer Arbeit stellen - Selektion, Messung, Kausalität, Vorhersagbarkeit - sind nach wie vor gültig, werden aber bei der Aggregation von Daten verschleiert.
-- Einfache Metriken können immer noch nützlich sein, aber oft **braucht man kontextuelles Wissen** (das in Dashboards schwer zu vermitteln ist).
-- Eine weitere Folge des "Dashboarding" von Business Intelligence kann sein, dass Entscheidungen auf Basis von Metriken schnell die Metriken sabotiert ([Goodhart's Law](https://en.wikipedia.org/wiki/Goodhart%27s_law)).
-]
-
-
----
-# Durchdachte Gestaltung und Nutzung des Dashboards
-
-.footnote[`Quelle` [Stephen Few/Perceptual Edge](http://perceptualedge.com/articles/misc/Dashboard_Design_Requirements_Questionnaire.pdf)
-]
-
-.pull-left[
-## Checkliste
-
-1. Geht es um ein Monitoring, bei dem Eure Daten/Metriken häufig aktualisiert werden müssen?
-
-2. Wer wird das Dashboard nutzen und zu welchem Zweck? Welche Fragen sollen damit beantwortet werden? Welche Maßnahmen werden sie als Reaktion auf diese Antworten ergreifen?
-
-3. Welche spezifischen Informationen sollen angezeigt werden, und sind sie auch ohne viel Kontext aussagekräftig?
-
-4. Was könnte dazu führen, dass die Metriken falsch/irreführend sind?
-]
-
-
-.pull-right[
-## Design-Hinweise
-
-- Minimiert Ablenkungen.
-- Konzentriert Euch auf sinnvolle KPIs, nicht auf solche, die interessant aussehen.
-- Überladet das Dashboard nicht mit Informationen.
-- Wendet alle Regeln guter Visualisierung an.
-- Verwendet interaktive Elemente mit Bedacht (z. B. um optionale Inhalte bedingt sichtbar zu machen).
-- Idealerweise ist alles Wesentliche auf einem Bildschirm sichtbar (auch auf Smartphones?).
-]
-
-
 &lt;!-- ############################################ --&gt;
 ---
 class: inverse, center, middle
@@ -1135,6 +1078,64 @@ name: dashboardsverwaltung
 ️✎ Lehre aus der Pandemie: Eine einzelne Kennzahl (7-Tage-Inzidenz) wurde zur Steuerungsgröße mit Rechtsfolgen. Heute: mehrere Indikatoren, erklärt.
 ]
 ]
+
+
+---
+# Das Problem mit Dashboards
+
+.pull-left[
+## Gestalterische Herausforderungen
+
+- **Sie sagen zu wenig**. Der Verlust von Informationen durch Reduktion auf wenige KPIs ist [fatal](https://stephanieevergreen.com/problem-with-dashboards/) für eine gute Entscheidungsfindung.
+- **Sie sagen zu viel** (irrelevante Dinge).
+- Dashboards scheitern oft nicht an der Technologie, sondern an der Kommunikation (zurückzuführen auf schlechtes Design): 
+- "Dashboards sind nicht zur Show gedacht. Keine noch so niedliche technische Raffinesse kann eine klare Kommunikation ersetzen." [Stephen Few](http://blogs.ischool.berkeley.edu/i247s12/files/2012/01/Dashboard-Design-Overview-Presentation.pdf), [Perceptual Edge](https://perceptualedge.com)
+- Es gelten **alle Regeln für gute/schlechte Visualisierung**. [Hier](https://stephanieevergreen.com/dashboard-conversation/) eine schöne Fallstudie zur Verbesserung der Gestaltung eines Dashboards.
+]
+
+--
+
+.pull-right[
+## Analytische Herausforderungen
+
+- Dashboards entsprechen dem Wunsch, auf der Grundlage einiger weniger ausgewählter Metriken gute Entscheidungen treffen zu können.
+- **Realität wird stark vereinfacht.**
+- Alle Herausforderungen, die sich analytischer Arbeit stellen - Selektion, Messung, Kausalität, Vorhersagbarkeit - sind nach wie vor gültig, werden aber bei der Aggregation von Daten verschleiert.
+- Einfache Metriken können immer noch nützlich sein, aber oft **braucht man kontextuelles Wissen** (das in Dashboards schwer zu vermitteln ist).
+- Eine weitere Folge des "Dashboarding" von Business Intelligence kann sein, dass Entscheidungen auf Basis von Metriken schnell die Metriken sabotiert ([Goodhart's Law](https://en.wikipedia.org/wiki/Goodhart%27s_law)).
+]
+
+
+---
+# Durchdachte Gestaltung und Nutzung des Dashboards
+
+.footnote[`Quelle` [Stephen Few/Perceptual Edge](http://perceptualedge.com/articles/misc/Dashboard_Design_Requirements_Questionnaire.pdf)
+]
+
+.pull-left[
+## Checkliste
+
+1. Geht es um ein Monitoring, bei dem Eure Daten/Metriken häufig aktualisiert werden müssen?
+
+2. Wer wird das Dashboard nutzen und zu welchem Zweck? Welche Fragen sollen damit beantwortet werden? Welche Maßnahmen werden sie als Reaktion auf diese Antworten ergreifen?
+
+3. Welche spezifischen Informationen sollen angezeigt werden, und sind sie auch ohne viel Kontext aussagekräftig?
+
+4. Was könnte dazu führen, dass die Metriken falsch/irreführend sind?
+]
+
+
+.pull-right[
+## Design-Hinweise
+
+- Minimiert Ablenkungen.
+- Konzentriert Euch auf sinnvolle KPIs, nicht auf solche, die interessant aussehen.
+- Überladet das Dashboard nicht mit Informationen.
+- Wendet alle Regeln guter Visualisierung an.
+- Verwendet interaktive Elemente mit Bedacht (z. B. um optionale Inhalte bedingt sichtbar zu machen).
+- Idealerweise ist alles Wesentliche auf einem Bildschirm sichtbar (auch auf Smartphones?).
+]
+
 
 ---
 # Governance von Dashboards
