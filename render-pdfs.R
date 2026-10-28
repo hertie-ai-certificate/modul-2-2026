@@ -21,7 +21,7 @@ render_pdf <- function(html, out) {
   b <- ChromoteSession$new()
   on.exit(b$close(), add = TRUE)
   b$Page$navigate(paste0("file://", normalizePath(html)))
-  b$Page$loadEventFired()
+  b$Page$loadEventFired(timeout_ = 60)
   Sys.sleep(3)  # remark.js, Schriften und Bilder laden lassen
   n <- 0
   for (i in 1:20) {
